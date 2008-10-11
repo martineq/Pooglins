@@ -3,7 +3,7 @@
  */
 
 /**
- * @author pc
+ * @author Mart
  *
  */
 public class Vacio {
