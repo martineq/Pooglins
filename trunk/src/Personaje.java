@@ -10,9 +10,13 @@ public interface Personaje {
 
 	public void mover();
 	
-	public int verPosicionX();
+	public int getPosicionX();
 	
-	public int verPosicionY();
+	public void setposicionX(int x);
+	
+	public int getPosicionY();
+	
+	public void setposicionY(int y);
 	
 	public int getAltura(); // Me dice a que "altura del piso se encuentra"
 	
