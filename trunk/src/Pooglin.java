@@ -67,5 +67,18 @@ public class Pooglin implements Personaje {
 				
 	}
 	
+	@Override
+	public void morir() {
+		
+	}
+	
+	public void abrirParacaidas() {
+	}
+	
+	public void aterrizar(){
+		
+	}
+
+
 	
 }
