@@ -1,9 +1,6 @@
-/**
- * 
- */
 
 /**
- * @author pc
+ * @author mart
  *
  */
 public interface Habilidad {
