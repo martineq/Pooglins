@@ -133,8 +133,4 @@ public class Pooglin implements Personaje {
 		//agrego algo grafico
 	}
 	
-	public void aterrizar(){
-		
-	}
-
 }

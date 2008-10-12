@@ -3,7 +3,7 @@
  */
 
 /**
- * @author pc
+ * @author mart
  *
  */
 public class Nivel implements Escenario {
@@ -17,8 +17,6 @@ public class Nivel implements Escenario {
 	}
 
 	public Object revisarNivel(int posicionX, int posicionY){
-		
-		return null;
-				
+		return null;	
 	}
 }
