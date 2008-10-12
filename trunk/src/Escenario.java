@@ -3,7 +3,7 @@
  */
 
 /**
- * @author pc
+ * @author mart
  *
  */
 public interface Escenario {
