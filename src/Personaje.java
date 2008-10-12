@@ -24,6 +24,7 @@ public interface Personaje {
 	
 	public Habilidad getHabilidad();
 	
+	public void morir();
 	
 	
 }
