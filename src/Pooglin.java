@@ -11,6 +11,7 @@ public class Pooglin implements Personaje {
 	private int posicionX;
 	private int posicionY;
 	private int altura;
+	private Habilidad habilidad;
 	
 	public Pooglin(int posicionX,int posicionY){
 		this.posicionX = posicionX;
@@ -38,20 +39,32 @@ public class Pooglin implements Personaje {
 	}
 
 	@Override
-	public int altura() {
-		return altura;
+	public int getAltura() {
+		return this.altura;
 	}
 
 	@Override
 	public void subirAltura() {
-		altura++;
+		this.altura++;
 		return;
 	}
 
 	@Override
 	public void bajarAltura() {
-		altura--;
+		this.altura--;
 		return;
+	}
+
+
+	@Override
+	public Habilidad getHabilidad() {
+		return this.habilidad;
+	}
+
+
+	@Override
+	public void setHabilidad(Habilidad habilidad) {
+				
 	}
 	
 	

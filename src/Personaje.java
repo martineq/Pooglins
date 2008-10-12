@@ -14,9 +14,16 @@ public interface Personaje {
 	
 	public int verPosicionY();
 	
-	public int altura(); // Me dice a que "altura del piso se encuentra"
+	public int getAltura(); // Me dice a que "altura del piso se encuentra"
 	
 	public void subirAltura();
 	
 	public void bajarAltura();
+	
+	public void setHabilidad(Habilidad habilidad );
+	
+	public Habilidad getHabilidad();
+	
+	
+	
 }

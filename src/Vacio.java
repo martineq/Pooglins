@@ -18,7 +18,7 @@ public class Vacio implements Terreno {
 		if  ( campo.revisarNivel(pooglin.verPosicionX(), pooglin.verPosicionY()-1) instanceof Vacio ){
 			if (pooglin.altura() > 0 ){
 				if(pooglin > 5){
-					if(//tiene paracaidas){
+					if( pooglin.getHabilidad() instanceof Paracaidas){
 					
 					}else{
 						
