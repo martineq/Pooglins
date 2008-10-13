@@ -128,7 +128,11 @@ public class Pooglin implements Personaje {
 		this.habilidadActivada = habilidadActivada;
 	}
 	//No entiendo este metodo, Martin, me mandas un  mail y me lo
-	//explicas por favor....Guido.-
+	//explicas por favor....
+	//Teoricamente esta logica tendria que ir adentro del
+	//utilizar de la clase Paracaidas!!!!
+	//xq Pooglin no tiene que saber que habilidades puede tener
+	//Guido.-
 	public void abrirParacaidas() {
 		this.velocidad.setModulo(Velocidad.Modulo.UNO);
 		//agrego algo grafico
