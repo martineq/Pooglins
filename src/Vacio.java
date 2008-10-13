@@ -22,13 +22,16 @@ public class Vacio implements Terreno {
 			if(((Pooglin)pooglin).getAltura() > 5){
 				Habilidad habActual=((Pooglin)pooglin).getHabilidad();
 				if( habActual instanceof Paracaidas){
-					//((Pooglin)pooglin).abrirParacaidas();  // ¿Se usa así?
+					//Esta linea queda si y solo si abrirParacaidas() solamente
+					//cambia la direccion y modulo de la velocidad, para usarlo tenes
+					//que hacerlo con el UTILIZAR de las Habilidades si o si
+					//Guido.-
+					((Pooglin)pooglin).abrirParacaidas();  // ¿Se usa así?
 					
-					//se usa asi martin, por el Polimorfismo,lo otro 
-					//lo deje comentado x las dudas 
+					//Se usa asi martin, por el Polimorfismo,lo otro 
+					//lo deje pero con un comentario importante 
 					//=mente no me cierra el instanceOf habria q verlo bien
 					//Guido.-
-
 					habActual.utilizar(pooglin);					
 					pooglin.mover(); 
 				}else{
