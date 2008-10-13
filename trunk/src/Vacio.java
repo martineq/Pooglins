@@ -12,11 +12,15 @@ public class Vacio implements Terreno {
 	public void accionarTerreno(Personaje pooglin) {
 	}
 	
+	//Casteo el Personaje a Pooglin para acceder a los get's y set's
+	//si a alguien no le parece lo modifica, martin, fijate el comentario
+	//en Personaje.java.-
+	//Guido.-
 	@Override
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
-		if (pooglin.getAltura() > 0 ){
-			if(pooglin.getAltura() > 5){
-				Habilidad habActual=pooglin.getHabilidad();
+		if (((Pooglin)pooglin).getAltura() > 0 ){
+			if(((Pooglin)pooglin).getAltura() > 5){
+				Habilidad habActual=((Pooglin)pooglin).getHabilidad();
 				if( habActual instanceof Paracaidas){
 					//((Pooglin)pooglin).abrirParacaidas();  // ¿Se usa así?
 					
