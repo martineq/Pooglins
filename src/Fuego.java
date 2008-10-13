@@ -3,6 +3,21 @@
  * @author guido
  *
  */
-public class Fuego {
-
+public class Fuego implements Terreno {
+	
+	/**Redefino el metodo de la interfaz con la logica propia
+	 * de este tipo de terreno
+	 * @param pooglin
+	 */
+	public void accionarTerreno(Personaje pooglin){
+		
+	}
+	/**Este metodo no lo implemento por no ser necesario para
+	 * el desarrollo de esta clase, pero lo redefino para que 
+	 * no sea abstracta dado que el mismo esta en la interfaz
+	 * @param pooglin
+	 * @param campo
+	 */
+	public void accionarTerreno(Personaje pooglin,Nivel campo){
+	}
 }
