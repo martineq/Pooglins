@@ -7,23 +7,22 @@ public class Velocidad {
 
 	//sirve para que las otras clases indiquen la direccion
 	public enum Direccion {ARRIBA,ABAJO,IZQUIERDA,DERECHA}
-	public enum Modulo {CERO,UNO,DOS,TRES}
-	 
+		 
 	private Direccion direccion;
-	private Modulo modulo;
-	private Modulo avance; //para saber como venia caminando (en caso de haber caido)
+	private int modulo;
+	private Direccion avance; //para saber como venia caminando (en caso de haber caido)
 	
-	public Velocidad(Direccion direccion,Modulo modulo){
+	public Velocidad(Direccion direccion,int modulo){
 		this.setDireccion(direccion);
 		this.setModulo(modulo);
-		this.setAvance(modulo);
+		this.setAvance(direccion);
 	}
 	
-	public void setModulo(Modulo modulo){
+	public void setModulo(int modulo){
 		this.modulo = modulo;
 	}
 	
-	public Modulo getModulo(){
+	public int getModulo(){
 		return modulo;
 	}
 	
@@ -35,11 +34,11 @@ public class Velocidad {
 		return this.direccion;
 	}
 
-	public void setAvance(Modulo avance) {
+	public void setAvance(Direccion avance) {
 		this.avance = avance;
 	}
 
-	public Modulo getAvance() {
+	public Direccion getAvance() {
 		return avance;
 	}
 }
