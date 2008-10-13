@@ -7,23 +7,28 @@ public interface Personaje {
 
 	public void mover();
 	
-	public int getPosicionX();
+	//Martin, te comente los get y los set xq NO VAN DECLARADOS en la
+	//interface, tienen que ver con los atributos de la clase y no
+	// con los metodos en si...cuando leas esto sacalos y actualiza
+	//Guido.-
 	
-	public void setposicionX(int x);
+	//public int getPosicionX();
 	
-	public int getPosicionY();
+	//public void setposicionX(int x);
 	
-	public void setposicionY(int y);
+	//public int getPosicionY();
 	
-	public int getAltura(); // Me dice a que "altura del piso se encuentra"
+	//public void setposicionY(int y);
+	
+	//public int getAltura(); // Me dice a que "altura del piso se encuentra"
 	
 	public void subirAltura();
 	
 	public void bajarAltura();
 	
-	public void setHabilidad(Habilidad habilidad );
+	//public void setHabilidad(Habilidad habilidad );
 	
-	public Habilidad getHabilidad();
+	//public Habilidad getHabilidad();
 	
 	public void morir();
 	
