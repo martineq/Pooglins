@@ -23,7 +23,7 @@ public class Pooglin implements Personaje {
 		this.setposicionY(posicionY);
 		this.setAltura(0);
 		this.setHabilidad(null);
-		this.velocidad = new Velocidad(Velocidad.Direccion.DERECHA,Velocidad.Modulo.DOS);
+		this.velocidad = new Velocidad(Velocidad.Direccion.DERECHA,2);
 		this.setHabilidadActivada(false);
 	}
 	
@@ -35,7 +35,7 @@ public class Pooglin implements Personaje {
 		
 		if ( !(this.estaVivo()) && ( (this.velocidad.getDireccion() != (Velocidad.Direccion.ABAJO)  ) ) ){
 			// como la condicion de vivo es falsa y no estoy cayendo, en este monento muere
-			this.velocidad.setModulo(Velocidad.Modulo.CERO);
+			this.velocidad.setModulo(0);
 		}
 		
 		if ( velocidad.getDireccion() == Velocidad.Direccion.DERECHA ){
@@ -118,7 +118,7 @@ public class Pooglin implements Personaje {
 	}
 	// Metodo en revision
 	public void abrirParacaidas() {
-		this.velocidad.setModulo(Velocidad.Modulo.UNO);
+		this.velocidad.setModulo(1);
 		//que haga algo grafico
 	}
 
