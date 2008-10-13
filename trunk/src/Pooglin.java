@@ -1,4 +1,3 @@
-
 /**
  * 
  */
@@ -28,7 +27,6 @@ public class Pooglin implements Personaje {
 		this.setHabilidadActivada(false);
 	}
 	
-	
 	/* (non-Javadoc)
 	 * @see Personaje#mover()
 	 */
@@ -54,32 +52,25 @@ public class Pooglin implements Personaje {
 		}
 	}
 	
-
-
 	public int getPosicionX(){
 		return this.posicionX;
 	}
-	
 
 	public void setposicionX(int x){
 		this.posicionX = x;
 	}
 	
-
 	public void setposicionY(int y){
 		this.posicionY = y;
 	}
-	
 	
 	public int getPosicionY(){
 		return this.posicionY;
 	}
 
-
-	public int getAltura() {
+	public int getAltura() {  // Me dice a que "altura del piso se encuentra"
 		return this.altura;
 	}
-
 
 	public void subirAltura() {
 		setAltura(this.altura++);
@@ -97,11 +88,9 @@ public class Pooglin implements Personaje {
 		return;
 	}
 	
-
 	public Habilidad getHabilidad() {
 		return this.habilidad;
 	}
-
 
 	public void setHabilidad(Habilidad habilidad) {
 		this.habilidad = habilidad;
@@ -127,18 +116,12 @@ public class Pooglin implements Personaje {
 	public void setHabilidadActivada(boolean habilidadActivada) {
 		this.habilidadActivada = habilidadActivada;
 	}
-	//No entiendo este metodo, Martin, me mandas un  mail y me lo
-	//explicas por favor....
-	//Teoricamente esta logica tendria que ir adentro del
-	//utilizar de la clase Paracaidas!!!!
-	//xq Pooglin no tiene que saber que habilidades puede tener
-	//Guido.-
+	// Metodo en revision
 	public void abrirParacaidas() {
 		this.velocidad.setModulo(Velocidad.Modulo.UNO);
-		//agrego algo grafico
+		//que haga algo grafico
 	}
-	//Agrego el Getter y el Setter de Velocidad
-	//Guido.-
+
 	public void setVelocidad(Velocidad rapidezMovimiento){
 		this.velocidad=rapidezMovimiento;
 	}

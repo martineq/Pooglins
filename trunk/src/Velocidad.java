@@ -11,7 +11,7 @@ public class Velocidad {
 	 
 	private Direccion direccion;
 	private Modulo modulo;
-	private Modulo avance;  //para saber como venia caminando (en caso de haber caido)
+	private Modulo avance; //para saber como venia caminando (en caso de haber caido)
 	
 	public Velocidad(Direccion direccion,Modulo modulo){
 		this.setDireccion(direccion);

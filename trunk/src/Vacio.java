@@ -11,11 +11,7 @@ public class Vacio implements Terreno {
 	@Override
 	public void accionarTerreno(Personaje pooglin) {
 	}
-	
-	//Casteo el Personaje a Pooglin para acceder a los get's y set's
-	//si a alguien no le parece lo modifica, martin, fijate el comentario
-	//en Personaje.java.-
-	//Guido.-
+
 	@Override
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
 		if (((Pooglin)pooglin).getAltura() > 0 ){
@@ -26,12 +22,10 @@ public class Vacio implements Terreno {
 					//cambia la direccion y modulo de la velocidad, para usarlo tenes
 					//que hacerlo con el UTILIZAR de las Habilidades si o si
 					//Guido.-
-					((Pooglin)pooglin).abrirParacaidas();  // ¿Se usa así?
-					
-					//Se usa asi martin, por el Polimorfismo,lo otro 
-					//lo deje pero con un comentario importante 
-					//=mente no me cierra el instanceOf habria q verlo bien
-					//Guido.-
+					//La idea seria que habActual.utilizar(pooglin) me haga activar 
+					//el paracaidas, y que el abrirParacaidas() realize lo visual
+					//fijate en la clase pooglin para que tengas una idea. Mart.-
+					((Pooglin)pooglin).abrirParacaidas(); 
 					habActual.utilizar(pooglin);					
 					pooglin.mover(); 
 				}else{
