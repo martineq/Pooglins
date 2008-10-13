@@ -137,5 +137,12 @@ public class Pooglin implements Personaje {
 		this.velocidad.setModulo(Velocidad.Modulo.UNO);
 		//agrego algo grafico
 	}
-	
+	//Agrego el Getter y el Setter de Velocidad
+	//Guido.-
+	public void setVelocidad(Velocidad rapidezMovimiento){
+		this.velocidad=rapidezMovimiento;
+	}
+	public Velocidad getVelocidad(){
+		return this.velocidad;
+	}
 }
