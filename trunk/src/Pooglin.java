@@ -55,32 +55,32 @@ public class Pooglin implements Personaje {
 	}
 	
 
-	@Override
+
 	public int getPosicionX(){
 		return this.posicionX;
 	}
 	
-	@Override
+
 	public void setposicionX(int x){
 		this.posicionX = x;
 	}
 	
-	@Override
+
 	public void setposicionY(int y){
 		this.posicionY = y;
 	}
 	
-		@Override
+	
 	public int getPosicionY(){
 		return this.posicionY;
 	}
 
-	@Override
+
 	public int getAltura() {
 		return this.altura;
 	}
 
-	@Override
+
 	public void subirAltura() {
 		setAltura(this.altura++);
 		return;
@@ -97,12 +97,12 @@ public class Pooglin implements Personaje {
 		return;
 	}
 	
-	@Override
+
 	public Habilidad getHabilidad() {
 		return this.habilidad;
 	}
 
-	@Override
+
 	public void setHabilidad(Habilidad habilidad) {
 		this.habilidad = habilidad;
 	}
@@ -127,7 +127,8 @@ public class Pooglin implements Personaje {
 	public void setHabilidadActivada(boolean habilidadActivada) {
 		this.habilidadActivada = habilidadActivada;
 	}
-	
+	//No entiendo este metodo, Martin, me mandas un  mail y me lo
+	//explicas por favor....Guido.-
 	public void abrirParacaidas() {
 		this.velocidad.setModulo(Velocidad.Modulo.UNO);
 		//agrego algo grafico
