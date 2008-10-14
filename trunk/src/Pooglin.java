@@ -19,8 +19,8 @@ public class Pooglin implements Personaje {
 
 	public Pooglin(int posicionX,int posicionY){
 		this.setVivo(true);
-		this.setposicionX(posicionX);
-		this.setposicionY(posicionY);
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
 		this.setAltura(0);
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad(Velocidad.Direccion.DERECHA,2);
@@ -40,16 +40,16 @@ public class Pooglin implements Personaje {
 		}
 		
 		if ( velocidad.getDireccion() == Velocidad.Direccion.DERECHA ){
-			this.setposicionX(getPosicionX()+1);
+			this.setPosicionX(getPosicionX()+1);
 		}
 		if ( velocidad.getDireccion() == Velocidad.Direccion.IZQUIERDA ){
-			this.setposicionX(getPosicionX()-1);
+			this.setPosicionX(getPosicionX()-1);
 		}
 		if ( velocidad.getDireccion() == Velocidad.Direccion.ARRIBA ){
-			this.setposicionY(getPosicionY()+1);
+			this.setPosicionY(getPosicionY()+1);
 		}
 		if ( velocidad.getDireccion() == Velocidad.Direccion.ABAJO ){
-			this.setposicionY(getPosicionY()-1);
+			this.setPosicionY(getPosicionY()-1);
 		}
 	}
 	
