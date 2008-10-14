@@ -29,8 +29,9 @@ public class Vacio implements Terreno {
 					habActual.utilizar(pooglin);					
 					pooglin.mover(); 
 				}else{
-					pooglin.morir();
-					pooglin.mover();
+					Habilidad morir=((Pooglin)pooglin).getMatarse();//Modificacion del morir para usar el nuevo atributo.Guido.-
+					morir.utilizar(pooglin);
+					pooglin.mover();//Me parece que este mover no tiene mucho sentido.Guido.-
 				}
 			}else{
 				pooglin.mover();

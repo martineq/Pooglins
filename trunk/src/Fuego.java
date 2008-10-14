@@ -10,7 +10,8 @@ public class Fuego implements Terreno {
 	 * @param pooglin
 	 */
 	public void accionarTerreno(Personaje pooglin){
-		
+		Habilidad matarPooglin=((Pooglin)pooglin).getMatarse();
+		matarPooglin.utilizar(pooglin);
 	}
 	/**Este metodo no lo implemento por no ser necesario para
 	 * el desarrollo de esta clase, pero lo redefino para que 

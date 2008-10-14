@@ -15,7 +15,7 @@ public class Pooglin implements Personaje {
 	private Habilidad habilidad;
 	private boolean habilidadActivada; //me dice si active o no la habilidad
 	private boolean vivo;
-	
+	private Habilidad matarse;//Composicion con clase Matar. Guido.-
 
 	public Pooglin(int posicionX,int posicionY){
 		this.setVivo(true);
@@ -25,6 +25,7 @@ public class Pooglin implements Personaje {
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad(Velocidad.Direccion.DERECHA,2);
 		this.setHabilidadActivada(false);
+		this.matarse= new Matar();//Agrego al constructor la linea para crear atributo Matarse.Guido.-
 	}
 	
 	/* (non-Javadoc)
@@ -56,11 +57,11 @@ public class Pooglin implements Personaje {
 		return this.posicionX;
 	}
 
-	public void setposicionX(int x){
+	public void setPosicionX(int x){
 		this.posicionX = x;
 	}
 	
-	public void setposicionY(int y){
+	public void setPosicionY(int y){
 		this.posicionY = y;
 	}
 	
@@ -95,11 +96,9 @@ public class Pooglin implements Personaje {
 	public void setHabilidad(Habilidad habilidad) {
 		this.habilidad = habilidad;
 	}
+
 	
-	@Override
-	public void morir() {
-		this.setVivo(false);
-	}
+
 
 	public void setVivo(boolean vivo) {
 		this.vivo = vivo;
@@ -127,5 +126,10 @@ public class Pooglin implements Personaje {
 	}
 	public Velocidad getVelocidad(){
 		return this.velocidad;
+	}
+	//Agrego el getter del atributo matarse
+	//Guido.-Ver si no es necesario un Setter(creo q no)
+	public Habilidad getMatarse(){
+		return matarse;
 	}
 }
