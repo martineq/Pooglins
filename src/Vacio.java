@@ -8,11 +8,9 @@
  */
 public class Vacio implements Terreno {
 
-	@Override
 	public void accionarTerreno(Personaje pooglin) {
 	}
 
-	@Override
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
 		if (((Pooglin)pooglin).getAltura() > 0 ){
 			if(((Pooglin)pooglin).getAltura() > 5){
