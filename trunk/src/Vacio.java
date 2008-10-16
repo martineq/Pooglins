@@ -23,7 +23,7 @@ public class Vacio implements Terreno {
 					//La idea seria que habActual.utilizar(pooglin) me haga activar 
 					//el paracaidas, y que el abrirParacaidas() realize lo visual
 					//fijate en la clase pooglin para que tengas una idea. Mart.-
-					((Pooglin)pooglin).abrirParacaidas(); 
+					//((Pooglin)pooglin).abrirParacaidas(); 
 					habActual.utilizar(pooglin);					
 					pooglin.mover(); 
 				}else{
