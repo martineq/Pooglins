@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -16,6 +17,7 @@ public class Pooglin implements Personaje {
 	private boolean habilidadActivada; //me dice si active o no la habilidad
 	private boolean vivo;
 	private Habilidad matarse;//Composicion con clase Matar. Guido.-
+	private int cantTurnosQueNoSeMovio;
 
 	public Pooglin(int posicionX,int posicionY){
 		this.setVivo(true);
@@ -26,6 +28,7 @@ public class Pooglin implements Personaje {
 		this.velocidad = new Velocidad();
 		this.setHabilidadActivada(false);
 		this.matarse= new Matar();//Agrego al constructor la linea para crear atributo Matarse.Guido.-
+		this.cantTurnosQueNoSeMovio=0;
 	}
 	
 	/* (non-Javadoc)
@@ -33,25 +36,22 @@ public class Pooglin implements Personaje {
 	 */
 	
 	public void mover() {
-		
-		/*Ver si esto en realmente necesario o se puede hacer de otra manera
-		 * 
-		 * if ( !(this.estaVivo()) && ( (this.velocidad.getDireccion() != (Velocidad.Direccion.ABAJO)  ) ) ){
-			// como la condicion de vivo es falsa y no estoy cayendo, en este monento muere
-			this.velocidad.setModulo(0);
-		}*/
-		
-		if ( this.velocidad.getVelocidadX()>0 ){
-			this.setPosicionX(this.getPosicionX()+1);
-		}else if (this.velocidad.getVelocidadX()<0){
-			this.setPosicionX(this.getPosicionX()-1);
+		this.cantTurnosQueNoSeMovio++;
+		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){
+			return;
 		}
 		
 		if ( this.velocidad.getVelocidadY()>0 ){
 			this.setPosicionY(this.getPosicionY()+1);
 		}else if ( this.velocidad.getVelocidadY()<0 ){
-			this.setPosicionY(this.getPosicionY()-1);
-		}
+				this.setPosicionY(this.getPosicionY()-1);
+			}else if ( this.velocidad.getVelocidadX()>0 ){
+					this.setPosicionX(this.getPosicionX()+1);
+				}else if (this.velocidad.getVelocidadX()<0){
+					this.setPosicionX(this.getPosicionX()-1);
+					}
+		
+		this.cantTurnosQueNoSeMovio=0;
 	}
 	
 	public int getPosicionX(){

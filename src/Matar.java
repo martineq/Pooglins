@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -12,9 +13,15 @@ public class Matar implements Habilidad {
 	//Falso el atributo está vivo
 	//Guido.-
 	public void utilizar(Personaje pooglin){
-		((Pooglin)pooglin).setVivo(false);
+		Pooglin poglin=(Pooglin)pooglin;
+		poglin.setVivo(false);
+		Velocidad velocidad = poglin.getVelocidad();
+		velocidad.setVelocidadX(0);
+		velocidad.setVelocidadY(0);
+		poglin.setVelocidad(velocidad);
 		//REVISAR SI VAMOS A SACARLO DE LA PANTALLA CUANDO LO 
-		//MATAMOS Guido.-
+		//MATAMOS 
+		//Guido.-
 		//((Pooglin)pooglin).setPosicionX(-5);
 		//((Pooglin)pooglin).setPosicionY(-5);
 	}

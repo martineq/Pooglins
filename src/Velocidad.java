@@ -13,9 +13,9 @@ public class Velocidad {
 	 * del movimiento del pooglin, junto con el valor de la velocidad que al no tener 
 	 * aceleracion, estara dado por cuatro valores literales:
 	 * Velocidad Nula = 0
-	 * Velocidad Paracaidas = 1
-	 * Velocidad Normal = 2
-	 * Velocidad Maxima = 3
+	 * Velocidad Paracaidas = 7
+	 * Velocidad Normal = 6
+	 * Velocidad Maxima = 5
 	 * */
 	private int velocidadX;
 	private int velocidadY;
@@ -43,6 +43,14 @@ public class Velocidad {
 	}
 	public void setVelocidadY(int velocidadY) {
 		this.velocidadY = velocidadY;
+	}
+	
+	public int modulo(){
+		if(this.velocidadY!=0)
+		return Math.abs(this.getVelocidadY());
+		else if (this.velocidadX!=0)
+				return Math.abs(this.getVelocidadX());
+		return 0;
 	}
 	
 	
