@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -8,7 +9,7 @@
  */
 public class Hielo implements Terreno{
 
-	private static int velocidadHielo = 3;
+	private static int velocidadHielo = 5;
 	
 	/**Este metodo le "aumenta" la velocidad al pooglin una vez que este
 	 * pisa Hielo. 
