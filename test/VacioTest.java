@@ -1,26 +1,17 @@
 import junit.framework.TestCase;
 
-
 public class VacioTest extends TestCase {
-	//private Nivel nivelPruebaVacio;
 	private Pooglin unPooglin;
+	private Vacio vacio;
 	
 	protected void setUp(){
-	unPooglin = new Pooglin(0,0);
+		unPooglin = new Pooglin(0,0);
+		vacio = new Vacio();
 	}
 	
 	public void testAccionarTerrenoProfundo(){
-		//aca hay que inicializar el nivelPruebaVacio  
-		//vacio con mas de 5 bloques de profundidad.
-		unPooglin.mover();
+		vacio.accionarTerreno(unPooglin);
 		assertFalse(unPooglin.estaVivo());
-	}
-
-	public void testAccionarTerrenoNoProfundo(){
-		//aca hay que inicializar el nivelPruebaVacio  
-		//vacio con menos de 5 bloques de profundidad.
-		unPooglin.mover();
-		assertTrue(unPooglin.estaVivo());
 	}
 
 }

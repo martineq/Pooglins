@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
 
-
 public class NivelTest extends TestCase {
 	//private Nivel nivelBasico;
 	
