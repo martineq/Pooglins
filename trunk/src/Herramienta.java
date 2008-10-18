@@ -6,6 +6,13 @@
  */
 public class Herramienta implements Habilidad {
 
+	/**Constructor de Herramienta.-
+	 * 
+	 */
+	public Herramienta(){
+		
+	}
+	
 	public void utilizar(Personaje personaje) {
 		
 	}

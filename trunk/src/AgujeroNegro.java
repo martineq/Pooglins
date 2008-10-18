@@ -5,10 +5,13 @@
  */
 public class AgujeroNegro implements Terreno {
 
+	/**Constructor de AgujeroNegro.-
+	 * 
+	 */
 	public AgujeroNegro(){
 		
 	}
-	
+
 	public void accionarTerreno(Personaje pooglin) {
 		
 	}

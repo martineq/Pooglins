@@ -10,6 +10,9 @@ public class Vacio implements Terreno {
 	 */
 	private int altura;
 
+	/**Constructor de Vacio.-
+     * 
+     */
     public Vacio(){
 		
 	}

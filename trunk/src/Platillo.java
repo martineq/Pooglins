@@ -5,7 +5,7 @@
  */
 public class Platillo extends Herramienta{
 	
-	/**Constructor de Platillo
+	/**Constructor de Platillo.-
 	 * @author mart
 	 * @since 18/10/08 
 	 */
