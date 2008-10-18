@@ -1,6 +1,6 @@
 
 /**Clase que representa a los bloques de terreno donde el pooglin se desplaza.-
- * @author mart
+ * @author Mart
  * @since 11/10/08
  */
 public class Vacio implements Terreno {
@@ -9,6 +9,7 @@ public class Vacio implements Terreno {
 	 * para poder comprobar si el personaje se encuentra en caida libre.-
 	 */
 	private int altura;
+	private static int VELOCIDAD_NORMAL = 6;
 
 	/**Constructor de Vacio.-
      * 
@@ -35,7 +36,6 @@ public class Vacio implements Terreno {
 	private int getAltura() {
 		return altura;
 	}
-
 		
 	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
 	 * @author Mart
@@ -50,7 +50,7 @@ public class Vacio implements Terreno {
 		// o sino poner constantes. Como para que la clase vacio no sepa que 'velocidad'
 		// le estoy dando, y que solo sea interno a la clase velocidad
 		// p.e.: velocidadPlatillo(); que devuelva el valor de la vel. del platillo. Martín.-
-		velocidadActual.setVelocidadY(-6); 
+		velocidadActual.setVelocidadY( (-1) * VELOCIDAD_NORMAL ); 
 		pooglin.setVelocidad(velocidadActual);
 	}	
 	
@@ -59,12 +59,12 @@ public class Vacio implements Terreno {
 	}
 
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
-		this.setAltura(pooglin, campo);
+		this.setAltura(pooglin,campo);
 		if ( this.getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
 			if( this.getAltura() > 5){ //Si estoy con altura>5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
-				Habilidad morir=((Pooglin)pooglin).getMatarse();
+				Habilidad morir = ((Pooglin)pooglin).getMatarse();
 				morir.utilizar(pooglin);
-				Habilidad habilidadActual=((Pooglin)pooglin).getHabilidad();
+				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
 				habilidadActual.utilizar(pooglin); //Si habilidadActual es un Platillo => el pooglin va a vivir.-
 				pooglin.mover();
 			}else{
@@ -73,12 +73,20 @@ public class Vacio implements Terreno {
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){
-				pooglin.mover(); //No cambio la velocidad, esta tocando 'el piso' (o sea no está cayendo).-
+				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != 0 ) //Si venia cayendo, freno la caida.-
+					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(0); 
+				//Me parece que el proximo "pooglin.mover();" no va porque antes tengo 
+				//que saber que velocidad va a tener el personaje al hacer el 
+				//"accionarTerreno" de los otros terrenos como hielo, roca, tierra
+				//porque sino se va a mover con la velocidad del último terreno pisado.-
+				//En resumen: si el pooglin no está cayendo, el vacio no es el que le da la velocidad,
+				//se la va a dar el terreno que se encuentre "pisando".-
+				
+				//pooglin.mover();
 			}else{
-				((Pooglin)pooglin).borrarse(); //Aca desaparece de pantalla.-
-			}
+				((Pooglin)pooglin).borrarse(); //Si está "muerto" y "en el piso" desaparece de pantalla.-
+			}								   //Además faltaría chequear que no se encuentre congelado (en ese caso no se borra de pantalla).-
 		}
 	}	
-
-
+	
 }

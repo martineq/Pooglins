@@ -1,7 +1,7 @@
 
 
 /**Interfase que representa cualquier tipo de habilidad.-
- * @author mart
+ * @author Mart
  * @since 11/10/08
  */
 public interface Habilidad {

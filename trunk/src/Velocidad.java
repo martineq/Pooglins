@@ -1,3 +1,4 @@
+
 /**Esta clase empaqueta todos los atributos necesarios para describir la velocidad de un 
  * pooglin y, de esta manera, hacer mas simple la clase pooglin.
  * Lo que estamos proponiendo es que cada clase que modifique la velocidad del pooglin, lo
@@ -9,13 +10,13 @@
  */
 public class Velocidad {
 
-	/**La velocidad estara marcado por su signo determinando de esta manera la direccion
+	/**La velocidad estará marcada por su signo, determinando de esta manera la direccion
 	 * del movimiento del pooglin, junto con el valor de la velocidad que al no tener 
 	 * aceleracion, estara dado por cuatro valores literales:
-	 * Velocidad Nula = 0
-	 * Velocidad Platillo = 7
-	 * Velocidad Normal = 6
-	 * Velocidad Maxima = 5
+	 * VELOCIDAD_NULA = 0
+	 * VELOCIDAD_PLATILLO = 7
+	 * VELOCIDAD_NORMAL = 6
+	 * VELOCIDAD_MAXIMA = 5
 	 * */
 	private int velocidadX;
 	private int velocidadY;
@@ -35,7 +36,7 @@ public class Velocidad {
 		this.setVelocidadX((-1)*this.getVelocidadX());
 	}
 	
-	//Habria que ver si hay que cambiar la direccion en Y en algun momento del prg
+	//Habria que ver si hay que cambiar la direccion en Y en algun momento del prg.-
 	
 	public int getVelocidadX() {
 		return velocidadX;
@@ -49,7 +50,7 @@ public class Velocidad {
 	public void setVelocidadY(int velocidadY) {
 		this.velocidadY = velocidadY;
 	}
-	
+
 	/**Me devuelve el valor del módulo de la velocidad
 	 * en la dirección que el personaje se está moviendo.-
 	 * @return int

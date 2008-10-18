@@ -1,7 +1,7 @@
 
 
 /**Interfase que representa a un Personaje del juego.-
- * @author mart
+ * @author Mart
  *
  */
 public interface Personaje {
