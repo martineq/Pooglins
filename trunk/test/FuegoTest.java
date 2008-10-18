@@ -1,20 +1,17 @@
 import junit.framework.TestCase;
 
-
 public class FuegoTest extends TestCase {
-	//private Nivel nivelPruebaFuego;
 	private Pooglin unPooglin;
-	
+	private Fuego fuego;
+		
 	protected void setUp(){
-	//aca hay que inicializar el nivelPruebaFuego  
-	//con fuego para probarlo
-	unPooglin = new Pooglin(0,0);
-	
+		unPooglin = new Pooglin(0,0);
+		fuego = new Fuego();
 	}
 	
-	public void testAccionarTerreno(){
-		unPooglin.mover();
-		assertTrue(unPooglin.estaVivo());
+	public void testAccionarFuego(){
+		fuego.accionarTerreno(unPooglin);
+		assertFalse(unPooglin.estaVivo());
 	}
-
+	
 }
