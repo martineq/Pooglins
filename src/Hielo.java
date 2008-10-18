@@ -1,18 +1,17 @@
-
-/**
- * 
- */
-
-/**
+/**Clase que representa a los bloques de terreno donde hay Hielo.-
  * @author guido
- *
+ * @since
  */
 public class Hielo implements Terreno{
 
+	public Hielo(){
+		
+	}
+	
 	private static int velocidadHielo = 5;
 	
 	/**Este metodo le "aumenta" la velocidad al pooglin una vez que este
-	 * pisa Hielo. 
+	 * pisa Hielo.-
 	 * @param pooglin
 	 */
 	private void acelerarPooglin(Personaje pooglin){

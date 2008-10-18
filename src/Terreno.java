@@ -1,11 +1,6 @@
 
-
-/**
- * 
- */
-
-/**
- * @author mart
+/**Interfase que representa a un Terreno del juego.-
+ * @author Mart
  *
  */
 public interface Terreno {
