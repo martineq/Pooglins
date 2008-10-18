@@ -75,7 +75,7 @@ public class Pooglin implements Personaje {
 	//Fin de Sección de Geter's y Seter's
 
 	
-	public void mover() { //>>> Acá falta ver los casos donde se me "acaba" la pantalla.- 
+	public void mover() { //>>> Acá faltan ver los casos donde se me "acaba" la pantalla.- 
 		this.cantTurnosQueNoSeMovio++;
 		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){
 			return;
@@ -85,11 +85,11 @@ public class Pooglin implements Personaje {
 			this.setPosicionY(this.getPosicionY()+1);
 		}else if ( this.velocidad.getVelocidadY()<0 ){
 				this.setPosicionY(this.getPosicionY()-1);
-			}else if ( this.velocidad.getVelocidadX()>0 ){
-					this.setPosicionX(this.getPosicionX()+1);
-				}else if (this.velocidad.getVelocidadX()<0){
-					this.setPosicionX(this.getPosicionX()-1);
-					}
+			  }else if ( this.velocidad.getVelocidadX()>0 ){
+					  this.setPosicionX(this.getPosicionX()+1);
+				    }else if (this.velocidad.getVelocidadX()<0){
+							this.setPosicionX(this.getPosicionX()-1);
+				    	  }
 		
 		this.cantTurnosQueNoSeMovio=0;
 	}

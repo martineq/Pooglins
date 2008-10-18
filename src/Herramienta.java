@@ -1,7 +1,7 @@
 
 
 /**Clase que implementa la interfase Habilidad.-
- * @author mart
+ * @author Mart
  * @since 11/10/08
  */
 public class Herramienta implements Habilidad {

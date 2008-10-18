@@ -50,7 +50,7 @@ public class PooglinTest extends TestCase {
 	public void testGetPosicionY() {
 		assertEquals(unPooglin.getPosicionY(),0);
 	}
-
+	
 	public void testGetAltura() {
 	}
 

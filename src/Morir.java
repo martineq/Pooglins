@@ -4,6 +4,8 @@
  */
 public class Morir implements Habilidad {
 
+	private static int VELOCIDAD_NULA = 0;
+	
 	/**Constructor de Morir.-
 	 * 
 	 */
@@ -15,13 +17,14 @@ public class Morir implements Habilidad {
 		Pooglin poglin = (Pooglin)pooglin;
 		poglin.setVivo(false);
 		Velocidad velocidad = poglin.getVelocidad();
-		velocidad.setVelocidadX(0);
-		velocidad.setVelocidadY(0);
+		velocidad.setVelocidadX(VELOCIDAD_NULA);
+		velocidad.setVelocidadY(VELOCIDAD_NULA);
 		poglin.setVelocidad(velocidad);
 		//REVISAR SI VAMOS A SACARLO DE LA PANTALLA CUANDO LO 
 		//MATAMOS 
 	    //Guido.-
 		//El pooglin se "borrará" de pantalla cuando se encuentre en altura cero 
-		//y tenga la condicion de vivo == false (para que no muera en el aire). Mart.-
+		//y tenga la condicion de vivo == false (para que no muera en el aire). 
+		//Además hay que comprobar que no se encuentre congelado. Mart.-
 	}
 }
