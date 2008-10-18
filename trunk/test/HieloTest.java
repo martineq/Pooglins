@@ -10,8 +10,12 @@ public class HieloTest extends TestCase{
 	}
 
 	public void testAccionarTerrenoPersonaje() {
-		hielo.accionarTerreno(unPooglin);
 		Velocidad velocidad = unPooglin.getVelocidad();
+		velocidad.setVelocidadX(6);
+		velocidad.setVelocidadY(0);
+		unPooglin.setVelocidad(velocidad);
+		hielo.accionarTerreno(unPooglin);
+		velocidad = unPooglin.getVelocidad();
 		assertEquals(5, velocidad.modulo());
 	}
 
