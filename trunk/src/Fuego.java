@@ -1,10 +1,14 @@
 
 
-/**
+/**Clase que representa a los bloques de terreno donde hay Fuego.-
  * @author guido
- *
+ * @since
  */
 public class Fuego implements Terreno {
+	
+	public Fuego(){
+		
+	}
 	
 	/**Redefino el metodo de la interfaz con la logica propia
 	 * de este tipo de terreno

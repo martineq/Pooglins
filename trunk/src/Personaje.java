@@ -1,6 +1,6 @@
 
 
-/**
+/**Interfase que representa a un Personaje del juego.-
  * @author mart
  *
  */
