@@ -6,6 +6,9 @@
  */
 public interface Personaje {
 
+	/**Mueve al personaje.-
+	 * 
+	 */
 	public void mover();
 	
 	

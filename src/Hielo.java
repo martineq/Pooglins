@@ -4,6 +4,9 @@
  */
 public class Hielo implements Terreno{
 
+	/**Constructor de Hielo.-
+	 * 
+	 */
 	public Hielo(){
 		
 	}

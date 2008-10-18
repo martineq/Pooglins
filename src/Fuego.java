@@ -6,6 +6,9 @@
  */
 public class Fuego implements Terreno {
 	
+	/**Constructor de Fuego.-
+	 * 
+	 */
 	public Fuego(){
 		
 	}

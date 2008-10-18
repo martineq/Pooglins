@@ -10,10 +10,22 @@ public class Nivel implements Escenario {
 	private int pooglinsARescatar;
 	private int cantidadPooglins;
 	
+	/**Constructor de Nivel.-
+	 * 
+	 */
+	public Nivel(){
+		
+	}
+	
 	public void manejar() {
 		
 	}
 
+	/**Método que devuelve el terreno dado por la posición X e Y.-
+	 * @param posicionX
+	 * @param posicionY
+	 * @return
+	 */
 	public Terreno revisarNivel(int posicionX, int posicionY){
 		return null;	
 	}

@@ -20,11 +20,17 @@ public class Velocidad {
 	private int velocidadX;
 	private int velocidadY;
 	
+	/**Constructor de Velocidad. Inicializa en cero.-
+	 * 
+	 */
 	public Velocidad(){
 		this.setVelocidadX(0);
 		this.setVelocidadY(0);
 	}
 	
+	/**Invierte la dirección de la componente de la velocidad en X.-
+	 * 
+	 */
 	public void cambiarDireccion(){
 		this.setVelocidadX((-1)*this.getVelocidadX());
 	}
@@ -44,6 +50,10 @@ public class Velocidad {
 		this.velocidadY = velocidadY;
 	}
 	
+	/**Me devuelve el valor del módulo de la velocidad
+	 * en la dirección que el personaje se está moviendo.-
+	 * @return int
+	 */
 	public int modulo(){
 		if(this.velocidadY!=0)
 		return Math.abs(this.getVelocidadY());

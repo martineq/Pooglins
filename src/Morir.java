@@ -4,6 +4,9 @@
  */
 public class Morir implements Habilidad {
 
+	/**Constructor de Morir.-
+	 * 
+	 */
 	public Morir(){
 		
 	}
