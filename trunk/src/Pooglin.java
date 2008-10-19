@@ -102,4 +102,8 @@ public class Pooglin implements Personaje {
 		this.setPosicionX(-1);
 		this.setPosicionY(-1);
 	}
+
+	public void usarHabilidad(Terreno terreno) {
+		this.getHabilidad().utilizar(terreno);
+	}
 }

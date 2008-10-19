@@ -27,4 +27,9 @@ public class Morir implements Habilidad {
 		//y tenga la condicion de vivo == false (para que no muera en el aire). 
 		//Además hay que comprobar que no se encuentre congelado. Mart.-
 	}
+
+	public void utilizar(Terreno terreno) {
+		// TODO Auto-generated method stub
+		
+	}
 }
