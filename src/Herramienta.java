@@ -17,4 +17,9 @@ public class Herramienta implements Habilidad {
 		
 	}
 
+	public void utilizar(Terreno terreno) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

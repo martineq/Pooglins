@@ -10,5 +10,7 @@ public interface Habilidad {
 	 * @param personaje
 	 */
 	public void utilizar(Personaje personaje);
+
+	public void utilizar(Terreno terreno);
 	
 }

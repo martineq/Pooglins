@@ -11,4 +11,9 @@ public class Congelamiento implements Habilidad {
 		morir.utilizar(personaje);
 	}
 
+	public void utilizar(Terreno terreno) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
