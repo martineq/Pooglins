@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class PaltilloTest extends TestCase{
+public class PlatilloTest extends TestCase{
 	private Pooglin unPooglin;
 	private Platillo platillo;
 		

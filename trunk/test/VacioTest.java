@@ -11,7 +11,8 @@ public class VacioTest extends TestCase {
 	
 	public void testAccionarTerrenoProfundo(){
 		vacio.accionarTerreno(unPooglin);
-		assertFalse(unPooglin.estaVivo());
+//aca se debe probar la velocidad del poolglin
+		
 	}
 
 }
