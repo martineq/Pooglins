@@ -1,7 +1,7 @@
 
 /**Clase que representa el campo de juego donde se encuentran los personajes
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
- * @author Mart
+ * @author guido
  * @since 11/10/08
  */
 public class Nivel implements Escenario {
@@ -22,7 +22,9 @@ public class Nivel implements Escenario {
 	}
 	
 	public void manejar() {
-		
+	//Aca va la logica del juego en si...
+	//En construccion ...
+	//Guido.-
 	}
 
 	/**Método que devuelve el terreno dado por la posición X e Y.-
@@ -31,7 +33,18 @@ public class Nivel implements Escenario {
 	 * @return
 	 */
 	public Terreno revisarNivel(int posicionX, int posicionY){
-		return null;	
+		//obtengo el terreno de la posicion justo adelante del pooglin
+		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
+		//No me gusta esta linea, ver si no hay una forma mejor de hacerlo
+		//xq estoy usando instanceof:S....
+		//Probar con Excepciones....
+		//Guido.-
+		if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
+			terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
+		}
+		return terrenoActual;
+		//EN REVISION y CONSTRUCCION...
+		//Guido.-
 	}
 
 	//Geter's y Seter's Realizados automaticamete.-
