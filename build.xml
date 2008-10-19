@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<project name="lospooglins" default="runtests" basedir=".">
+ 
+	<property name="app.name" value="lospooglins" /> 
+  	<property name="build.dir" value="bin/" /> 
+  	<property name="src.dir" value="src/" /> 
+  	<property name="test.dir" value="test/" /> 
+  	<property name="lib.dir" value="lib/" /> 	
+	<property name="junit.home" location="lib\junit.jar" />
+	<property name="junitreportes.dir" location="reportes\" />
+	<property name="testsuite" value="testSuite"/>
+	<property name="maintestclass" value="testSuite"/>
+	<property name="doc.dir" value="Doc/"/>
+		
+	<target name="limpiar">
+		<delete dir = "${build.dir}" />
+		<!-- borra reportes viejos 
+		<delete dir = "${junitreportes.dir}" />		
+		-->
+		<delete dir = "${doc.dir}" />		
+				
+	</target>
+	
+	<target name="compilar" depends="limpiar">
+  		<mkdir dir="${build.dir}" /> 
+		<!-- carpetas creada para guardar reportes 
+		<mkdir dir="${junitreportes.dir}" /> 
+		<mkdir dir="${junitreportes.dir}/html" />
+		-->
+		<mkdir dir="${doc.dir}/html" />
+				
+		<javac srcdir="${src.dir}" destdir="${build.dir}" />
+ 	</target>
+
+	<target name="compilartest" depends="compilar">
+	  		<javac srcdir="${test.dir}" classpath="${junit.home}" destdir="${build.dir}" />
+	</target>
+
+	<target name="runtests" depends="compilartest, documentacion" description="Junit tests">		
+		<junit printsummary="true" >
+		    <formatter type="xml"/>
+		    <test name="${maintestclass}"/>
+		    <classpath>
+				<pathelement location="${build.dir}" />
+				<pathelement location="${junit.home}" />		   	        
+		    </classpath>
+		</junit>
+		
+	<!-- esto es para imprimir reportes.....    
+			<junitreport todir="${junitreportes.dir}">
+		        <fileset dir=".">
+		                <include name="TEST-*.xml"/>
+		        </fileset>
+		        <report format="frames" todir="${junitreportes.dir}/html"/>
+		    </junitreport>
+	-->
+	</target>
+	
+	<target name="documentacion">
+	<javadoc sourcepath="." 
+		destdir="${doc.dir}"
+		packagenames="${src.dir}">
+		<classpath>
+			<pathelement location="${src.dir}" />
+		</classpath>
+	</javadoc>
+	</target>
+		
+</project>
