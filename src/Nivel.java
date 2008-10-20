@@ -34,27 +34,33 @@ public class Nivel implements Escenario {
 	//Guido.-
 		
 		
-		//Ciclo que controle que queden pooglins vivos o que no se haya 
+		//Ciclo que controla que queden pooglins vivos o que no se haya 
 		//terminado el nivel xq todos los pooglins fueron rescatados
 		//o el tiempo se termino.
 		//Guido.-
+		while((this.cantidadPooglins!=0)||(this.pooglinsARescatar!=0)){//ver tema tiempo.Guido.-
 		
-		
-		for(int i=0;i<this.pooglins.length;i++){
-			Pooglin pooglin=(Pooglin)this.pooglins[i];
-			int posicionX=pooglin.getPosicionX();
-			int posicionY=pooglin.getPosicionY();
-			pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
-			Terreno terrenoActual=revisarNivel(posicionX,posicionY);
-			terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
+			for(int i=0;i<this.pooglins.length;i++){
+				Pooglin pooglin=(Pooglin)this.pooglins[i];
+				int posicionX=pooglin.getPosicionX();
+				int posicionY=pooglin.getPosicionY();
+				pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
+				Terreno terrenoActual=revisarNivel(posicionX,posicionY);
+				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 			
-			//Revisandolo, depende de si el mover va antes o despues 
-			//de utilizar el terreno...=mente tengo q obtener las 
-			//nuevas posiciones, x eso no lo dejo comentado...
-			//Guido.-
-			posicionX=pooglin.getPosicionX();
-			posicionY=pooglin.getPosicionY();
-			alcanzoSalida(posicionX,posicionY);
+				//Revisandolo, depende de si el mover va antes o despues 
+				//de utilizar el terreno...=mente tengo q obtener las 
+				//nuevas posiciones, x eso no lo dejo comentado...
+				//Guido.-
+				posicionX=pooglin.getPosicionX();
+				posicionY=pooglin.getPosicionY();
+				alcanzoSalida(posicionX,posicionY);
+				pooglinMuerto(pooglin);
+				//Controlar si el usuario quiere activar
+				//alguna habilidad para este pooglin
+				//Guido.-
+			}
+			
 		}
 	}
 
@@ -92,9 +98,19 @@ public class Nivel implements Escenario {
 		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY();
 		if((coordenadaXpuertaSalida==posicionX)&&(coordenadaYpuertaSalida==posicionY)){
 			this.pooglinsARescatar--;
-			this.cantidadPooglins--;
 		}
 	}
+	
+	/**Metodo privado que controla que el personaje actual
+	 * este vivo, si no lo esta, disminuye la cantidad
+	 * de pooglins vivos en el nivel.-
+	 * @param pooglin
+	 */
+	private void pooglinMuerto(Personaje pooglin){
+		boolean estaVivo=((Pooglin)pooglin).estaVivo();
+		if (!estaVivo) this.cantidadPooglins--;
+	}
+	
 	//Geter's y Seter's Realizados automaticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
 		this.matrizNivel = matrizNivel;
