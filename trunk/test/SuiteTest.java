@@ -1,7 +1,7 @@
 import junit.framework.Test;
 import junit.framework.TestSuite; 
 
-public class testSuite {
+public class SuiteTest {
  public static Test suite() { 
 	 TestSuite suite = new TestSuite("Test");
        suite.addTestSuite(FuegoTest.class);
@@ -10,7 +10,10 @@ public class testSuite {
        suite.addTestSuite(PooglinTest.class);       
        suite.addTestSuite(VacioTest.class);       
        suite.addTestSuite(NivelTest.class);       
-      return suite; 
+       suite.addTestSuite(PuertaTest.class);       
+       
+       
+       return suite; 
      }
 }
 
