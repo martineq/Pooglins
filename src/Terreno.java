@@ -1,7 +1,7 @@
 
 /**Interfase que representa a un Terreno del juego.-
  * @author Mart
- *
+ * @since 12/10/08
  */
 public interface Terreno {
 
