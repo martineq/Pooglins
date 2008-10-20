@@ -9,8 +9,8 @@
 	<property name="junit.home" location="lib\junit.jar" />
 	<property name="junitreportes.dir" location="reportes\" />
 	<property name="testsuite" value="testSuite"/>
-	<property name="maintestclass" value="testSuite"/>
-	<property name="doc.dir" value="Doc/"/>
+	<property name="maintestclass" value="SuiteTest"/>
+	<property name="doc.dir" value="Documentacion"/>
 		
 	<target name="limpiar">
 		<delete dir = "${build.dir}" />
@@ -27,7 +27,6 @@
 		<mkdir dir="${junitreportes.dir}" /> 
 		<mkdir dir="${junitreportes.dir}/html" />
 		-->
-		<mkdir dir="${doc.dir}/html" />
 				
 		<javac srcdir="${src.dir}" destdir="${build.dir}" />
  	</target>
@@ -57,12 +56,23 @@
 	</target>
 	
 	<target name="documentacion">
-	<javadoc sourcepath="." 
+	<javadoc sourcepath="${src.dir}" 
 		destdir="${doc.dir}"
-		packagenames="${src.dir}">
+		packagenames="src"		    
+		Author="true" 
+		version="true" 
+		Use="true" 
+		noindex="true">
+		
 		<classpath>
-			<pathelement location="${src.dir}" />
-		</classpath>
+					<pathelement location="${src.dir}" />
+				</classpath>
+				
+		<arg line="-private" />
+		<fileset dir="${src.dir}">
+			<include name="**/*.java"/>
+		</fileset>
+	
 	</javadoc>
 	</target>
 		
