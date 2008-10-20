@@ -64,11 +64,6 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return
 	 */
-	/**
-	 * @param posicionX
-	 * @param posicionY
-	 * @return
-	 */
 	public Terreno revisarNivel(int posicionX, int posicionY){
 		//EN REVISION y CONSTRUCCION...
 		//Guido.-
