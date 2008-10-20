@@ -19,7 +19,6 @@ public class Vacio implements Terreno {
 	}
 		
 	/**Seter que me indica la "altura del piso" en que se encuentra el personaje.-
-	 * @author Mart
 	 * @since 18/10/08
 	 * @param pooglin
 	 * @param campo
@@ -38,11 +37,8 @@ public class Vacio implements Terreno {
 	}
 		
 	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
-	 * @author Mart
 	 * @since 18/10/08
 	 * @param pooglin
-	 * @return void
-	 * @throws sin throws
 	 */
 	private void caer(Pooglin pooglin){
 		Velocidad velocidadActual = pooglin.getVelocidad();

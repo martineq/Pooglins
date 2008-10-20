@@ -11,7 +11,9 @@ public class SuiteTest {
        suite.addTestSuite(VacioTest.class);       
        suite.addTestSuite(NivelTest.class);       
        suite.addTestSuite(PuertaTest.class);       
-       
+       suite.addTestSuite(CongelamientoTest.class); 
+       suite.addTestSuite(VelocidadTest.class);        
+       suite.addTestSuite(MorirTest.class);        
        
        return suite; 
      }

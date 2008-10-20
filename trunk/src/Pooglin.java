@@ -94,7 +94,6 @@ public class Pooglin implements Personaje {
 	}
 	
 	/**Método donde el pooglin desaparece de "pantalla".-
-	 * @author Mart.-
 	 * @since 18/10/08
 	 */
 	public void borrarse(){
