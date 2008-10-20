@@ -6,9 +6,7 @@
  */
 public interface Escenario {
 
-	/**
-	 *  
-	 */
+	
 	public void manejar();
 	
 }

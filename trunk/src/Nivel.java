@@ -4,11 +4,17 @@
  * @author guido
  * @since 11/10/08
  */
+/**
+ * @author guido
+ *
+ */
 public class Nivel implements Escenario {
 	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
 	private int pooglinsARescatar;
 	private int cantidadPooglins;
+	private Puerta puertaComienzo;
+	private Puerta puertaSalida;
 	
 	/**Constructor de Nivel.-
 	 * 
@@ -21,18 +27,52 @@ public class Nivel implements Escenario {
 		//Cargo la matriz,etc.-
 	}
 	
+	
+	
 	public void manejar() {
-	//Aca va la logica del juego en si...
 	//En construccion ...
 	//Guido.-
+		
+		
+		//Ciclo que controle que queden pooglins vivos o que no se haya 
+		//terminado el nivel xq todos los pooglins fueron rescatados
+		//o el tiempo se termino.
+		//Guido.-
+		
+		
+		for(int i=0;i<this.pooglins.length;i++){
+			Pooglin pooglin=(Pooglin)this.pooglins[i];
+			int posicionX=pooglin.getPosicionX();
+			int posicionY=pooglin.getPosicionY();
+			pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
+			Terreno terrenoActual=revisarNivel(posicionX,posicionY);
+			terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
+			
+			//Revisandolo, depende de si el mover va antes o despues 
+			//de utilizar el terreno...=mente tengo q obtener las 
+			//nuevas posiciones, x eso no lo dejo comentado...
+			//Guido.-
+			posicionX=pooglin.getPosicionX();
+			posicionY=pooglin.getPosicionY();
+			alcanzoSalida(posicionX,posicionY);
+		}
 	}
 
 	/**Método que devuelve el terreno dado por la posición X e Y.-
+	 * @author guido
+	 * @param posicionX
+	 * @param posicionY
+	 * @return
+	 */
+	/**
 	 * @param posicionX
 	 * @param posicionY
 	 * @return
 	 */
 	public Terreno revisarNivel(int posicionX, int posicionY){
+		//EN REVISION y CONSTRUCCION...
+		//Guido.-
+		
 		//obtengo el terreno de la posicion justo adelante del pooglin
 		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
 		//No me gusta esta linea, ver si no hay una forma mejor de hacerlo
@@ -43,10 +83,23 @@ public class Nivel implements Escenario {
 			terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
 		}
 		return terrenoActual;
-		//EN REVISION y CONSTRUCCION...
-		//Guido.-
+		
 	}
 
+	/**Metodo privado que chequea si el pooglin actual alcanzo
+	 * la salida y disminuye la cantidad de pooglins a rescatar
+	 * asi como tambien la cantidad de pooglins en el nivel.-
+	 * @param posicionX
+	 * @param posicionY
+	 */
+	private void alcanzoSalida(int posicionX,int posicionY){
+		int coordenadaXpuertaSalida=this.puertaSalida.getPosicionX();
+		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY();
+		if((coordenadaXpuertaSalida==posicionX)&&(coordenadaYpuertaSalida==posicionY)){
+			this.pooglinsARescatar--;
+			this.cantidadPooglins--;
+		}
+	}
 	//Geter's y Seter's Realizados automaticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
 		this.matrizNivel = matrizNivel;
