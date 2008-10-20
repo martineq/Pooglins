@@ -1,4 +1,5 @@
 
+
 /**Clase que representa a el personaje Pooglin.-
  * @author Mart
  * @since 11/10/08
@@ -10,10 +11,9 @@ public class Pooglin implements Personaje {
 	private Velocidad velocidad;
 	private Habilidad habilidad;
 	private boolean vivo;
-	private Habilidad matarse;//Composicion con clase Morir. Guido.-
+	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
 
-	
 	/**Constructor de la clase Pooglin. Los valores que no se
 	 * pasan por parámetro tienen un valor por defecto.-
 	 * @param posicionX
@@ -28,7 +28,7 @@ public class Pooglin implements Personaje {
 		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
 		this.cantTurnosQueNoSeMovio = 0;
 	}
-		
+
 	//Sección de Geter's y Seter's
 	public int getPosicionX(){
 		return this.posicionX;
@@ -73,9 +73,8 @@ public class Pooglin implements Personaje {
 		return matarse;
 	}
 	//Fin de Sección de Geter's y Seter's
-
 	
-	public void mover() { //>>> Acá faltan ver los casos donde se me "acaba" la pantalla.- 
+	public void mover() { // >>> Acá faltan ver los casos donde se me "acaba" la pantalla.- 
 		this.cantTurnosQueNoSeMovio++;
 		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){
 			return;
