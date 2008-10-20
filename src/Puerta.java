@@ -15,7 +15,6 @@ public class Puerta {
 	 * se puede setear las coordenadas de las puertas
 	 * dado que las mismas son fijas y constantes
 	 *  para cada nivel.-
-	 *  @author guido
 	 * @param posX
 	 * @param posY
 	 */

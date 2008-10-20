@@ -51,31 +51,19 @@ public class PooglinTest extends TestCase {
 		assertEquals(unPooglin.getPosicionY(),0);
 	}
 	
-	public void testGetAltura() {
-	}
-
-	public void testSubirAltura() {
-	}
-
-	public void testBajarAltura() {
-	}
 
 	public void testGetHabilidad() {
+		assertNull(unPooglin.getHabilidad());
 	}
 
 	public void testSetHabilidad() {
-		
-	}
-
-	public void testMorir() {
-				
-	}
-
-	public void testAbrirParacaidas() {
-		
-	}
-
-	public void testAterrizar() {
+		}
+	
+	public void testgetMatarse(){
+		Habilidad matarPooglin;
+		matarPooglin = unPooglin.getMatarse();
+		matarPooglin.utilizar(unPooglin);
+		assertFalse(unPooglin.estaVivo());
 	}
 
 }
