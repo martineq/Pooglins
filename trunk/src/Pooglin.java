@@ -4,7 +4,7 @@
  * @author Mart
  * @since 11/10/08
  */
-public class Pooglin implements Personaje {
+public class Pooglin implements Personaje{
 
 	private int posicionX;
 	private int posicionY;

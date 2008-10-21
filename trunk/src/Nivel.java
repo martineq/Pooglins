@@ -69,7 +69,9 @@ public class Nivel implements Escenario {
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();
+				
 				pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
+				
 				Terreno terrenoActual=revisarNivel(posicionX,posicionY,pooglin);
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 			

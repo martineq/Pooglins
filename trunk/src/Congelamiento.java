@@ -4,7 +4,7 @@
  * @author Mart
  * @since 18/10/08
  */
-public class Congelamiento implements Habilidad {
+public class Congelamiento extends Comportamiento {
 
 	public void utilizar(Personaje personaje) {
 		Habilidad morir = ((Pooglin)personaje).getMatarse();

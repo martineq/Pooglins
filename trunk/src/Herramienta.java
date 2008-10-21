@@ -4,7 +4,7 @@
  * @author Mart
  * @since 11/10/08
  */
-public class Herramienta implements Habilidad {
+public abstract class Herramienta implements Habilidad {
 
 	/**Constructor de Herramienta.-
 	 * 

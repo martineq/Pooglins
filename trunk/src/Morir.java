@@ -2,7 +2,7 @@
  * @author guido
  * @since
  */
-public class Morir implements Habilidad {
+public class Morir extends Comportamiento {
 
 	private static int VELOCIDAD_NULA = 0;
 	
