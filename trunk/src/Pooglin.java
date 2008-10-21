@@ -1,5 +1,6 @@
 
 
+
 /**Clase que representa a el personaje Pooglin.-
  * @author Mart
  * @since 11/10/08
@@ -13,6 +14,7 @@ public class Pooglin implements Personaje{
 	private boolean vivo;
 	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
+	private int altura;
 
 	/**Constructor de la clase Pooglin. Los valores que no se
 	 * pasan por parámetro tienen un valor por defecto.-
@@ -82,8 +84,10 @@ public class Pooglin implements Personaje{
 		
 		if ( this.velocidad.getVelocidadY()>0 ){
 			this.setPosicionY(this.getPosicionY()+1);
+			this.setAltura(this.getAltura() + 1);
 		}else if ( this.velocidad.getVelocidadY()<0 ){
 				this.setPosicionY(this.getPosicionY()-1);
+				this.setAltura(this.getAltura() + 1);
 			  }else if ( this.velocidad.getVelocidadX()>0 ){
 					  this.setPosicionX(this.getPosicionX()+1);
 				    }else if (this.velocidad.getVelocidadX()<0){
@@ -103,5 +107,13 @@ public class Pooglin implements Personaje{
 
 	public void usarHabilidad(Terreno terreno) {
 		this.getHabilidad().utilizar(terreno);
+	}
+
+	public int getAltura() {
+		return altura;
+	}
+
+	public void setAltura(int altura) {
+		this.altura = altura;
 	}
 }
