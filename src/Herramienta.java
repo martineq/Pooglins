@@ -1,5 +1,6 @@
 
 
+
 /**Clase que implementa la interfase Habilidad.-
  * @author Mart
  * @since 11/10/08
@@ -13,12 +14,8 @@ public abstract class Herramienta implements Habilidad {
 		
 	}
 	
-	public void utilizar(Personaje personaje) {
-		
-	}
+	public void utilizar(Personaje personaje){}
 
-	public void utilizar(Terreno terreno) {
-				
-	}
+	public void utilizar(Terreno terreno){}
 
 }

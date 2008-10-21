@@ -1,3 +1,4 @@
+
 /**Clase que representa la habilidad del pooglin de morir.-
  * @author guido
  * @since
