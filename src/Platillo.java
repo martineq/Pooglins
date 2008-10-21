@@ -1,4 +1,6 @@
 
+
+
 /**Clase que representa la habilidad del pooglin de usar un platillo volador.-
  * @author Mart
  * @since 12/10/08
