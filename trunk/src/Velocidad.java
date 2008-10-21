@@ -1,4 +1,5 @@
 
+
 /**Esta clase empaqueta todos los atributos necesarios para describir la velocidad de un 
  * pooglin y, de esta manera, hacer mas simple la clase pooglin.
  * Lo que estamos proponiendo es que cada clase que modifique la velocidad del pooglin, lo
