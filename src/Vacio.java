@@ -26,7 +26,7 @@ public class Vacio implements Terreno {
 	private void setAltura(Personaje pooglin,Nivel campo) {
 		int contador = 1;
 		altura = 0;
-		while ( (campo.revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador ) ) instanceof Vacio ){
+		while ( (campo.revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador  ,pooglin) instanceof Vacio ){
 			altura++;
 			contador++;
 		}

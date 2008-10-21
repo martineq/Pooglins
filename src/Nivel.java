@@ -70,7 +70,7 @@ public class Nivel implements Escenario {
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();
 				pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
-				Terreno terrenoActual=revisarNivel(posicionX,posicionY);
+				Terreno terrenoActual=revisarNivel(posicionX,posicionY,pooglin);
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 			
 				//Revisandolo, depende de si el mover va antes o despues 
@@ -95,20 +95,22 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return
 	 */
-	public Terreno revisarNivel(int posicionX, int posicionY){
-		//EN REVISION y CONSTRUCCION...
+	public Terreno revisarNivel(int posicionX, int posicionY,Personaje pooglin){
+		//EN REVISION ...
 		//Guido.-
-		
+		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
 		//obtengo el terreno de la posicion justo adelante del pooglin
 		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
-		//No me gusta esta linea, ver si no hay una forma mejor de hacerlo
-		//xq estoy usando instanceof:S....
-		//Probar con Excepciones....
-		//Guido.-
-		if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
-			terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
+		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
+			return terrenoActual=this.matrizNivel[posicionX+1][posicionY];
+		}else{
+			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
+				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
+			}else{
+			return terrenoActual;//sino devuelvo lo que tiene justo adelante
+			}
 		}
-		return terrenoActual;
+		
 		
 	}
 
