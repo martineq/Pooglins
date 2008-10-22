@@ -17,6 +17,7 @@ public class Vacio extends Terreno {
     public Vacio(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
+		this.setActivo(true);
 	}
 	    
 	public void setPosicionX(int posicionX) {
@@ -36,10 +37,6 @@ public class Vacio extends Terreno {
 	}
 
 	public void accionarTerreno(Personaje pooglin) {
-		
-	}
-
-	public void accionarTerreno(Personaje pooglin,Nivel campo) {
 		if ( ((Pooglin)pooglin).getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
 			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > 5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
 				Habilidad morir = ((Pooglin)pooglin).getMatarse();
@@ -64,8 +61,9 @@ public class Vacio extends Terreno {
 				//pooglin.mover();
 			}else{
 				((Pooglin)pooglin).borrarse(); //Si está "muerto" y "en el piso" desaparece de pantalla.-
-			}								   //En el caso de que use el congelamiento cambio el terreno "vacio" por un "hielo" 
+			}								    
 		}
+		
 	}
 	
 	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
