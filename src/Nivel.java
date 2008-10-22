@@ -198,5 +198,21 @@ public class Nivel implements Escenario {
 		return cantidadPooglins;
 	}
 
+	public Puerta getPuertaComienzo() {
+		return puertaComienzo;
+	}
+
+	public void setPuertaComienzo(Puerta puertaComienzo) {
+		this.puertaComienzo = puertaComienzo;
+	}
+
+	public Puerta getPuertaSalida() {
+		return puertaSalida;
+	}
+
+	public void setPuertaSalida(Puerta puertaSalida) {
+		this.puertaSalida = puertaSalida;
+	}
+
 	
 }
