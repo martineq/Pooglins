@@ -77,7 +77,7 @@ public class Nivel implements Escenario {
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					if (!terrenoActual.isActivo()){
-						matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio();
+						matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
 					}
 					pooglin.mover();
 				}
