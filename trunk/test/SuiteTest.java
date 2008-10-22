@@ -9,12 +9,13 @@ public class SuiteTest {
        suite.addTestSuite(PlatilloTest.class);       
        suite.addTestSuite(PooglinTest.class);       
        suite.addTestSuite(VacioTest.class);       
-       suite.addTestSuite(NivelTest.class);       
+       suite.addTestSuite(TerrenoEnNivelTest.class);       
        suite.addTestSuite(PuertaTest.class);       
        suite.addTestSuite(CongelamientoTest.class); 
        suite.addTestSuite(VelocidadTest.class);        
        suite.addTestSuite(MorirTest.class);        
-       
+       suite.addTestSuite(HabilidadesEnNivelTest.class);        
+       suite.addTestSuite(TerrenoEnNivelTest.class);        
        return suite; 
      }
 }
