@@ -32,9 +32,8 @@ public class Nivel implements Escenario {
 		//Creo las puertas de comienzo y fin
 		
 		//this.puertaComienzo=new Puerta(X,Y);
-		//this.puertaSalida=new Puerta(X,Y);
-		//Suponemos que pondremos las puertas de entrada y salida siempre en los
-		//mismo lugares????????
+		//this.puertaSalida=new Puerta(X1,Y1);
+	
 		//Ver...Tiene que lanzar una Excepcion si cantArescatar>cantPersonajes.
 		//Guido.-
 		this.cantidadPooglins=cantidadPersonajes;
@@ -84,7 +83,6 @@ public class Nivel implements Escenario {
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 				actualizarMatriz(terrenoActual);
 				}	
-				
 				
 				//Controlar si el usuario quiere activar
 				//alguna habilidad para este pooglin
