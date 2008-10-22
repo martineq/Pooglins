@@ -77,10 +77,10 @@ public class Nivel implements Escenario {
 				}
 					
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
-				Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
-				pooglin.mover();
-				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
-				actualizarMatriz(terrenoActual);
+					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+					pooglin.mover();
+					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
+					actualizarMatriz(terrenoActual);
 				}	
 				
 				//Controlar si el usuario quiere activar
