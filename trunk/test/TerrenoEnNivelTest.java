@@ -40,6 +40,8 @@ public class TerrenoEnNivelTest extends TestCase {
 */
 	public void testNivelConTierra(){
 		pooglins = new Pooglin[15];
+		for(int i =0; i<15;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(15);
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
