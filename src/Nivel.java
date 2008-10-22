@@ -66,7 +66,7 @@ public class Nivel implements Escenario {
 		//terminado el nivel xq todos los pooglins fueron rescatados
 		//o el tiempo se termino.
 		//Guido.-
-		while((this.cantidadPooglins!=0)&&(this.pooglinsARescatar!=0)){//ver tema tiempo.Guido.-
+		while((this.cantidadPooglins > 0)||(this.pooglinsARescatar > 0)){//ver tema tiempo.Guido.-
 		
 			for(int i=0;i<this.pooglins.length;i++){
 				Pooglin pooglin=(Pooglin)this.pooglins[i];

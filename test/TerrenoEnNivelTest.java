@@ -51,7 +51,7 @@ public class TerrenoEnNivelTest extends TestCase {
 	}
 	
 	public void testNivelConHielo(){
-		for(int i=1;i<10;i++) matrizNivel[4][i] = new Hielo(4,i);
+		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[4][i] = new Hielo(4,i);
 		nivel.setMatrizNivel(matrizNivel);
 		nivel.setPuertaComienzo(new Puerta(5,3));
 		nivel.setPuertaSalida(new Puerta(25,3));
@@ -59,10 +59,10 @@ public class TerrenoEnNivelTest extends TestCase {
 		for(int i =0; i<25;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(25);
-		nivel.setPooglinsARescatar(10);
+		nivel.setPooglinsARescatar(15);
 		nivel.manejar();
-		assertEquals(0,nivel.getPooglinsARescatar());
-		//assertEquals(15,nivel.getCantidadPooglins());
+		assertEquals(-10,nivel.getPooglinsARescatar());//Porque llegan todos los pooglins, es decir rescate 25
+		assertEquals(0,nivel.getCantidadPooglins());
 		//aca tengo que ver la velocidad de los pooglin en determinado 
 		//momento
 		//edgardo.
