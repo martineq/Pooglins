@@ -12,8 +12,10 @@ public class Fuego extends Terreno {
 	/**Constructor de Fuego.-
 	 * 
 	 */
-	public Fuego(){
-		
+    public Fuego(int posicionX,int posicionY){
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
+		this.setActivo(true);
 	}
 	
 	/**Redefino el metodo de la interfaz con la logica propia

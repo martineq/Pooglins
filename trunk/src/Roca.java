@@ -9,9 +9,12 @@
  */
 public class Roca extends Terreno {
 
-	/* (non-Javadoc)
-	 * @see Terreno#accionarTerreno(temporal.Personaje)
-	 */
+	public Roca(int posicionX,int posicionY){
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
+		this.setActivo(true);
+	}
+	
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
 		if ( pooglin.getPosicionY() == this.getPosicionY()){

@@ -22,6 +22,7 @@ public class Tierra extends Terreno {
 	public Tierra(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
+		this.setActivo(true);
 	}
 	
 	private void accionarLateral(Pooglin pooglin) {
