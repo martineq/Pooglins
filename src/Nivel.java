@@ -68,7 +68,7 @@ public class Nivel implements Escenario {
 		//Guido.-
 		while((this.cantidadPooglins!=0)||(this.pooglinsARescatar!=0)){//ver tema tiempo.Guido.-
 		
-			for(int i=0;i<this.pooglins.length;i++){
+			for(int i=0;i<this.pooglins.length-1;i++){
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();	
