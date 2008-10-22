@@ -37,7 +37,7 @@ public class TerrenoEnNivelTest extends TestCase {
 	terrenoActual.accionarTerreno(pooglin);
 */
 	public void testNivelConTierra(){
-		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[2][i] = new Tierra(2,i);
+		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[i][2] = new Tierra(i,2);
 		nivel.setPuertaComienzo(new Puerta(0,1));
 		nivel.setPuertaSalida(new Puerta(48,1));
 		pooglins = new Pooglin[15];
@@ -51,7 +51,7 @@ public class TerrenoEnNivelTest extends TestCase {
 	}
 	
 	public void testNivelConHielo(){
-		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[4][i] = new Hielo(4,i);
+		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[i][4] = new Hielo(i,4);
 		nivel.setMatrizNivel(matrizNivel);
 		nivel.setPuertaComienzo(new Puerta(5,3));
 		nivel.setPuertaSalida(new Puerta(25,3));
@@ -63,9 +63,6 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.manejar();
 		assertEquals(-10,nivel.getPooglinsARescatar());//Porque llegan todos los pooglins, es decir rescate 25
 		assertEquals(0,nivel.getCantidadPooglins());
-		//aca tengo que ver la velocidad de los pooglin en determinado 
-		//momento
-		//edgardo.
 	}
 	
 	public void testNivelConVacio(){
@@ -79,9 +76,19 @@ public class TerrenoEnNivelTest extends TestCase {
 	}
 	
 	public void testNivelConFuego(){
-		matrizNivel[2][30] = new Fuego(2,30);
+		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[i][40] = new Hielo(i,40);
 		nivel.setMatrizNivel(matrizNivel);
+		nivel.setPuertaComienzo(new Puerta(1,39));
+		nivel.setPuertaSalida(new Puerta(15,39));
+		matrizNivel[10][40] = new Fuego(10,40);
+		nivel.setMatrizNivel(matrizNivel);
+		pooglins = new Pooglin[25];
+		for(int i =0; i<25;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(25);
+		nivel.setPooglinsARescatar(15);
 		nivel.manejar();
+		assertEquals(0,nivel.getCantidadPooglins());
 		//aca tengo que ver que el fuego mate al pooglin. 
 		//edgardo.
 	}
