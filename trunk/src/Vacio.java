@@ -50,8 +50,13 @@ public class Vacio extends Terreno {
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){
-				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ) //Si venia cayendo, freno la caida.-
+				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ){ //Si venia cayendo, freno la caida.-
 					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(VELOCIDAD_NULA); 
+			   	}else{//es el caso en el que el pooglin esta vivo y en el suelo, 
+			   		  //tiene que permitir utilizar la habilidad congelamiento por ejemplo.-
+			   		Habilidad habilidadActual=((Pooglin)pooglin).getHabilidad();
+			   		habilidadActual.utilizar(pooglin);
+			   	}
 				//Me parece que el proximo "pooglin.mover();" no va porque antes tengo 
 				//que saber que velocidad va a tener el personaje al hacer el 
 				//"accionarTerreno" de los otros terrenos como hielo, roca, tierra
