@@ -6,7 +6,7 @@ public class FuegoTest extends TestCase {
 		
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
-		fuego = new Fuego(); //Cambié el constructor
+		fuego = new Fuego(0,0); //Cambié el constructor
 	}
 	
 	public void testAccionarFuego(){
