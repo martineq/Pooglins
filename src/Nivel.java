@@ -144,8 +144,11 @@ public class Nivel implements Escenario {
 	 */
 	private boolean pooglinMuerto(Personaje pooglin){
 		boolean estaVivo=((Pooglin)pooglin).estaVivo();
-		if (!estaVivo) this.cantidadPooglins--;
-		return estaVivo;
+		if (!estaVivo){
+			this.cantidadPooglins--;
+			return true;
+		}
+		return false;
 	}
 	
 	/**Metodo privado que en caso de ser necesario
