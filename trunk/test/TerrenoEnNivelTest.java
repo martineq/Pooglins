@@ -31,7 +31,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel = new Nivel();
 		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[2][i] = new Tierra(2,i);
 		nivel.setPuertaComienzo(new Puerta(0,1));
-		nivel.setPuertaSalida(new Puerta(1,48));
+		nivel.setPuertaSalida(new Puerta(48,1));
 	}
 /* 
     Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);

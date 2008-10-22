@@ -8,7 +8,7 @@
  *
  */
 public class Nivel implements Escenario {
-	private Terreno[][] matrizNivel;
+	private Terreno[][] matrizNivel=new Terreno[50][50];
 	private Personaje[] pooglins;
 	private int pooglinsARescatar;
 	private int cantidadPooglins;
@@ -68,7 +68,7 @@ public class Nivel implements Escenario {
 		//Guido.-
 		while((this.cantidadPooglins!=0)||(this.pooglinsARescatar!=0)){//ver tema tiempo.Guido.-
 		
-			for(int i=0;i<this.pooglins.length-1;i++){
+			for(int i=0;i<this.pooglins.length;i++){
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();	
@@ -84,6 +84,7 @@ public class Nivel implements Escenario {
 					pooglin.mover();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
+					
 				}	
 				
 				//Controlar si el usuario quiere activar
@@ -173,6 +174,7 @@ public class Nivel implements Escenario {
 	
 	//Geter's y Seter's Realizados automaticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
+		
 		this.matrizNivel = matrizNivel;
 	}
 
