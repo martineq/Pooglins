@@ -1,7 +1,7 @@
 
 
 
-/**Taladro: es una herramienta que permite destruir un terreno que sea Tierra
+/**Taladro: es una herramienta que permite destruir un terreno que sea Tierra.
  * @author lkolaric
  *
  */
