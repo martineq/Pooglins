@@ -55,7 +55,9 @@ public class Nivel implements Escenario {
 	
 	
 	public void manejar() {
-	//En construccion ...
+	//En revision...
+	//FALTA VER TEMA HABILIDADES DISPONIBLES
+	//Y COMO LAS VA A ACTIVAR EL USUARIO.-
 	//Guido.-
 		
 		
@@ -69,34 +71,20 @@ public class Nivel implements Escenario {
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();	
-				if (alcanzoSalida(posicionX,posicionY)){
-					pooglinMuerto(pooglin);
-				}else{
-					
-					//Hay un par de cosas que me gustaria revisar aca...va...agregar
-					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
-					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
-					if (!terrenoActual.isActivo()){
-						matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
-					}
-					pooglin.mover();
+				
+				if (alcanzoSalida(posicionX,posicionY)){//"Mato" y borro al pooglin que salio.-
+					Habilidad matarse=pooglin.getMatarse();
+					matarse.utilizar(pooglin);
+					pooglin.borrarse();
 				}
-				
-
-			//	int posicionY = pooglin.getPosicionY();
-				
-				pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
-				
-				Terreno terrenoActual=revisarNivel(posicionX,posicionY,pooglin);
+					
+				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
+				Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+				pooglin.mover();
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
-			
-
-				//Revisandolo, depende de si el mover va antes o despues 
-				//de utilizar el terreno...=mente tengo q obtener las 
-				//nuevas posiciones, x eso no lo dejo comentado...
-				//Guido.-
-				//posicionX=pooglin.getPosicionX();
-				//posicionY=pooglin.getPosicionY();
+				actualizarMatriz(terrenoActual);
+				}	
+				
 				
 				//Controlar si el usuario quiere activar
 				//alguna habilidad para este pooglin
@@ -112,34 +100,28 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return
 	 */
-
-
 	public Terreno revisarNivel(int posicionX, int posicionY,Personaje pooglin){
 		//EN REVISION ...
 		//Guido.-
+		
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
-
+		
 		//obtengo el terreno de la posicion justo adelante del pooglin
 		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
-
-		if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
-			terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
-
+		
 		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
 			return terrenoActual=this.matrizNivel[posicionX+1][posicionY];
 		}else{
 			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
 				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
 			}else{
-			return terrenoActual;//sino devuelvo lo que tiene justo adelante
+				return terrenoActual;//sino devuelvo lo que tiene justo adelante
 			}
-
 		}
-		}
-		return null;		
-		
 		
 	}
+		
+
 
 	/**Metodo privado que chequea si el pooglin actual alcanzo
 	 * la salida y disminuye la cantidad de pooglins a rescatar
@@ -160,12 +142,25 @@ public class Nivel implements Escenario {
 	
 	/**Metodo privado que controla que el personaje actual
 	 * este vivo, si no lo esta, disminuye la cantidad
-	 * de pooglins vivos en el nivel.-
+	 * de pooglins vivos en el nivel;ademas devuelve
+	 * si el pooglin actual esta o no vivo.-
 	 * @param pooglin
 	 */
-	private void pooglinMuerto(Personaje pooglin){
+	private boolean pooglinMuerto(Personaje pooglin){
 		boolean estaVivo=((Pooglin)pooglin).estaVivo();
 		if (!estaVivo) this.cantidadPooglins--;
+		return estaVivo;
+	}
+	
+	/**Metodo privado que en caso de ser necesario
+	 * actualiza el terreno de la posicion actual 
+	 * por un terreno de tipo Vacio.-
+	 * @param terrenoActual
+	 */
+	private void actualizarMatriz(Terreno terrenoActual){
+		if (!terrenoActual.isActivo()){
+			this.matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
+		}
 	}
 	
 	//Geter's y Seter's Realizados automaticamete.-
