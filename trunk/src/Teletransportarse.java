@@ -9,8 +9,5 @@ public class Teletransportarse extends Comportamiento{
 		
 	}
 	
-	//este metodo no tiene que existir!!
-	//Guido.-
-	public void utilizar(Terreno terreno){}
 
 }
