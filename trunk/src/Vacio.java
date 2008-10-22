@@ -6,6 +6,8 @@
 public class Vacio extends Terreno {
 
 	private static int VELOCIDAD_NORMAL = 6;
+	private static int VELOCIDAD_NULA = 0;
+	private static int ALTURA_MAX = 5;
 	private int posicionX;
 	private int posicionY;
 	
@@ -39,7 +41,7 @@ public class Vacio extends Terreno {
 
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
 		if ( ((Pooglin)pooglin).getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
-			if( ((Pooglin)pooglin).getAltura() > 5){ //Si estoy con altura > 5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
+			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > 5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
 				Habilidad morir = ((Pooglin)pooglin).getMatarse();
 				morir.utilizar(pooglin);
 				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
@@ -51,8 +53,8 @@ public class Vacio extends Terreno {
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){
-				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != 0 ) //Si venia cayendo, freno la caida.-
-					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(0); 
+				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ) //Si venia cayendo, freno la caida.-
+					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(VELOCIDAD_NULA); 
 				//Me parece que el proximo "pooglin.mover();" no va porque antes tengo 
 				//que saber que velocidad va a tener el personaje al hacer el 
 				//"accionarTerreno" de los otros terrenos como hielo, roca, tierra
