@@ -29,9 +29,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		this.llenarMatrizConVacio();
 		this.bordeMatriz();
 		nivel = new Nivel();
-		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[2][i] = new Tierra(2,i);
-		nivel.setPuertaComienzo(new Puerta(0,1));
-		nivel.setPuertaSalida(new Puerta(48,1));
+		
 	}
 /* 
     Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
@@ -39,6 +37,9 @@ public class TerrenoEnNivelTest extends TestCase {
 	terrenoActual.accionarTerreno(pooglin);
 */
 	public void testNivelConTierra(){
+		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[2][i] = new Tierra(2,i);
+		nivel.setPuertaComienzo(new Puerta(0,1));
+		nivel.setPuertaSalida(new Puerta(48,1));
 		pooglins = new Pooglin[15];
 		for(int i =0; i<15;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
 		nivel.setPooglins(pooglins);
@@ -50,9 +51,18 @@ public class TerrenoEnNivelTest extends TestCase {
 	}
 	
 	public void testNivelConHielo(){
-		for(int i=1;i<10;i++) matrizNivel[2][i] = new Hielo(2,i);
+		for(int i=1;i<10;i++) matrizNivel[4][i] = new Hielo(4,i);
 		nivel.setMatrizNivel(matrizNivel);
+		nivel.setPuertaComienzo(new Puerta(5,3));
+		nivel.setPuertaSalida(new Puerta(25,3));
+		pooglins = new Pooglin[25];
+		for(int i =0; i<25;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(25);
+		nivel.setPooglinsARescatar(10);
 		nivel.manejar();
+		assertEquals(0,nivel.getPooglinsARescatar());
+		//assertEquals(15,nivel.getCantidadPooglins());
 		//aca tengo que ver la velocidad de los pooglin en determinado 
 		//momento
 		//edgardo.
