@@ -12,8 +12,10 @@ public class Hielo extends Terreno {
 	/**Constructor de Hielo.-
 	 * 
 	 */
-	public Hielo(){
-		
+	public Hielo(int posicionX,int posicionY){
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
+		this.setActivo(true);
 	}
 	
 	private static int VELOCIDAD_HIELO = 5;

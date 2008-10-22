@@ -8,8 +8,10 @@ public class AgujeroNegro extends Terreno {
 	/**Constructor de AgujeroNegro.-
 	 * 
 	 */
-	public AgujeroNegro(){
-		
+    public AgujeroNegro(int posicionX,int posicionY){
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
+		this.setActivo(true);
 	}
 
 	public void accionarTerreno(Personaje pooglin) {

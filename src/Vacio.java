@@ -38,7 +38,7 @@ public class Vacio extends Terreno {
 
 	public void accionarTerreno(Personaje pooglin) {
 		if ( ((Pooglin)pooglin).getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
-			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > 5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
+			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > ALTURA_MAX el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
 				Habilidad morir = ((Pooglin)pooglin).getMatarse();
 				morir.utilizar(pooglin);
 				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
