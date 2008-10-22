@@ -4,7 +4,7 @@
  */
 
 /**
- * @author lkolaric
+ * @author guido
  *
  */
 public class Fuego extends Terreno {
