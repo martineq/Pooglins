@@ -17,7 +17,7 @@ public class Tierra extends Terreno {
 	 * para poder comparar la posicion del terreno con la del Pooglin.
 	 */
 	
-	private int resistencia;
+	private int resistencia = 4;
 	
 	public Tierra(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
@@ -27,7 +27,7 @@ public class Tierra extends Terreno {
 	private void accionarLateral(Pooglin pooglin) {
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof RayoLaser){
-			this.setResistencia(this.getResistencia() + 1);
+			this.setResistencia(this.getResistencia() - 1);
 			pooglin.usarHabilidad(this);
 		}else {
 			Velocidad velocidad = pooglin.getVelocidad();
