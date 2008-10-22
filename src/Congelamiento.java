@@ -10,6 +10,8 @@ public class Congelamiento extends Comportamiento {
 	public void utilizar(Personaje personaje) {
 		Habilidad morir = ((Pooglin)personaje).getMatarse();
 		morir.utilizar(personaje);
+		//Me parece que en el caso de que use el congelamiento
+		//tendria que cambiar el terreno "vacio" por un "hielo"
 	}
 
 	public void utilizar(Terreno terreno) {
