@@ -95,7 +95,7 @@ public class Nivel implements Escenario {
 		}
 	}
 
-	/**Método que devuelve el terreno dado por la posición X e Y.-
+	/**Método que devuelve el terreno dado por la posición X e Y.
 	 * @author guido
 	 * @param posicionX
 	 * @param posicionY
@@ -108,10 +108,10 @@ public class Nivel implements Escenario {
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
 		
 		//obtengo el terreno de la posicion justo adelante del pooglin
-		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
+		Terreno terrenoActual=this.matrizNivel[posicionX+1][posicionY];
 		
 		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
-			return terrenoActual=this.matrizNivel[posicionX+1][posicionY];
+			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
 		}else{
 			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
 				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
