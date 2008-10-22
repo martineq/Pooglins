@@ -156,12 +156,18 @@ public class Nivel implements Escenario {
 	
 	/**Metodo privado que en caso de ser necesario
 	 * actualiza el terreno de la posicion actual 
-	 * por un terreno de tipo Vacio.-
+	 * por un terreno de tipo Hielo, si el terreno
+	 * era un Vacio(implica que hay un pooglin congelado)
+	 * o en Vacio si el terreno actual es de otro tipo.-
 	 * @param terrenoActual
 	 */
 	private void actualizarMatriz(Terreno terrenoActual){
 		if (!terrenoActual.isActivo()){
-			this.matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
+			if (terrenoActual instanceof Vacio){
+				this.matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Hielo(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
+			}else{//Sino el unico otro terreno que puede llegar inactivo es la Tierra y debe transformarse en Vacio.
+				this.matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio(terrenoActual.getPosicionX(),terrenoActual.getPosicionY());
+			}
 		}
 	}
 	

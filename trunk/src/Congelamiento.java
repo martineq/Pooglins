@@ -15,8 +15,13 @@ public class Congelamiento extends Comportamiento {
 		//pero en ese caso necesito el terreno, otra seria que esto lo cambie el Nivel
 	}
 
+	/* (non-Javadoc)
+	 * @see Comportamiento#utilizar(Terreno)
+	 */
 	public void utilizar(Terreno terreno) {
-				
+		if (terreno instanceof Vacio){
+			terreno.setActivo(false);
+		}
 	}
 
 }
