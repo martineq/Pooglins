@@ -3,61 +3,43 @@
  * @author Mart
  * @since 11/10/08
  */
-public class Vacio implements Terreno {
+public class Vacio extends Terreno {
 
-	/**El atributo altura va a ser usado solo por la clase Vacio,
-	 * para poder comprobar si el personaje se encuentra en caida libre.-
-	 */
-	private int altura;
 	private static int VELOCIDAD_NORMAL = 6;
-
+	private int posicionX;
+	private int posicionY;
+	
 	/**Constructor de Vacio.-
      * 
      */
-    public Vacio(){
-		
+    public Vacio(int posicionX,int posicionY){
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
 	}
-		
-	/**Seter que me indica la "altura del piso" en que se encuentra el personaje.-
-	 * @since 18/10/08
-	 * @param pooglin
-	 * @param campo
-	 */
-	private void setAltura(Personaje pooglin,Nivel campo) {
-		int contador = 1;
-		altura = 0;
-		while ( (campo.revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador  ,pooglin)) instanceof Vacio ){
-			altura++;
-			contador++;
-		}
+	    
+	public void setPosicionX(int posicionX) {
+		this.posicionX = posicionX;
 	}
 
-	private int getAltura() {
-		return altura;
+	public int getPosicionX() {
+		return posicionX;
 	}
-		
-	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
-	 * @since 18/10/08
-	 * @param pooglin
-	 */
-	private void caer(Pooglin pooglin){
-		Velocidad velocidadActual = pooglin.getVelocidad();
-		// me parece que conviene pooner un metodo para asignar c/velocidad,
-		// o sino poner constantes. Como para que la clase vacio no sepa que 'velocidad'
-		// le estoy dando, y que solo sea interno a la clase velocidad
-		// p.e.: velocidadPlatillo(); que devuelva el valor de la vel. del platillo. Martín.-
-		velocidadActual.setVelocidadY( (-1) * VELOCIDAD_NORMAL ); 
-		pooglin.setVelocidad(velocidadActual);
-	}	
-	
+
+	public void setPosicionY(int posicionY) {
+		this.posicionY = posicionY;
+	}
+
+	public int getPosicionY() {
+		return posicionY;
+	}
+
 	public void accionarTerreno(Personaje pooglin) {
 		
 	}
 
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
-		this.setAltura(pooglin,campo);
-		if ( this.getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
-			if( this.getAltura() > 5){ //Si estoy con altura>5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
+		if ( ((Pooglin)pooglin).getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
+			if( ((Pooglin)pooglin).getAltura() > 5){ //Si estoy con altura > 5 el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
 				Habilidad morir = ((Pooglin)pooglin).getMatarse();
 				morir.utilizar(pooglin);
 				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
@@ -77,12 +59,21 @@ public class Vacio implements Terreno {
 				//porque sino se va a mover con la velocidad del último terreno pisado.-
 				//En resumen: si el pooglin no está cayendo, el vacio no es el que le da la velocidad,
 				//se la va a dar el terreno que se encuentre "pisando".-
-				
 				//pooglin.mover();
 			}else{
 				((Pooglin)pooglin).borrarse(); //Si está "muerto" y "en el piso" desaparece de pantalla.-
-			}								   //Además faltaría chequear que no se encuentre congelado (en ese caso no se borra de pantalla).-
+			}								   //En el caso de que use el congelamiento cambio el terreno "vacio" por un "hielo" 
 		}
+	}
+	
+	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
+	 * @since 18/10/08
+	 * @param pooglin
+	 */
+	private void caer(Pooglin pooglin){
+		Velocidad velocidadActual = pooglin.getVelocidad();
+		velocidadActual.setVelocidadY( (-1) * VELOCIDAD_NORMAL ); 
+		pooglin.setVelocidad(velocidadActual);
 	}	
 	
 }
