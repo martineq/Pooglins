@@ -132,7 +132,6 @@ public class Nivel implements Escenario {
 		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY();
 		if((coordenadaXpuertaSalida==posicionX)&&(coordenadaYpuertaSalida==posicionY)){
 			this.pooglinsARescatar--;
-			//tiene que matar al pooglin?
 			return true;
 		}
 		return false;
