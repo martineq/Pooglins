@@ -18,10 +18,13 @@ public class Nivel implements Escenario {
 	//Ver si el escenario se va a pasar en una lista o como se van
 	//a pasar las cosas para saber como cargamos la matriz etc
 	//Guido.-
-	/**Constructor de Nivel.-
+	/**Lo dejo comentado y uso el constructor por defecto para
+	 * las pruebas; el nivel lo voy a setear con los 
+	 * getter's y los setter's
+	 * Constructor de Nivel.-
 	 * 
 	 */
-	public Nivel(int cantidadPersonajes,int cantidadPersonajesArescatar){
+	/*public Nivel(int cantidadPersonajes,int cantidadPersonajesArescatar){
 		//Creo que hay que inicializar la matriz con un "contorno" de "rocas" (rocas en los 4 bordes de la pantalla)
 		//para que el pooglin no se pueda escapar de la pantalla caminando y para 
 		//poder calcular la altura en que se encuetra el pooglin.-
@@ -50,8 +53,8 @@ public class Nivel implements Escenario {
 			this.pooglins[i]=new Pooglin(posicionInicialX,posicionInicialY);
 		}
 	}
-	
-	
+	*/
+
 	public void manejar() {
 	//En revision...
 	//FALTA VER TEMA HABILIDADES DISPONIBLES
