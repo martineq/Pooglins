@@ -33,7 +33,8 @@ public class Nivel implements Escenario {
 		
 		//this.puertaComienzo=new Puerta(X,Y);
 		//this.puertaSalida=new Puerta(X,Y);
-		
+		//Suponemos que pondremos las puertas de entrada y salida siempre en los
+		//mismo lugares????????
 		//Ver...Tiene que lanzar una Excepcion si cantArescatar>cantPersonajes.
 		//Guido.-
 		this.cantidadPooglins=cantidadPersonajes;
@@ -53,7 +54,6 @@ public class Nivel implements Escenario {
 	}
 	
 	
-	
 	public void manejar() {
 	//En construccion ...
 	//Guido.-
@@ -68,21 +68,36 @@ public class Nivel implements Escenario {
 			for(int i=0;i<this.pooglins.length;i++){
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
-				int posicionY=pooglin.getPosicionY();
+				int posicionY=pooglin.getPosicionY();	
+				if (alcanzoSalida(posicionX,posicionY)){
+					pooglinMuerto(pooglin);
+				}else{
+					
+					//Hay un par de cosas que me gustaria revisar aca...va...agregar
+					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
+					if (!terrenoActual.isActivo()){
+						matrizNivel[terrenoActual.getPosicionX()][terrenoActual.getPosicionY()] = new Vacio();
+					}
+					pooglin.mover();
+				}
+				
+
+			//	int posicionY = pooglin.getPosicionY();
 				
 				pooglin.mover();//ver si va primero el mover o primero el revisar nivel Guido.-
 				
 				Terreno terrenoActual=revisarNivel(posicionX,posicionY,pooglin);
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 			
+
 				//Revisandolo, depende de si el mover va antes o despues 
 				//de utilizar el terreno...=mente tengo q obtener las 
 				//nuevas posiciones, x eso no lo dejo comentado...
 				//Guido.-
-				posicionX=pooglin.getPosicionX();
-				posicionY=pooglin.getPosicionY();
-				alcanzoSalida(posicionX,posicionY);
-				pooglinMuerto(pooglin);
+				//posicionX=pooglin.getPosicionX();
+				//posicionY=pooglin.getPosicionY();
+				
 				//Controlar si el usuario quiere activar
 				//alguna habilidad para este pooglin
 				//Guido.-
@@ -97,12 +112,19 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return
 	 */
+
+
 	public Terreno revisarNivel(int posicionX, int posicionY,Personaje pooglin){
 		//EN REVISION ...
 		//Guido.-
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
+
 		//obtengo el terreno de la posicion justo adelante del pooglin
 		Terreno terrenoActual=this.matrizNivel[posicionX][posicionY+1];
+
+		if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
+			terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
+
 		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
 			return terrenoActual=this.matrizNivel[posicionX+1][posicionY];
 		}else{
@@ -111,7 +133,10 @@ public class Nivel implements Escenario {
 			}else{
 			return terrenoActual;//sino devuelvo lo que tiene justo adelante
 			}
+
 		}
+		}
+		return null;		
 		
 		
 	}
@@ -122,12 +147,15 @@ public class Nivel implements Escenario {
 	 * @param posicionX
 	 * @param posicionY
 	 */
-	private void alcanzoSalida(int posicionX,int posicionY){
+	private boolean alcanzoSalida(int posicionX,int posicionY){
 		int coordenadaXpuertaSalida=this.puertaSalida.getPosicionX();
 		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY();
 		if((coordenadaXpuertaSalida==posicionX)&&(coordenadaYpuertaSalida==posicionY)){
 			this.pooglinsARescatar--;
+			//tiene que matar al pooglin?
+			return true;
 		}
+		return false;
 	}
 	
 	/**Metodo privado que controla que el personaje actual
@@ -172,4 +200,6 @@ public class Nivel implements Escenario {
 	public int getCantidadPooglins() {
 		return cantidadPooglins;
 	}
+
+	
 }
