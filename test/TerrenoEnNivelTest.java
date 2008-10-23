@@ -31,11 +31,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel = new Nivel();
 		
 	}
-/* 
-    Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
- 	pooglin.mover();
-	terrenoActual.accionarTerreno(pooglin);
-*/
+	
 	public void testNivelConTierra(){
 		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[i][2] = new Tierra(i,2);
 		nivel.setPuertaComienzo(new Puerta(0,1));
