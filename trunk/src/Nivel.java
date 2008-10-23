@@ -8,13 +8,16 @@
  *
  */
 public class Nivel implements Escenario {
-	private Terreno[][] matrizNivel=new Terreno[50][50];
+	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
 	private int pooglinsARescatar;
 	private int cantidadPooglins;
 	private Puerta puertaComienzo;
 	private Puerta puertaSalida;
+	private Habilidad[] habilidadesDisponibles;
 	
+	
+
 	//Ver si el escenario se va a pasar en una lista o como se van
 	//a pasar las cosas para saber como cargamos la matriz etc
 	//Guido.-
@@ -90,6 +93,7 @@ public class Nivel implements Escenario {
 				//Controlar si el usuario quiere activar
 				//alguna habilidad para este pooglin
 				//Guido.-
+				activarHabilidad(pooglin);
 			}
 			
 		}
@@ -171,7 +175,21 @@ public class Nivel implements Escenario {
 			}
 		}
 	}
-	
+	/**Metodo privado que va a servir para que el 
+	 * usuario pueda activarle al personaje una
+	 * de las habilidades disponibles para el nivel.
+	 * @param pooglin
+	 */
+	private void activarHabilidad(Personaje pooglin){
+		//Funcion que va a servir para que el usuario
+		//pueda activar una de las habilidades
+		//pertenecientes y disponibles en el nivel actual
+		//a cada personaje en particular.
+		//Debe controlar que la habilidad pertenezca a 
+		//las habilitadas para el nivel y que quede
+		//una habilidad de ese tio disponible.-
+		//Guido.-
+	}
 	//Geter's y Seter's Realizados automaticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
 		
@@ -221,6 +239,12 @@ public class Nivel implements Escenario {
 	public void setPuertaSalida(Puerta puertaSalida) {
 		this.puertaSalida = puertaSalida;
 	}
+	public Habilidad[] getHabilidadesDisponibles() {
+		return habilidadesDisponibles;
+	}
 
+	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
+		this.habilidadesDisponibles = habilidadesDisponibles;
+	}
 	
 }
