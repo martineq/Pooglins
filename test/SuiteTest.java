@@ -9,7 +9,6 @@ public class SuiteTest {
        suite.addTestSuite(PlatilloTest.class);       
        suite.addTestSuite(PooglinTest.class);       
        suite.addTestSuite(VacioTest.class);       
-       suite.addTestSuite(TerrenoEnNivelTest.class);       
        suite.addTestSuite(PuertaTest.class);       
        suite.addTestSuite(CongelamientoTest.class); 
        suite.addTestSuite(VelocidadTest.class);        

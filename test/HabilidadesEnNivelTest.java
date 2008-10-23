@@ -81,6 +81,33 @@ public class HabilidadesEnNivelTest extends TestCase {
 	}
 	
 	public void testCaidaSinPlatillo(){
+		int cantidadDePooglin = 2;
+		int cantidadDeMovimientos = 42;
+		
+		pooglins = new Pooglin[cantidadDePooglin];
+		for(int i =0; i<cantidadDePooglin;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(cantidadDePooglin);
+		nivel.setPooglinsARescatar(cantidadDePooglin);
+		//modifico la matriz asi cae el pooglin.
+		for(int i=1;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
+		nivel.setMatrizNivel(matrizNivel);
+	
+		for(int j=0; j<cantidadDeMovimientos;j++){			
+		    for(int i =0; i<cantidadDePooglin;i++){
+				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//((Pooglin)pooglins[i]).usarHabilidad();
+				pooglins[i].mover();
+				terrenoActual.accionarTerreno(pooglins[i]);
+			}
+		}
+			
+		for(int i=0; i<cantidadDePooglin;i++){
+		assertNull(((Pooglin)pooglins[i]).estaVivo());
+		}
+		
 	}
 
 	public void testTaladro(){
@@ -130,7 +157,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 	}
 	
 	public void testCongelarPooglin(){
-			}
+	}
 
 	public void testMatarPooglin(){
 	
