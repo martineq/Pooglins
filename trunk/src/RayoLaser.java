@@ -18,5 +18,10 @@ public class RayoLaser extends Herramienta {
 			}
 		}
 	}
+
+	public void utilizar(Terreno terreno, Pooglin pooglin) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
