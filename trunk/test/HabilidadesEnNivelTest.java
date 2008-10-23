@@ -1,66 +1,4 @@
-/*import junit.framework.TestCase;
-/* 
-    Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
- 	pooglin.mover();
-	terrenoActual.accionarTerreno(pooglin);
-
-	public void testNivelConTierra(){
-		pooglins = new Pooglin[15];
-		for(int i =0; i<15;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
-		nivel.setPooglins(pooglins);
-		nivel.setCantidadPooglins(15);
-		nivel.setPooglinsARescatar(15);
-		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();
-		assertEquals(0,nivel.getPooglinsARescatar());
-	}
-	
-	public void testNivelConHielo(){
-		for(int i=1;i<10;i++) matrizNivel[2][i] = new Hielo(2,i);
-		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();
-		//aca tengo que ver la velocidad de los pooglin en determinado 
-		//momento
-		//edgardo.
-	}
-	
-	public void testNivelConVacio(){
-		nivel.setMatrizNivel(matrizNivel);
-		// nunca llegan a la puerta de salida.
-		nivel.setPuertaSalida(new Puerta(3,48));
-		nivel.manejar();
-		//aca tengo que ver que este vivo el pooglin dando vueltas. 
-		//edgardo.
-	
-	}
-	
-	public void testNivelConFuego(){
-		matrizNivel[2][30] = new Fuego(2,30);
-		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();
-		//aca tengo que ver que el fuego mate al pooglin. 
-		//edgardo.
-	}
-	
-	public void testNivelConRoca(){
-		matrizNivel[2][30] = new Roca(1,20);
-		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();
-		//aca tengo que ver que el pooglin de la vuelta cuando
-		//choca con la roca. 
-		//edgardo.
-	}
-	
-	public void testManejar() {
-	}
-
-	public void testRevisarNivel() {
-	}
-
-}
-*/
 import junit.framework.TestCase;
-
 
 public class HabilidadesEnNivelTest extends TestCase {
 	private int tamanioMatriz=50;
@@ -96,7 +34,49 @@ public class HabilidadesEnNivelTest extends TestCase {
 	}
 	
 	public void testCaidaConPlatillo(){
+		int cantidadDePooglin = 2;
+		int cantidadDeMovimientos = 6;
 		
+		pooglins = new Pooglin[cantidadDePooglin];
+		for(int i =0; i<cantidadDePooglin;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(cantidadDePooglin);
+		nivel.setPooglinsARescatar(cantidadDePooglin);
+		//modifico la matriz asi cae el pooglin.
+		for(int i=2;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
+		nivel.setMatrizNivel(matrizNivel);
+	
+		for(int j=0; j<cantidadDeMovimientos;j++){			
+		    for(int i =0; i<cantidadDePooglin;i++){
+				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//((Pooglin)pooglins[i]).usarHabilidad();
+				pooglins[i].mover();
+				terrenoActual.accionarTerreno(pooglins[i]);
+			}
+		}
+		cantidadDeMovimientos = 42;
+		((Pooglin)pooglins[0]).setHabilidad(new Platillo());
+		for(int j =0; j<cantidadDeMovimientos;j++){			
+		    for(int i =0; i<cantidadDePooglin;i++){
+				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
+				((Pooglin)pooglins[0]).usarHabilidad();
+				pooglins[i].mover();
+				terrenoActual.accionarTerreno(pooglins[i]);
+			}
+		}
+		
+		assertTrue (((Pooglin)pooglins[0]).estaVivo());
+		assertNull(((Pooglin)pooglins[1]).estaVivo());
+		
+		int posicionY = ((Pooglin)pooglins[0]).getPosicionY();
+		assertEquals(3,posicionY);
+		int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
+		assertEquals(2,posicionX);
 		
 	}
 	
