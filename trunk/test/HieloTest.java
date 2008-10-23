@@ -6,8 +6,8 @@ public class HieloTest extends TestCase{
 	private Hielo hielo;
 	
 	protected void setUp(){
-		unPooglin = new Pooglin(0,0);
-		hielo = new Hielo(0,0); //Cambié el constructor
+		unPooglin = new Pooglin(2,1);
+		hielo = new Hielo(2,2); //Cambié el constructor
 	}
 
 	public void testAccionarTerrenoPersonaje() {

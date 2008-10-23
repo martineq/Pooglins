@@ -17,6 +17,8 @@ public class SuiteTest {
        suite.addTestSuite(TerrenoEnNivelTest.class);    
        suite.addTestSuite(TaladroTest.class);   
        suite.addTestSuite(RayoLaserTest.class);   
+       suite.addTestSuite(NivelTest.class);   
+       
        return suite; 
      }
 }
