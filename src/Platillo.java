@@ -17,6 +17,8 @@ public class Platillo extends Herramienta{
 		
 	}
 	
+	public void utilizar(Terreno terreno, Pooglin pooglin){}
+
 	/**Uso de la habilidad Platillo Volador, asegura la vida del pooglin
 	 * y baja su velocidad
 	 * @author mart
