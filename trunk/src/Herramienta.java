@@ -18,4 +18,6 @@ public abstract class Herramienta implements Habilidad {
 
 	public void utilizar(Terreno terreno){}
 
+	public void utilizar(Terreno terreno, Personaje personaje){}
+	
 }
