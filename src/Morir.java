@@ -30,6 +30,11 @@ public class Morir extends Comportamiento {
 	}
 
 	public void utilizar(Terreno terreno) {
+		// no se usa
+	}
+
+	public void utilizar(Terreno terreno, Pooglin pooglin) {
+		// no se usa
 		
 	}
 }
