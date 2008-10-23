@@ -17,7 +17,7 @@ public class Pooglin implements Personaje{
 	private int altura;
 	private int VELOCIDAD_NORMAL=6;
 	/**Constructor de la clase Pooglin. Los valores que no se
-	 * pasan por parámetro tienen un valor por defecto.-
+	 * pasan por parï¿½metro tienen un valor por defecto.-
 	 * @param posicionX
 	 * @param posicionY
 	 */
@@ -32,7 +32,7 @@ public class Pooglin implements Personaje{
 		this.cantTurnosQueNoSeMovio = 0;
 	}
 
-	//Sección de Geter's y Seter's
+	//Secciï¿½n de Geter's y Seter's
 	public int getPosicionX(){
 		return this.posicionX;
 	}
@@ -75,9 +75,9 @@ public class Pooglin implements Personaje{
 	public Habilidad getMatarse(){
 		return matarse;
 	}
-	//Fin de Sección de Geter's y Seter's
+	//Fin de Secciï¿½n de Geter's y Seter's
 	
-	public void mover() { // >>> Acá faltan ver los casos donde se me "acaba" la pantalla.- 
+	public void mover() { // >>> Acï¿½ faltan ver los casos donde se me "acaba" la pantalla.- 
 		this.cantTurnosQueNoSeMovio++;
 		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){
 			return;
@@ -98,12 +98,17 @@ public class Pooglin implements Personaje{
 		this.cantTurnosQueNoSeMovio=0;
 	}
 	
-	/**Método donde el pooglin desaparece de "pantalla".-
+	/**Mï¿½todo donde el pooglin desaparece de "pantalla".-
 	 * @since 18/10/08
 	 */
 	public void borrarse(){
 		this.setPosicionX(-1);
 		this.setPosicionY(-1);
+	}
+	
+	//agrego para poder utilizar congelar y el matar.
+	public void usarHabilidad(){
+		this.getHabilidad().utilizar(this);	
 	}
 
 	public void usarHabilidad(Terreno terreno) {
