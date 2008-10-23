@@ -10,7 +10,6 @@ public class Platillo extends Herramienta{
 	private static int VELOCIDAD_PLATILLO = 7;
 	
 	/**Constructor de Platillo.-
-	 * @author mart
 	 * @since 18/10/08 
 	 */
 	public Platillo(){
@@ -21,7 +20,6 @@ public class Platillo extends Herramienta{
 
 	/**Uso de la habilidad Platillo Volador, asegura la vida del pooglin
 	 * y baja su velocidad
-	 * @author mart
 	 * @since 18/10/08 
 	 */
 	public void utilizar(Personaje personaje) {

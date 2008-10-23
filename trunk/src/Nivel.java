@@ -100,10 +100,9 @@ public class Nivel implements Escenario {
 	}
 
 	/**Método que devuelve el terreno dado por la posición X e Y.
-	 * @author guido
 	 * @param posicionX
 	 * @param posicionY
-	 * @return
+	 * @return Terreno
 	 */
 	public Terreno revisarNivel(int posicionX, int posicionY,Personaje pooglin){
 		//EN REVISION ...
