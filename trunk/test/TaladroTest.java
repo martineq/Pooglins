@@ -1,4 +1,3 @@
-import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
 
@@ -12,10 +11,10 @@ public class TaladroTest extends TestCase{
 		this.terreno = new Tierra(0,0);
 		this.pooglin = new Pooglin(0,0);
 		this.terreno2 = new Roca(0,0);
+		taladro = new Taladro();
 	}
 	
 	public void testUtilizarTaladro(){
-		taladro = new Taladro();
 		taladro.utilizar(terreno, pooglin);
 		assertEquals(1,taladro.getCantidadExcavaciones());
 		assertEquals(false,terreno.isActivo());
