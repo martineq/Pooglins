@@ -1,3 +1,4 @@
+
 import junit.framework.TestCase;
 
 public class FuegoTest extends TestCase {
