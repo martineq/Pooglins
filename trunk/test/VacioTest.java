@@ -11,6 +11,9 @@ public class VacioTest extends TestCase {
 	
 	public void testAccionarTerrenoProfundo(){
 		vacio.accionarTerreno(unPooglin);
+		//revisar la clase vacio porque no se modifica en ningun
+		//lugar el atributo altura.
+		//assertEquals(unPooglin.getVelocidad().modulo(),5);
 //aca se debe probar la velocidad del poolglin
 		
 	}
