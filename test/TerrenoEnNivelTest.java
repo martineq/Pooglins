@@ -61,15 +61,6 @@ public class TerrenoEnNivelTest extends TestCase {
 		assertEquals(0,nivel.getCantidadPooglins());
 	}
 	
-	public void testNivelConVacio(){
-		nivel.setMatrizNivel(matrizNivel);
-		// nunca llegan a la puerta de salida.
-		nivel.setPuertaSalida(new Puerta(3,48));
-		nivel.manejar();//NO HAY FORMA DE VERLO DESDE NIVEL
-		//aca tengo que ver que este vivo el pooglin dando vueltas. 
-		//edgardo.
-	
-	}
 	
 	public void testNivelConFuego(){
 		for(int i=1;i<tamanioMatriz-1;i++) matrizNivel[i][11] = new Hielo(i,11);
@@ -85,19 +76,11 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(25);
 		nivel.setPooglinsARescatar(15);
 		nivel.manejar();
-		assertEquals(0,nivel.getCantidadPooglins());
-		//aca tengo que ver que el fuego mate al pooglin. 
-		//edgardo.
+		assertEquals(0,nivel.getCantidadPooglins());//Si los pooglins no llegan a la puerta es xq el fuego los mato.
+		
 	}
 	
-	public void testNivelConRoca(){
-		matrizNivel[2][30] = new Roca(1,20);
-		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();//NO HAY FORMA DE VERLO DESDE NIVEL
-		//aca tengo que ver que el pooglin de la vuelta cuando
-		//choca con la roca. 
-		//edgardo.
-	}
+	
 	
 	public void testManejar() {
 	}
