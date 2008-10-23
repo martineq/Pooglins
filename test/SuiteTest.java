@@ -14,7 +14,9 @@ public class SuiteTest {
        suite.addTestSuite(VelocidadTest.class);        
        suite.addTestSuite(MorirTest.class);        
        suite.addTestSuite(HabilidadesEnNivelTest.class);        
-       suite.addTestSuite(TerrenoEnNivelTest.class);        
+       suite.addTestSuite(TerrenoEnNivelTest.class);    
+       suite.addTestSuite(TaladroTest.class);   
+       suite.addTestSuite(RayoLaserTest.class);   
        return suite; 
      }
 }
