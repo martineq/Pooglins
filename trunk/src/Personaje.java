@@ -12,5 +12,4 @@ public interface Personaje {
 	 */
 	public void mover();
 	
-	
 }

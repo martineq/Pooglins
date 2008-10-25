@@ -1,10 +1,7 @@
 
-/**
- * 
- */
 
 /**Clase Tierra: esta clase es un terreno mas que utilizaremos para el juego, el 
- * cual podra ser destruido por un taladro o actuar como obstaculo, y ser destruido
+ * cual podrá ser destruido por un taladro o actuar como obstáculo, y ser destruido
  * por una cantidad determinada de tiros de RayoLaser
  * 
  * @author lkolaric
@@ -14,9 +11,12 @@ public class Tierra extends Terreno {
 
 	/**
 	 * PosicionX, PosicionY son atributos enteros necesarios en la clase
-	 * para poder comparar la posicion del terreno con la del Pooglin.
+	 * para poder comparar la posición del terreno con la del Pooglin.
 	 */
 	
+	private static int VELOCIDAD_NULA = 0;
+	private static int VELOCIDAD_NORMAL = 6;
+
 	private int resistencia = 4;
 	
 	public Tierra(int posicionX,int posicionY){
@@ -38,27 +38,28 @@ public class Tierra extends Terreno {
 	}
 	
 	private void accionarAbajo(Pooglin pooglin) {
+		Velocidad auxVelocidad = pooglin.getVelocidad();
+		auxVelocidad.setVelocidadX( ( (auxVelocidad.getVelocidadX()) / Math.abs( auxVelocidad.getVelocidadX()) ) * VELOCIDAD_NORMAL);
+		pooglin.setVelocidad(auxVelocidad); //Agregado para que la tierra setee una velocidad cuando se está caminando sobre ella. Mart.-
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof Taladro){
 			pooglin.usarHabilidad(this);
-		}else {}
+		}else {
+			
+		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see Terreno#accionarTerreno(Personaje)
-	 */
-	public void accionarTerreno(Personaje pooglin) {
+	public void accionarTerreno(Personaje pooglin) { //>>> Fijarse si está bien la condición del if o si es al revés. Mart.-
 		if (((Pooglin) pooglin).getPosicionY() == this.getPosicionY()){
 			this.accionarLateral((Pooglin)pooglin);
 		}else{
-			Velocidad velocidad= ((Pooglin) pooglin).getVelocidad();
-			velocidad.setVelocidadY(0);
+			Velocidad velocidad = ((Pooglin) pooglin).getVelocidad();
+			velocidad.setVelocidadY(VELOCIDAD_NULA);
 			((Pooglin) pooglin).setVelocidad(velocidad);
 			this.accionarAbajo((Pooglin)pooglin);
 		}
 	}
 	
-
 	public int getResistencia() {
 		return resistencia;
 	}
@@ -66,6 +67,5 @@ public class Tierra extends Terreno {
 	public void setResistencia(int resistencia) {
 		this.resistencia = resistencia;
 	}
-	
 	
 }

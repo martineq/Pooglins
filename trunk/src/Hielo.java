@@ -1,9 +1,5 @@
 
 /**
- * 
- */
-
-/**
  * @author guido
  *
  */
@@ -19,8 +15,9 @@ public class Hielo extends Terreno {
 	}
 	
 	private static int VELOCIDAD_HIELO = 5;
+	private static int VELOCIDAD_NULA = 0;
 	
-	/**Este metodo le "aumenta" la velocidad al pooglin una vez que este
+	/**Este método le "aumenta" la velocidad al pooglin una vez que este
 	 * pisa Hielo.-
 	 * @param pooglin
 	 */
@@ -32,23 +29,23 @@ public class Hielo extends Terreno {
 		auxiliarPooglin.setVelocidad(auxiliarVelocidad);
 	}
 	
-	/**Redefino el metodo de la interfaz con la lógica propia de 
+	/**Redefino el método de la interfaz con la lógica propia de 
 	 * este tipo de terreno.
-	 * Ademas de permitir que el pooglin este parado sobre hielo,
+	 * Además de permitir que el pooglin este parado sobre hielo,
 	 * puede haber hielo lateralmente y simplemente le cambia la
-	 * direccion a la velocidad del pooglin.
+	 * Dirección a la velocidad del pooglin.
 	 * @param pooglin
 	 */
-	public void accionarTerreno(Personaje pooglin){
-		Pooglin pooglinAuxiliar=(Pooglin)pooglin;
+	public void accionarTerreno(Personaje pooglin){ //>>> Fijarse si está bien la condición del if o si es al revés. Mart.-
+		Pooglin pooglinAuxiliar = (Pooglin)pooglin;
 		if ( pooglinAuxiliar.getPosicionY() == this.getPosicionY()){//Caso en que el pooglin tiene hielo adelante.
-			Velocidad velocidad = pooglinAuxiliar.getVelocidad();
+			Velocidad velocidad = pooglinAuxiliar.getVelocidad();   //>>> Si están en la misma "Y" ¿no es el caso del hielo abajo del pooglin?
 			velocidad.cambiarDireccion();
-			velocidad.setVelocidadY(0);
+			velocidad.setVelocidadY(VELOCIDAD_NULA);
 			pooglinAuxiliar.setVelocidad(velocidad);
 		}else{//Es el caso que el pooglin pisa el hielo.
-			Velocidad velocidad= ((Pooglin) pooglin).getVelocidad();
-			velocidad.setVelocidadY(0);
+			Velocidad velocidad = ((Pooglin)pooglin).getVelocidad();
+			velocidad.setVelocidadY(VELOCIDAD_NULA);
 			pooglinAuxiliar.setVelocidad(velocidad);
 			acelerarPooglin(pooglin);
 		}

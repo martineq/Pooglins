@@ -17,9 +17,10 @@ public class AgujeroNegro extends Terreno {
 	public void accionarTerreno(Personaje pooglin) {
 		
 	}
-
+	
+    /* ¿Se va a usar?
 	public void accionarTerreno(Personaje pooglin,Nivel campo) {
 	
-	}
+	}*/
 
 }

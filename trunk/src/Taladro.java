@@ -1,12 +1,13 @@
 
 
-
-/**Taladro: es una herramienta que permite destruir un terreno que sea Tierra.
+/**Taladro: Es una herramienta que permite destruir un terreno que sea Tierra.
  * @author lkolaric
  *
  */
 public class Taladro extends Herramienta {
 	
+	private static int MAX_EXCAVACIONES = 5;
+	private static int VELOCIDAD_NORMAL = 6;
 	private int cantidadExcavaciones;
 	
 	public Taladro(){
@@ -14,12 +15,12 @@ public class Taladro extends Herramienta {
 	}
 	
 	public void utilizar(Terreno terreno, Pooglin pooglin) {
-		if (this.getCantidadExcavaciones() < 5){
+		if ( this.getCantidadExcavaciones() < MAX_EXCAVACIONES ){
 			if (terreno instanceof Tierra){
 				this.setCantidadExcavaciones(this.getCantidadExcavaciones() + 1);
 				terreno.setActivo(false);
 				Velocidad velocidad = ((Pooglin) pooglin).getVelocidad();
-				velocidad.setVelocidadY(6);//velocidad normal
+				velocidad.setVelocidadY(VELOCIDAD_NORMAL);
 				((Pooglin) pooglin).setVelocidad(velocidad);
 			}
 		}

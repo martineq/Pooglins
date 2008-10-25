@@ -11,14 +11,13 @@ public class Congelamiento extends Comportamiento {
 		Habilidad morir = ((Pooglin)personaje).getMatarse();
 		morir.utilizar(personaje);
 		//Me parece que en el caso de que use el congelamiento
-		//tendria que cambiar el terreno "vacio" por un "hielo" con un setActivo()
-		//pero en ese caso necesito el terreno, otra seria que esto lo cambie el Nivel
+		//tendría que cambiar el terreno "vacío" por un "hielo" con un setActivo()
+		//pero en ese caso necesito el terreno, otra sería que esto lo cambie el Nivel
 	}
 
-	 /* (non-Javadoc)
-	 * @see Comportamiento#utilizar(Terreno)
-	 */
-	public void utilizar(Terreno terreno, Pooglin pooglin){}
+	public void utilizar(Terreno terreno, Pooglin pooglin){
+		
+	}
 
 	public void utilizar(Terreno terreno) {
 		if (terreno instanceof Vacio){

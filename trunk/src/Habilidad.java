@@ -15,4 +15,5 @@ public interface Habilidad {
 
 	public void utilizar(Terreno terreno, Pooglin pooglin);
 	
+	
 }

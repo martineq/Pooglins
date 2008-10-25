@@ -38,7 +38,7 @@ public class Vacio extends Terreno {
 
 	public void accionarTerreno(Personaje pooglin) {
 		if ( ((Pooglin)pooglin).getAltura() > 0 ){ //Es el caso donde el pooglin está en el aire (está cayendo).-
-			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > ALTURA_MAX el poooglin muere, a menos que la habilidad que tenga sea un platillo.-
+			if( ((Pooglin)pooglin).getAltura() > ALTURA_MAX ){ //Si estoy con altura > ALTURA_MAX el pooglin muere, a menos que la habilidad que tenga sea un platillo.-
 				Habilidad morir = ((Pooglin)pooglin).getMatarse();
 				morir.utilizar(pooglin);
 				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
@@ -50,7 +50,7 @@ public class Vacio extends Terreno {
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){
-				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ){ //Si venia cayendo, freno la caida.-
+				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ){ //Si venia cayendo, freno la caída.-
 					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(VELOCIDAD_NULA); 
 			   	}else{//es el caso en el que el pooglin esta vivo y en el suelo, 
 			   		Habilidad habilidadActual=((Pooglin)pooglin).getHabilidad();
@@ -59,7 +59,7 @@ public class Vacio extends Terreno {
 			   			((Pooglin)pooglin).usarHabilidad(this);//transforma el terreno en Hielo
 			   		}
 			   	}
-				//Me parece que el proximo "pooglin.mover();" no va porque antes tengo 
+				//Me parece que el próximo "pooglin.mover();" no va porque antes tengo 
 				//que saber que velocidad va a tener el personaje al hacer el 
 				//"accionarTerreno" de los otros terrenos como hielo, roca, tierra
 				//porque sino se va a mover con la velocidad del último terreno pisado.-
@@ -70,7 +70,6 @@ public class Vacio extends Terreno {
 				((Pooglin)pooglin).borrarse(); //Si está "muerto" y "en el piso" desaparece de pantalla.-
 			}								    
 		}
-		
 	}
 	
 	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
@@ -82,5 +81,4 @@ public class Vacio extends Terreno {
 		velocidadActual.setVelocidadY( (-1) * VELOCIDAD_NORMAL ); 
 		pooglin.setVelocidad(velocidadActual);
 	}	
-	
 }

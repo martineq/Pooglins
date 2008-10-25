@@ -25,7 +25,7 @@ public class Morir extends Comportamiento {
 		//MATAMOS 
 	    //Guido.-
 		//El pooglin se "borrará" de pantalla cuando se encuentre en altura cero 
-		//y tenga la condicion de vivo == false (para que no muera en el aire). 
+		//y tenga la condición de vivo == false (para que no muera en el aire). 
 		//Además hay que comprobar que no se encuentre congelado. Mart.-
 	}
 
