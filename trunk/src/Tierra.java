@@ -24,20 +24,23 @@ public class Tierra extends Terreno {
 	
 	private void accionarLateral(Pooglin pooglin) {
 		Habilidad habilidad = pooglin.getHabilidad();
+		Velocidad velocidad = pooglin.getVelocidad();
 		if (habilidad instanceof RayoLaser){
 			pooglin.usarHabilidad(this);
+			if (this.isActivo()){
+				velocidad.cambiarDireccion();
+			}
 		}else {
-			Velocidad velocidad = pooglin.getVelocidad();
 			velocidad.cambiarDireccion();
-			pooglin.setVelocidad(velocidad);
 		}
+		pooglin.setVelocidad(velocidad);
 		
 	}
 	
 	private void accionarAbajo(Pooglin pooglin) {
 		Velocidad auxVelocidad = pooglin.getVelocidad();
 		auxVelocidad.setVelocidadX( ( (auxVelocidad.getVelocidadX()) / Math.abs( auxVelocidad.getVelocidadX()) ) * Velocidad.VELOCIDAD_NORMAL);
-		pooglin.setVelocidad(auxVelocidad); 
+		pooglin.setVelocidad(auxVelocidad); //esto hay que verlo...
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof Taladro){
 			pooglin.usarHabilidad(this);
