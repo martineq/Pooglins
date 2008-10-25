@@ -6,8 +6,7 @@
  */
 public class Taladro extends Herramienta {
 	
-	private static int MAX_EXCAVACIONES = 5;
-	private static int VELOCIDAD_NORMAL = 6;
+	private final static int MAX_EXCAVACIONES = 5;
 	private int cantidadExcavaciones;
 	
 	public Taladro(){
@@ -20,7 +19,7 @@ public class Taladro extends Herramienta {
 				this.setCantidadExcavaciones(this.getCantidadExcavaciones() + 1);
 				terreno.setActivo(false);
 				Velocidad velocidad = ((Pooglin) pooglin).getVelocidad();
-				velocidad.setVelocidadY(VELOCIDAD_NORMAL);
+				velocidad.setVelocidadY(Velocidad.VELOCIDAD_NORMAL);
 				((Pooglin) pooglin).setVelocidad(velocidad);
 			}
 		}
