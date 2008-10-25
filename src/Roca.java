@@ -5,8 +5,6 @@
  */
 public class Roca extends Terreno {
 
-	private static int VELOCIDAD_NULA = 0;
-	private static int VELOCIDAD_NORMAL = 6;
 	
 	public Roca(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
@@ -17,12 +15,10 @@ public class Roca extends Terreno {
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
 		Velocidad velocidad = pooglin.getVelocidad();
-		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso donde estoy sobre la roca.-
-			velocidad.setVelocidadY(VELOCIDAD_NULA);
-			velocidad.setVelocidadX( ( (velocidad.getVelocidadX()) / Math.abs( velocidad.getVelocidadX()) ) * VELOCIDAD_NORMAL);
-		}else {  /* Agrego el caso donde me voy a encontrar con una roca de frente. Mart.- */
-		    velocidad.cambiarDireccion();
-			velocidad.setVelocidadY(VELOCIDAD_NULA);
+		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca
+			 velocidad.cambiarDireccion();//aca no me importa la velocidad en Y, supuestamente tiene que ser nula
+		}else {  //caso sobre la roca
+			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		}
 		pooglin.setVelocidad(velocidad);
 	}

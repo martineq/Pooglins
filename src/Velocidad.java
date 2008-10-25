@@ -20,7 +20,10 @@ public class Velocidad {
 	 * VELOCIDAD_MAXIMA = 5
 	 * */
 	
-	private static int VELOCIDAD_NULA = 0;
+	public final static int VELOCIDAD_PLATILLO = 7;
+	public final static int VELOCIDAD_MAXIMA = 5;
+	public final static int VELOCIDAD_NORMAL = 6;
+	public final static int VELOCIDAD_NULA = 0;
 	private int velocidadX;
 	private int velocidadY;
 	
