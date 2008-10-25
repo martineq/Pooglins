@@ -1,5 +1,4 @@
 
-
 /**
  * @author guido
  *
@@ -8,8 +7,7 @@ public class Puerta {
 	private int posicionX;
 	private int posicionY;
 	
-	
-	/**Constructor clase puerta, solo atraves de este
+	/**Constructor clase puerta, solo a través de este
 	 * se puede setear las coordenadas de las puertas
 	 * dado que las mismas son fijas y constantes
 	 *  para cada nivel.-

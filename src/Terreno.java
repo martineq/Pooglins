@@ -8,7 +8,7 @@
  *
  */
 public abstract class Terreno {
-	/**PosicionX y PosicionY seran atributos de esta clase abstracta debido a que la 
+	/**PosicionX y PosicionY serán atributos de esta clase abstracta debido a que la 
 	 * clase Nivel, las habilidad y hasta ellas mismas necesitan saber en que posicion
 	 * de la matriz principal se encuentran.
 	 */
@@ -16,10 +16,9 @@ public abstract class Terreno {
 	private int posicionY;
 	private boolean activo;
 	
-	
 	public abstract void accionarTerreno(Personaje pooglin);
 	
-	//Getters and Setters generados automaticamente.
+	//Getters and Setters generados automaticamente.-
 	public int getPosicionX() {
 		return posicionX;
 	}
