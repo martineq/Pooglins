@@ -13,9 +13,6 @@ public class Nivel implements Escenario {
 	private Puerta puertaSalida;
 	private Habilidad[] habilidadesDisponibles;
 
-	private static int VELOCIDAD_NULA = 0;
-	private static int VELOCIDAD_NORMAL = 6;
-	
 	//Ver si el escenario se va a pasar en una lista o como se van
 	//a pasar las cosas para saber como cargamos la matriz etc
 	//Guido.-
@@ -111,13 +108,13 @@ public class Nivel implements Escenario {
 		//obtengo el terreno de la posición justo adelante del pooglin
 		Terreno terrenoActual=this.matrizNivel[posicionX+1][posicionY];
 		
-		if(velocidad.getVelocidadY()!= VELOCIDAD_NULA){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
+		if(velocidad.getVelocidadY()!= Velocidad.VELOCIDAD_NULA){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
 			return ( terrenoActual=this.matrizNivel[posicionX][posicionY+1] );
 		}else{
 			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
 				terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
 				if (terrenoActual instanceof Vacio){ //Si se va a caer seteo la velocidad en "Y".-
-					velocidad.setVelocidadY(VELOCIDAD_NORMAL);
+					velocidad.setVelocidadY(Velocidad.VELOCIDAD_NORMAL);
 					((Pooglin)pooglin).setVelocidad(velocidad);
 				}
 				return terrenoActual;

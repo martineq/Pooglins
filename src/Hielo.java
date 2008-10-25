@@ -14,8 +14,8 @@ public class Hielo extends Terreno {
 		this.setActivo(true);
 	}
 	
-	private static int VELOCIDAD_HIELO = 5;
-	private static int VELOCIDAD_NULA = 0;
+	/*private static int VELOCIDAD_HIELO = 5;
+	private static int VELOCIDAD_NULA = 0;*/
 	
 	/**Este método le "aumenta" la velocidad al pooglin una vez que este
 	 * pisa Hielo.-
@@ -25,7 +25,7 @@ public class Hielo extends Terreno {
 		Pooglin auxiliarPooglin = (Pooglin) pooglin;
 		Velocidad auxiliarVelocidad = auxiliarPooglin.getVelocidad();
 		int velocidadX = auxiliarVelocidad.getVelocidadX();
-		auxiliarVelocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * VELOCIDAD_HIELO);
+		auxiliarVelocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * Velocidad.VELOCIDAD_MAXIMA);
 		auxiliarPooglin.setVelocidad(auxiliarVelocidad);
 	}
 	
@@ -41,11 +41,11 @@ public class Hielo extends Terreno {
 		if ( pooglinAuxiliar.getPosicionY() == this.getPosicionY()){//Caso en que el pooglin tiene hielo adelante.
 			Velocidad velocidad = pooglinAuxiliar.getVelocidad();   //>>> Si están en la misma "Y" ¿no es el caso del hielo abajo del pooglin?
 			velocidad.cambiarDireccion();
-			velocidad.setVelocidadY(VELOCIDAD_NULA);
+			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 			pooglinAuxiliar.setVelocidad(velocidad);
 		}else{//Es el caso que el pooglin pisa el hielo.
 			Velocidad velocidad = ((Pooglin)pooglin).getVelocidad();
-			velocidad.setVelocidadY(VELOCIDAD_NULA);
+			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 			pooglinAuxiliar.setVelocidad(velocidad);
 			acelerarPooglin(pooglin);
 		}
