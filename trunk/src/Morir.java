@@ -5,7 +5,6 @@
  */
 public class Morir extends Comportamiento {
 
-	private static int VELOCIDAD_NULA = 0;
 	
 	/**Constructor de Morir.-
 	 * 
@@ -18,8 +17,8 @@ public class Morir extends Comportamiento {
 		Pooglin poglin = (Pooglin)pooglin;
 		poglin.setVivo(false);
 		Velocidad velocidad = poglin.getVelocidad();
-		velocidad.setVelocidadX(VELOCIDAD_NULA);
-		velocidad.setVelocidadY(VELOCIDAD_NULA);
+		velocidad.setVelocidadX(Velocidad.VELOCIDAD_NULA);
+		velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		poglin.setVelocidad(velocidad);
 		//REVISAR SI VAMOS A SACARLO DE LA PANTALLA CUANDO LO 
 		//MATAMOS 

@@ -1,7 +1,7 @@
 
 /**Clase que representa a los bloques de terreno donde el pooglin se desplaza.-
  * @author lkolaric
- * @version 2(Mart)
+ *
  */
 public class Roca extends Terreno {
 
