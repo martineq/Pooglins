@@ -5,6 +5,8 @@
  */
 public class Vacio extends Terreno {
 
+	private static int VELOCIDAD_NORMAL = 6;
+	private static int VELOCIDAD_NULA = 0;
 	private static int ALTURA_MAX = 5;
 	private int posicionX;
 	private int posicionY;
@@ -48,8 +50,8 @@ public class Vacio extends Terreno {
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){
-				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != Velocidad.VELOCIDAD_NULA ){ //Si venia cayendo, freno la caída.-
-					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(Velocidad.VELOCIDAD_NULA); 
+				if ( (((Pooglin)pooglin).getVelocidad()).getVelocidadY() != VELOCIDAD_NULA ){ //Si venia cayendo, freno la caída.-
+					(((Pooglin)pooglin).getVelocidad()).setVelocidadY(VELOCIDAD_NULA); 
 			   	}else{//es el caso en el que el pooglin esta vivo y en el suelo, 
 			   		Habilidad habilidadActual=((Pooglin)pooglin).getHabilidad();
 			   		if(habilidadActual instanceof Congelamiento){
@@ -76,7 +78,7 @@ public class Vacio extends Terreno {
 	 */
 	private void caer(Pooglin pooglin){
 		Velocidad velocidadActual = pooglin.getVelocidad();
-		velocidadActual.setVelocidadY( (-1) * Velocidad.VELOCIDAD_NORMAL ); 
+		velocidadActual.setVelocidadY( (-1) * VELOCIDAD_NORMAL ); 
 		pooglin.setVelocidad(velocidadActual);
 	}	
 }

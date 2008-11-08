@@ -1,8 +1,3 @@
-
-/**
- * 
- */
-
 /**Terreno: clase abstracta que representa el concepto de terreno en el juego
  * @author lkolaric
  *
