@@ -2,6 +2,7 @@
 /**
  * @author guido
  *
+ *
  */
 public class Puerta {
 	private int posicionX;

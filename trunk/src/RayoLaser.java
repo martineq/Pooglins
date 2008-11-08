@@ -5,6 +5,7 @@
  * cuando sea cero, quiere decir que el terreno esta destruido y que ya no esta
  * mas activo.-
  * @author lkolaric
+ * 
  *
  */
 public class RayoLaser extends Herramienta {

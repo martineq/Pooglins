@@ -2,6 +2,7 @@
 /**
  * @author guido
  *
+ *
  */
 public class Teletransportarse extends Comportamiento{
 	

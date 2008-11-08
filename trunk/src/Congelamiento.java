@@ -1,9 +1,8 @@
 
-
-
 /**Representa la habilidad que tiene un pooglin de congelarse.-
  * @author Mart
  * @since 18/10/08
+ * 
  */
 public class Congelamiento extends Comportamiento {
 

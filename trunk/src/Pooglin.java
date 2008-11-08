@@ -1,7 +1,9 @@
 
+
 /**Clase que representa a el personaje Pooglin.-
  * @author Mart
  * @since 11/10/08
+ * 
  */
 public class Pooglin implements Personaje{
 
@@ -10,12 +12,12 @@ public class Pooglin implements Personaje{
 	private Velocidad velocidad;
 	private Habilidad habilidad;
 	private boolean vivo;
-	private Habilidad matarse; //Composición con clase Morir. Guido.-
+	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
 	private int altura;
 	private int VELOCIDAD_NORMAL=6;
 	/**Constructor de la clase Pooglin. Los valores que no se
-	 * pasan por parámetro tienen un valor por defecto.-
+	 * pasan por parï¿½metro tienen un valor por defecto.-
 	 * @param posicionX
 	 * @param posicionY
 	 */
@@ -26,11 +28,11 @@ public class Pooglin implements Personaje{
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad();
 		this.velocidad.setVelocidadX(VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
-		this.matarse = new Morir(); //Agrego al constructor la línea para crear atributo Matarse.Guido.-
+		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
 		this.cantTurnosQueNoSeMovio = 0;
 	}
 
-	//Sección de Geter's y Seter's
+	//Secciï¿½n de Geter's y Seter's
 	public int getPosicionX(){
 		return this.posicionX;
 	}
@@ -66,7 +68,6 @@ public class Pooglin implements Personaje{
 	public void setVelocidad(Velocidad rapidezMovimiento){
 		this.velocidad=rapidezMovimiento;
 	}
-	
 	public Velocidad getVelocidad(){
 		return this.velocidad;
 	}
@@ -74,38 +75,30 @@ public class Pooglin implements Personaje{
 	public Habilidad getMatarse(){
 		return matarse;
 	}
-
-	public int getAltura() {
-		return altura;
-	}
-
-	public void setAltura(int altura) {
-		this.altura = altura;
-	}
-	//Fin de Sección de Geter's y Seter's
+	//Fin de Secciï¿½n de Geter's y Seter's
 	
-	public void mover() { // >>> Acá faltan ver los casos donde se me "acaba" la pantalla.- 
+	public void mover() { // >>> Acï¿½ faltan ver los casos donde se me "acaba" la pantalla.- 
 		this.cantTurnosQueNoSeMovio++;
-		if(this.cantTurnosQueNoSeMovio != this.velocidad.modulo()){
+		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){
 			return;
 		}
 		
-		if ( this.velocidad.getVelocidadY() > 0 ){
-			this.setPosicionY( this.getPosicionY() + 1 );
-			this.setAltura( this.getAltura() + 1 ); //Me parece que no sirve porque no me da la altura sino la cantidad que estuve cayendo.-
-		}else if ( this.velocidad.getVelocidadY() < 0 ){
-				this.setPosicionY( this.getPosicionY() - 1 );
-				this.setAltura( this.getAltura() + 1 ); //Me parece que no sirve porque no me da la altura sino la cantidad que estuve cayendo.-
-			  }else if ( this.velocidad.getVelocidadX() > 0 ){
-					  this.setPosicionX( this.getPosicionX() + 1 );
-				    }else if ( this.velocidad.getVelocidadX() < 0 ){
-							this.setPosicionX( this.getPosicionX() - 1 );
+		if ( this.velocidad.getVelocidadY()>0 ){
+			this.setPosicionY(this.getPosicionY()+1);
+			this.setAltura(this.getAltura() + 1);
+		}else if ( this.velocidad.getVelocidadY()<0 ){
+				this.setPosicionY(this.getPosicionY()-1);
+				this.setAltura(this.getAltura() + 1);
+			  }else if ( this.velocidad.getVelocidadX()>0 ){
+					  this.setPosicionX(this.getPosicionX()+1);
+				    }else if (this.velocidad.getVelocidadX()<0){
+							this.setPosicionX(this.getPosicionX()-1);
 				    	  }
 		
-		this.cantTurnosQueNoSeMovio = 0;
+		this.cantTurnosQueNoSeMovio=0;
 	}
 	
-	/**Método donde el pooglin desaparece de "pantalla".-
+	/**Mï¿½todo donde el pooglin desaparece de "pantalla".-
 	 * @since 18/10/08
 	 */
 	public void borrarse(){
@@ -122,4 +115,11 @@ public class Pooglin implements Personaje{
 		this.getHabilidad().utilizar(terreno);
 	}
 
+	public int getAltura() {
+		return altura;
+	}
+
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
 }

@@ -4,8 +4,11 @@
 /**Clase que representa la habilidad del pooglin de usar un platillo volador.-
  * @author Mart
  * @since 12/10/08
+ * 
  */
 public class Platillo extends Herramienta{
+	
+	private static int VELOCIDAD_PLATILLO = 7;
 	
 	/**Constructor de Platillo.-
 	 * @since 18/10/08 
@@ -23,7 +26,7 @@ public class Platillo extends Herramienta{
 	public void utilizar(Personaje personaje) {
 		((Pooglin)personaje).setVivo(true);
 		Velocidad velocidadActual = ((Pooglin)personaje).getVelocidad();
-		velocidadActual.setVelocidadY( -1 * Velocidad.VELOCIDAD_PLATILLO ); 
+		velocidadActual.setVelocidadY( -1 * VELOCIDAD_PLATILLO ); 
 		((Pooglin)personaje).setVelocidad(velocidadActual);
 	}
 		
