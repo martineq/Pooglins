@@ -1,14 +1,11 @@
 
-/**
- * 
- */
-
-/**
+/**Clase que representa a los bloques de terreno donde el pooglin se desplaza.-
  * @author lkolaric
- *
+ * @version 2
  */
 public class Roca extends Terreno {
 
+	
 	public Roca(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
@@ -17,12 +14,13 @@ public class Roca extends Terreno {
 	
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
-		if ( pooglin.getPosicionY() == this.getPosicionY()){
-			Velocidad velocidad = pooglin.getVelocidad();
-			velocidad.cambiarDireccion();
-			velocidad.setVelocidadY(0);
-			pooglin.setVelocidad(velocidad);
-		}else {}
+		Velocidad velocidad = pooglin.getVelocidad();
+		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca
+			 velocidad.cambiarDireccion();//aca no me importa la velocidad en Y, supuestamente tiene que ser nula
+		}else {  //caso sobre la roca
+			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
+		}
+		pooglin.setVelocidad(velocidad);
 	}
 
 }

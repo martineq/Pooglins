@@ -15,7 +15,6 @@ public class Pooglin implements Personaje{
 	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
 	private int altura;
-	private int VELOCIDAD_NORMAL=6;
 	/**Constructor de la clase Pooglin. Los valores que no se
 	 * pasan por parï¿½metro tienen un valor por defecto.-
 	 * @param posicionX
@@ -27,7 +26,8 @@ public class Pooglin implements Personaje{
 		this.setPosicionY(posicionY);
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad();
-		this.velocidad.setVelocidadX(VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
+		this.velocidad.setVelocidadX(Velocidad.VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
+		//¿No arrancarían con velocidad en "Y" igualada a cero?
 		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
 		this.cantTurnosQueNoSeMovio = 0;
 	}
