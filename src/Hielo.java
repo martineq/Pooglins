@@ -15,8 +15,6 @@ public class Hielo extends Terreno {
 		this.setActivo(true);
 	}
 	
-	private static int VELOCIDAD_HIELO = 5;
-	
 	/**Este metodo le "aumenta" la velocidad al pooglin una vez que este
 	 * pisa Hielo.-
 	 * @param pooglin
@@ -25,7 +23,7 @@ public class Hielo extends Terreno {
 		Pooglin auxiliarPooglin = (Pooglin) pooglin;
 		Velocidad auxiliarVelocidad = auxiliarPooglin.getVelocidad();
 		int velocidadX = auxiliarVelocidad.getVelocidadX();
-		auxiliarVelocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * VELOCIDAD_HIELO);
+		auxiliarVelocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * Velocidad.VELOCIDAD_MAXIMA);
 		auxiliarPooglin.setVelocidad(auxiliarVelocidad);
 	}
 	

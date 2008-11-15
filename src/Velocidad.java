@@ -4,8 +4,8 @@
  * pooglin y, de esta manera, hacer mas simple la clase pooglin.
  * Lo que estamos proponiendo es que cada clase que modifique la velocidad del pooglin, lo
  * haga por ella misma, es decir, como si el hielo tuviera un coeficiente de rozamiento
- * y ELLO le modificara la velocidad. De esta manera, conceptualmente hablando estaria bien y 
- * el codigo seria simple.
+ * y ELLO le modificara la velocidad. De esta manera, conceptualmente hablando estaría bien y 
+ * el código seria simple.
  * @author lkolaric
  * @since
  */
@@ -13,19 +13,17 @@ public class Velocidad {
 
 	/**La velocidad estará marcada por su signo, determinando de esta manera la direccion
 	 * del movimiento del pooglin, junto con el valor de la velocidad que al no tener 
-	 * aceleracion, estara dado por cuatro valores literales:
+	 * Aceleración, estará dado por cuatro valores literales:
 	 * VELOCIDAD_NULA = 0
 	 * VELOCIDAD_PLATILLO = 7
 	 * VELOCIDAD_NORMAL = 6
 	 * VELOCIDAD_MAXIMA = 5
 	 * */
 	
-	/* LA IDEA NUEVA DEL r117:
-	 * public final static int VELOCIDAD_PLATILLO = 7;
+	public final static int VELOCIDAD_PLATILLO = 7;
 	public final static int VELOCIDAD_MAXIMA = 5;
 	public final static int VELOCIDAD_NORMAL = 6;
-	public final static int VELOCIDAD_NULA = 0; * 
-	 * */
+	public final static int VELOCIDAD_NULA = 0;
 	private int velocidadX;
 	private int velocidadY;
 	
@@ -33,18 +31,18 @@ public class Velocidad {
 	 * 
 	 */
 	public Velocidad(){
-		this.setVelocidadX(0);
-		this.setVelocidadY(0);
+		this.setVelocidadX(VELOCIDAD_NULA);
+		this.setVelocidadY(VELOCIDAD_NULA);
 	}
 	
 	/**Invierte la dirección de la componente de la velocidad en X.-
 	 * 
 	 */
 	public void cambiarDireccion(){
-		this.setVelocidadX((-1)*this.getVelocidadX());
+		this.setVelocidadX( (-1) * this.getVelocidadX() );
 	}
 	
-	//Habria que ver si hay que cambiar la direccion en Y en algun momento del prg.-
+	//Habría que ver si hay que cambiar la dirección en Y en algún momento del programa.-
 	
 	public int getVelocidadX() {
 		return velocidadX;
@@ -64,11 +62,11 @@ public class Velocidad {
 	 * @return int
 	 */
 	public int modulo(){
-		if(this.velocidadY!=0)
-		return Math.abs(this.getVelocidadY());
-		else if (this.velocidadX!=0)
+		if(this.velocidadY != VELOCIDAD_NULA )
+		  return Math.abs(this.getVelocidadY());
+		else if (this.velocidadX != VELOCIDAD_NULA)
 				return Math.abs(this.getVelocidadX());
-		return 0;
+		return VELOCIDAD_NULA;
 	}
 	
 }
