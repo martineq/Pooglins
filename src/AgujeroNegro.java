@@ -30,6 +30,15 @@ public class AgujeroNegro extends Terreno {
 	 * los pooglins cercanos, recorre la coleccion con un iterador
 	 * y succiona los pooglins cercanos dentro del agujero negro
 	 * matandolos.
+	 * CONSIDERACION IMPORTANTE:
+	 * el agujero negro antes de succionar debe ser activado
+	 * por un pooglin, es decir, cuando un pooglin pisa el
+	 * agujero negro es succionado asi como tambien los 
+	 * pooglins que esten a 1 bloque de distancia del agujero
+	 * en todas las direcciones alrededor de su "boca".
+	 * Sin embargo, mientras ningun pooglin lo active, el
+	 * agujero negro no succionará a ningun pooglin de sus 
+	 * alrededores.
 	 */
 	public void accionarTerreno(Personaje pooglin) {
 		//Comento...Cuando Nivel sea Singleton obtengo una instancia.-
