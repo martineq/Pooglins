@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**Clase que representa el campo de juego donde se encuentran los personajes
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
  * 
@@ -126,7 +128,23 @@ public class Nivel implements Escenario {
 		
 	}
 		
-
+	//Esta horrible!!!! es nada mas que para ver la idea...
+	//Lo estoy refactorizando.-
+	//Guido.-
+	public ArrayList obtenerPooglinsCercanos(int posicionX,int posicionY){
+		ArrayList pooglinsCercanos= new ArrayList();
+		for(int i=0;i<this.pooglins.length;i++){
+			Pooglin pooglin= (Pooglin)this.pooglins[i];
+			int posicionXpooglin=pooglin.getPosicionX();
+			int posicionYpooglin=pooglin.getPosicionY();
+			if(posicionX==posicionXpooglin) pooglinsCercanos.add(pooglin);
+			if((posicionX==posicionXpooglin+1)||(posicionX==posicionXpooglin-1)) pooglinsCercanos.add(pooglin);
+			if(posicionY==posicionYpooglin) pooglinsCercanos.add(pooglin);
+			if((posicionY==posicionYpooglin+1)||(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
+		}
+		
+		return pooglinsCercanos;
+	}
 
 	/**Metodo privado que chequea si el pooglin actual alcanzo
 	 * la salida y disminuye la cantidad de pooglins a rescatar
