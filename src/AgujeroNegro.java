@@ -24,6 +24,13 @@ public class AgujeroNegro extends Terreno {
 		this.setActivo(true);
 	}
 
+	/* (non-Javadoc)
+	 * @see Terreno#accionarTerreno(Personaje)
+	 * Método que acciona el terreno.Obtiene la instancia de nivel,
+	 * los pooglins cercanos, recorre la coleccion con un iterador
+	 * y succiona los pooglins cercanos dentro del agujero negro
+	 * matandolos.
+	 */
 	public void accionarTerreno(Personaje pooglin) {
 		//Comento...Cuando Nivel sea Singleton obtengo una instancia.-
 		//Guido.-...Desarrollandolo...esperando el ejemplo de Pablo 
