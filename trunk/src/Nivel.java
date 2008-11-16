@@ -128,10 +128,21 @@ public class Nivel implements Escenario {
 		
 	}
 		
-	//Esta horrible!!!! es nada mas que para ver la idea...
-	//Lo estoy refactorizando.-
-	//Guido.-
+	
+	
+	/**Método encargado de obtener los pooglins cercanos a una
+	 * determinada posicion del nivel. Devuelve un ArrayList
+	 * que contiene los pooglins que cumplen con esta condición.
+	 * 
+	 * @param posicionX
+	 * @param posicionY
+	 * @return ArrayList
+	 */
 	public ArrayList obtenerPooglinsCercanos(int posicionX,int posicionY){
+		//Esta horrible!!!! es nada mas que para ver la idea...
+		//Lo estoy refactorizando.-
+		//Guido.-
+		
 		ArrayList pooglinsCercanos= new ArrayList();
 		for(int i=0;i<this.pooglins.length;i++){
 			Pooglin pooglin= (Pooglin)this.pooglins[i];
