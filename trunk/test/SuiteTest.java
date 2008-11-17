@@ -18,7 +18,7 @@ public class SuiteTest {
        suite.addTestSuite(TaladroTest.class);   
        suite.addTestSuite(RayoLaserTest.class);   
        suite.addTestSuite(NivelTest.class);   
-       
+       suite.addTestSuite(AgujeroNegroTest.class);
        return suite; 
      }
 }
