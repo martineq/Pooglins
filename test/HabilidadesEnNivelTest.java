@@ -18,7 +18,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 	private void llenarMatrizConVacio(){
 		for(int posicionY=1;posicionY<tamanioMatriz-2;posicionY++){
 			for(int posicionX=1;posicionX<tamanioMatriz-2;posicionX++){
-			matrizNivel[posicionY][posicionX] = new Vacio(posicionX,posicionY);
+			matrizNivel[posicionX][posicionY] = new Vacio(posicionX,posicionY);
 			}
 		}
 	}
