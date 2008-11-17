@@ -42,9 +42,7 @@ public class AgujeroNegro extends Terreno {
 	 * alrededores.
 	 */
 	public void accionarTerreno(Personaje pooglin) {
-		//Comento...Cuando Nivel sea Singleton obtengo una instancia.-
-		//Guido.-...Desarrollandolo...esperando el ejemplo de Pablo 
-		//Suarez.-
+		
 		this.nivel= Nivel.getInstance();;//Instancio una referencia al nivel ya que es unica
 		 								//por ser un Singleton.
 		Collection personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
@@ -56,7 +54,7 @@ public class AgujeroNegro extends Terreno {
 			Habilidad morir = pooglinCercano.getMatarse();
 			morir.utilizar(pooglin);//mato o succiono al pooglin.
 
-}
+		}
 	}
 	
     /* ¿Se va a usar?
