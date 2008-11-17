@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**Clase que representa el campo de juego donde se encuentran los personajes
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
@@ -138,7 +139,7 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return ArrayList
 	 */
-	public ArrayList obtenerPooglinsCercanos(int posicionX,int posicionY){
+	public Collection obtenerPooglinsCercanos(int posicionX,int posicionY){
 		//Esta horrible!!!! es nada mas que para ver la idea...
 		//Lo estoy refactorizando.-
 		//Guido.-

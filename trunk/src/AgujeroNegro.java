@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 
 
@@ -46,7 +47,7 @@ public class AgujeroNegro extends Terreno {
 		//Suarez.-
 		this.nivel = new Nivel();//Instancio una referencia al nivel ya que es unica
 		 //por ser un Singleton.
-		ArrayList personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
+		Collection personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
 		Iterator it = personajesCercanos.iterator();
 		while (it.hasNext()){
 			Pooglin pooglinCercano = (Pooglin) it.next();
