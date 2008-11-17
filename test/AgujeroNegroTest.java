@@ -34,9 +34,9 @@ public class AgujeroNegroTest extends TestCase{
 		pooglins[2]=new Pooglin(5,6);
 		pooglins[3]=new Pooglin(6,6);
 		pooglins[4]=new Pooglin(7,6);
+		matrizNivel=new Terreno[tamanioMatriz][tamanioMatriz];
 		llenarMatrizConVacio();
 		agujeroNegro=new AgujeroNegro(6,5);
-		matrizNivel=new Terreno[tamanioMatriz][tamanioMatriz];
 		matrizNivel[6][5]=agujeroNegro;
 		nivel.setMatrizNivel(matrizNivel);
 		nivel.setPooglins(pooglins);

@@ -173,7 +173,7 @@ public class Nivel implements Escenario {
 		//Lo estoy refactorizando.-
 		//Guido.-
 		
-		ArrayList pooglinsCercanos= new ArrayList();
+		Collection pooglinsCercanos= new ArrayList();
 		for(int i=0;i<this.pooglins.length;i++){
 			Pooglin pooglin= (Pooglin)this.pooglins[i];
 			int posicionXpooglin=pooglin.getPosicionX();
