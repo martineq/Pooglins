@@ -28,7 +28,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		matrizNivel = new Terreno[tamanioMatriz][tamanioMatriz]; 
 		this.llenarMatrizConVacio();
 		this.bordeMatriz();
-		nivel = new Nivel();
+		nivel = Nivel.getInstance();//new Nivel();
 		
 	}
 	

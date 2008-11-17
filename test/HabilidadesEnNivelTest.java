@@ -27,7 +27,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 		matrizNivel = new Terreno[tamanioMatriz][tamanioMatriz]; 
 		this.llenarMatrizConVacio();
 		this.bordeMatriz();
-		nivel = new Nivel();
+		nivel = Nivel.getInstance();//new Nivel();
 		for(int i=1;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Tierra(i,2);
 		nivel.setPuertaComienzo(new Puerta(1,1));
 		nivel.setPuertaSalida(new Puerta(48,1));
