@@ -11,6 +11,10 @@ import java.util.Collection;
  *
  *
  */
+/**
+ * @author guido
+ *
+ */
 public class Nivel implements Escenario {
 	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
@@ -20,8 +24,33 @@ public class Nivel implements Escenario {
 	private Puerta puertaSalida;
 	private Habilidad[] habilidadesDisponibles;
 	
-	
+	private static Nivel nivel=null;//Singleton
 
+	
+	/**Metodo getInstance que permite la utilización del
+	 * patrón Singleton para la clase Nivel, desde cualquier
+	 * lugar de la aplicación puedo obtener una instancia
+	 * de esta clase que luego de que se la haya invocado una 
+	 * vez, siempre va a ser la misma.
+	 * @return
+	 */
+	public static Nivel getInstance(){
+		if(nivel==null){
+			return new Nivel();
+		}else{
+			return nivel;
+		}
+	}
+	
+	/**Constructor Privado, para obtener una instancia debe
+	 * hacerse mediante el uso de getInstance()dado que Nivel
+	 * es un Singleton.
+	 * 
+	 */
+	private Nivel(){
+		//De momento lo defino asi.-	
+	}
+	
 	//Ver si el escenario se va a pasar en una lista o como se van
 	//a pasar las cosas para saber como cargamos la matriz etc
 	//Guido.-
