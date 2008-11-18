@@ -11,10 +11,7 @@ import java.util.Collection;
  *
  *
  */
-/**
- * @author guido
- *
- */
+
 public class Nivel implements Escenario {
 	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
@@ -174,7 +171,7 @@ public class Nivel implements Escenario {
 		//Guido.-
 		
 		Collection pooglinsCercanos= new ArrayList();
-		for(int i=0;i<this.pooglins.length;i++){
+		for(int i=0;i<pooglins.length;i++){
 			Pooglin pooglin= (Pooglin)this.pooglins[i];
 			int posicionXpooglin=pooglin.getPosicionX();
 			int posicionYpooglin=pooglin.getPosicionY();
@@ -183,6 +180,8 @@ public class Nivel implements Escenario {
 			if(posicionY==posicionYpooglin) pooglinsCercanos.add(pooglin);
 			if((posicionY==posicionYpooglin+1)||(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
 		}
+	
+		
 		
 		return pooglinsCercanos;
 	}
