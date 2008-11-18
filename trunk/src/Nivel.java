@@ -165,6 +165,7 @@ public class Nivel implements Escenario {
 	 * @param posicionY
 	 * @return ArrayList
 	 */
+	@SuppressWarnings("unchecked")
 	public Collection obtenerPooglinsCercanos(int posicionX,int posicionY){
 		//Esta horrible!!!! es nada mas que para ver la idea...
 		//Lo estoy refactorizando.-

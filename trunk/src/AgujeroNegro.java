@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -41,6 +40,7 @@ public class AgujeroNegro extends Terreno {
 	 * agujero negro no succionará a ningun pooglin de sus 
 	 * alrededores.
 	 */
+	@SuppressWarnings("unchecked")
 	public void accionarTerreno(Personaje pooglin) {
 		
 		this.nivel= Nivel.getInstance();;//Instancio una referencia al nivel ya que es unica
@@ -51,8 +51,8 @@ public class AgujeroNegro extends Terreno {
 			Pooglin pooglinCercano = (Pooglin) it.next();
 			pooglinCercano.setPosicionX(this.getPosicionX());//coloco al pooglin en el agujero negro
 			pooglinCercano.setPosicionY(this.getPosicionY());
-			Habilidad morir = pooglinCercano.getMatarse();
-			morir.utilizar(pooglin);//mato o succiono al pooglin.
+			Habilidad habilidad = pooglinCercano.getMatarse();
+			habilidad.utilizar(pooglin);//mato o succiono al pooglin.
 
 		}
 	}
