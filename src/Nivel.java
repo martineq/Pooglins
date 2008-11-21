@@ -32,11 +32,9 @@ public class Nivel implements Escenario {
 	 * @return
 	 */
 	public static Nivel getInstance(){
-		if(nivel==null){
-			return new Nivel();
-		}else{
-			return nivel;
-		}
+		if(nivel==null)nivel=new Nivel();
+		return nivel;
+		
 	}
 	
 	/**Constructor Privado, para obtener una instancia debe
