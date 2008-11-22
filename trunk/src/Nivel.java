@@ -112,6 +112,7 @@ public class Nivel implements Escenario {
 					
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+					pooglin.setAltura(alturaPooglin(pooglin));
 					pooglin.mover();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
@@ -303,5 +304,23 @@ public class Nivel implements Escenario {
 	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
+
+	/**Me indica la "altura del piso" en que se encuentra el personaje.-
+     * @since 18/10/08
+     * @param pooglin
+     * @param campo
+     */
+    private int alturaPooglin(Personaje pooglin) {
+            int contador = 1;
+            int altura = 0;
+            while ( (revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador  ,pooglin)) instanceof Vacio ){
+                    altura++;
+                    contador++;
+            }
+            return altura;
+    }
+
+	
+	
 	
 }
