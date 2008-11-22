@@ -52,8 +52,7 @@ public class AgujeroNegro extends Terreno {
 			pooglinCercano.setPosicionX(this.getPosicionX());//coloco al pooglin en el agujero negro
 			pooglinCercano.setPosicionY(this.getPosicionY());
 			Habilidad habilidad = pooglinCercano.getMatarse();
-			habilidad.utilizar(pooglin);//mato o succiono al pooglin.
-
+			habilidad.utilizar(pooglinCercano);//mato o succiono al pooglin.
 		}
 	}
 	
