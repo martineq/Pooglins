@@ -85,10 +85,10 @@ public class Pooglin implements Personaje{
 		
 		if ( this.velocidad.getVelocidadY()>0 ){
 			this.setPosicionY(this.getPosicionY()+1);
-			this.setAltura(this.getAltura() + 1);
+			//this.setAltura(this.getAltura() + 1);   //Borrar... 
 		}else if ( this.velocidad.getVelocidadY()<0 ){
 				this.setPosicionY(this.getPosicionY()-1);
-				this.setAltura(this.getAltura() + 1);
+				//this.setAltura(this.getAltura() + 1);   //Borrar... 
 			  }else if ( this.velocidad.getVelocidadX()>0 ){
 					  this.setPosicionX(this.getPosicionX()+1);
 				    }else if (this.velocidad.getVelocidadX()<0){
