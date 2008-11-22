@@ -31,8 +31,8 @@ public class AgujeroNegroTest extends TestCase{
 		tamanioMatriz=20;
 		cantidadPooglins=5;
 		pooglins=new Personaje[cantidadPooglins];
-		pooglins[0]=new Pooglin(5,5);
-		pooglins[1]=new Pooglin(7,5);
+		pooglins[0]=new Pooglin(5,6);
+		pooglins[1]=new Pooglin(7,6);
 		pooglins[2]=new Pooglin(5,6);
 		pooglins[3]=new Pooglin(6,6);
 		pooglins[4]=new Pooglin(7,6);
@@ -53,9 +53,14 @@ public class AgujeroNegroTest extends TestCase{
 		for (int i=0;i<pooglins.length;i++){
 			int posicionX=((Pooglin)pooglins[i]).getPosicionX();
 			int posicionY=((Pooglin)pooglins[i]).getPosicionY();
-			assertEquals(6,posicionX);
+			assertEquals(6,posicionX);//chequeo posiciones
 			assertEquals(5,posicionY);
-			assertTrue(((Pooglin)pooglins[i]).estaVivo());
+			assertFalse(((Pooglin)pooglins[i]).estaVivo());//chequeo que este muerto
+			Velocidad velocidad= ((Pooglin)pooglins[i]).getVelocidad();
+			int velocidadX=velocidad.getVelocidadX();//chequeo que la velocidad sea nula
+			int velocidadY=velocidad.getVelocidadY();
+			assertEquals(0,velocidadX);
+			assertEquals(0,velocidadY);
 		}
 	}
 }
