@@ -322,7 +322,11 @@ public class Nivel implements Escenario, ObjetoVivo {
     private int alturaPooglin(Personaje pooglin) {
             int contador = 1;
             int altura = 0;
-            while ( (revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador  ,pooglin)) instanceof Vacio ){
+            int posicionX = ((Pooglin)pooglin).getPosicionX()/base;
+            int posicionY = ((Pooglin)pooglin).getPosicionY()/base;
+            
+            
+            while ( (revisarNivel( posicionX , posicionY - contador  ,pooglin)) instanceof Vacio ){
                     altura++;
                     contador++;
             }
