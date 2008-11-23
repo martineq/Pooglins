@@ -1,5 +1,7 @@
 package modelo;
 
+import org.dom4j.Element;
+
 /**
  * @author guido
  *
@@ -29,4 +31,21 @@ public class Puerta implements Posicionable{
 	public int getPosicionY(){
 		return this.posicionY;
 	}
+	
+
+	public void guardar(Element elementoPadre){
+		/** Tengo que guardar todo esto:
+		 *  private int posicionX;
+			private int posicionY;
+		 */
+		//Guardo la posicionX.-
+		Element elementoHijo = elementoPadre.addElement("posicionX");
+		elementoHijo.addAttribute("valor",( (Integer)this.posicionX).toString() );
+		
+		//Guardo la posicionY.-
+		elementoHijo = elementoPadre.addElement("posicionY");
+		elementoHijo.addAttribute("valor",( (Integer)this.posicionY).toString() );
+		
+	}
+	
 }

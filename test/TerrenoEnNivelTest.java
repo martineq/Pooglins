@@ -2,12 +2,14 @@ import modelo.Fuego;
 import modelo.Hielo;
 import modelo.Nivel;
 import modelo.Personaje;
+import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.Puerta;
 import modelo.Roca;
 import modelo.Terreno;
 import modelo.Tierra;
 import modelo.Vacio;
+import modelo.Habilidad;
 import junit.framework.TestCase;
 
 public class TerrenoEnNivelTest extends TestCase {
@@ -16,6 +18,7 @@ public class TerrenoEnNivelTest extends TestCase {
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
 	Personaje []pooglins;
+	Habilidad[] habilidadesDisponibles; //Nuevo, para probar el testNivelConXML.-
 	
 	private void bordeMatriz(){
 		for(int i=0;i<tamanioMatriz-1;i++){
@@ -48,6 +51,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPuertaSalida(new Puerta(48,1));
 		pooglins = new Pooglin[15];
 		for(int i =0; i<15;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(15);
 		nivel.setPooglinsARescatar(15);
@@ -90,7 +94,22 @@ public class TerrenoEnNivelTest extends TestCase {
 		
 	}
 	
-	
+	public void testNivelConXML(){
+		for( int i = 1 ; i < tamanioMatriz-1 ; i++ ) matrizNivel[i][2] = new Tierra(i,2);
+		nivel.setPuertaComienzo(new Puerta(0,1));
+		nivel.setPuertaSalida(new Puerta(48,1));
+		pooglins = new Pooglin[15];
+		for( int i = 0 ; i < 15 ; i++ )pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		habilidadesDisponibles = new Habilidad[5];//Nuevo.-
+		for( int i = 0 ; i < 5 ; i++ )habilidadesDisponibles[i] = new Platillo(); //Nuevo.-
+		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(15);
+		nivel.setPooglinsARescatar(15);
+		nivel.setMatrizNivel(matrizNivel);
+		//nivel.vivir();
+		assertTrue(nivel.salvarJuego()); //Nuevo: XML !!!
+	}
 	
 	public void testManejar() {
 	}

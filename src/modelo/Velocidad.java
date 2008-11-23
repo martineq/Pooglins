@@ -1,5 +1,7 @@
 package modelo;
 
+import org.dom4j.Element;
+
 
 /**Esta clase empaqueta todos los atributos necesarios para describir la velocidad de un 
  * pooglin y, de esta manera, hacer mas simple la clase pooglin.
@@ -68,6 +70,21 @@ public class Velocidad {
 		else if (this.velocidadX != VELOCIDAD_NULA)
 				return Math.abs(this.getVelocidadX());
 		return VELOCIDAD_NULA;
+	}
+	
+	public void guardar(Element elementoPadre){
+		/** Tengo que guardar todo esto:
+		 *  private int velocidadX;
+			private int velocidadY;
+		 */
+		//Guardo la velocidadX.-
+		Element elementoHijo = elementoPadre.addElement("velocidadX");
+		elementoHijo.addAttribute("valor",( (Integer)this.velocidadX).toString() );
+		
+		//Guardo la velocidadY.-
+		elementoHijo = elementoPadre.addElement("velocidadY");
+		elementoHijo.addAttribute("valor",( (Integer)this.velocidadY).toString() );
+		
 	}
 	
 }
