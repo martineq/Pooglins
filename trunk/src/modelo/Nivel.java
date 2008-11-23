@@ -1,6 +1,10 @@
 package modelo;
+
+
 import java.util.ArrayList;
 import java.util.Collection;
+
+import org.dom4j.Element;
 
 /**Clase que representa el campo de juego donde se encuentran los personajes
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
@@ -114,6 +118,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 					
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+					pooglin.setAltura(alturaPooglin(pooglin));
 					pooglin.vivir();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
@@ -141,7 +146,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
 		
 		//obtengo el terreno de la posicion justo adelante del pooglin
-		Terreno terrenoActual=this.matrizNivel[posicionX+1][posicionY];
+		Terreno terrenoActual = this.matrizNivel[posicionX+1][posicionY];
 		
 		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
 			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
@@ -307,5 +312,138 @@ public class Nivel implements Escenario, ObjetoVivo {
 	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
+	
+
+	/**Me indica la "altura del piso" en que se encuentra el personaje.-
+     * @since 18/10/08
+     * @param pooglin
+     * @param campo
+     */
+    private int alturaPooglin(Personaje pooglin) {
+            int contador = 1;
+            int altura = 0;
+            while ( (revisarNivel( ((Pooglin)pooglin).getPosicionX() , ((Pooglin)pooglin).getPosicionY() - contador  ,pooglin)) instanceof Vacio ){
+                    altura++;
+                    contador++;
+            }
+            return altura;
+    }
+
+    
+    /**Método que inicia el proceso de el guardado de todos los objetos instanciados
+     * para luego exportarlos a un archivo en disco, en formato XML,.
+     * @author Mart.-
+     */
+    public boolean salvarJuego(){
+    	System.out.println("Inicio de la Persistencia.-");
+		Persistencia save = new Persistencia(); //Creo un objeto de clase Persistencia.-
+		this.guardar(save.crearRaiz());  //Guardo todos los atributos.-
+		save.guardarDocumento();  //Guardo todos los objetos en un XML
+		System.out.println("Persistencia finalizada.-");
+    	return true;
+    }
+    
+    
+	/**Método que guarda dentro del elemento asignado por parámetro todos los objetos
+	 * de esta clase que se instanciaron en el curso del programa como nuevos elementos
+	 * hijos del asignado, solo guarda los atributos de esta "capa de datos", 
+	 * si existiera una "capa" mas profunda, delega la tarea a la clase que se encuentre
+	 * contenida en esa próxima "capa".- 
+	 * @param elementoPadre
+	 */
+	public void guardar(Element elementoPadre){
+		/** Tengo que guardar todo esto:
+		 *  private Terreno[][] matrizNivel;
+			private Personaje[] pooglins;
+			private int pooglinsARescatar;
+			private int cantidadPooglins;
+			private Puerta puertaComienzo;
+			private Puerta puertaSalida;
+			private Habilidad[] habilidadesDisponibles;
+		 * 
+		 * */
+		//Guardo pooglinsARescatar.-
+		Element elementoHijo = elementoPadre.addElement("pooglinsARescatar");
+		elementoHijo.addAttribute("valor",( (Integer)pooglinsARescatar).toString() );
+		
+		//Guardo cantidadPooglins.-
+		elementoHijo = elementoPadre.addElement("cantidadPooglins");
+		elementoHijo.addAttribute("valor",( (Integer)cantidadPooglins).toString() );
+		
+		//Guardo la matriz.-
+		elementoHijo = elementoPadre.addElement("matrizNivel");
+		for (int i = 0 ; i < matrizNivel.length ; i++ ){
+			for (int j = 0 ; j < matrizNivel[i].length ; j++ ){
+				
+				Element elementoHijo2 = elementoHijo.addElement("Terreno");
+				elementoHijo2.addAttribute( "x" , ((Integer)i).toString() );
+				elementoHijo2.addAttribute( "y" , ((Integer)j).toString() );
+				
+				Object elemento = matrizNivel[i][j];
+				if ( elemento instanceof AgujeroNegro ) {
+					elementoHijo2.addAttribute( "tipo" , "AgujeroNegro" );
+				}
+				if ( elemento instanceof Fuego ) {
+					elementoHijo2.addAttribute( "tipo" , "Fuego" );
+				}
+				if ( elemento instanceof Hielo ) {
+					elementoHijo2.addAttribute( "tipo" , "Hielo" );
+				}
+				if ( elemento instanceof Roca ) {
+					elementoHijo2.addAttribute( "tipo" , "Roca" );
+				}
+				if ( elemento instanceof Tierra ) {
+					elementoHijo2.addAttribute( "tipo" , "Tierra" );
+				}
+				if ( elemento instanceof Vacio ) {
+					elementoHijo2.addAttribute( "tipo" , "Vacio" );
+				}
+			}
+		}
+		
+		//Guardo el vector de pooglins.-
+		elementoHijo = elementoPadre.addElement("pooglins");
+		for (int i = 0 ; i < pooglins.length ; i++ ){
+			Element elementoHijo2 = elementoHijo.addElement("pooglinNumero"+i);
+			((Pooglin)pooglins[i]).guardar(elementoHijo2);
+		}
+				
+		//Guardo la puertaComienzo.- 
+		elementoHijo = elementoPadre.addElement("puertaComienzo");
+		puertaComienzo.guardar(elementoHijo);
+		
+		//Guardo la puertaSalida.-
+		elementoHijo = elementoPadre.addElement("puertaSalida");
+		puertaSalida.guardar(elementoHijo);
+		
+		//Guardo las habilidadesDisponibles.-
+		elementoHijo = elementoPadre.addElement("habilidadesDisponibles");
+		for (int i = 0 ; i < habilidadesDisponibles.length ; i++ ){
+			Element elementoHijo2 = elementoHijo.addElement("habilidadNumero"+i);
+	
+			Object elemento = habilidadesDisponibles[i];
+				if ( elemento instanceof Congelamiento ) {
+					elementoHijo2.addAttribute( "tipo" , "Congelamiento" );
+				}
+				if ( elemento instanceof Morir ) {
+					elementoHijo2.addAttribute( "tipo" , "Morir" );
+				}
+				if ( elemento instanceof Platillo ) {
+					elementoHijo2.addAttribute( "tipo" , "Platillo" );
+				}
+				if ( elemento instanceof RayoLaser ) {
+					elementoHijo2.addAttribute( "tipo" , "RayoLaser" );
+				}
+				if ( elemento instanceof Taladro ) {
+					elementoHijo2.addAttribute( "tipo" , "Taladro" );
+				}
+				if ( elemento instanceof Teletransportarse ) {
+					elementoHijo2.addAttribute( "tipo" , "Teletransportarse" );
+				}
+		}
+		
+		
+	}
+	
 	
 }

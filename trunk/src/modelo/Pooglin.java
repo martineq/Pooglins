@@ -1,5 +1,7 @@
 package modelo;
 
+import org.dom4j.Element;
+
 
 /**Clase que representa a el personaje Pooglin.-
  * @author Mart
@@ -90,10 +92,8 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		
 		if ( this.velocidad.getVelocidadY()>0 ){
 			this.setPosicionY(posicionY+1);
-			this.setAltura(this.getAltura() + 1);
 		}else if ( this.velocidad.getVelocidadY()<0 ){
 				this.setPosicionY(posicionY-1);
-				this.setAltura(this.getAltura() + 1);
 			  }else if ( this.velocidad.getVelocidadX()>0 ){
 					  this.setPosicionX(posicionX +1);
 				    }else if (this.velocidad.getVelocidadX()<0){
@@ -128,5 +128,73 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.altura = altura;
 	}
 
+
+	/**Método que guarda todos los atributos de la clase Pooglin
+	 * para luego ser exportados a XML.-
+	 * @author Mart
+	 * @param elementoPadre
+	 */
+	public void guardar(Element elementoPadre){
+		/** Tengo que guardar todo esto:
+		 *  private int posicionX;
+			private int posicionY;
+			private Velocidad velocidad;
+			private Habilidad habilidad;
+			private boolean vivo;
+			private Habilidad matarse; //Composición con clase Morir. Guido.-
+			private int cantTurnosQueNoSeMovio;
+			private int altura;
+		 */
+		//Guardo la posicionX.-
+		Element elementoHijo = elementoPadre.addElement("posicionX");
+		elementoHijo.addAttribute("valor",( (Integer)this.posicionX).toString() );
+		
+		//Guardo la posicionY.-
+		elementoHijo = elementoPadre.addElement("posicionY");
+		elementoHijo.addAttribute("valor",( (Integer)this.posicionY).toString() );
+		
+		//Guardo la velocidad.-
+		elementoHijo = elementoPadre.addElement("velocidad");
+		this.velocidad.guardar(elementoHijo);
+		
+		//Guardo la habilidad;
+		elementoHijo = elementoPadre.addElement("habilidad");
+		Object elemento = this.habilidad;
+		if ( elemento instanceof Congelamiento ) {
+			elementoHijo.addAttribute( "tipo" , "Congelamiento" );
+		}
+		if ( elemento instanceof Morir ) {
+			elementoHijo.addAttribute( "tipo" , "Morir" );
+		}
+		if ( elemento instanceof Platillo ) {
+			elementoHijo.addAttribute( "tipo" , "Platillo" );
+		}
+		if ( elemento instanceof RayoLaser ) {
+			elementoHijo.addAttribute( "tipo" , "RayoLaser" );
+		}
+		if ( elemento instanceof Taladro ) {
+			elementoHijo.addAttribute( "tipo" , "Taladro" );
+		}
+		if ( elemento instanceof Teletransportarse ) {
+			elementoHijo.addAttribute( "tipo" , "Teletransportarse" );
+		}
+		
+		//Guardo la condición de si está vivo.-
+		elementoHijo = elementoPadre.addElement("vivo");
+		String condicionVivo = "muerto";
+		if (this.vivo) condicionVivo = "vivo";
+		elementoHijo.addAttribute("condicion",condicionVivo);
+		
+		//Guardo la habilidad de matarse.-
+		elementoHijo = elementoPadre.addElement("matarse");
+		
+		//Guardo la cantTurnosQueNoSeMovio.-
+		elementoHijo = elementoPadre.addElement("cantTurnosQueNoSeMovio");
+		elementoHijo.addAttribute("valor",( (Integer)this.cantTurnosQueNoSeMovio).toString() );
+		
+		//Guardo la altura.-
+		elementoHijo = elementoPadre.addElement("altura");
+		elementoHijo.addAttribute("valor",( (Integer)this.altura).toString() );
+	}
 
 }
