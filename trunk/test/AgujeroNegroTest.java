@@ -1,4 +1,5 @@
 
+import modelo.*;
 import junit.framework.TestCase;
 
 /**

@@ -1,4 +1,7 @@
 
+import modelo.Morir;
+import modelo.Pooglin;
+import modelo.Velocidad;
 import junit.framework.TestCase;
 
 /**

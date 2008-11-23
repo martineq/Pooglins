@@ -1,3 +1,5 @@
+import modelo.Congelamiento;
+import modelo.Pooglin;
 import junit.framework.TestCase;
 
 public class CongelamientoTest extends TestCase{

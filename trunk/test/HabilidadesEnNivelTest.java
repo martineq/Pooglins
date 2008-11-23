@@ -1,3 +1,13 @@
+import modelo.Nivel;
+import modelo.Personaje;
+import modelo.Platillo;
+import modelo.Pooglin;
+import modelo.Puerta;
+import modelo.Roca;
+import modelo.Taladro;
+import modelo.Terreno;
+import modelo.Tierra;
+import modelo.Vacio;
 import junit.framework.TestCase;
 
 public class HabilidadesEnNivelTest extends TestCase {
@@ -52,7 +62,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad();
-				pooglins[i].mover();
+				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}
@@ -65,7 +75,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
 				((Pooglin)pooglins[0]).usarHabilidad();
-				pooglins[i].mover();
+				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}
@@ -98,7 +108,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad();
-				pooglins[i].mover();
+				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}
@@ -126,7 +136,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
-				pooglins[i].mover();
+				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}
@@ -142,7 +152,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
 				((Pooglin)pooglins[0]).usarHabilidad(terrenoActual);
-				pooglins[i].mover();
+				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}

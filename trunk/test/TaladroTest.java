@@ -1,3 +1,8 @@
+import modelo.Pooglin;
+import modelo.Roca;
+import modelo.Taladro;
+import modelo.Terreno;
+import modelo.Tierra;
 import junit.framework.TestCase;
 
 

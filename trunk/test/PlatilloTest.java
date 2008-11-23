@@ -1,3 +1,6 @@
+import modelo.Platillo;
+import modelo.Pooglin;
+import modelo.Velocidad;
 import junit.framework.TestCase;
 
 public class PlatilloTest extends TestCase{

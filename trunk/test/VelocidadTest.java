@@ -1,3 +1,4 @@
+import modelo.Velocidad;
 import junit.framework.TestCase;
 
 
