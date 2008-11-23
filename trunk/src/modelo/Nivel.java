@@ -148,6 +148,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 		//obtengo el terreno de la posicion justo adelante del pooglin
 		Terreno terrenoActual = this.matrizNivel[posicionX+1][posicionY];
 		
+		//SOLUCION PROVISORIA
+		if(velocidad.getVelocidadX()<0){
+			terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
+			if(terrenoActual instanceof Vacio)terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
+			
+		}
+		//REVISAR para evitar problemas de bordes!!!
+		
 		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
 			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
 		}else{
@@ -320,7 +328,7 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @param campo
      */
     private int alturaPooglin(Personaje pooglin) {
-            int contador = 1;
+         /*   int contador = 1;
             int altura = 0;
             int posicionX = ((Pooglin)pooglin).getPosicionX()/base;
             int posicionY = ((Pooglin)pooglin).getPosicionY()/base;
@@ -330,7 +338,8 @@ public class Nivel implements Escenario, ObjetoVivo {
                     altura++;
                     contador++;
             }
-            return altura;
+            return altura;*/
+    	return 1;//SACARLA
     }
 
     
