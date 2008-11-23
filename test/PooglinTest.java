@@ -1,3 +1,6 @@
+import modelo.Habilidad;
+import modelo.Pooglin;
+import modelo.Velocidad;
 import junit.framework.TestCase;
 
 public class PooglinTest extends TestCase {
@@ -18,10 +21,10 @@ public class PooglinTest extends TestCase {
 		velocidad.setVelocidadX(6);
 		velocidad.setVelocidadY(0);
 		unPooglin.setVelocidad(velocidad);
-		for (int i= 0; i<=6 ;i++ ) unPooglin.mover();
+		for (int i= 0; i<=6 ;i++ ) unPooglin.vivir();
 		assertEquals(unPooglin.getPosicionX(),1);
 		assertEquals(unPooglin.getPosicionY(),0);
-		for (int i= 0; i<=12 ;i++ ) unPooglin.mover();
+		for (int i= 0; i<=12 ;i++ ) unPooglin.vivir();
 		assertEquals(unPooglin.getPosicionX(),3);
 		assertEquals(unPooglin.getPosicionY(),0);
 	}
@@ -33,10 +36,10 @@ public class PooglinTest extends TestCase {
 		velocidad.setVelocidadX(0);
 		velocidad.setVelocidadY(6);
 		unPooglin.setVelocidad(velocidad);
-		for (int i= 0; i<=6 ;i++ ) unPooglin.mover();
+		for (int i= 0; i<=6 ;i++ ) unPooglin.vivir();
 		assertEquals(unPooglin.getPosicionY(),1);
 		assertEquals(unPooglin.getPosicionX(),0);
-		for (int i= 0; i<=12 ;i++ ) unPooglin.mover();
+		for (int i= 0; i<=12 ;i++ ) unPooglin.vivir();
 		assertEquals(unPooglin.getPosicionY(),3);	
 		assertEquals(unPooglin.getPosicionX(),0);
 		

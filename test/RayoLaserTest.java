@@ -1,3 +1,6 @@
+import modelo.RayoLaser;
+import modelo.Terreno;
+import modelo.Tierra;
 import junit.framework.TestCase;
 
 

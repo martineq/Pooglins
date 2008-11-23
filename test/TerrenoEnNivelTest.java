@@ -1,3 +1,13 @@
+import modelo.Fuego;
+import modelo.Hielo;
+import modelo.Nivel;
+import modelo.Personaje;
+import modelo.Pooglin;
+import modelo.Puerta;
+import modelo.Roca;
+import modelo.Terreno;
+import modelo.Tierra;
+import modelo.Vacio;
 import junit.framework.TestCase;
 
 public class TerrenoEnNivelTest extends TestCase {
@@ -42,7 +52,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(15);
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
-		nivel.manejar();
+		nivel.vivir();
 		assertEquals(0,nivel.getPooglinsARescatar());
 	}
 	
@@ -56,7 +66,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(25);
 		nivel.setPooglinsARescatar(15);
-		nivel.manejar();
+		nivel.vivir();
 		assertEquals(-10,nivel.getPooglinsARescatar());//Porque llegan todos los pooglins, es decir rescate 25
 		assertEquals(0,nivel.getCantidadPooglins());
 	}
@@ -75,7 +85,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(25);
 		nivel.setPooglinsARescatar(15);
-		nivel.manejar();
+		nivel.vivir();
 		assertEquals(0,nivel.getCantidadPooglins());//Si los pooglins no llegan a la puerta es xq el fuego los mato.
 		
 	}

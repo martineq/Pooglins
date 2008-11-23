@@ -1,3 +1,11 @@
+import modelo.Fuego;
+import modelo.Nivel;
+import modelo.Personaje;
+import modelo.Pooglin;
+import modelo.Puerta;
+import modelo.Roca;
+import modelo.Terreno;
+import modelo.Vacio;
 import junit.framework.TestCase;
 
 public class NivelTest extends TestCase{

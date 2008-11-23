@@ -1,3 +1,5 @@
+import modelo.Pooglin;
+import modelo.Vacio;
 import junit.framework.TestCase;
 
 public class VacioTest extends TestCase {

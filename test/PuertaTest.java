@@ -1,4 +1,5 @@
 
+import modelo.Puerta;
 import junit.framework.TestCase;
 
 /**
