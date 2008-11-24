@@ -51,6 +51,7 @@ public class Tierra extends Terreno {
 	
 	public void accionarTerreno(Personaje pooglin) { 
 		Pooglin auxPooglin = (Pooglin) pooglin;
+		
 		if (auxPooglin.getPosicionY() == this.getPosicionY()){
 			this.accionarLateral((Pooglin)pooglin);
 		}else{

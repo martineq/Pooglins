@@ -11,6 +11,7 @@ import modelo.ControladorJuego;
 import modelo.Nivel;
 import modelo.Pooglin;
 import modelo.Puerta;
+import modelo.Roca;
 import modelo.Terreno;
 import modelo.Tierra;
 import modelo.Vacio;
@@ -63,13 +64,14 @@ public class PruebaCinco {
 		for(int fila=0;fila<anchoDeMatriz;fila++){
 			for(int columna=0;columna<altoDeMatriz;columna++){
 			    if((fila==0)||(columna==0)||(columna==altoDeMatriz-1)||(fila==anchoDeMatriz-1)) {	
+			    	matrizNivel[fila][columna] = new Roca(fila,columna);	
 			    	VistaRoca r = new VistaRoca();
 			    	r.setPosicionable(matrizNivel[fila][columna]);
 			    	controlador.agregarDibujable(r);
 			    }
 			}
 		}
-		
+	
 		for(int fila=1;fila<11;fila++){
 				if(fila != 5){
 			    matrizNivel[fila][2] = new Tierra(fila,2);

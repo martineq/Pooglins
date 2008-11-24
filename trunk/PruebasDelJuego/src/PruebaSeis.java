@@ -18,7 +18,10 @@ import modelo.Vacio;
 
 
 
-public class PruebaTres {
+public class PruebaSeis {
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
@@ -81,8 +84,32 @@ public class PruebaTres {
 				}
 		    }
 		
+//		for(int fila=1;fila<21;fila++){
+//			matrizNivel[fila][5] = new Tierra(fila,5);
+//			VistaTierra t = new VistaTierra();
+//	    	t.setPosicionable(matrizNivel[fila][5]);
+//	    	controlador.agregarDibujable(t);	
+//	    }
 
-		
+		for(int fila=1;fila<21;fila++){
+			matrizNivel[fila][5] = new Roca(fila,5);
+			VistaRoca t = new VistaRoca();
+	    	t.setPosicionable(matrizNivel[fila][5]);
+	    	controlador.agregarDibujable(t);	
+	    }
+
+	/*	matrizNivel[1][4] = new Tierra(1,4);
+		VistaTierra t = new VistaTierra();
+    	t.setPosicionable(matrizNivel[1][4]);
+    	controlador.agregarDibujable(t);	
+    
+    
+    	
+    	matrizNivel[20][4] = new Tierra(20,4);
+		VistaTierra td = new VistaTierra();
+    	td.setPosicionable(matrizNivel[20][4]);
+    	controlador.agregarDibujable(td);	
+*/
 		
 		Puerta puertaComienzo= new Puerta(1,1);
 		Puerta puertaSalida = new Puerta(10,1);

@@ -1,33 +1,62 @@
 package controlador;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.event.MouseAdapter;
+import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JOptionPane;
 
 import src.VentanaInicio;
+import vista.Ventana;
+import vista.VistaPooglin;
 
 
 import modelo.Terreno;
 
 
-public class MouseAdaptador extends MouseAdapter {
-	private VentanaInicio ventana;
+//public class MouseAdaptador extends MouseAdapter {
+public class MouseAdaptador implements MouseListener {
+
+//private  ventana;
 	
-	public MouseAdaptador(VentanaInicio ventana){
-		this.ventana = ventana;
+	public MouseAdaptador(){
+		//this.ventana = vistaPooglin;
 	}
 	
-	public void mouseClicked(MouseEvent arg0) {
+
+	public void mouseMoved(MouseEvent arg0){
+		System.out.println("Pasaste por mouseMove");
 		
-		Button bt = (Button)arg0.getSource();
-		System.out.println(bt.getLabel());
-		//if(bt.getLabel() == "Nivel 1") ventana.CargarNivel1();
-		if(bt.getLabel() == "Nivel 1") bt.setLabel("Cambie");
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		System.out.println("Pasaste por mouseClick");
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		System.out.println("Pasaste por mouseentered");
 			
 	}
 
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

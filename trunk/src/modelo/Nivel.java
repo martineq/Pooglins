@@ -59,6 +59,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * las pruebas; el nivel lo voy a setear con los 
 	 * getter's y los setter's
 	 * Constructor de Nivel.-
+	 * @throws InterruptedException 
 	 * 
 	 */
 	/*public Nivel(int cantidadPersonajes,int cantidadPersonajesArescatar){
@@ -97,12 +98,10 @@ public class Nivel implements Escenario, ObjetoVivo {
 	//FALTA VER TEMA HABILIDADES DISPONIBLES
 	//Y COMO LAS VA A ACTIVAR EL USUARIO.-
 	//Guido.-
-		
-		
-		//Ciclo que controla que queden pooglins vivos o que no se haya 
-		//terminado el nivel xq todos los pooglins fueron rescatados
-		//o el tiempo se termino.
-		//Guido.-
+	//Ciclo que controla que queden pooglins vivos o que no se haya 
+	//terminado el nivel xq todos los pooglins fueron rescatados
+	//o el tiempo se termino.
+	//Guido.-
 	//	while((this.cantidadPooglins > 0)||((this.pooglinsARescatar > 0)&&(this.pooglinsARescatar < this.cantidadPooglins))){//ver tema tiempo.Guido.-
 		
 			for(int i=0;i<this.pooglins.length;i++){
@@ -115,16 +114,16 @@ public class Nivel implements Escenario, ObjetoVivo {
 					matarse.utilizar(pooglin);
 					pooglin.borrarse();
 				}
-					
+				
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
+					//System.out.println("Nombre de la clase: "+terrenoActual.getClass().getName());
 					pooglin.setAltura(alturaPooglin(pooglin));
 					pooglin.vivir();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
-					
 				}	
-				
+					
 				//Controlar si el usuario quiere activar
 				//alguna habilidad para este pooglin
 				//Guido.-
@@ -132,6 +131,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 //			}
 			
 		}
+	}
+
+	private boolean estaEnLaEntrada(int posicionX, int posicionY) {
+		int coordenadaXpuertaEntrada=this.puertaComienzo.getPosicionX()/base;
+		int coordenadaYpuertaEntrada=this.puertaComienzo.getPosicionY()/base;
+		if((coordenadaXpuertaEntrada==posicionX)&&(coordenadaYpuertaEntrada==posicionY))
+			return true;
+		else return false;
 	}
 
 	/**Método que devuelve el terreno dado por la posición X e Y.
@@ -144,27 +151,47 @@ public class Nivel implements Escenario, ObjetoVivo {
 		//Guido.-
 		
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
-		
+		//System.out.println("Velocidad: " + velocidad.getVelocidadX());
 		//obtengo el terreno de la posicion justo adelante del pooglin
-		Terreno terrenoActual = this.matrizNivel[posicionX+1][posicionY];
+		int numeroUno;
 		
-		//SOLUCION PROVISORIA
-		if(velocidad.getVelocidadX()<0){
-			terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
-			if(terrenoActual instanceof Vacio)terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
-			
+		Terreno terrenoActual;// = this.matrizNivel[posicionX][posicionY+1];
+		if(velocidad.getVelocidadX() > 0) numeroUno = 1;
+			else numeroUno = -1;
+		
+		if (this.matrizNivel[posicionX][posicionY+1] instanceof Vacio){
+			terrenoActual = this.matrizNivel[posicionX][posicionY+1];		
 		}
-		//REVISAR para evitar problemas de bordes!!!
-		
-		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
-			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
-		}else{
-			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
-				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
-			}else{
-				return terrenoActual;//sino devuelvo lo que tiene justo adelante
+		else{
+			if(this.matrizNivel[posicionX+numeroUno][posicionY] instanceof Vacio){
+				terrenoActual =this.matrizNivel[posicionX][posicionY+1];
+			}
+			else {
+				terrenoActual = matrizNivel[posicionX+numeroUno][posicionY];
 			}
 		}
+		
+		
+		return terrenoActual;
+//		
+		
+		//SOLUCION PROVISORIA
+//		if(velocidad.getVelocidadX()<0){
+//			terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
+//			if(terrenoActual instanceof Vacio)terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
+//			
+//		}
+//		//REVISAR para evitar problemas de bordes!!!
+//		
+//		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
+//			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
+//		}else{
+//			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
+//				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
+//			}else{
+//				return terrenoActual;//sino devuelvo lo que tiene justo adelante
+//			}
+//		}
 		
 	}
 		
@@ -328,17 +355,17 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @param campo
      */
     private int alturaPooglin(Personaje pooglin) {
-         /*   int contador = 1;
+     /*       int contador = 1;
             int altura = 0;
             int posicionX = ((Pooglin)pooglin).getPosicionX()/base;
             int posicionY = ((Pooglin)pooglin).getPosicionY()/base;
             
             
-            while ( (revisarNivel( posicionX , posicionY - contador  ,pooglin)) instanceof Vacio ){
+            while ( (revisarNivel( posicionX , posicionY + contador  ,pooglin)) instanceof Vacio ){
                     altura++;
                     contador++;
             }
-            return altura;*/
+            return altura; */
     	return 1;//SACARLA
     }
 

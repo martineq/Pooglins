@@ -1,5 +1,6 @@
 package src;
 
+import controlador.MouseAdaptador;
 import vista.Ventana;
 import vista.VentanaPrincipal;
 import vista.VistaPooglin;
@@ -18,7 +19,10 @@ import modelo.Vacio;
 
 
 
-public class PruebaTres {
+public class PruebaSiete {
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
@@ -27,12 +31,15 @@ public class PruebaTres {
 		int anchoDeMatriz = 22;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
 		Terreno[][] matrizNivel;
+		
 
+		MouseAdaptador oyente = new MouseAdaptador();
+	
 		
 		// Primero instancio parte de mi modelo
 		
 		for (int i =0; i< cantidadDePooglin; i++){
-			pooglins[i] = new Pooglin(2,1);
+			pooglins[i] = new Pooglin(1+i,1+i);
 		}
 		
 		//Luego instancio los objetos del framework: 
@@ -41,6 +48,8 @@ public class PruebaTres {
 		ControladorJuego controlador = new ControladorJuego();
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
+		
+		
 		
 		// Pido una instancia de nivel para setear la matriz.
 		Nivel nivel = Nivel.getInstance();
@@ -81,8 +90,39 @@ public class PruebaTres {
 				}
 		    }
 		
+		for(int fila=1;fila<21;fila++){
+			if(fila != 19){		
+				
+				
+			matrizNivel[fila][8] = new Tierra(fila,8);
+			VistaTierra t = new VistaTierra();
+	    	t.setPosicionable(matrizNivel[fila][8]);
+	    	controlador.agregarDibujable(t);	
+			}
+			}
 
-		
+		for(int fila=1;fila<21;fila++){
+			if(fila != 2){		
+				
+			matrizNivel[fila][5] = new Roca(fila,5);
+			VistaRoca t = new VistaRoca();
+	    	t.setPosicionable(matrizNivel[fila][5]);
+	    	controlador.agregarDibujable(t);	
+			}
+			}
+
+	/*	matrizNivel[1][4] = new Tierra(1,4);
+		VistaTierra t = new VistaTierra();
+    	t.setPosicionable(matrizNivel[1][4]);
+    	controlador.agregarDibujable(t);	
+    
+    
+    	
+    	matrizNivel[20][4] = new Tierra(20,4);
+		VistaTierra td = new VistaTierra();
+    	td.setPosicionable(matrizNivel[20][4]);
+    	controlador.agregarDibujable(td);	
+*/
 		
 		Puerta puertaComienzo= new Puerta(1,1);
 		Puerta puertaSalida = new Puerta(10,1);
@@ -125,6 +165,9 @@ public class PruebaTres {
 			vistaPooglin.setPosicionable(pooglins[i]);
 			//controlador.agregarObjetoVivo(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
+		 
+				
+			vistaPooglin.addMouseListener(oyente);
 		}
 	
 		controlador.agregarObjetoVivo(nivel);
