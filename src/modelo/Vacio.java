@@ -42,10 +42,8 @@ public class Vacio extends Terreno {
 				morir.utilizar(pooglin);
 				Habilidad habilidadActual = ((Pooglin)pooglin).getHabilidad();
 				habilidadActual.utilizar(pooglin); //Si habilidadActual es un Platillo => el pooglin va a vivir.-
-				pooglin.vivir();
 			}else{
 				this.caer((Pooglin)pooglin);
-				pooglin.vivir();				   
 			}									   		   
 		}else{ //Es el caso donde el pooglin está en el piso.-
 			if ( ((Pooglin)pooglin).estaVivo() ){

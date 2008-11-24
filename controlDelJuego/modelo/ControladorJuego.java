@@ -63,13 +63,13 @@ public class ControladorJuego {
 		while(iterador.hasNext()){
 			Dibujable dib = (Dibujable)iterador.next();
 			dib.dibujar(this.superficieDeDibujo);
-			System.out.println(dib.getPosicionable().getPosicionX());
-			System.out.println( dib.getPosicionable().getPosicionY());
+		//	System.out.println(dib.getPosicionable().getPosicionX());
+		//	System.out.println( dib.getPosicionable().getPosicionY());
 		}		
 		this.superficieDeDibujo.actualizar();
 	}
 	
-	private void simular() {
+	private void simular() throws InterruptedException {
 		this.superficieDeDibujo.limpiar();
 		Iterator iterador = objetosVivos.iterator();
 		while(iterador.hasNext()){

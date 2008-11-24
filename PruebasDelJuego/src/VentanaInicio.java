@@ -15,7 +15,7 @@ public class VentanaInicio extends Ventana{
 
 		Panel panel = new Panel();
 		
-		MouseAdaptador oyente = new MouseAdaptador(this);
+		MouseAdaptador oyente = new MouseAdaptador();
 		
 		Button btNivelUno = new Button("Nivel 1");
 		btNivelUno.setSize(10, 10);

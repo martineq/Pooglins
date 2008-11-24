@@ -2,6 +2,8 @@ package vista;
 import modelo.Dibujable;
 import modelo.SuperficieDeDibujo;
 
+import java.awt.Canvas;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
@@ -15,7 +17,7 @@ import modelo.Posicionable;
  * Esta clase representa una imagen JPG abstrayendo al usuario de los detalles de Java2D
  * Simplemente requiere de una referencia al nombre del archivo JPG
  */
-public class Imagen implements Dibujable{
+public class Imagen extends Component implements Dibujable{
 	
 	private String nombreArchivoImagen;
     private BufferedImage imagen;
@@ -54,7 +56,7 @@ public class Imagen implements Dibujable{
 	}
 
 	public void setPosicionable(Posicionable posicionable) {
-		System.out.println("PosicionX:" + posicionable.getPosicionX()+" PosicionY: " + posicionable.getPosicionY());	
+	//	System.out.println("PosicionX:" + posicionable.getPosicionX()+" PosicionY: " + posicionable.getPosicionY());	
 		this.posicionable = posicionable;
 	}
 
