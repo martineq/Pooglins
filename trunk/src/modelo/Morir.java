@@ -22,6 +22,8 @@ public class Morir extends Comportamiento {
 		velocidad.setVelocidadX(Velocidad.VELOCIDAD_NULA);
 		velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		poglin.setVelocidad(velocidad);
+		poglin.borrarse();
+		System.out.println("Murio el pooglin");
 		//REVISAR SI VAMOS A SACARLO DE LA PANTALLA CUANDO LO 
 		//MATAMOS 
 	    //Guido.-
