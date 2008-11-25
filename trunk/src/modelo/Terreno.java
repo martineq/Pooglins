@@ -8,9 +8,6 @@ public abstract class Terreno implements Posicionable {
 	 * clase Nivel, las habilidad y hasta ellas mismas necesitan saber en que posicion
 	 * de la matriz principal se encuentran.
 	 */
-	//numero para calcular la posicion.
-	private int base=44;
-	//----------------------------
 	private int posicionX;
 	private int posicionY;
 	private boolean activo;
@@ -22,13 +19,13 @@ public abstract class Terreno implements Posicionable {
 		return posicionX;
 	}
 	public void setPosicionX(int posicionX) {
-		this.posicionX = posicionX*base;
+		this.posicionX = posicionX;
 	}
 	public int getPosicionY() {
 		return posicionY;
 	}
 	public void setPosicionY(int posicionY) {
-		this.posicionY = posicionY*base;
+		this.posicionY = posicionY;
 	}
 	public boolean isActivo() {
 		return activo;

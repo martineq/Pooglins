@@ -9,8 +9,6 @@ import org.dom4j.Element;
  * 
  */
 public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
-	
-	private int base=44;
 	private int posicionX;
 	private int posicionY;
 	private Velocidad velocidad;
@@ -42,11 +40,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	}
 
 	public void setPosicionX(int x){
-		this.posicionX = x*base;
+		this.posicionX = x;
 	}
 	
 	public void setPosicionY(int y){
-		this.posicionY = y*base;
+		this.posicionY = y;
 	}
 	
 	public int getPosicionY(){
@@ -82,8 +80,8 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	//Fin de Secci�n de Geter's y Seter's
 	
 	public void vivir() { // >>> Ac� faltan ver los casos donde se me "acaba" la pantalla.- 
-		int posicionX = this.getPosicionX()/base;
-		int posicionY = this.getPosicionY()/base;
+		int posicionX = this.getPosicionX();
+		int posicionY = this.getPosicionY();
 		
 		this.cantTurnosQueNoSeMovio++;
 		if(this.cantTurnosQueNoSeMovio!=this.velocidad.modulo()){

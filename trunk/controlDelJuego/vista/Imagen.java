@@ -22,14 +22,14 @@ public class Imagen extends Component implements Dibujable{
 	private String nombreArchivoImagen;
     private BufferedImage imagen;
     private Posicionable posicionable;
-    
+    private int PosicionEnPantalla = 44;
 	public Imagen(){
 		
 	}
 
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		Graphics grafico = ((Ventana)superficeDeDibujo).getGrafico();
-		grafico.drawImage(this.imagen, this.posicionable.getPosicionX(), this.posicionable.getPosicionY(), null);
+		grafico.drawImage(this.imagen, this.posicionable.getPosicionX()*PosicionEnPantalla, this.posicionable.getPosicionY()*PosicionEnPantalla, null);
 	}
 	    
 	public String getNombreArchivoImagen() {

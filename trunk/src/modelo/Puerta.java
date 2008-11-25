@@ -10,7 +10,6 @@ import org.dom4j.Element;
 public class Puerta implements Posicionable{
 	private int posicionX;
 	private int posicionY;
-	private int base = 44;
 	
 	/**Constructor clase puerta, solo a través de este
 	 * se puede setear las coordenadas de las puertas
@@ -20,8 +19,8 @@ public class Puerta implements Posicionable{
 	 * @param posY
 	 */
 	public Puerta(int posX,int posY){
-		this.posicionX=posX*base;
-		this.posicionY=posY*base;
+		this.posicionX=posX;
+		this.posicionY=posY;
 	}
 	
 	public int getPosicionX(){
