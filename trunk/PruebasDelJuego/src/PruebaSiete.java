@@ -26,7 +26,7 @@ public class PruebaSiete {
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
-		int cantidadDePooglin = 1;
+		int cantidadDePooglin = 5;
 		int altoDeMatriz = 14;
 		int anchoDeMatriz = 22;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
@@ -39,7 +39,7 @@ public class PruebaSiete {
 		// Primero instancio parte de mi modelo
 		
 		for (int i =0; i< cantidadDePooglin; i++){
-			pooglins[i] = new Pooglin(1+i,1+i);
+			pooglins[i] = new Pooglin(1,1);
 		}
 		
 		//Luego instancio los objetos del framework: 

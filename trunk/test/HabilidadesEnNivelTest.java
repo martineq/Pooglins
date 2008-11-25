@@ -106,9 +106,11 @@ public class HabilidadesEnNivelTest extends TestCase {
 		    for(int i =0; i<cantidadDePooglin;i++){
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				System.out.println("Posicionx: "+ ((Pooglin)pooglins[i]).getPosicionX());
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad();
 				pooglins[i].vivir();
+				System.out.println("TerrenoActual: " + terrenoActual.getClass().getName());
 				terrenoActual.accionarTerreno(pooglins[i]);
 			}
 		}
