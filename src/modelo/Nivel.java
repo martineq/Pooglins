@@ -117,7 +117,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
 					//System.out.println("Nombre de la clase: "+terrenoActual.getClass().getName());
-					pooglin.setAltura(alturaPooglin(pooglin));
+					//pooglin.setAltura(alturaPooglin(pooglin));
 					pooglin.vivir();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
@@ -328,8 +328,8 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @param pooglin
      * @param campo
      */
-    private int alturaPooglin(Personaje pooglin) {
-     /*       int contador = 1;
+ /*   private int alturaPooglin(Personaje pooglin) {
+            int contador = 1;
             int altura = 0;
             int posicionX = ((Pooglin)pooglin).getPosicionX()/base;
             int posicionY = ((Pooglin)pooglin).getPosicionY()/base;
@@ -339,9 +339,9 @@ public class Nivel implements Escenario, ObjetoVivo {
                     altura++;
                     contador++;
             }
-            return altura; */
+            return altura; 
     	return 1;//SACARLA
-    }
+    }*/
 
     
     /**Método que inicia el proceso de el guardado de todos los objetos instanciados
