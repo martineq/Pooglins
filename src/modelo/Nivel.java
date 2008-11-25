@@ -25,6 +25,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	private Puerta puertaComienzo;
 	private Puerta puertaSalida;
 	private Habilidad[] habilidadesDisponibles;
+	private int contador=0;
+	
 	
 	private static Nivel nivel=null;//Singleton
 
@@ -102,12 +104,27 @@ public class Nivel implements Escenario, ObjetoVivo {
 	//o el tiempo se termino.
 	//Guido.-
 	//	while((this.cantidadPooglins > 0)||((this.pooglinsARescatar > 0)&&(this.pooglinsARescatar < this.cantidadPooglins))){//ver tema tiempo.Guido.-
-		
-			for(int i=0;i<this.pooglins.length;i++){
-				Pooglin pooglin=(Pooglin)this.pooglins[i];
+		Pooglin pooglin;
+			
+		if(contador < this.pooglins.length){	
+			pooglin = (Pooglin)this.pooglins[contador];
+			
+			if ((pooglin.getPosicionX() == puertaComienzo.getPosicionX())&&(pooglin.getPosicionY() == puertaComienzo.getPosicionY())){//si el pooglin actual No esta muerto
+				Terreno terrenoActual = revisarNivel(pooglin.getPosicionX(),pooglin.getPosicionY(),pooglin);
+				pooglin.vivir();
+				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
+			    actualizarMatriz(terrenoActual);
+			}
+			else{
+				contador++;
+			}
+		}
+			
+			for(int i=0;i<contador;i++){
+				pooglin=(Pooglin)this.pooglins[i];
 				int posicionX=pooglin.getPosicionX();
 				int posicionY=pooglin.getPosicionY();	
-				
+								
 				if (alcanzoSalida(posicionX,posicionY)){//"Mato" y borro al pooglin que salio.-
 					Habilidad matarse=pooglin.getMatarse();
 					matarse.utilizar(pooglin);
@@ -116,8 +133,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 				
 				if (!pooglinMuerto(pooglin)){//si el pooglin actual No esta muerto
 					Terreno terrenoActual = revisarNivel(posicionX,posicionY,pooglin);
-					//System.out.println("Nombre de la clase: "+terrenoActual.getClass().getName());
-					//pooglin.setAltura(alturaPooglin(pooglin));
 					pooglin.vivir();
 					terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
 					actualizarMatriz(terrenoActual);
@@ -128,7 +143,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 				//Guido.-
 				activarHabilidad(pooglin);
 //			}
-			
 		}
 	}
 

@@ -24,7 +24,10 @@ public class Vacio extends Terreno {
 			Habilidad morir = pooglin.getMatarse();
 			morir.utilizar(pooglin);
 			}
-		else if (habilidadActual instanceof Platillo) habilidadActual.utilizar(pooglin);
+		else if (habilidadActual instanceof Platillo) {
+			habilidadActual.utilizar(pooglin);
+			pooglin.setAltura(0);
+		}
 		     else this.caer(pooglin);
 	}
 	
