@@ -7,8 +7,6 @@ package modelo;
 public class Vacio extends Terreno {
 
 	private static int ALTURA_MAX = 5*Velocidad.VELOCIDAD_NORMAL;
-	//private int posicionX;
-	//private int posicionY;
 	
 	/**Constructor de Vacio.-
      * 
@@ -19,7 +17,6 @@ public class Vacio extends Terreno {
 		this.setActivo(true);
 	}
 
-
 	public void accionarTerreno(Personaje unPooglin) {	
 		Pooglin pooglin = (Pooglin)unPooglin;				
 		Habilidad habilidadActual = (pooglin).getHabilidad();
@@ -29,7 +26,6 @@ public class Vacio extends Terreno {
 			}
 		else if (habilidadActual instanceof Platillo) habilidadActual.utilizar(pooglin);
 		     else this.caer(pooglin);
-
 	}
 	
 	/**Método privado que cambia la velocidad en 'Y' del pooglin.- 
