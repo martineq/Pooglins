@@ -92,8 +92,6 @@ public class PruebaSiete {
 		
 		for(int fila=1;fila<21;fila++){
 			if(fila != 19){		
-				
-				
 			matrizNivel[fila][8] = new Tierra(fila,8);
 			VistaTierra t = new VistaTierra();
 	    	t.setPosicionable(matrizNivel[fila][8]);
@@ -125,7 +123,7 @@ public class PruebaSiete {
 */
 		
 		Puerta puertaComienzo= new Puerta(1,1);
-		Puerta puertaSalida = new Puerta(10,1);
+		Puerta puertaSalida = new Puerta(18,12);
 		
 		VistaPuerta vPuerta = new VistaPuerta();
 		vPuerta.setPosicionable(puertaComienzo);

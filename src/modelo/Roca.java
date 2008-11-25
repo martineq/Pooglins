@@ -4,10 +4,7 @@ package modelo;
  * @author lkolaric
  * @version 2
  */
-public class Roca extends Terreno {
-   
-	private int base =44;
-	
+public class Roca extends Terreno {	
 	public Roca(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
@@ -16,8 +13,6 @@ public class Roca extends Terreno {
 	
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
-	// arreglar las PosicionX y posicionY
-		System.out.println("Posicion Del Terreno X:"+this.getPosicionX()+" posicionY:"+this.getPosicionY());
 		Velocidad velocidad = pooglin.getVelocidad();
 		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca
 			 velocidad.cambiarDireccion();//aca no me importa la velocidad en Y, supuestamente tiene que ser nula

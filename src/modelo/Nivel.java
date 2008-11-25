@@ -25,7 +25,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 	private Puerta puertaComienzo;
 	private Puerta puertaSalida;
 	private Habilidad[] habilidadesDisponibles;
-	private int base = 44;
 	
 	private static Nivel nivel=null;//Singleton
 
@@ -106,8 +105,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 		
 			for(int i=0;i<this.pooglins.length;i++){
 				Pooglin pooglin=(Pooglin)this.pooglins[i];
-				int posicionX=pooglin.getPosicionX()/base;
-				int posicionY=pooglin.getPosicionY()/base;	
+				int posicionX=pooglin.getPosicionX();
+				int posicionY=pooglin.getPosicionY();	
 				
 				if (alcanzoSalida(posicionX,posicionY)){//"Mato" y borro al pooglin que salio.-
 					Habilidad matarse=pooglin.getMatarse();
@@ -134,8 +133,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 
 	private boolean estaEnLaEntrada(int posicionX, int posicionY) {
-		int coordenadaXpuertaEntrada=this.puertaComienzo.getPosicionX()/base;
-		int coordenadaYpuertaEntrada=this.puertaComienzo.getPosicionY()/base;
+		int coordenadaXpuertaEntrada=this.puertaComienzo.getPosicionX();
+		int coordenadaYpuertaEntrada=this.puertaComienzo.getPosicionY();
 		if((coordenadaXpuertaEntrada==posicionX)&&(coordenadaYpuertaEntrada==posicionY))
 			return true;
 		else return false;
@@ -147,53 +146,28 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @return Terreno
 	 */
 	public Terreno revisarNivel(int posicionX, int posicionY,Personaje pooglin){
-		//EN REVISION ...
-		//Guido.-
-		
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
-		//System.out.println("Velocidad: " + velocidad.getVelocidadX());
-		//obtengo el terreno de la posicion justo adelante del pooglin
-		int numeroUno;
+		int direccion;
 		
 		Terreno terrenoActual;// = this.matrizNivel[posicionX][posicionY+1];
-		if(velocidad.getVelocidadX() > 0) numeroUno = 1;
-			else numeroUno = -1;
+		if(velocidad.getVelocidadX() > 0) direccion = 1;
+			else direccion = -1;
 		
 		if (this.matrizNivel[posicionX][posicionY+1] instanceof Vacio){
 			terrenoActual = this.matrizNivel[posicionX][posicionY+1];		
 		}
 		else{
-			if(this.matrizNivel[posicionX+numeroUno][posicionY] instanceof Vacio){
+			if(this.matrizNivel[posicionX+direccion][posicionY] instanceof Vacio){
 				terrenoActual =this.matrizNivel[posicionX][posicionY+1];
 			}
 			else {
-				terrenoActual = matrizNivel[posicionX+numeroUno][posicionY];
+				terrenoActual = matrizNivel[posicionX+direccion][posicionY];
 			}
 		}
 		
 		
 		return terrenoActual;
-//		
-		
-		//SOLUCION PROVISORIA
-//		if(velocidad.getVelocidadX()<0){
-//			terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
-//			if(terrenoActual instanceof Vacio)terrenoActual=this.matrizNivel[posicionX-1][posicionY+1];
-//			
-//		}
-//		//REVISAR para evitar problemas de bordes!!!
-//		
-//		if(velocidad.getVelocidadY()!=0){//si tiene velocidad en Y devuelvo lo que tiene hacia abajo
-//			return terrenoActual=this.matrizNivel[posicionX][posicionY+1];
-//		}else{
-//			if (terrenoActual instanceof Vacio){//Si es vacio devuelvo lo que hay justo adelante y abajo es decir, donde va a pisar el pooglin
-//				return terrenoActual=this.matrizNivel[posicionX+1][posicionY+1];
-//			}else{
-//				return terrenoActual;//sino devuelvo lo que tiene justo adelante
-//			}
-//		}
-		
-	}
+}
 		
 	
 	
@@ -214,8 +188,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 		Collection pooglinsCercanos= new ArrayList();
 		for(int i=0;i<this.pooglins.length;i++){
 			Pooglin pooglin= (Pooglin)this.pooglins[i];
-			int posicionXpooglin=pooglin.getPosicionX()/base;
-			int posicionYpooglin=pooglin.getPosicionY()/base;
+			int posicionXpooglin=pooglin.getPosicionX();
+			int posicionYpooglin=pooglin.getPosicionY();
 			
 			if((posicionX==posicionXpooglin)&&(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
 			if((posicionX==posicionXpooglin+1)&&(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
@@ -235,8 +209,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @param posicionY
 	 */
 	private boolean alcanzoSalida(int posicionX,int posicionY){
-		int coordenadaXpuertaSalida=this.puertaSalida.getPosicionX()/base;
-		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY()/base;
+		int coordenadaXpuertaSalida=this.puertaSalida.getPosicionX();
+		int coordenadaYpuertaSalida=this.puertaSalida.getPosicionY();
 		
 		if((coordenadaXpuertaSalida==posicionX)&&(coordenadaYpuertaSalida==posicionY)){
 			this.pooglinsARescatar--;
