@@ -11,11 +11,10 @@ public class Roca extends Terreno {
 		this.setActivo(true);
 	}
 	
-	
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
 		Velocidad velocidad = pooglin.getVelocidad();
-		
+		pooglin.setAltura(0);
 		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca
 			 velocidad.cambiarDireccion();//aca no me importa la velocidad en Y, supuestamente tiene que ser nula
 		}else {  //caso sobre la roca

@@ -20,12 +20,13 @@ public class Hielo extends Terreno {
 	 * pisa Hielo.-
 	 * @param pooglin
 	 */
-	private void acelerarPooglin(Personaje pooglin){
-		Pooglin auxiliarPooglin = (Pooglin) pooglin;
-		Velocidad auxiliarVelocidad = auxiliarPooglin.getVelocidad();
-		int velocidadX = auxiliarVelocidad.getVelocidadX();
-		auxiliarVelocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * Velocidad.VELOCIDAD_MAXIMA);
-		auxiliarPooglin.setVelocidad(auxiliarVelocidad);
+	private void acelerarPooglin(Personaje unPooglin){
+		Pooglin pooglin = (Pooglin) unPooglin;
+		Velocidad velocidad = pooglin.getVelocidad();
+		pooglin.setAltura(0);
+		int velocidadX = velocidad.getVelocidadX();
+		velocidad.setVelocidadX((velocidadX / Math.abs(velocidadX)) * Velocidad.VELOCIDAD_MAXIMA);
+		pooglin.setVelocidad(velocidad);
 	}
 	
 	/**Redefino el metodo de la interfaz con la lógica propia de 

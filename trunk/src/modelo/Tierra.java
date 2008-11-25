@@ -25,6 +25,7 @@ public class Tierra extends Terreno {
 	private void accionarLateral(Pooglin pooglin) {
 		Habilidad habilidad = pooglin.getHabilidad();
 		Velocidad velocidad = pooglin.getVelocidad();
+		pooglin.setAltura(0);
 		if (habilidad instanceof RayoLaser){
 			pooglin.usarHabilidad(this);
 			if (this.isActivo()){
