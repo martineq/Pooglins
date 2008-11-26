@@ -54,8 +54,8 @@ public class AgujeroNegroTest extends TestCase{
 		for (int i=0;i<pooglins.length;i++){
 			int posicionX=((Pooglin)pooglins[i]).getPosicionX();
 			int posicionY=((Pooglin)pooglins[i]).getPosicionY();
-			assertEquals(6,posicionX);//chequeo posiciones
-			assertEquals(5,posicionY);
+			assertEquals(-1,posicionX);//chequeo posiciones
+			assertEquals(-1,posicionY);//Morir asigna (-1,-1) como posiciones
 			assertFalse(((Pooglin)pooglins[i]).estaVivo());//chequeo que este muerto
 			Velocidad velocidad= ((Pooglin)pooglins[i]).getVelocidad();
 			int velocidadX=velocidad.getVelocidadX();//chequeo que la velocidad sea nula
