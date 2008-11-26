@@ -1,22 +1,16 @@
 package modelo;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.dom4j.Element;
 
+
 /**Clase que representa el campo de juego donde se encuentran los personajes
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
- * 
- *
- */
-/**
  * @author guido
- *
- *
  */
-
 public class Nivel implements Escenario, ObjetoVivo {
 	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
@@ -25,10 +19,9 @@ public class Nivel implements Escenario, ObjetoVivo {
 	private Puerta puertaComienzo;
 	private Puerta puertaSalida;
 	private Habilidad[] habilidadesDisponibles;
-	private int contador=0;
+	private int contador = 0;
 	
-	
-	private static Nivel nivel=null;//Singleton
+	private static Nivel nivel = null;  //Singleton
 
 	
 	/**Metodo getInstance que permite la utilización del
@@ -41,8 +34,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	public static Nivel getInstance(){
 		if(nivel==null)nivel=new Nivel();
 		return nivel;
-		
 	}
+	
 	
 	/**Constructor Privado, para obtener una instancia debe
 	 * hacerse mediante el uso de getInstance()dado que Nivel
@@ -53,10 +46,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 		//De momento lo defino asi.-	
 	}
 	
-	//Ver si el escenario se va a pasar en una lista o como se van
-	//a pasar las cosas para saber como cargamos la matriz etc
-	//Guido.-
-	/**Lo dejo comentado y uso el constructor por defecto para
+	
+	/**Ver si el escenario se va a pasar en una lista o como se van
+	 * a pasar las cosas para saber como cargamos la matriz etc
+	 * Guido.-
+	 * Lo dejo comentado y uso el constructor por defecto para
 	 * las pruebas; el nivel lo voy a setear con los 
 	 * getter's y los setter's
 	 * Constructor de Nivel.-
@@ -94,6 +88,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 	*/
 
+	
 	public void vivir() {
 	//En revision...
 	//FALTA VER TEMA HABILIDADES DISPONIBLES
@@ -146,6 +141,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		}
 	}
 
+	
 	private boolean estaEnLaEntrada(int posicionX, int posicionY) {
 		int coordenadaXpuertaEntrada=this.puertaComienzo.getPosicionX();
 		int coordenadaYpuertaEntrada=this.puertaComienzo.getPosicionY();
@@ -154,6 +150,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		else return false;
 	}
 
+	
 	/**Método que devuelve el terreno dado por la posición X e Y.
 	 * @param posicionX
 	 * @param posicionY
@@ -183,7 +180,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 		return terrenoActual;
 }
 		
-	
 	
 	/**Método encargado de obtener los pooglins cercanos a una
 	 * determinada posicion del nivel. Devuelve un ArrayList
@@ -216,6 +212,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		return pooglinsCercanos;
 	}
 
+	
 	/**Metodo privado que chequea si el pooglin actual alcanzo
 	 * la salida y disminuye la cantidad de pooglins a rescatar
 	 * asi como tambien la cantidad de pooglins en el nivel.-
@@ -233,6 +230,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		return false;
 	}
 	
+	
 	/**Metodo privado que controla que el personaje actual
 	 * este vivo, si no lo esta, disminuye la cantidad
 	 * de pooglins vivos en el nivel;ademas devuelve
@@ -247,6 +245,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		}
 		return false;
 	}
+	
 	
 	/**Metodo privado que en caso de ser necesario
 	 * actualiza el terreno de la posicion actual 
@@ -264,6 +263,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 			}
 		}
 	}
+	
+	
 	/**Metodo privado que va a servir para que el 
 	 * usuario pueda activarle al personaje una
 	 * de las habilidades disponibles para el nivel.
@@ -279,59 +280,60 @@ public class Nivel implements Escenario, ObjetoVivo {
 		//una habilidad de ese tio disponible.-
 		//Guido.-
 	}
-	//Geter's y Seter's Realizados automaticamete.-
+	
+	
+	//Seter's agregados automáticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
 		
 		this.matrizNivel = matrizNivel;
 	}
 
-	public Terreno[][] getMatrizNivel() {
-		return matrizNivel;
-	}
-
+	
 	public void setPooglins(Personaje[] pooglins) {
 		this.pooglins = pooglins;
 	}
 
+		
 	public Personaje[] getPooglins() {
 		return pooglins;
 	}
 
+	
 	public void setPooglinsARescatar(int pooglinsARescatar) {
 		this.pooglinsARescatar = pooglinsARescatar;
 	}
 
+	
 	public int getPooglinsARescatar() {
 		return pooglinsARescatar;
 	}
 
+	
 	public void setCantidadPooglins(int cantidadPooglins) {
 		this.cantidadPooglins = cantidadPooglins;
 	}
 
+	
 	public int getCantidadPooglins() {
 		return cantidadPooglins;
 	}
 
+	
 	public Puerta getPuertaComienzo() {
 		return puertaComienzo;
 	}
 
+	
 	public void setPuertaComienzo(Puerta puertaComienzo) {
 		this.puertaComienzo = puertaComienzo;
 	}
 
-	public Puerta getPuertaSalida() {
-		return puertaSalida;
-	}
-
+	
 	public void setPuertaSalida(Puerta puertaSalida) {
 		this.puertaSalida = puertaSalida;
 	}
-	public Habilidad[] getHabilidadesDisponibles() {
-		return habilidadesDisponibles;
-	}
-
+	
+	
 	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
@@ -342,7 +344,7 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @param pooglin
      * @param campo
      */
- /*   private int alturaPooglin(Personaje pooglin) {
+    /** private int alturaPooglin(Personaje pooglin) {
             int contador = 1;
             int altura = 0;
             int posicionX = ((Pooglin)pooglin).getPosicionX()/base;
@@ -357,19 +359,104 @@ public class Nivel implements Escenario, ObjetoVivo {
     	return 1;//SACARLA
     }*/
 
-    
+ 
     /**Método que inicia el proceso de el guardado de todos los objetos instanciados
-     * para luego exportarlos a un archivo en disco, en formato XML,.
+     * para luego exportarlos a un archivo en disco, en formato XML.
      * @author Mart.-
      */
-    public boolean salvarJuego(){
-    	System.out.println("Inicio de la Persistencia.-");
-		Persistencia save = new Persistencia(); //Creo un objeto de clase Persistencia.-
-		this.guardar(save.crearRaiz());  //Guardo todos los atributos.-
-		save.guardarDocumento();  //Guardo todos los objetos en un XML
-		System.out.println("Persistencia finalizada.-");
+    public boolean guardarJuego(){
+    	System.out.println("Saving...");
+		Persistencia guarda = new Persistencia(); //Creo un objeto de clase Persistencia.-
+		this.guardar(guarda.crearRaiz());  //Guardo todos los atributos.-
+		guarda.guardarDocumento();  //Guardo todos los objetos en un XML
+		System.out.println("Saved!!!");
     	return true;
     }
+
+    /**Método que inicia el proceso de carga de todos los objetos guardados
+     * en formato XML para luego instanciarlos en memoria.-
+     * @author Mart.-
+     * @param ruta
+     */
+    public boolean cargarJuego(String ruta){
+    	System.out.println("Loading...");
+		Persistencia carga = new Persistencia();  //Creo un objeto de clase Persistencia.-
+		this.cargar(carga.cargarRaiz(ruta));  //Cargo todos los atributos.-
+		System.out.println("Loaded!!!");
+    	return true;
+    }    
+    
+
+	/**Método que instancia todos los objetos de esta clase, 
+	 * solo guarda los atributos de esta "capa de datos", 
+	 * si existiera una "capa" mas profunda, delega la tarea
+	 * a la clase que se encuentre contenida en esa próxima "capa".- 
+	 * @param elementoPadre
+	 */
+	public void cargar(Element elementoPadre){
+		/** Tengo que cargar todo esto:
+		 *  private Terreno[][] matrizNivel;
+		 *	private Personaje[] pooglins;
+		 *	private int pooglinsARescatar;
+		 *	private int cantidadPooglins;
+		 *	private Puerta puertaComienzo;
+		 *	private Puerta puertaSalida;
+		 *	private Habilidad[] habilidadesDisponibles;
+		 *	private int contador = 0;
+		 * */
+		Iterator<?> iter = elementoPadre.elementIterator();
+		while( iter.hasNext() ){
+			Element elemento = (Element)iter.next();
+			String texto = elemento.getName();
+			System.out.println("Texto: "+ texto);  //Luego sacar.-
+			
+		/**	// Listo el esqueleto, COMPLETAR!!!
+		   if ( texto.equals( "matrizNivel" ) ){
+				Iterator<?> iter2 = elemento.elementIterator();
+				int i=0; //Luego sacar.-
+				while( iter2.hasNext() ){
+					Element elementoHijo = (Element)iter2.next();
+					String textoHijo = elementoHijo.getName();
+					System.out.println("Hijo "+i+" :"+ textoHijo); //Luego sacar.-
+					System.out.println("El x es: "+ elementoHijo.attributeValue("x")); //Luego sacar.-
+					System.out.println("El y es: "+ elementoHijo.attributeValue("y")); //Luego sacar.-
+					System.out.println("El tipo es: "+ elementoHijo.attributeValue("tipo")); //Luego sacar.-
+					i++; //Luego sacar.-
+				}
+			}*/
+			
+			/** Esta ya está lista, falta hacer el nuevo constructor de Pooglin.-
+			if ( texto.equals( "pooglins" ) ){
+				Iterator<?> iter2 = elemento.elementIterator();
+				int indicePooglin = 0;
+				while( iter2.hasNext() ){
+					iter2.next();
+					indicePooglin++;
+				}
+				Personaje [] vectorPooglins = new Personaje[indicePooglin];
+				System.out.println("ContadorHijoReal: "+ indicePooglin); //Luego sacar.-
+				iter2 = elemento.elementIterator();
+				indicePooglin = 0;
+				while( iter2.hasNext() ){
+					Element elementoHijo = (Element)iter2.next();
+					vectorPooglins[indicePooglin] = new Pooglin(elementoHijo);
+					indicePooglin++;
+					System.out.println("nombre: "+ elementoHijo.getName()); //Luego sacar.-
+				}
+				this.pooglins = vectorPooglins;
+			}*/
+			
+			if ( texto.equals( "pooglinsARescatar" ) ){
+				System.out.println("El valorRescue es: "+ Integer.parseInt( (elemento.attributeValue("valor")) ) ); //Luego sacar.-
+				pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
+			}
+			
+			
+		} // FIN DEL ITERADOR PRINCIPAL.-
+		
+
+	} //FIN DEL CARGAR.-
+    
     
     
 	/**Método que guarda dentro del elemento asignado por parámetro todos los objetos
@@ -388,24 +475,17 @@ public class Nivel implements Escenario, ObjetoVivo {
 			private Puerta puertaComienzo;
 			private Puerta puertaSalida;
 			private Habilidad[] habilidadesDisponibles;
+			private int contador = 0;
 		 * 
 		 * */
-		//Guardo pooglinsARescatar.-
-		Element elementoHijo = elementoPadre.addElement("pooglinsARescatar");
-		elementoHijo.addAttribute("valor",( (Integer)pooglinsARescatar).toString() );
-		
-		//Guardo cantidadPooglins.-
-		elementoHijo = elementoPadre.addElement("cantidadPooglins");
-		elementoHijo.addAttribute("valor",( (Integer)cantidadPooglins).toString() );
-		
 		//Guardo la matriz.-
-		elementoHijo = elementoPadre.addElement("matrizNivel");
+		Element elementoHijo = elementoPadre.addElement("matrizNivel");
 		for (int i = 0 ; i < matrizNivel.length ; i++ ){
 			for (int j = 0 ; j < matrizNivel[i].length ; j++ ){
 				
 				Element elementoHijo2 = elementoHijo.addElement("Terreno");
-				elementoHijo2.addAttribute( "x" , ((Integer)i).toString() );
-				elementoHijo2.addAttribute( "y" , ((Integer)j).toString() );
+				elementoHijo2.addAttribute( "x" , Integer.toString(i) );
+				elementoHijo2.addAttribute( "y" , Integer.toString(j) );
 				
 				Object elemento = matrizNivel[i][j];
 				if ( elemento instanceof AgujeroNegro ) {
@@ -436,6 +516,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 			((Pooglin)pooglins[i]).guardar(elementoHijo2);
 		}
 				
+		//Guardo pooglinsARescatar.-
+		elementoHijo = elementoPadre.addElement("pooglinsARescatar");
+		elementoHijo.addAttribute("valor",( (Integer)pooglinsARescatar).toString() );
+		
+		//Guardo cantidadPooglins.-
+		elementoHijo = elementoPadre.addElement("cantidadPooglins");
+		elementoHijo.addAttribute("valor",( (Integer)cantidadPooglins).toString() );
+		
 		//Guardo la puertaComienzo.- 
 		elementoHijo = elementoPadre.addElement("puertaComienzo");
 		puertaComienzo.guardar(elementoHijo);
@@ -469,9 +557,9 @@ public class Nivel implements Escenario, ObjetoVivo {
 					elementoHijo2.addAttribute( "tipo" , "Teletransportarse" );
 				}
 		}
-		
-		
+		//Guardo contador.-
+		elementoHijo = elementoPadre.addElement("contador");
+		elementoHijo.addAttribute("valor",( (Integer)contador).toString() );
 	}
-	
 	
 }

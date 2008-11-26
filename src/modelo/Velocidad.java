@@ -85,6 +85,7 @@ public class Velocidad {
 		elementoHijo = elementoPadre.addElement("velocidadY");
 		elementoHijo.addAttribute("valor",( (Integer)this.velocidadY).toString() );
 		
+		
 	}
 	
 }

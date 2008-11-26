@@ -12,7 +12,7 @@ import junit.framework.TestCase;
  */
 public class AgujeroNegroTest extends TestCase{
 
-	private Nivel nivel=null;
+	private Nivel nivel = null;
 	private AgujeroNegro agujeroNegro;
 	private Terreno[][] matrizNivel;
 	private Personaje[] pooglins;
@@ -44,7 +44,6 @@ public class AgujeroNegroTest extends TestCase{
 		agujeroNegro=new AgujeroNegro(6,5);
 		matrizNivel[6][5]=agujeroNegro;
 		nivel.setMatrizNivel(matrizNivel);
-		
 		
 	}
 	public void testAccionarTerreno(){
