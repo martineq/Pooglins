@@ -2,12 +2,16 @@ package modelo;
 
 //Para crear el archivo XML.-
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 //Para escribir el archivo XML en disco.-
 import org.dom4j.io.XMLWriter;
 import java.io.*;
+
+//Para leer el archivo XML de disco.-
+import org.dom4j.io.SAXReader;
 
 /**
  * Clase que guarda todos los objetos vivos del programa (Persistencia).-
@@ -22,6 +26,7 @@ public class Persistencia {
 	documento = null;
   }
 
+  
   public Element crearRaiz(){
 	  
 	//Con esto creo el documento donde se va a encontrar todos los objetos.-
@@ -36,8 +41,22 @@ public class Persistencia {
 	return raiz;
   }
 
+  
+  public Element cargarRaiz(String ruta){
+	SAXReader lector = new SAXReader();
+	File archivo = new File(ruta);  
+	try {
+		documento = lector.read(archivo);
+	} catch (DocumentException e) {
+		System.out.println("Error de lectura de archivo");
+		e.printStackTrace();
+	} 
+	Element raiz = documento.getRootElement();
+	return raiz;	  
+  }
+
+
   public void guardarDocumento(){
-	  
 	  try {
 			FileWriter archivo = new FileWriter("Pooglins.xml");
 			XMLWriter escritor = new XMLWriter(archivo);
@@ -47,9 +66,8 @@ public class Persistencia {
 			System.out.println("Error de escritura de archivo");
 			e.printStackTrace();
 		}
-	  
   }
-  
+
   
   /** Clase que genera un archivo XML de persistencia de "ejemplo"
    * @author Mart.- 

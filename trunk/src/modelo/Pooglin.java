@@ -34,6 +34,22 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.cantTurnosQueNoSeMovio = 0;
 	}
 
+	public Pooglin(Element elementoPadre){
+		/**this.setVivo(true);
+		this.setPosicionX(posicionX);
+		this.setPosicionY(posicionY);
+		this.setHabilidad(null);
+		this.velocidad = new Velocidad();
+		this.velocidad.setVelocidadX(Velocidad.VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
+		//¿No arrancarían con velocidad en "Y" igualada a cero?
+		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
+		this.cantTurnosQueNoSeMovio = 0;*/
+		
+//		System.out.println("El x es: "+ elementoHijo.attributeValue("posicionX")); //Luego sacar.-
+		
+	}
+	
+	
 	//Secciï¿½n de Geter's y Seter's
 	public int getPosicionX(){
 		return this.posicionX;

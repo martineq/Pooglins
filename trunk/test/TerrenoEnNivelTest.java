@@ -108,7 +108,29 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
 		//nivel.vivir();
-		assertTrue(nivel.salvarJuego()); //Nuevo: XML !!!
+		assertTrue(nivel.guardarJuego()); //Nuevo: XML !!!
+		System.out.println("FIN PRUEBA XML 1");
+	}
+	
+	public void testNivelCargaConXML(){
+		for( int i = 1 ; i < tamanioMatriz-1 ; i++ ) matrizNivel[i][2] = new Tierra(i,2);
+		nivel.setPuertaComienzo(new Puerta(0,1));
+		nivel.setPuertaSalida(new Puerta(48,1));
+		pooglins = new Pooglin[15];
+		for( int i = 0 ; i < 15 ; i++ )pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		habilidadesDisponibles = new Habilidad[5];//Nuevo.-
+		for( int i = 0 ; i < 5 ; i++ )habilidadesDisponibles[i] = new Platillo(); //Nuevo.-
+		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(15);
+		nivel.setPooglinsARescatar(15);
+		nivel.setMatrizNivel(matrizNivel);
+		//nivel.vivir();
+		System.out.println("Voy a guardar");
+		assertTrue(nivel.guardarJuego()); //Nuevo: XML !!!
+		System.out.println("Voy a mostrar lo cargado: ");
+		assertTrue( nivel.cargarJuego("Pooglins.xml") );
+		System.out.println("FIN DE LA PRUEBA");
 	}
 	
 	public void testManejar() {
