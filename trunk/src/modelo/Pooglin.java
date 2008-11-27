@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Iterator;
+
 import org.dom4j.Element;
 
 
@@ -17,6 +19,8 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
 	private int altura;
+	
+	
 	/**Constructor de la clase Pooglin. Los valores que no se
 	 * pasan por parï¿½metro tienen un valor por defecto.-
 	 * @param posicionX
@@ -29,23 +33,85 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad();
 		this.velocidad.setVelocidadX(Velocidad.VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
-		//¿No arrancarían con velocidad en "Y" igualada a cero?
+		//this.velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);¿No arrancarían con velocidad en "Y" igualada a cero?
 		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
-		this.cantTurnosQueNoSeMovio = 0;
+		this.setCantTurnosQueNoSeMovio(0);
 	}
 
+	/**
+	 * Constructor para el uso de persistencia.-
+	 * @param elementoPadre
+	 */
 	public Pooglin(Element elementoPadre){
-		/**this.setVivo(true);
-		this.setPosicionX(posicionX);
-		this.setPosicionY(posicionY);
-		this.setHabilidad(null);
-		this.velocidad = new Velocidad();
-		this.velocidad.setVelocidadX(Velocidad.VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
-		//¿No arrancarían con velocidad en "Y" igualada a cero?
-		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
-		this.cantTurnosQueNoSeMovio = 0;*/
-		
-//		System.out.println("El x es: "+ elementoHijo.attributeValue("posicionX")); //Luego sacar.-
+		Iterator<?> iter = elementoPadre.elementIterator();
+		while( iter.hasNext() ){
+			Element elementoHijo = (Element)iter.next();
+			String texto = elementoHijo.getName();
+			//Cargo posicionX.-
+			if ( texto.equals( "posicionX" ) ){
+				this.setPosicionX( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
+			 }
+			
+			//Cargo posicionY.-
+			if ( texto.equals( "posicionY" ) ){
+				this.setPosicionY( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
+			 }
+			
+			//Cargo velocidad.-
+			if ( texto.equals( "velocidad" ) ){
+				 this.setVelocidad(new Velocidad(elementoHijo));
+			 }
+			
+			//Cargo habilidad.-
+			if ( texto.equals( "habilidad" ) ){
+				String habilidad = elementoHijo.attributeValue("tipo");
+				if (habilidad.equals("Congelamiento")){
+					this.setHabilidad(new Congelamiento());
+				 }
+				if (habilidad.equals("Morir")){
+					this.setHabilidad(new Morir());
+				 }
+				if (habilidad.equals("Platillo")){
+					this.setHabilidad(new Platillo());
+				 }
+				if (habilidad.equals("RayoLaser")){
+					this.setHabilidad(new RayoLaser());
+				 }
+				if (habilidad.equals("Taladro")){
+					this.setHabilidad(new Taladro());
+				 }
+				if (habilidad.equals("Teletransportarse")){
+					this.setHabilidad(new Teletransportarse());
+				 }
+			 }
+			
+			//Cargo vivo.-
+			if ( texto.equals( "vivo" ) ){
+				 String condicion = elementoHijo.attributeValue("condicion");
+				 if (condicion.equals("vivo")){
+					 this.setVivo(true);
+				 }
+				 if (condicion.equals("muerto")){
+					 this.setVivo(false);
+				 }
+			 }
+			
+			//Cargo matarse.-
+			if ( texto.equals( "matarse" ) ){
+				this.matarse = new Morir();
+			 }
+			
+			//Cargo cantTurnosQueNoSeMovio.-
+			if ( texto.equals( "cantTurnosQueNoSeMovio" ) ){
+				 this.setCantTurnosQueNoSeMovio( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
+			 }
+			
+			//Cargo altura.-
+			if ( texto.equals( "altura" ) ){
+				 this.setAltura( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
+			 }
+			
+		}
 		
 	}
 	
@@ -142,6 +208,10 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.altura = altura;
 	}
 
+	public void setCantTurnosQueNoSeMovio (int cant){
+		this.cantTurnosQueNoSeMovio = cant;
+	}
+	
 
 	/**Método que guarda todos los atributos de la clase Pooglin
 	 * para luego ser exportados a XML.-
@@ -161,11 +231,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		 */
 		//Guardo la posicionX.-
 		Element elementoHijo = elementoPadre.addElement("posicionX");
-		elementoHijo.addAttribute("valor",( (Integer)this.posicionX).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(this.posicionX) );
 		
 		//Guardo la posicionY.-
 		elementoHijo = elementoPadre.addElement("posicionY");
-		elementoHijo.addAttribute("valor",( (Integer)this.posicionY).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(this.posicionY) );
 		
 		//Guardo la velocidad.-
 		elementoHijo = elementoPadre.addElement("velocidad");
@@ -204,11 +274,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		
 		//Guardo la cantTurnosQueNoSeMovio.-
 		elementoHijo = elementoPadre.addElement("cantTurnosQueNoSeMovio");
-		elementoHijo.addAttribute("valor",( (Integer)this.cantTurnosQueNoSeMovio).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(this.cantTurnosQueNoSeMovio) );
 		
 		//Guardo la altura.-
 		elementoHijo = elementoPadre.addElement("altura");
-		elementoHijo.addAttribute("valor",( (Integer)this.altura).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(this.altura) );
 	}
 
 }

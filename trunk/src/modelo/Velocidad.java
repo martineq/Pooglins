@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Iterator;
+
 import org.dom4j.Element;
 
 
@@ -38,6 +40,27 @@ public class Velocidad {
 		this.setVelocidadY(VELOCIDAD_NULA);
 	}
 	
+	/**
+	 * Constructor para el uso de persistencia.-
+	 * @param elementoPadre
+	 */
+	public Velocidad(Element elementoPadre){
+		Iterator<?> iter = elementoPadre.elementIterator();
+		while( iter.hasNext() ){
+			Element elementoHijo = (Element)iter.next();
+			String texto = elementoHijo.getName();
+			//Cargo velocidadX.-
+			if ( texto.equals( "velocidadX" ) ){
+				this.setVelocidadX(Integer.parseInt( (elementoHijo.attributeValue("valor"))));
+			 }
+			//Cargo velocidadY.-
+			if ( texto.equals( "velocidadY" ) ){
+				this.setVelocidadY(Integer.parseInt( (elementoHijo.attributeValue("valor"))));
+			 }
+		}
+	}
+	
+	
 	/**Invierte la dirección de la componente de la velocidad en X.-
 	 * 
 	 */
@@ -71,7 +94,7 @@ public class Velocidad {
 				return Math.abs(this.getVelocidadX());
 		return VELOCIDAD_NULA;
 	}
-	
+
 	public void guardar(Element elementoPadre){
 		/** Tengo que guardar todo esto:
 		 *  private int velocidadX;
@@ -79,12 +102,11 @@ public class Velocidad {
 		 */
 		//Guardo la velocidadX.-
 		Element elementoHijo = elementoPadre.addElement("velocidadX");
-		elementoHijo.addAttribute("valor",( (Integer)this.velocidadX).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(this.velocidadX) );
 		
 		//Guardo la velocidadY.-
 		elementoHijo = elementoPadre.addElement("velocidadY");
-		elementoHijo.addAttribute("valor",( (Integer)this.velocidadY).toString() );
-		
+		elementoHijo.addAttribute("valor", Integer.toString(this.velocidadY) );
 		
 	}
 	
