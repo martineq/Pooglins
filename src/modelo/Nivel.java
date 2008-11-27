@@ -21,10 +21,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 	private Habilidad[] habilidadesDisponibles;
 	private int contador = 0;
 	
+	
 	private static Nivel nivel = null;  //Singleton
 
 	
-	/**Metodo getInstance que permite la utilización del
+	/**Método getInstance que permite la utilización del
 	 * patrón Singleton para la clase Nivel, desde cualquier
 	 * lugar de la aplicación puedo obtener una instancia
 	 * de esta clase que luego de que se la haya invocado una 
@@ -284,7 +285,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 	
 	//Seter's agregados automáticamete.-
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
-		
 		this.matrizNivel = matrizNivel;
 	}
 
@@ -338,6 +338,15 @@ public class Nivel implements Escenario, ObjetoVivo {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
 	
+	public int getContador() {
+		return contador;
+	}
+
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+	
 
 	/**Me indica la "altura del piso" en que se encuentra el personaje.-
      * @since 18/10/08
@@ -363,12 +372,13 @@ public class Nivel implements Escenario, ObjetoVivo {
     /**Método que inicia el proceso de el guardado de todos los objetos instanciados
      * para luego exportarlos a un archivo en disco, en formato XML.
      * @author Mart.-
+     * @param nombre -> es el nombre del archivo con su extensión (por EJ: "pooglins.xml")
      */
-    public boolean guardarJuego(){
+    public boolean guardarJuego(String nombre){
     	System.out.println("Saving...");
 		Persistencia guarda = new Persistencia(); //Creo un objeto de clase Persistencia.-
 		this.guardar(guarda.crearRaiz());  //Guardo todos los atributos.-
-		guarda.guardarDocumento();  //Guardo todos los objetos en un XML
+		guarda.guardarDocumento(nombre);  //Guardo todos los objetos en un XML
 		System.out.println("Saved!!!");
     	return true;
     }
@@ -376,12 +386,12 @@ public class Nivel implements Escenario, ObjetoVivo {
     /**Método que inicia el proceso de carga de todos los objetos guardados
      * en formato XML para luego instanciarlos en memoria.-
      * @author Mart.-
-     * @param ruta
+     * @param nombre -> es el nombre del archivo con su extensión (por EJ: "pooglins.xml")
      */
-    public boolean cargarJuego(String ruta){
+    public boolean cargarJuego(String nombre){
     	System.out.println("Loading...");
 		Persistencia carga = new Persistencia();  //Creo un objeto de clase Persistencia.-
-		this.cargar(carga.cargarRaiz(ruta));  //Cargo todos los atributos.-
+		this.cargar(carga.cargarRaiz(nombre));  //Cargo todos los atributos.-
 		System.out.println("Loaded!!!");
     	return true;
     }    
@@ -408,24 +418,51 @@ public class Nivel implements Escenario, ObjetoVivo {
 		while( iter.hasNext() ){
 			Element elemento = (Element)iter.next();
 			String texto = elemento.getName();
-			System.out.println("Texto: "+ texto);  //Luego sacar.-
 			
-		/**	// Listo el esqueleto, COMPLETAR!!!
+			//Cargo matrizNivel.-
 		   if ( texto.equals( "matrizNivel" ) ){
 				Iterator<?> iter2 = elemento.elementIterator();
-				int i=0; //Luego sacar.-
+				int i = 0; 
+				int j = 0;
 				while( iter2.hasNext() ){
 					Element elementoHijo = (Element)iter2.next();
-					String textoHijo = elementoHijo.getName();
-					System.out.println("Hijo "+i+" :"+ textoHijo); //Luego sacar.-
-					System.out.println("El x es: "+ elementoHijo.attributeValue("x")); //Luego sacar.-
-					System.out.println("El y es: "+ elementoHijo.attributeValue("y")); //Luego sacar.-
-					System.out.println("El tipo es: "+ elementoHijo.attributeValue("tipo")); //Luego sacar.-
-					i++; //Luego sacar.-
+					if ( (i) < (Integer.parseInt((elementoHijo.attributeValue("x")))) )
+						i = Integer.parseInt((elementoHijo.attributeValue("x")));
+					if ( (j) < (Integer.parseInt((elementoHijo.attributeValue("y")))) )
+						j = Integer.parseInt((elementoHijo.attributeValue("y")));
 				}
-			}*/
+				Terreno[][] matrizNiv = new Terreno[i+1][j+1];
+				iter2 = elemento.elementIterator();
+				i = 0;
+				j = 0;
+				while( iter2.hasNext() ){
+					Element elementoHijo = (Element)iter2.next();
+					i = Integer.parseInt((elementoHijo.attributeValue("x")));
+					j = Integer.parseInt((elementoHijo.attributeValue("y")));
+					String tipo = elementoHijo.attributeValue("tipo");
+					if ( tipo.equals( "AgujeroNegro" ) ){
+						matrizNiv[i][j] = new AgujeroNegro(i,j);
+					}
+					if ( tipo.equals( "Fuego" ) ){
+						matrizNiv[i][j] = new Fuego(i,j);
+					}
+					if ( tipo.equals( "Hielo" ) ){
+						matrizNiv[i][j] = new Hielo(i,j);
+					}
+					if ( tipo.equals( "Roca" ) ){
+						matrizNiv[i][j] = new Roca(i,j);
+					}
+					if ( tipo.equals( "Tierra" ) ){
+						matrizNiv[i][j] = new Tierra(i,j);
+					}
+					if ( tipo.equals( "Vacio" ) ){
+						matrizNiv[i][j] = new Vacio(i,j);
+					}
+				}
+				this.matrizNivel = matrizNiv;
+			}
 			
-			/** Esta ya está lista, falta hacer el nuevo constructor de Pooglin.-
+			//Cargo pooglins.-
 			if ( texto.equals( "pooglins" ) ){
 				Iterator<?> iter2 = elemento.elementIterator();
 				int indicePooglin = 0;
@@ -434,28 +471,79 @@ public class Nivel implements Escenario, ObjetoVivo {
 					indicePooglin++;
 				}
 				Personaje [] vectorPooglins = new Personaje[indicePooglin];
-				System.out.println("ContadorHijoReal: "+ indicePooglin); //Luego sacar.-
 				iter2 = elemento.elementIterator();
 				indicePooglin = 0;
 				while( iter2.hasNext() ){
 					Element elementoHijo = (Element)iter2.next();
 					vectorPooglins[indicePooglin] = new Pooglin(elementoHijo);
 					indicePooglin++;
-					System.out.println("nombre: "+ elementoHijo.getName()); //Luego sacar.-
 				}
 				this.pooglins = vectorPooglins;
-			}*/
-			
-			if ( texto.equals( "pooglinsARescatar" ) ){
-				System.out.println("El valorRescue es: "+ Integer.parseInt( (elemento.attributeValue("valor")) ) ); //Luego sacar.-
-				pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
 			}
 			
+			//Cargo pooglinsARescatar.-
+			if ( texto.equals( "pooglinsARescatar" ) ){
+				this.pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
+			}
 			
-		} // FIN DEL ITERADOR PRINCIPAL.-
-		
-
-	} //FIN DEL CARGAR.-
+			//Cargo cantidadPooglins.-
+			if ( texto.equals( "cantidadPooglins" ) ){
+				this.pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
+			}
+			
+			//Cargo puertaComienzo.-
+			if ( texto.equals( "puertaComienzo" ) ){
+				this.puertaComienzo = new Puerta(elemento);
+			}
+			
+			//Cargo puertaSalida.-
+			if ( texto.equals( "puertaSalida" ) ){
+				this.puertaSalida = new Puerta(elemento);
+			}
+			
+			//Cargo habilidadesDisponibles.-
+			if ( texto.equals( "habilidadesDisponibles" ) ){
+				Iterator<?> iter2 = elemento.elementIterator();
+				int indiceHabilidad = 0;
+				while( iter2.hasNext() ){
+					iter2.next();
+					indiceHabilidad++;
+				}
+				Habilidad[] vectorHabilidades = new Habilidad[indiceHabilidad];
+				iter2 = elemento.elementIterator();
+				indiceHabilidad = 0;
+				while( iter2.hasNext() ){
+					Element elementoHijo = (Element)iter2.next();
+					String textoHijo = elementoHijo.attributeValue("tipo");
+					if ( textoHijo.equals( "Congelamiento" ) ){
+						vectorHabilidades[indiceHabilidad] = new Congelamiento();
+					}
+					if ( textoHijo.equals( "Morir" ) ){
+						vectorHabilidades[indiceHabilidad] = new Morir();
+					}
+					if ( textoHijo.equals( "Platillo" ) ){
+						vectorHabilidades[indiceHabilidad] = new Platillo();
+					}
+					if ( textoHijo.equals( "RayoLaser" ) ){
+						vectorHabilidades[indiceHabilidad] = new RayoLaser();
+					}
+					if ( textoHijo.equals( "Taladro" ) ){
+						vectorHabilidades[indiceHabilidad] = new Taladro();
+					}
+					if ( textoHijo.equals( "Teletransportarse" ) ){
+						vectorHabilidades[indiceHabilidad] = new Teletransportarse();
+					}
+					indiceHabilidad++;
+				}
+				this.habilidadesDisponibles = vectorHabilidades; 
+			}
+			
+			//Cargo contador.-
+			if ( texto.equals( "contador" ) ){
+				this.contador = Integer.parseInt( (elemento.attributeValue("valor")) );
+			}
+		} 
+	}
     
     
     
@@ -469,20 +557,18 @@ public class Nivel implements Escenario, ObjetoVivo {
 	public void guardar(Element elementoPadre){
 		/** Tengo que guardar todo esto:
 		 *  private Terreno[][] matrizNivel;
-			private Personaje[] pooglins;
-			private int pooglinsARescatar;
-			private int cantidadPooglins;
-			private Puerta puertaComienzo;
-			private Puerta puertaSalida;
-			private Habilidad[] habilidadesDisponibles;
-			private int contador = 0;
-		 * 
+		 *	private Personaje[] pooglins;
+		 *	private int pooglinsARescatar;
+		 *	private int cantidadPooglins;
+		 *	private Puerta puertaComienzo;
+		 *	private Puerta puertaSalida;
+		 *	private Habilidad[] habilidadesDisponibles;
+		 *	private int contador = 0;
 		 * */
 		//Guardo la matriz.-
 		Element elementoHijo = elementoPadre.addElement("matrizNivel");
 		for (int i = 0 ; i < matrizNivel.length ; i++ ){
 			for (int j = 0 ; j < matrizNivel[i].length ; j++ ){
-				
 				Element elementoHijo2 = elementoHijo.addElement("Terreno");
 				elementoHijo2.addAttribute( "x" , Integer.toString(i) );
 				elementoHijo2.addAttribute( "y" , Integer.toString(j) );
@@ -518,11 +604,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 				
 		//Guardo pooglinsARescatar.-
 		elementoHijo = elementoPadre.addElement("pooglinsARescatar");
-		elementoHijo.addAttribute("valor",( (Integer)pooglinsARescatar).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(pooglinsARescatar) );
 		
 		//Guardo cantidadPooglins.-
 		elementoHijo = elementoPadre.addElement("cantidadPooglins");
-		elementoHijo.addAttribute("valor",( (Integer)cantidadPooglins).toString() );
+		elementoHijo.addAttribute("valor", Integer.toString(cantidadPooglins) );
 		
 		//Guardo la puertaComienzo.- 
 		elementoHijo = elementoPadre.addElement("puertaComienzo");
@@ -557,6 +643,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 					elementoHijo2.addAttribute( "tipo" , "Teletransportarse" );
 				}
 		}
+		
 		//Guardo contador.-
 		elementoHijo = elementoPadre.addElement("contador");
 		elementoHijo.addAttribute("valor",( (Integer)contador).toString() );

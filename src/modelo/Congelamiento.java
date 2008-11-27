@@ -7,6 +7,13 @@ package modelo;
  */
 public class Congelamiento extends Comportamiento {
 
+	/**Constructor de Congelamiento.-
+	 * @since 18/10/08 
+	 */
+	public Congelamiento(){
+		
+	}
+	
 	public void utilizar(Personaje personaje) {
 		Habilidad morir = ((Pooglin)personaje).getMatarse();
 		morir.utilizar(personaje);

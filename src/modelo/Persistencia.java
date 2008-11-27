@@ -36,15 +36,15 @@ public class Persistencia {
 	Element raiz = documento.addElement("raiz");
 
 	//Le agrego comentarios e instrucciones de proceso.-
-	raiz.addComment("Raiz del Programa2");
+	raiz.addComment("Archivo de escenario del juego 'Los Pooglins'");
 	  
 	return raiz;
   }
 
   
-  public Element cargarRaiz(String ruta){
+  public Element cargarRaiz(String nombre){
 	SAXReader lector = new SAXReader();
-	File archivo = new File(ruta);  
+	File archivo = new File(nombre);  
 	try {
 		documento = lector.read(archivo);
 	} catch (DocumentException e) {
@@ -56,9 +56,9 @@ public class Persistencia {
   }
 
 
-  public void guardarDocumento(){
+  public void guardarDocumento(String nombre){
 	  try {
-			FileWriter archivo = new FileWriter("Pooglins.xml");
+			FileWriter archivo = new FileWriter(nombre);
 			XMLWriter escritor = new XMLWriter(archivo);
 			escritor.write(documento);
 			escritor.close();
