@@ -33,7 +33,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @return
 	 */
 	public static Nivel getInstance(){
-		if(nivel==null)nivel=new Nivel();
+		if ( nivel == null ) nivel = new Nivel();
 		return nivel;
 	}
 	
@@ -105,7 +105,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		if(contador < this.pooglins.length){	
 			pooglin = (Pooglin)this.pooglins[contador];
 			
-			if ((pooglin.getPosicionX() == puertaComienzo.getPosicionX())&&(pooglin.getPosicionY() == puertaComienzo.getPosicionY())){//si el pooglin actual No esta muerto
+			if ((pooglin.getPosicionX() == this.puertaComienzo.getPosicionX())&&(pooglin.getPosicionY() == puertaComienzo.getPosicionY())){//si el pooglin actual No esta muerto
 				Terreno terrenoActual = revisarNivel(pooglin.getPosicionX(),pooglin.getPosicionY(),pooglin);
 				pooglin.vivir();
 				terrenoActual.accionarTerreno(pooglin);//ver si voy a devolver un Terreno Guido.-
@@ -173,7 +173,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 				terrenoActual =this.matrizNivel[posicionX][posicionY+1];
 			}
 			else {
-				terrenoActual = matrizNivel[posicionX+direccion][posicionY];
+				terrenoActual = this.matrizNivel[posicionX+direccion][posicionY];
 			}
 		}
 		
@@ -295,7 +295,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 
 		
 	public Personaje[] getPooglins() {
-		return pooglins;
+		return this.pooglins;
 	}
 
 	
@@ -305,7 +305,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 
 	
 	public int getPooglinsARescatar() {
-		return pooglinsARescatar;
+		return this.pooglinsARescatar;
 	}
 
 	
@@ -315,17 +315,17 @@ public class Nivel implements Escenario, ObjetoVivo {
 
 	
 	public int getCantidadPooglins() {
-		return cantidadPooglins;
-	}
-
-	
-	public Puerta getPuertaComienzo() {
-		return puertaComienzo;
+		return this.cantidadPooglins;
 	}
 
 	
 	public void setPuertaComienzo(Puerta puertaComienzo) {
 		this.puertaComienzo = puertaComienzo;
+	}
+	
+
+	public Puerta getPuertaComienzo() {
+		return this.puertaComienzo;
 	}
 
 	
@@ -334,9 +334,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 	
 	
+	public Puerta getPuertaSalida() {
+		return this.puertaSalida;
+	}
+	
 	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
+	
 	
 	public int getContador() {
 		return contador;
@@ -347,7 +352,52 @@ public class Nivel implements Escenario, ObjetoVivo {
 		this.contador = contador;
 	}
 	
+	
+	/**Devuelve el tamaño del largo del nivel en la coordenada x.-
+	 * @return int
+	 */
+	public int getTamanioTerrenoX(){
+		return this.matrizNivel.length;  
+	}
+	
+	
+	/**Devuelve el tamaño del largo del nivel en la coordenada y.-
+	 * @return int
+	 */
+	public int getTamanioTerrenoY(){
+		if ( this.matrizNivel[0] != null ) return this.matrizNivel[0].length;
+		else return 0;
+			
+	}
+	
+	
+	/**Devuelve el terreno en la posición (x,y)
+	 * @param x
+	 * @param y
+	 * @return Terreno
+	 */
+	public Terreno getTerreno(int x, int y){
+		return this.matrizNivel[x][y];
+	}
+	
+	
+	/**Devuelve la cantidad de pooglins.-
+	 * @return int
+	 */
+	public int getTamanioPooglins(){
+		return this.pooglins.length;
+	}
+	
 
+	/**Devuelve el i-ésimo pooglin (el primer pooglin el Nº 0)
+	 * @param indice
+	 * @return Personaje
+	 */
+	public Pooglin getPooglin(int indice){
+		return (Pooglin)this.pooglins[indice];
+	}
+	
+	
 	/**Me indica la "altura del piso" en que se encuentra el personaje.-
      * @since 18/10/08
      * @param pooglin
@@ -374,7 +424,7 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @author Mart.-
      * @param nombre -> es el nombre del archivo con su extensión (por EJ: "pooglins.xml")
      */
-    public boolean guardarJuego(String nombre){
+    public boolean guardarXML(String nombre){
     	System.out.println("Saving...");
 		Persistencia guarda = new Persistencia(); //Creo un objeto de clase Persistencia.-
 		this.guardar(guarda.crearRaiz());  //Guardo todos los atributos.-
@@ -388,7 +438,7 @@ public class Nivel implements Escenario, ObjetoVivo {
      * @author Mart.-
      * @param nombre -> es el nombre del archivo con su extensión (por EJ: "pooglins.xml")
      */
-    public boolean cargarJuego(String nombre){
+    public boolean cargarXML(String nombre){
     	System.out.println("Loading...");
 		Persistencia carga = new Persistencia();  //Creo un objeto de clase Persistencia.-
 		this.cargar(carga.cargarRaiz(nombre));  //Cargo todos los atributos.-
@@ -533,6 +583,9 @@ public class Nivel implements Escenario, ObjetoVivo {
 					if ( textoHijo.equals( "Teletransportarse" ) ){
 						vectorHabilidades[indiceHabilidad] = new Teletransportarse();
 					}
+					if ( textoHijo.equals( "Tunel" ) ){
+						vectorHabilidades[indiceHabilidad] = new Tunel();
+					}
 					indiceHabilidad++;
 				}
 				this.habilidadesDisponibles = vectorHabilidades; 
@@ -567,13 +620,13 @@ public class Nivel implements Escenario, ObjetoVivo {
 		 * */
 		//Guardo la matriz.-
 		Element elementoHijo = elementoPadre.addElement("matrizNivel");
-		for (int i = 0 ; i < matrizNivel.length ; i++ ){
-			for (int j = 0 ; j < matrizNivel[i].length ; j++ ){
+		for (int i = 0 ; i < this.matrizNivel.length ; i++ ){
+			for (int j = 0 ; j < this.matrizNivel[i].length ; j++ ){
 				Element elementoHijo2 = elementoHijo.addElement("Terreno");
 				elementoHijo2.addAttribute( "x" , Integer.toString(i) );
 				elementoHijo2.addAttribute( "y" , Integer.toString(j) );
 				
-				Object elemento = matrizNivel[i][j];
+				Object elemento = this.matrizNivel[i][j];
 				if ( elemento instanceof AgujeroNegro ) {
 					elementoHijo2.addAttribute( "tipo" , "AgujeroNegro" );
 				}
@@ -597,33 +650,33 @@ public class Nivel implements Escenario, ObjetoVivo {
 		
 		//Guardo el vector de pooglins.-
 		elementoHijo = elementoPadre.addElement("pooglins");
-		for (int i = 0 ; i < pooglins.length ; i++ ){
+		for (int i = 0 ; i < this.pooglins.length ; i++ ){
 			Element elementoHijo2 = elementoHijo.addElement("pooglinNumero"+i);
-			((Pooglin)pooglins[i]).guardar(elementoHijo2);
+			((Pooglin)this.pooglins[i]).guardar(elementoHijo2);
 		}
 				
 		//Guardo pooglinsARescatar.-
 		elementoHijo = elementoPadre.addElement("pooglinsARescatar");
-		elementoHijo.addAttribute("valor", Integer.toString(pooglinsARescatar) );
+		elementoHijo.addAttribute("valor", Integer.toString(this.pooglinsARescatar) );
 		
 		//Guardo cantidadPooglins.-
 		elementoHijo = elementoPadre.addElement("cantidadPooglins");
-		elementoHijo.addAttribute("valor", Integer.toString(cantidadPooglins) );
+		elementoHijo.addAttribute("valor", Integer.toString(this.cantidadPooglins) );
 		
 		//Guardo la puertaComienzo.- 
 		elementoHijo = elementoPadre.addElement("puertaComienzo");
-		puertaComienzo.guardar(elementoHijo);
+		this.puertaComienzo.guardar(elementoHijo);
 		
 		//Guardo la puertaSalida.-
 		elementoHijo = elementoPadre.addElement("puertaSalida");
-		puertaSalida.guardar(elementoHijo);
+		this.puertaSalida.guardar(elementoHijo);
 		
 		//Guardo las habilidadesDisponibles.-
 		elementoHijo = elementoPadre.addElement("habilidadesDisponibles");
-		for (int i = 0 ; i < habilidadesDisponibles.length ; i++ ){
+		for (int i = 0 ; i < this.habilidadesDisponibles.length ; i++ ){
 			Element elementoHijo2 = elementoHijo.addElement("habilidadNumero"+i);
 	
-			Object elemento = habilidadesDisponibles[i];
+			Object elemento = this.habilidadesDisponibles[i];
 				if ( elemento instanceof Congelamiento ) {
 					elementoHijo2.addAttribute( "tipo" , "Congelamiento" );
 				}
@@ -642,11 +695,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 				if ( elemento instanceof Teletransportarse ) {
 					elementoHijo2.addAttribute( "tipo" , "Teletransportarse" );
 				}
+				if ( elemento instanceof Tunel ) {
+					elementoHijo2.addAttribute( "tipo" , "Tunel" );
+				}
 		}
 		
 		//Guardo contador.-
 		elementoHijo = elementoPadre.addElement("contador");
-		elementoHijo.addAttribute("valor",( (Integer)contador).toString() );
+		elementoHijo.addAttribute("valor",( (Integer)this.contador).toString() );
 	}
 	
 }

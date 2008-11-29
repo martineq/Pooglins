@@ -108,7 +108,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(15);
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
-		assertTrue(nivel.guardarJuego("Pooglins.xml")); //Nuevo: XML !!!
+		assertTrue(nivel.guardarXML("Pooglins.xml")); //Nuevo: XML !!!
 		System.out.println("FIN PRUEBA XML 1");
 	}
 	
@@ -127,14 +127,14 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
 		System.out.println("Voy a guardar");
-		assertTrue(nivel.guardarJuego("Pooglins.xml")); //Nuevo: XML !!!
+		assertTrue(nivel.guardarXML("Pooglins.xml")); //Nuevo: XML !!!
 		System.out.println("Voy a mostrar lo cargado: ");
-		assertTrue( nivel.cargarJuego("Pooglins.xml") );
+		assertTrue( nivel.cargarXML("Pooglins.xml") );
 		System.out.println("FIN DE LA PRUEBA");
 	}
 	
 	public void testNivelCargaSoloXML(){
-		assertTrue( nivel.cargarJuego("Pooglins.xml") );
+		assertTrue( nivel.cargarXML("Pooglins.xml") );
 		System.out.println("FIN DE LA PRUEBA");
 	}
 	
