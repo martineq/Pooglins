@@ -119,7 +119,7 @@ public class CreadorDeEscenarios {
 		nivel.setContador(contador);
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		
-		nivel.guardarJuego("PruebaSiete.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
+		nivel.guardarXML("PruebaSiete.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
 
 		//Preparo los controladores de la vista.-
 		VistaPuerta vPuerta = new VistaPuerta();
