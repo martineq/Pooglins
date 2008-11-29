@@ -11,38 +11,41 @@ import modelo.Vacio;
 import junit.framework.TestCase;
 
 public class HabilidadesEnNivelTest extends TestCase {
-	private int tamanioMatriz=50;
+	//private int tamanioMatriz=50;
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
 	Personaje []pooglins;
-	
+	int altoDeMatriz = 14;
+	int anchoDeMatriz = 22;
+
 	private void bordeMatriz(){
-		for(int i=0;i<tamanioMatriz-1;i++){
-			matrizNivel[0][i] = new Roca(0,i);
-			matrizNivel[i][0] = new Roca(i,0);
-			matrizNivel[tamanioMatriz-1][i] = new Roca(tamanioMatriz,i);
-			matrizNivel[i][tamanioMatriz-1] = new Roca(i,tamanioMatriz);
+	for(int fila=0;fila<anchoDeMatriz;fila++){
+		for(int columna=0;columna<altoDeMatriz;columna++){
+		    if((fila==0)||(columna==0)||(columna==altoDeMatriz-1)||(fila==anchoDeMatriz-1)) {	
+		    	matrizNivel[fila][columna] = new Roca(fila,columna);	
+		    }
 		}
 	}
-	
+	}
+
 	private void llenarMatrizConVacio(){
-		for(int posicionY=1;posicionY<tamanioMatriz-2;posicionY++){
-			for(int posicionX=1;posicionX<tamanioMatriz-2;posicionX++){
-			matrizNivel[posicionX][posicionY] = new Vacio(posicionX,posicionY);
+			
+		for(int fila=0;fila<anchoDeMatriz;fila++){
+			for(int columna=0;columna<altoDeMatriz;columna++){
+				matrizNivel[fila][columna] = new Vacio(fila,columna);
 			}
 		}
 	}
 	
 	protected void setUp(){
-		matrizNivel = new Terreno[tamanioMatriz][tamanioMatriz]; 
+		matrizNivel = new Terreno[anchoDeMatriz][altoDeMatriz]; 
 		this.llenarMatrizConVacio();
 		this.bordeMatriz();
 		nivel = Nivel.getInstance();//new Nivel();
-		for(int i=1;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Tierra(i,2);
+		for(int i=1;i<anchoDeMatriz-2;i++) matrizNivel[i][2] = new Tierra(i,2);
 		nivel.setPuertaComienzo(new Puerta(1,1));
 		nivel.setPuertaSalida(new Puerta(48,1));
 	}
-	
 	public void testCaidaConPlatillo(){
 		int cantidadDePooglin = 2;
 		int cantidadDeMovimientos = 6;
@@ -53,7 +56,55 @@ public class HabilidadesEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(cantidadDePooglin);
 		nivel.setPooglinsARescatar(cantidadDePooglin);
 		//modifico la matriz asi cae el pooglin.
-		for(int i=2;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
+		for(int i=2;i<anchoDeMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
+		nivel.setMatrizNivel(matrizNivel);
+	
+		for(int j=0; j<cantidadDeMovimientos;j++){			
+		    for(int i =0; i<cantidadDePooglin;i++){
+				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//((Pooglin)pooglins[i]).usarHabilidad();
+				pooglins[i].vivir();
+				terrenoActual.accionarTerreno(pooglins[i]);
+			}
+		}
+		
+		cantidadDeMovimientos = 42;
+		((Pooglin)pooglins[0]).setHabilidad(new Platillo());
+		for(int j =0; j<cantidadDeMovimientos;j++){			
+		    for(int i =0; i<cantidadDePooglin;i++){
+				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				if(((Pooglin)pooglins[i]).estaVivo()){
+				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
+				((Pooglin)pooglins[0]).usarHabilidad();
+				pooglins[i].vivir();
+				terrenoActual.accionarTerreno(pooglins[i]);
+				}
+		    }
+		}
+		assertTrue (((Pooglin)pooglins[0]).estaVivo());
+		//assertNull(((Pooglin)pooglins[1]).estaVivo());
+		
+		int posicionY = ((Pooglin)pooglins[0]).getPosicionY();
+		assertEquals(3,posicionY);
+		int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
+		assertEquals(2,posicionX);
+		
+	}
+/*	public void testCaidaConPlatillo(){
+		int cantidadDePooglin = 2;
+		int cantidadDeMovimientos = 6;
+		
+		pooglins = new Pooglin[cantidadDePooglin];
+		for(int i =0; i<cantidadDePooglin;i++)pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
+		nivel.setPooglins(pooglins);
+		nivel.setCantidadPooglins(cantidadDePooglin);
+		nivel.setPooglinsARescatar(cantidadDePooglin);
+		//modifico la matriz asi cae el pooglin.
+		for(int i=2;i<anchoDeMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
 		nivel.setMatrizNivel(matrizNivel);
 	
 		for(int j=0; j<cantidadDeMovimientos;j++){			
@@ -87,7 +138,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 		int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
 		assertEquals(2,posicionX);
 		
-	}
+	}*/
 	
 	public void testCaidaSinPlatillo(){
 		int cantidadDePooglin = 2;
@@ -99,24 +150,24 @@ public class HabilidadesEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(cantidadDePooglin);
 		nivel.setPooglinsARescatar(cantidadDePooglin);
 		//modifico la matriz asi cae el pooglin.
-		for(int i=1;i<tamanioMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
+		for(int i=1;i<anchoDeMatriz-2;i++) matrizNivel[i][2] = new Vacio(i,2);
 		nivel.setMatrizNivel(matrizNivel);
 	
 		for(int j=0; j<cantidadDeMovimientos;j++){			
 		    for(int i =0; i<cantidadDePooglin;i++){
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
-				System.out.println("Posicionx: "+ ((Pooglin)pooglins[i]).getPosicionX());
-				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
-				//((Pooglin)pooglins[i]).usarHabilidad();
-				pooglins[i].vivir();
-				System.out.println("TerrenoActual: " + terrenoActual.getClass().getName());
-				terrenoActual.accionarTerreno(pooglins[i]);
-			}
+				if(((Pooglin)pooglins[i]).estaVivo()){
+					Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+					//((Pooglin)pooglins[i]).usarHabilidad();
+					pooglins[i].vivir();
+					terrenoActual.accionarTerreno(pooglins[i]);
+					}
+				}
 		}
 			
 		for(int i=0; i<cantidadDePooglin;i++){
-		assertNull(((Pooglin)pooglins[i]).estaVivo());
+		assertFalse(((Pooglin)pooglins[i]).estaVivo());
 		}
 		
 	}
@@ -143,26 +194,28 @@ public class HabilidadesEnNivelTest extends TestCase {
 			}
 		}
 	
-		//int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
-		//assertEquals(3,posicionX);
+		int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
+		assertEquals(3,posicionX);
+		int posicionY = ((Pooglin)pooglins[0]).getPosicionY();
+		assertEquals(1,posicionY);
+		
 		
 		((Pooglin)pooglins[0]).setHabilidad(new Taladro());
 		for(int j =0; j<cantidadDeMovimientos;j++){			
 		    for(int i =0; i<cantidadDePooglin;i++){
-				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
-				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
+				posicionX = ((Pooglin)pooglins[i]).getPosicionX();
+				posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
-				((Pooglin)pooglins[0]).usarHabilidad(terrenoActual);
+				((Pooglin)pooglins[0]).usarHabilidad(terrenoActual,(Pooglin)pooglins[0]);
 				pooglins[i].vivir();
-				terrenoActual.accionarTerreno(pooglins[i]);
+				terrenoActual.accionarTerreno(pooglins[0]);
 			}
 		}
 		
-		int posicionY = ((Pooglin)pooglins[0]).getPosicionY();
+		posicionY = ((Pooglin)pooglins[0]).getPosicionY();
 		assertEquals(3,posicionY);
-		
-		int posicionX = ((Pooglin)pooglins[0]).getPosicionX();
+		posicionX = ((Pooglin)pooglins[0]).getPosicionX();
 		assertEquals(3,posicionX);
 	
 	}

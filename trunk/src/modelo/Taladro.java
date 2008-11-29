@@ -6,7 +6,7 @@ package modelo;
  */
 public class Taladro extends Herramienta {
 	
-	private final static int MAX_EXCAVACIONES = 5;
+	private final static int MAX_EXCAVACIONES = 5* Velocidad.VELOCIDAD_NORMAL;
 	private int cantidadExcavaciones;
 	
 	/**

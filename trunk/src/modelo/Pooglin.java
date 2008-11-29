@@ -233,7 +233,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	public void usarHabilidad(Terreno terreno) {
 		this.getHabilidad().utilizar(terreno);
 	}
-
+	
+	public void usarHabilidad(Terreno terreno, Pooglin pooglin) {
+		this.getHabilidad().utilizar(terreno,pooglin);
+	}
+	
 	/**
 	 * @return
 	 */

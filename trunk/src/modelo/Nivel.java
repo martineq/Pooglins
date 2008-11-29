@@ -207,10 +207,10 @@ public class Nivel implements Escenario, ObjetoVivo {
 			int posicionXpooglin=pooglin.getPosicionX();
 			int posicionYpooglin=pooglin.getPosicionY();
 			
-			if((posicionX==posicionXpooglin)&&(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
-			if((posicionX==posicionXpooglin+1)&&(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
-			if((posicionX==posicionXpooglin-1)&&(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
-			//if((posicionY==posicionYpooglin+1)||(posicionY==posicionYpooglin-1)) pooglinsCercanos.add(pooglin);
+			if((posicionX==posicionXpooglin)&&(posicionY==posicionYpooglin+1)) pooglinsCercanos.add(pooglin);
+			if((posicionX==posicionXpooglin+1)&&(posicionY==posicionYpooglin+1)) pooglinsCercanos.add(pooglin);
+			if((posicionX==posicionXpooglin-1)&&(posicionY==posicionYpooglin+1)) pooglinsCercanos.add(pooglin);
+			//if((posicionY==posicionYpooglin+1)||(posicionY==posicionYpooglin+1)) pooglinsCercanos.add(pooglin);
 		}
 	
 		
