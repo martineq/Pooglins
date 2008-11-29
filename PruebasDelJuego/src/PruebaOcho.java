@@ -3,12 +3,14 @@ package src;
 import controlador.MouseAdaptador;
 import vista.Ventana;
 import vista.VentanaPrincipal;
+import vista.VistaAgujeroNegro;
 import vista.VistaHielo;
 import vista.VistaPooglin;
 import vista.VistaPuerta;
 import vista.VistaRoca;
 import vista.VistaTierra;
 import vista.VistaVacio;
+import modelo.AgujeroNegro;
 import modelo.ControladorJuego;
 import modelo.Nivel;
 import modelo.Pooglin;
@@ -20,7 +22,7 @@ import modelo.Vacio;
 
 
 
-public class PruebaSiete {
+public class PruebaOcho {
 	/**
 	 * @param args
 	 */
@@ -91,10 +93,10 @@ public class PruebaSiete {
 				}
 				else 
 				{
-					matrizNivel[5][2] = new Tierra(5,2);
-					VistaHielo h = new VistaHielo();
-				    h.setPosicionable(matrizNivel[5][2]);
-				    controlador.agregarDibujable(h);
+					matrizNivel[5][2] = new AgujeroNegro(5,2);
+					VistaAgujeroNegro n = new VistaAgujeroNegro();
+				    n.setPosicionable(matrizNivel[5][2]);
+				    controlador.agregarDibujable(n);
 							
 				}
 		    }

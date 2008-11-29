@@ -45,8 +45,8 @@ public class AgujeroNegro extends Terreno {
 	 */
 	@SuppressWarnings("unchecked")
 	public void accionarTerreno(Personaje pooglin) {
-		
-		this.nivel= Nivel.getInstance();;//Instancio una referencia al nivel ya que es unica
+	
+		this.nivel= Nivel.getInstance();//Instancio una referencia al nivel ya que es unica
 		 								//por ser un Singleton.
 		Collection personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
 		Iterator it = personajesCercanos.iterator();

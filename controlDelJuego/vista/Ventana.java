@@ -56,7 +56,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		if(this.imagen == null)
 			this.imagen = this.createImage(getSize().width, getSize().height);
 		Graphics superficieParaDibujar =  this.imagen.getGraphics();
-		superficieParaDibujar.setColor(Color.darkGray);// 
+		superficieParaDibujar.setColor(Color.black);// 
 		superficieParaDibujar.fillRect(0, 0, this.getSize().width, this.getSize().height);		
 	}
 
