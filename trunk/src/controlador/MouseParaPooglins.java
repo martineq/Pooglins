@@ -16,28 +16,25 @@ import modelo.Pooglin;
 import modelo.Terreno;
 
 
-public class MouseAdaptador extends MouseAdapter {
+public class MouseParaPooglins extends MouseAdapter {
 //public class MouseAdaptador implements MouseListener {
 
 	private Pooglin[] pooglins;
 	
-	public MouseAdaptador(){
+	public MouseParaPooglins(Pooglin[] pooglin){
+		this.pooglins = pooglin;
 	}
 	
 	private int calcularPosiocion(int posicionEnPantalla){
-		return (int) Math.floor((posicionEnPantalla/47));
+		return (int) Math.floor((posicionEnPantalla/42));
 	}
 
 	public void mouseClicked(MouseEvent arg0) {
-		System.out.println("Pasaste por mouseClick");
 		int clickEnPosicionX = calcularPosiocion(arg0.getX());
-		int clickEnPosicionY = calcularPosiocion(arg0.getY());
+		int clickEnPosicionY = calcularPosiocion(arg0.getY()-28);
 		
-		System.out.println("Pasaste por mouseClick");
-		System.out.println("Posicion x: "+ clickEnPosicionX );
-		System.out.println("Posicion y: "+ clickEnPosicionY );
 		for(int i = 0; i<pooglins.length;i++){
-			if((pooglins[i].getPosicionX()==clickEnPosicionX)&&(pooglins[i].getPosicionY()==clickEnPosicionY)){
+			if((pooglins[i].getPosicionX()==clickEnPosicionX)&&(pooglins[i].getPosicionY()==clickEnPosicionY)){	
 				pooglins[i].setPosicionX(12);
 				pooglins[i].setPosicionY(12);
 			}

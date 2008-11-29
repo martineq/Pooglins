@@ -49,7 +49,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
     private Image imagen;
     
 	public void paint(Graphics g) {
-		g.drawImage(this.imagen, 8, 28, null);
+		g.drawImage(this.imagen, 0, 28, null);
 	}
 
 	public void limpiar() {
