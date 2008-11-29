@@ -143,6 +143,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 
 	
+	/**
+	 * @param posicionX
+	 * @param posicionY
+	 * @return
+	 */
 	private boolean estaEnLaEntrada(int posicionX, int posicionY) {
 		int coordenadaXpuertaEntrada=this.puertaComienzo.getPosicionX();
 		int coordenadaYpuertaEntrada=this.puertaComienzo.getPosicionY();
@@ -284,70 +289,112 @@ public class Nivel implements Escenario, ObjetoVivo {
 	
 	
 	//Seter's agregados automáticamete.-
+	/**
+	 * @param matrizNivel
+	 */
 	public void setMatrizNivel(Terreno[][] matrizNivel) {
 		this.matrizNivel = matrizNivel;
 	}
 
 	
+	/**
+	 * @param pooglins
+	 */
 	public void setPooglins(Personaje[] pooglins) {
 		this.pooglins = pooglins;
 	}
 
 		
+	/**
+	 * @return
+	 */
 	public Personaje[] getPooglins() {
 		return this.pooglins;
 	}
 
 	
+	/**
+	 * @param pooglinsARescatar
+	 */
 	public void setPooglinsARescatar(int pooglinsARescatar) {
 		this.pooglinsARescatar = pooglinsARescatar;
 	}
 
 	
+	/**
+	 * @return
+	 */
 	public int getPooglinsARescatar() {
 		return this.pooglinsARescatar;
 	}
 
 	
+	/**
+	 * @param cantidadPooglins
+	 */
 	public void setCantidadPooglins(int cantidadPooglins) {
 		this.cantidadPooglins = cantidadPooglins;
 	}
 
 	
+	/**
+	 * @return
+	 */
 	public int getCantidadPooglins() {
 		return this.cantidadPooglins;
 	}
 
 	
+	/**
+	 * @param puertaComienzo
+	 */
 	public void setPuertaComienzo(Puerta puertaComienzo) {
 		this.puertaComienzo = puertaComienzo;
 	}
 	
 
+	/**
+	 * @return
+	 */
 	public Puerta getPuertaComienzo() {
 		return this.puertaComienzo;
 	}
 
 	
+	/**
+	 * @param puertaSalida
+	 */
 	public void setPuertaSalida(Puerta puertaSalida) {
 		this.puertaSalida = puertaSalida;
 	}
 	
 	
+	/**
+	 * @return
+	 */
 	public Puerta getPuertaSalida() {
 		return this.puertaSalida;
 	}
 	
+	/**
+	 * @param habilidadesDisponibles
+	 */
 	public void setHabilidadesDisponibles(Habilidad[] habilidadesDisponibles) {
 		this.habilidadesDisponibles = habilidadesDisponibles;
 	}
 	
 	
+	/**
+	 * @return
+	 */
 	public int getContador() {
 		return contador;
 	}
 
 
+	/**
+	 * @param contador
+	 */
 	public void setContador(int contador) {
 		this.contador = contador;
 	}
@@ -389,7 +436,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 	
 
-	/**Devuelve el i-ésimo pooglin (el primer pooglin el Nº 0)
+	/**Devuelve el i-ésimo pooglin (el primer pooglin es el Nº 0)
 	 * @param indice
 	 * @return Personaje
 	 */
@@ -454,32 +501,22 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @param elementoPadre
 	 */
 	public void cargar(Element elementoPadre){
-		/** Tengo que cargar todo esto:
-		 *  private Terreno[][] matrizNivel;
-		 *	private Personaje[] pooglins;
-		 *	private int pooglinsARescatar;
-		 *	private int cantidadPooglins;
-		 *	private Puerta puertaComienzo;
-		 *	private Puerta puertaSalida;
-		 *	private Habilidad[] habilidadesDisponibles;
-		 *	private int contador = 0;
-		 * */
 		Iterator<?> iter = elementoPadre.elementIterator();
 		while( iter.hasNext() ){
 			Element elemento = (Element)iter.next();
 			String texto = elemento.getName();
 			
-			//Cargo matrizNivel.-
+		   //Cargo matrizNivel.-
 		   if ( texto.equals( "matrizNivel" ) ){
 				Iterator<?> iter2 = elemento.elementIterator();
 				int i = 0; 
 				int j = 0;
 				while( iter2.hasNext() ){
 					Element elementoHijo = (Element)iter2.next();
-					if ( (i) < (Integer.parseInt((elementoHijo.attributeValue("x")))) )
-						i = Integer.parseInt((elementoHijo.attributeValue("x")));
-					if ( (j) < (Integer.parseInt((elementoHijo.attributeValue("y")))) )
-						j = Integer.parseInt((elementoHijo.attributeValue("y")));
+					if ( (i) < (Integer.parseInt (( elementoHijo.attributeValue("x") )) ) )
+						i = Integer.parseInt(( elementoHijo.attributeValue("x") ));
+					if ( (j) < (Integer.parseInt(( elementoHijo.attributeValue("y") )) ) )
+						j = Integer.parseInt(( elementoHijo.attributeValue("y") ));
 				}
 				Terreno[][] matrizNiv = new Terreno[i+1][j+1];
 				iter2 = elemento.elementIterator();
@@ -608,16 +645,6 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @param elementoPadre
 	 */
 	public void guardar(Element elementoPadre){
-		/** Tengo que guardar todo esto:
-		 *  private Terreno[][] matrizNivel;
-		 *	private Personaje[] pooglins;
-		 *	private int pooglinsARescatar;
-		 *	private int cantidadPooglins;
-		 *	private Puerta puertaComienzo;
-		 *	private Puerta puertaSalida;
-		 *	private Habilidad[] habilidadesDisponibles;
-		 *	private int contador = 0;
-		 * */
 		//Guardo la matriz.-
 		Element elementoHijo = elementoPadre.addElement("matrizNivel");
 		for (int i = 0 ; i < this.matrizNivel.length ; i++ ){

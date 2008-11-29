@@ -18,18 +18,30 @@ public abstract class Terreno implements Posicionable {
 	public int getPosicionX() {
 		return posicionX;
 	}
+	/**
+	 * @param posicionX
+	 */
 	public void setPosicionX(int posicionX) {
 		this.posicionX = posicionX;
 	}
 	public int getPosicionY() {
 		return posicionY;
 	}
+	/**
+	 * @param posicionY
+	 */
 	public void setPosicionY(int posicionY) {
 		this.posicionY = posicionY;
 	}
+	/**
+	 * @return
+	 */
 	public boolean isActivo() {
 		return activo;
 	}
+	/**
+	 * @param activo
+	 */
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}

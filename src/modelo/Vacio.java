@@ -6,7 +6,7 @@ package modelo;
  */
 public class Vacio extends Terreno {
 
-	private static int ALTURA_MAX = 5*Velocidad.VELOCIDAD_NORMAL;
+	private static int ALTURA_MAX = 5 * Velocidad.VELOCIDAD_NORMAL;  //¿Por que aparece la velocidad en la altura?
 	
 	/**Constructor de Vacio.-
      * 
@@ -38,7 +38,7 @@ public class Vacio extends Terreno {
 	private void caer(Pooglin pooglin){
 		Velocidad velocidadActual = pooglin.getVelocidad();
 		velocidadActual.setVelocidadY( Velocidad.VELOCIDAD_NORMAL ); 
-		pooglin.setVelocidad(velocidadActual);
-		pooglin.setAltura(pooglin.getAltura()+1);
+		pooglin.setVelocidad( velocidadActual );
+		pooglin.setAltura( pooglin.getAltura() + 1 );
 	}	
 }

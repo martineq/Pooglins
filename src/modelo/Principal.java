@@ -90,7 +90,7 @@ public class Principal {
     	vistaPuerta.setPosicionable(nivel.getPuertaSalida());
     	controlador.agregarDibujable(vistaPuerta);
 	
-		//Seteo a el controlador y luego comienzo el juego.-
+		//Seteo a el controlador.-
 		controlador.agregarObjetoVivo(nivel);
 		controlador.setIntervaloSimulacion(tiempo);
 		

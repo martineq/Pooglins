@@ -22,11 +22,19 @@ public class Persistencia {
 
   private Document documento;
 	
+
+  /**
+   * Constructor de Persistencia.-
+   */
   public Persistencia(){
 	documento = null;
   }
 
   
+  /**Método que crea la raíz de un documento devolviendo
+   * a ésta como un elemento (será el elemento raíz del documento).-
+   * @return Element
+   */
   public Element crearRaiz(){
 	  
 	//Con esto creo el documento donde se va a encontrar todos los objetos.-
@@ -42,6 +50,12 @@ public class Persistencia {
   }
 
   
+  /**Método que carga un documento XML a partir del nombre de archivo,
+   * devolviendo un Element que contiene el elemento raíz de dicho
+   * archivo.-
+   * @param nombre
+   * @return Element
+   */
   public Element cargarRaiz(String nombre){
 	SAXReader lector = new SAXReader();
 	File archivo = new File(nombre);  
@@ -56,6 +70,10 @@ public class Persistencia {
   }
 
 
+  /**Método que guarda un documento XML a partir del nombre
+   * de archivo.-
+   * @param nombre
+   */
   public void guardarDocumento(String nombre){
 	  try {
 			FileWriter archivo = new FileWriter(nombre);
@@ -98,10 +116,10 @@ public void generarDocumentoEjemplo(){
 	elem2.addAttribute("Numero", "0303");
 
 	//Agrego un tercer elemento dentro del segundo
-	Element elem3 = elem2.addElement("elemnton3");
+	Element elem3 = elem2.addElement("elementon3");
 	raiz.addProcessingInstruction("NOSE","queesesto");
-	elem3.addAttribute("nombre","joshe");
-	elem3.addText("que pasha joshe");
+	elem3.addAttribute("nombre","quad");
+	elem3.addText("hola");
 
 	try {
 		FileWriter archivo = new FileWriter("Ejemplo.xml");

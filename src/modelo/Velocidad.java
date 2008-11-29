@@ -70,15 +70,27 @@ public class Velocidad {
 	
 	//Habría que ver si hay que cambiar la dirección en Y en algún momento del programa.-
 	
+	/**
+	 * @return
+	 */
 	public int getVelocidadX() {
 		return velocidadX;
 	}
+	/**
+	 * @param velocidadX
+	 */
 	public void setVelocidadX(int velocidadX) {
 		this.velocidadX = velocidadX;
 	}
+	/**
+	 * @return
+	 */
 	public int getVelocidadY() {
 		return velocidadY;
 	}
+	/**
+	 * @param velocidadY
+	 */
 	public void setVelocidadY(int velocidadY) {
 		this.velocidadY = velocidadY;
 	}
@@ -95,6 +107,11 @@ public class Velocidad {
 		return VELOCIDAD_NULA;
 	}
 
+	/**Método que guarda todos los atributos de la clase Velocidad
+	 * para luego ser exportados a XML.-
+	 * @author Mart
+	 * @param elementoPadre
+	 */
 	public void guardar(Element elementoPadre){
 		/** Tengo que guardar todo esto:
 		 *  private int velocidadX;
