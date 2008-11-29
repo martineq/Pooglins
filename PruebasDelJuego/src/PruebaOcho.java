@@ -1,6 +1,7 @@
 package src;
 
 import controlador.MouseAdaptador;
+import controlador.MouseParaPooglins;
 import vista.Ventana;
 import vista.VentanaPrincipal;
 import vista.VistaAgujeroNegro;
@@ -36,7 +37,7 @@ public class PruebaOcho {
 		Terreno[][] matrizNivel;
 		
 
-		MouseAdaptador oyente = new MouseAdaptador();
+		MouseParaPooglins oyente = new MouseParaPooglins(pooglins);
 	
 		
 		// Primero instancio parte de mi modelo
@@ -51,7 +52,7 @@ public class PruebaOcho {
 		ControladorJuego controlador = new ControladorJuego();
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
-		
+		ventana.addMouseListener(oyente);
 		
 		
 		// Pido una instancia de nivel para setear la matriz.
@@ -93,11 +94,11 @@ public class PruebaOcho {
 				}
 				else 
 				{
-					matrizNivel[5][2] = new AgujeroNegro(5,2);
+				/*	matrizNivel[5][2] = new AgujeroNegro(5,2);
 					VistaAgujeroNegro n = new VistaAgujeroNegro();
 				    n.setPosicionable(matrizNivel[5][2]);
 				    controlador.agregarDibujable(n);
-							
+			*/				
 				}
 		    }
 		
@@ -174,13 +175,10 @@ public class PruebaOcho {
 			vistaPooglin.setPosicionable(pooglins[i]);
 			//controlador.agregarObjetoVivo(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
-		 
-				
-			vistaPooglin.addMouseListener(oyente);
-		}
+			}
 	
 		controlador.agregarObjetoVivo(nivel);
-		controlador.setIntervaloSimulacion(50);
+		controlador.setIntervaloSimulacion(100);
 		controlador.comenzar();
 
 	}
