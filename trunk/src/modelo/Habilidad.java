@@ -13,8 +13,15 @@ public interface Habilidad {
 	 */
 	public void utilizar(Personaje personaje);
 
+	/**
+	 * @param terreno
+	 */
 	public void utilizar(Terreno terreno);
 
+	/**
+	 * @param terreno
+	 * @param pooglin
+	 */
 	public void utilizar(Terreno terreno, Pooglin pooglin);
 	
 	

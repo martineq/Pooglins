@@ -117,14 +117,21 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	
 	
 	//Secci�n de Geter's y Seter's
+
 	public int getPosicionX(){
 		return this.posicionX;
 	}
 
+	/**
+	 * @param x
+	 */
 	public void setPosicionX(int x){
 		this.posicionX = x;
 	}
 	
+	/**
+	 * @param y
+	 */
 	public void setPosicionY(int y){
 		this.posicionY = y;
 	}
@@ -133,29 +140,50 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		return this.posicionY;
 	}
 	
+	/**
+	 * @return
+	 */
 	public Habilidad getHabilidad() {
 		return this.habilidad;
 	}
 
+	/**
+	 * @param habilidad
+	 */
 	public void setHabilidad(Habilidad habilidad) {
 		this.habilidad = habilidad;
 	}
 
+	/**
+	 * @param vivo
+	 */
 	public void setVivo(boolean vivo) {
 		this.vivo = vivo;
 	}	
 	
+	/**
+	 * @return
+	 */
 	public boolean estaVivo(){
 		return this.vivo;		
 	}
 
+	/**
+	 * @param rapidezMovimiento
+	 */
 	public void setVelocidad(Velocidad rapidezMovimiento){
 		this.velocidad=rapidezMovimiento;
 	}
+	/**
+	 * @return
+	 */
 	public Velocidad getVelocidad(){
 		return this.velocidad;
 	}
 	
+	/**
+	 * @return
+	 */
 	public Habilidad getMatarse(){
 		return matarse;
 	}
@@ -192,22 +220,37 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	}
 	
 	//agrego para poder utilizar congelar y el matar.
+	/**
+	 * 
+	 */
 	public void usarHabilidad(){
 		this.getHabilidad().utilizar(this);	
 	}
 
+	/**
+	 * @param terreno
+	 */
 	public void usarHabilidad(Terreno terreno) {
 		this.getHabilidad().utilizar(terreno);
 	}
 
+	/**
+	 * @return
+	 */
 	public int getAltura() {
 		return altura;
 	}
 
+	/**
+	 * @param altura
+	 */
 	public void setAltura(int altura) {
 		this.altura = altura;
 	}
 
+	/**
+	 * @param cant
+	 */
 	public void setCantTurnosQueNoSeMovio (int cant){
 		this.cantTurnosQueNoSeMovio = cant;
 	}

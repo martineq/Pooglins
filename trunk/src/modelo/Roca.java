@@ -5,6 +5,11 @@ package modelo;
  * @version 2
  */
 public class Roca extends Terreno {	
+	
+	/**Constructor de Roca.-
+	 * @param posicionX
+	 * @param posicionY
+	 */
 	public Roca(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);

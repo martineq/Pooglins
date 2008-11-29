@@ -12,8 +12,8 @@ public interface Personaje {
 	/**Mueve al personaje.-
 	 * 
 	 */
-	
-	//public void mover();
 	public void vivir();
 	
 }
+
+//public void mover(); ¿?

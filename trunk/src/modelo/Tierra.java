@@ -16,12 +16,19 @@ public class Tierra extends Terreno {
 	
 	private int resistencia = 4;
 	
+	/**Constructor de Tierra.-
+	 * @param posicionX
+	 * @param posicionY
+	 */
 	public Tierra(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
 		this.setActivo(true);
 	}
 	
+	/**
+	 * @param pooglin
+	 */
 	private void accionarLateral(Pooglin pooglin) {
 		Habilidad habilidad = pooglin.getHabilidad();
 		Velocidad velocidad = pooglin.getVelocidad();
@@ -38,6 +45,9 @@ public class Tierra extends Terreno {
 		
 	}
 	
+	/**
+	 * @param pooglin
+	 */
 	private void accionarAbajo(Pooglin pooglin) {
 		Velocidad auxVelocidad = pooglin.getVelocidad();
 		auxVelocidad.setVelocidadX( ( (auxVelocidad.getVelocidadX()) / Math.abs( auxVelocidad.getVelocidadX()) ) * Velocidad.VELOCIDAD_NORMAL);
@@ -63,10 +73,16 @@ public class Tierra extends Terreno {
 		}
 	}
 	
+	/**
+	 * @return
+	 */
 	public int getResistencia() {
-		return resistencia;
+		return this.resistencia;
 	}
 
+	/**
+	 * @param resistencia
+	 */
 	public void setResistencia(int resistencia) {
 		this.resistencia = resistencia;
 	}

@@ -9,6 +9,9 @@ public class Taladro extends Herramienta {
 	private final static int MAX_EXCAVACIONES = 5;
 	private int cantidadExcavaciones;
 	
+	/**
+	 * Constructor de Taladro.-
+	 */
 	public Taladro(){
 		this.setCantidadExcavaciones(0);
 	}
@@ -25,10 +28,16 @@ public class Taladro extends Herramienta {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public int getCantidadExcavaciones() {
 		return cantidadExcavaciones;
 	}
 
+	/**
+	 * @param cantidadExcavaciones
+	 */
 	public void setCantidadExcavaciones(int cantidadExcavaciones) {
 		this.cantidadExcavaciones = cantidadExcavaciones;
 	}
