@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.dom4j.Element;
@@ -18,10 +19,45 @@ public class Nivel implements Escenario, ObjetoVivo {
 	private int cantidadPooglins;
 	private Puerta puertaComienzo;
 	private Puerta puertaSalida;
+	
+	// hay que sacar  este vector...
 	private Habilidad[] habilidadesDisponibles;
+	
+	// Agregar el hashmap
+	private HashMap habilidades;
+	
+	// Agregar variable Habilidad
+	private Habilidad habilidad;
+	
 	private int contador = 0;
 	
 	
+	
+	public Habilidad getHabilidad() {
+		return habilidad;
+	}
+
+
+	public void setHabilidad(Habilidad habilidad) {
+		this.habilidad = habilidad;
+	}
+
+
+
+	
+	
+	
+	public HashMap getHabilidades() {
+		return habilidades;
+	}
+
+
+	public void setHabilidades(HashMap habilidades) {
+		this.habilidades = habilidades;
+	}
+
+
+
 	private static Nivel nivel = null;  //Singleton
 
 	
