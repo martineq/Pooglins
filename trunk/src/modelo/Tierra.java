@@ -54,7 +54,7 @@ public class Tierra extends Terreno {
 		pooglin.setVelocidad(auxVelocidad); //esto hay que verlo...
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof Taladro){
-			pooglin.usarHabilidad(this);
+			pooglin.usarHabilidad(this,pooglin);
 		}else {
 			
 		}

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
@@ -12,37 +13,57 @@ import vista.Ventana;
 import vista.VistaPooglin;
 
 
+import modelo.Congelamiento;
+import modelo.Habilidad;
 import modelo.Nivel;
+import modelo.Platillo;
 import modelo.Pooglin;
+import modelo.RayoLaser;
+import modelo.Taladro;
+import modelo.Teletransportarse;
 import modelo.Terreno;
+import modelo.Tunel;
 
 
-public class MouseParaPooglins extends MouseAdapter {
+public class MouseParaBotones extends MouseAdapter {
 //public class MouseAdaptador implements MouseListener {
 
-	private Pooglin[] pooglins;
+	//private Pooglin[] pooglins;
 	
-	public MouseParaPooglins(Pooglin[] pooglin){
-		this.pooglins = pooglin;
+	public MouseParaBotones(){
+	//	this.pooglins = pooglin;
 	}
 	
 	private int calcularPosiocion(int posicionEnPantalla){
 		return (int) Math.floor((posicionEnPantalla/42));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void mouseClicked(MouseEvent arg0) {
-		int clickEnPosicionX = calcularPosiocion(arg0.getX());
-		int clickEnPosicionY = calcularPosiocion(arg0.getY()-28);
+		Button bt = (Button)arg0.getSource();
+		String nombre = bt.getLabel();
 		Nivel nivel = Nivel.getInstance();
 		
-		for(int i = 0; i<pooglins.length;i++){
-			if((pooglins[i].getPosicionX()==clickEnPosicionX)&&(pooglins[i].getPosicionY()==clickEnPosicionY)){	
-				//pooglins[i].usarHabilidad();
-				System.out.println("Click en pooglin");
-				pooglins[i].setHabilidad(nivel.getHabilidad());
-				
-			}
+		HashMap habilidades;
+		
+		Habilidad habilidad=null;
+		
+		habilidades = nivel.getHabilidades();
+		
+		if((Integer)habilidades.get(nombre)>0){
+			System.out.println(nombre);
+			if(nombre.equals("Taladro")) habilidad = new Taladro();
+			if(nombre.equals("Congelamiento")) habilidad = new Congelamiento();
+			if(nombre.equals("Platillo")) habilidad = new Platillo();
+			if(nombre.equals("Teletransportarse")) habilidad = new Teletransportarse();
+			if(nombre.equals("Tunel")) habilidad = new Tunel();
+			if(nombre.equals("RayoLaser")) habilidad = new RayoLaser();
+			
 		}
+		System.out.println(habilidad);
+		
+		nivel.setHabilidad(habilidad);
+		
 	}
 
 /*	public void mouseMoved(MouseEvent arg0){

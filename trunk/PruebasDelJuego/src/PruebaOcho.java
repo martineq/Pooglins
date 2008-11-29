@@ -1,5 +1,7 @@
 package src;
 
+import java.util.HashMap;
+
 import controlador.MouseAdaptador;
 import controlador.MouseParaPooglins;
 import vista.Ventana;
@@ -13,10 +15,12 @@ import vista.VistaTierra;
 import vista.VistaVacio;
 import modelo.AgujeroNegro;
 import modelo.ControladorJuego;
+import modelo.Habilidad;
 import modelo.Nivel;
 import modelo.Pooglin;
 import modelo.Puerta;
 import modelo.Roca;
+import modelo.Taladro;
 import modelo.Terreno;
 import modelo.Tierra;
 import modelo.Vacio;
@@ -30,7 +34,7 @@ public class PruebaOcho {
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
-		int cantidadDePooglin = 5;
+		int cantidadDePooglin = 1;
 		int altoDeMatriz = 14;
 		int anchoDeMatriz = 22;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
@@ -84,24 +88,34 @@ public class PruebaOcho {
 			    }
 			}
 		}
-		
 		for(int fila=1;fila<11;fila++){
-				if(fila != 5){
-			    matrizNivel[fila][2] = new Tierra(fila,2);
+			if(fila != 5){
+		    matrizNivel[fila][3] = new Tierra(fila,3);
+			VistaTierra t = new VistaTierra();
+	    	t.setPosicionable(matrizNivel[fila][3]);
+	    	controlador.agregarDibujable(t);
+			}
+		}
+		
+			
+		for(int fila=1;fila<11;fila++){
+				matrizNivel[fila][2] = new Tierra(fila,2);
 				VistaTierra t = new VistaTierra();
 		    	t.setPosicionable(matrizNivel[fila][2]);
 		    	controlador.agregarDibujable(t);
-				}
-				else 
-				{
 				/*	matrizNivel[5][2] = new AgujeroNegro(5,2);
 					VistaAgujeroNegro n = new VistaAgujeroNegro();
 				    n.setPosicionable(matrizNivel[5][2]);
 				    controlador.agregarDibujable(n);
 			*/				
-				}
+				
 		    }
-		
+
+		matrizNivel[10][1] = new Tierra(10,1);
+		VistaTierra t1 = new VistaTierra();
+    	t1.setPosicionable(matrizNivel[10][1]);
+    	controlador.agregarDibujable(t1);
+
 		for(int fila=1;fila<21;fila++){
 			if(fila != 19){		
 			matrizNivel[fila][8] = new Tierra(fila,8);
@@ -114,12 +128,32 @@ public class PruebaOcho {
 		for(int fila=1;fila<21;fila++){
 			if(fila != 2){		
 				
-			matrizNivel[fila][5] = new Roca(fila,5);
-			VistaRoca t = new VistaRoca();
+			matrizNivel[fila][5] = new Tierra(fila,5);
+			VistaTierra t = new VistaTierra();
 	    	t.setPosicionable(matrizNivel[fila][5]);
 	    	controlador.agregarDibujable(t);	
 			}
 			}
+
+		for(int fila=1;fila<21;fila++){
+			if(fila != 19){		
+			matrizNivel[fila][9] = new Tierra(fila,9);
+			VistaTierra t = new VistaTierra();
+	    	t.setPosicionable(matrizNivel[fila][9]);
+	    	controlador.agregarDibujable(t);	
+			}
+			}
+
+		for(int fila=1;fila<21;fila++){
+			if(fila != 2){		
+				
+			matrizNivel[fila][5] = new Tierra(fila,5);
+			VistaTierra t = new VistaTierra();
+	    	t.setPosicionable(matrizNivel[fila][5]);
+	    	controlador.agregarDibujable(t);	
+			}
+			}
+
 
 	/*	matrizNivel[1][4] = new Tierra(1,4);
 		VistaTierra t = new VistaTierra();
@@ -169,6 +203,25 @@ public class PruebaOcho {
 		//vistaTablero.setPosicionable(nivel);
 			
 		//Instancio una imagen para que actue como vista para el pooglin
+		
+//		Habilidad habilidad[] = new Habilidad[5];
+//		for(int j = 0 ; j<habilidad.length;j++){
+//			habilidad[j] = new Taladro();
+//		}
+//		
+		//nivel.setHabilidadesDisponibles(habilidad);
+		
+		HashMap habilidades = new HashMap();
+		habilidades.put("Platillo",2);
+		habilidades.put("RayoLaser",2);
+		habilidades.put("Taladro",2);
+		habilidades.put("Tunel",2);
+		habilidades.put("Teletransportarse",2);
+		habilidades.put("Congelamiento",2);
+		
+		nivel.setHabilidades(habilidades);
+		
+		
 		
 		for (int i =0; i< cantidadDePooglin; i++){
 			VistaPooglin vistaPooglin = new VistaPooglin();
