@@ -50,7 +50,13 @@ public class MouseParaBotones extends MouseAdapter {
 		
 		habilidades = nivel.getHabilidadesDisponibles();
 		
-		if((Integer)habilidades.get(nombre)>0){
+		//Convierto de String a Int para evitar la excepcion en tiempo de ejecucion
+		//Guido.-
+		try{
+			int cantidadHabilidades=Integer.parseInt((String) habilidades.get(nombre));
+		
+		if (cantidadHabilidades>0){
+		//if((Integer)habilidades.get(nombre)>0){
 			System.out.println(nombre);
 			if(nombre.equals("Taladro")) habilidad = new Taladro();
 			if(nombre.equals("Congelamiento")) habilidad = new Congelamiento();
@@ -63,7 +69,13 @@ public class MouseParaBotones extends MouseAdapter {
 		System.out.println(habilidad);
 		
 		nivel.setHabilidad(habilidad);
-		
+		}
+		catch(NumberFormatException e){
+			//se dispara solo si lo que se quiere convertir
+			//de string a int no es un numero
+			//en este caso, NUNCA se va a disparar
+			//Guido.-
+		}
 	}
 
 /*	public void mouseMoved(MouseEvent arg0){
