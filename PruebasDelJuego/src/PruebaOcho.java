@@ -211,15 +211,15 @@ public class PruebaOcho {
 //		
 		//nivel.setHabilidadesDisponibles(habilidad);
 		
-		HashMap habilidades = new HashMap();
-		habilidades.put("Platillo",2);
-		habilidades.put("RayoLaser",2);
-		habilidades.put("Taladro",2);
-		habilidades.put("Tunel",2);
-		habilidades.put("Teletransportarse",2);
-		habilidades.put("Congelamiento",2);
+		HashMap<String,String> habilidades = new HashMap<String,String>();
+		habilidades.put("Platillo","2");
+		habilidades.put("RayoLaser","2");
+		habilidades.put("Taladro","2");
+		habilidades.put("Tunel","2");
+		habilidades.put("Teletransportarse","2");
+		habilidades.put("Congelamiento","2");
 		
-		nivel.setHabilidades(habilidades);
+		nivel.setHabilidadesDisponibles(habilidades);
 		
 		
 		

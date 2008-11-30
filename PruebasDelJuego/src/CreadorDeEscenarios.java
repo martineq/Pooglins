@@ -1,5 +1,7 @@
 package src;
 
+import java.util.HashMap;
+
 import controlador.MouseAdaptador;
 import vista.Ventana;
 import vista.VentanaPrincipal;
@@ -28,14 +30,17 @@ public class CreadorDeEscenarios {
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
+		
 		int cantidadDePooglin = 5;
 		int pooglinsARescatar = 5;
 		int contador = 0;
 		int altoDeMatriz = 14;
 		int anchoDeMatriz = 22;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
+		HashMap<String,String> habilidadesDisponibles = new HashMap<String,String>();
 		Terreno[][] matrizNivel;
-		Habilidad[] habilidadesDisponibles;
+		Habilidad habilidad = null;
+		
 		MouseAdaptador oyente = new MouseAdaptador();
 	
 		//Instancio Nivel.-
@@ -51,9 +56,14 @@ public class CreadorDeEscenarios {
 		Puerta puertaComienzo= new Puerta(1,1);
 		Puerta puertaSalida = new Puerta(18,12);
 		
-		//Instancio Habilidades.-
-		habilidadesDisponibles = new Habilidad[5];//Nuevo.-
-		for( int i = 0 ; i < 5 ; i++ )habilidadesDisponibles[i] = new Platillo(); //Nuevo.-
+		//Instancio habilidadesDisponibles.-
+		habilidadesDisponibles.put("Platillo","2");
+		habilidadesDisponibles.put("RayoLaser","2");
+		habilidadesDisponibles.put("Taladro","2");
+		habilidadesDisponibles.put("Tunel","2");
+		habilidadesDisponibles.put("Teletransportarse","2");
+		habilidadesDisponibles.put("Congelamiento","2");
+		habilidadesDisponibles.put("Morir","0");
 		
 		//Luego instancio los objetos del framework: 
 		//      una ventana y el controlador
@@ -118,8 +128,10 @@ public class CreadorDeEscenarios {
 		nivel.setPooglinsARescatar(pooglinsARescatar);
 		nivel.setContador(contador);
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
+		nivel.setHabilidad(habilidad);
 		
-		nivel.guardarXML("PruebaSiete.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
+		
+		nivel.guardarXML("Pooglins.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
 
 		//Preparo los controladores de la vista.-
 		VistaPuerta vPuerta = new VistaPuerta();
