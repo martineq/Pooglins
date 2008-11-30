@@ -48,7 +48,7 @@ public class MouseParaBotones extends MouseAdapter {
 		
 		Habilidad habilidad=null;
 		
-		habilidades = nivel.getHabilidades();
+		habilidades = nivel.getHabilidadesDisponibles();
 		
 		if((Integer)habilidades.get(nombre)>0){
 			System.out.println(nombre);

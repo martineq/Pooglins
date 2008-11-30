@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 import modelo.Fuego;
 import modelo.Hielo;
 import modelo.Nivel;
@@ -18,7 +20,19 @@ public class TerrenoEnNivelTest extends TestCase {
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
 	Personaje []pooglins;
-	Habilidad[] habilidadesDisponibles; //Nuevo, para probar el testNivelConXML.-
+	private HashMap<String,String> habilidadesDisponibles = new HashMap<String,String>(); //Nuevo. Antes: Habilidad[] habilidadesDisponibles;	
+	
+
+	
+	private void llenarHabilidadesDisponibles(){
+		habilidadesDisponibles.put("Platillo","2");
+		habilidadesDisponibles.put("RayoLaser","2");
+		habilidadesDisponibles.put("Taladro","2");
+		habilidadesDisponibles.put("Tunel","2");
+		habilidadesDisponibles.put("Teletransportarse","2");
+		habilidadesDisponibles.put("Congelamiento","2");
+		habilidadesDisponibles.put("Morir","0");
+	}
 	
 	private void bordeMatriz(){
 		for( int i = 0 ; i < tamanioMatriz ;i++ ){
@@ -41,6 +55,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		matrizNivel = new Terreno[tamanioMatriz][tamanioMatriz]; 
 		this.llenarMatrizConVacio();
 		this.bordeMatriz();
+		this.llenarHabilidadesDisponibles();
 		nivel = Nivel.getInstance();//new Nivel();
 		
 	}
@@ -101,8 +116,6 @@ public class TerrenoEnNivelTest extends TestCase {
 		pooglins = new Pooglin[15];
 		for( int i = 0 ; i < 15 ; i++ )pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
 		for( int i = 0 ; i < 15 ; i++ )((Pooglin)pooglins[i]).setHabilidad(new Platillo());
-		habilidadesDisponibles = new Habilidad[5];//Nuevo.-
-		for( int i = 0 ; i < 5 ; i++ )habilidadesDisponibles[i] = new Platillo(); //Nuevo.-
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(15);
@@ -119,8 +132,6 @@ public class TerrenoEnNivelTest extends TestCase {
 		pooglins = new Pooglin[15];
 		for( int i = 0 ; i < 15 ; i++ )pooglins[i]=new Pooglin((nivel.getPuertaComienzo()).getPosicionX(),(nivel.getPuertaComienzo()).getPosicionY());
 		for( int i = 0 ; i < 15 ; i++ )((Pooglin)pooglins[i]).setHabilidad(new Platillo());
-		habilidadesDisponibles = new Habilidad[5];//Nuevo.-
-		for( int i = 0 ; i < 5 ; i++ )habilidadesDisponibles[i] = new Platillo(); //Nuevo.-
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(15);
