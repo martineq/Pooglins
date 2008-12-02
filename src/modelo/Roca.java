@@ -18,6 +18,8 @@ public class Roca extends Terreno {
 	
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
+		pooglin.setAltura(0);
+		
 		Velocidad velocidad = pooglin.getVelocidad();
 		pooglin.setAltura(0);
 		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca

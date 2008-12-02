@@ -15,6 +15,7 @@ public class Tierra extends Terreno {
 	 */
 	
 	private int resistencia = 4;
+	private int conte=0;
 	
 	/**Constructor de Tierra.-
 	 * @param posicionX
@@ -32,16 +33,23 @@ public class Tierra extends Terreno {
 	private void accionarLateral(Pooglin pooglin) {
 		Habilidad habilidad = pooglin.getHabilidad();
 		Velocidad velocidad = pooglin.getVelocidad();
-		pooglin.setAltura(0);
+		
 		if (habilidad instanceof RayoLaser){
 			pooglin.usarHabilidad(this);
+			//System.out.println("primer if");
 			if (this.isActivo()){
-				velocidad.cambiarDireccion();
+				//System.out.println("segundo if");
+				//velocidad.cambiarDireccion();
 			}
-		}else {
-			velocidad.cambiarDireccion();
 		}
-		pooglin.setVelocidad(velocidad);
+		else {
+			//System.out.println("else del primer if sin laser");
+			pooglin.setCantTurnosQueNoSeMovio(0);
+			
+			velocidad.cambiarDireccion();
+			pooglin.setVelocidad(velocidad);
+		}
+		
 		
 	}
 	
@@ -55,20 +63,23 @@ public class Tierra extends Terreno {
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof Taladro){
 			pooglin.usarHabilidad(this,pooglin);
-		}else {
 			
+		}else {
+		//	System.out.println("entre en accionar abajo pero no tengo taladro");
 		}
 	}
 	
 	public void accionarTerreno(Personaje pooglin) { 
 		Pooglin auxPooglin = (Pooglin) pooglin;
-		
+		auxPooglin.setAltura(0);
+		//revisar aca el rayo laser..
 		if (auxPooglin.getPosicionY() == this.getPosicionY()){
 			this.accionarLateral((Pooglin)pooglin);
 		}else{
 			Velocidad velocidad = auxPooglin.getVelocidad();
 			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 			auxPooglin.setVelocidad(velocidad);
+			
 			this.accionarAbajo(auxPooglin);
 		}
 	}
@@ -84,6 +95,8 @@ public class Tierra extends Terreno {
 	 * @param resistencia
 	 */
 	public void setResistencia(int resistencia) {
+		System.out.println(resistencia);
+		
 		this.resistencia = resistencia;
 	}
 	

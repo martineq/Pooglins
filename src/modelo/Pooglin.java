@@ -143,6 +143,10 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	/**
 	 * @return
 	 */
+	
+	public void  sacarHabilidad() {
+		this.habilidad= null;
+	}
 	public Habilidad getHabilidad() {
 		return this.habilidad;
 	}
@@ -151,6 +155,7 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	 * @param habilidad
 	 */
 	public void setHabilidad(Habilidad habilidad) {
+		System.out.println("agrege  "+habilidad);
 		this.habilidad = habilidad;
 	}
 

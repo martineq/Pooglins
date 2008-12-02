@@ -9,6 +9,7 @@ package modelo;
  * 
  *
  */
+
 public class RayoLaser extends Herramienta {
 
 	public void utilizar(Terreno terreno) {

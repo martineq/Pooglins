@@ -23,11 +23,27 @@ public class Congelamiento extends Comportamiento {
 	}
 
 	public void utilizar(Terreno terreno, Pooglin pooglin){
+		Habilidad morir = pooglin.getMatarse();
+		morir.utilizar(pooglin);
+		
+		System.out.println("Utilizo congelamiento");
+		System.out.println("en X="+terreno.getPosicionX()+" Y="+terreno.getPosicionY());
+		
+		if (terreno instanceof Vacio){
+			System.out.println("desactive el terreno");
+			
+			terreno.setActivo(false);
+		}
 		
 	}
 
 	public void utilizar(Terreno terreno) {
+		System.out.println("Utilizo congelamiento");
+		System.out.println("en X="+terreno.getPosicionX()+" Y="+terreno.getPosicionY());
+		
 		if (terreno instanceof Vacio){
+			System.out.println("desactive el terreno");
+			
 			terreno.setActivo(false);
 		}
 	}

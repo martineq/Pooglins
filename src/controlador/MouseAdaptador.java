@@ -7,7 +7,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
-import src.VentanaInicio;
+import pruebaMenu.VentanaInicio;
+
 import vista.Ventana;
 import vista.VistaPooglin;
 

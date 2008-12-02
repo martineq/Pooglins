@@ -7,7 +7,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
-import src.VentanaInicio;
+import pruebaMenu.VentanaInicio;
+
 import vista.Ventana;
 import vista.VistaPooglin;
 
@@ -32,7 +33,7 @@ public class MouseParaPooglins extends MouseAdapter {
 
 	public void mouseClicked(MouseEvent arg0) {
 		int clickEnPosicionX = calcularPosiocion(arg0.getX());
-		int clickEnPosicionY = calcularPosiocion(arg0.getY()-28);
+		int clickEnPosicionY = calcularPosiocion(arg0.getY()-60);
 		Nivel nivel = Nivel.getInstance();
 		
 		for(int i = 0; i<pooglins.length;i++){
@@ -40,7 +41,9 @@ public class MouseParaPooglins extends MouseAdapter {
 				//pooglins[i].usarHabilidad();
 				System.out.println("Click en pooglin");
 				pooglins[i].setHabilidad(nivel.getHabilidad());
-				
+				nivel.sacarHabilidad();
+				//pooglins[i].usarHabilidad(nivel.getTerreno(pooglins[i].getPosicionX(), pooglins[i].getPosicionY()));
+				//pooglins[i].sacarHabilidad();
 			}
 		}
 	}

@@ -6,7 +6,7 @@ package modelo;
  */
 public class Taladro extends Herramienta {
 	
-	private final static int MAX_EXCAVACIONES = 1* Velocidad.VELOCIDAD_NORMAL;
+	private final static int MAX_EXCAVACIONES = 5;//* Velocidad.VELOCIDAD_NORMAL;
 	private int cantidadExcavaciones;
 	
 	/**
@@ -17,14 +17,23 @@ public class Taladro extends Herramienta {
 	}
 	
 	public void utilizar(Terreno terreno, Pooglin pooglin) {
+		System.out.println("ee"+cantidadExcavaciones);
 		if ( this.getCantidadExcavaciones() < MAX_EXCAVACIONES ){
+			System.out.println(terreno.getPosicionX() + " " + terreno.getPosicionY());
+			System.out.println(pooglin.getPosicionX() + " " + pooglin.getPosicionY());
+			
 			if (terreno instanceof Tierra){
-				this.setCantidadExcavaciones(this.getCantidadExcavaciones() + 1);
+				System.out.println("entre en tierra");
+				cantidadExcavaciones++;
 				terreno.setActivo(false);
 				Velocidad velocidad = ((Pooglin) pooglin).getVelocidad();
 				velocidad.setVelocidadY(Velocidad.VELOCIDAD_NORMAL);
-				((Pooglin) pooglin).setVelocidad(velocidad);
+				((Pooglin) pooglin).setVelocidad(velocidad);		
 			}
+		}
+				
+		else{ ((Pooglin) pooglin).sacarHabilidad();
+		System.out.println("saco habilidad");
 		}
 	}
 

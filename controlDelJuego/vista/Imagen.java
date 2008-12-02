@@ -41,7 +41,6 @@ public class Imagen extends Component implements Dibujable{
 //		InputStream in = getClass().getResourceAsStream(this.nombreArchivoImagen);
 //		JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(in);
 		try{
-		
 			InputStream in = new FileInputStream(nombreArchivoImagen);
 		    JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(in);
 			this.imagen = decoder.decodeAsBufferedImage();
