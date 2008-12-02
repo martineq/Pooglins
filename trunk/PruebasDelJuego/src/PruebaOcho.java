@@ -7,6 +7,7 @@ import controlador.MouseParaPooglins;
 import vista.Ventana;
 import vista.VentanaPrincipal;
 import vista.VistaAgujeroNegro;
+import vista.VistaFuego;
 import vista.VistaHielo;
 import vista.VistaPooglin;
 import vista.VistaPuerta;
@@ -15,6 +16,7 @@ import vista.VistaTierra;
 import vista.VistaVacio;
 import modelo.AgujeroNegro;
 import modelo.ControladorJuego;
+import modelo.Fuego;
 import modelo.Habilidad;
 import modelo.Nivel;
 import modelo.Pooglin;
@@ -103,11 +105,11 @@ public class PruebaOcho {
 				VistaTierra t = new VistaTierra();
 		    	t.setPosicionable(matrizNivel[fila][2]);
 		    	controlador.agregarDibujable(t);
-				/*	matrizNivel[5][2] = new AgujeroNegro(5,2);
-					VistaAgujeroNegro n = new VistaAgujeroNegro();
+					matrizNivel[5][2] = new Fuego(5,2);
+					VistaFuego n = new VistaFuego();
 				    n.setPosicionable(matrizNivel[5][2]);
 				    controlador.agregarDibujable(n);
-			*/				
+						
 				
 		    }
 

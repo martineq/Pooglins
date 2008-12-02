@@ -20,6 +20,7 @@ public class Tunel extends Herramienta {
 	public void utilizar(Terreno terreno, Pooglin pooglin) {
 		int posicionX = pooglin.getPosicionX();
 		int posicionY = pooglin.getPosicionY();
+		
 		if (pooglin.getVelocidad().getVelocidadX() > 0){
 			posicionX = posicionX + 2;
 			posicionY = posicionY - 2;
@@ -27,9 +28,12 @@ public class Tunel extends Herramienta {
 			posicionX = posicionX - 2;
 			posicionY = posicionY - 2;
 		}
-		if (posicionX < 0 || posicionY < 0 || posicionX > 22){
+		if (posicionX > 0 && posicionY > 0 && posicionX < 22){
+			
 			pooglin.setPosicionX(posicionX);
 			pooglin.setPosicionY(posicionY);
 		}
+		pooglin.sacarHabilidad();
 	}
+	
 }
