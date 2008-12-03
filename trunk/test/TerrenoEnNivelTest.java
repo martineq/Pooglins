@@ -14,25 +14,29 @@ import modelo.Vacio;
 import modelo.Habilidad;
 import junit.framework.TestCase;
 
+
 public class TerrenoEnNivelTest extends TestCase {
 	//supongo matriz cuadrada 50
 	private int tamanioMatriz=50;
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
 	Personaje []pooglins;
-	private HashMap<String,String> habilidadesDisponibles = new HashMap<String,String>(); //Nuevo. Antes: Habilidad[] habilidadesDisponibles;	
-	
+	//Habilidad[] habilidadesDisponibles; //Nuevo, para probar el testNivelConXML.-
+	@SuppressWarnings("unchecked")
+	private HashMap habilidadesDisponibles = new HashMap(); //Nuevo. Antes: Habilidad[] habilidadesDisponibles;       
+    
 
-	
-	private void llenarHabilidadesDisponibles(){
-		habilidadesDisponibles.put("Platillo","2");
-		habilidadesDisponibles.put("RayoLaser","2");
-		habilidadesDisponibles.put("Taladro","2");
-		habilidadesDisponibles.put("Tunel","2");
-		habilidadesDisponibles.put("Teletransportarse","2");
-		habilidadesDisponibles.put("Congelamiento","2");
-		habilidadesDisponibles.put("Morir","0");
-	}
+    
+    private void llenarHabilidadesDisponibles(){
+            habilidadesDisponibles.put("Platillo",2);
+            habilidadesDisponibles.put("RayoLaser",2);
+            habilidadesDisponibles.put("Taladro",2);
+            habilidadesDisponibles.put("Tunel",2);
+            habilidadesDisponibles.put("Teletransportarse",2);
+            habilidadesDisponibles.put("Congelamiento",2);
+            habilidadesDisponibles.put("Morir",2);
+    }
+
 	
 	private void bordeMatriz(){
 		for( int i = 0 ; i < tamanioMatriz ;i++ ){
