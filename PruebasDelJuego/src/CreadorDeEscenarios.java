@@ -1,7 +1,5 @@
 package src;
-
 import java.util.HashMap;
-
 import controlador.MouseAdaptador;
 import vista.Ventana;
 import vista.VentanaPrincipal;
@@ -27,20 +25,21 @@ public class CreadorDeEscenarios {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
-		
 		int cantidadDePooglin = 5;
 		int pooglinsARescatar = 5;
 		int contador = 0;
 		int altoDeMatriz = 14;
 		int anchoDeMatriz = 22;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
-		HashMap<String,String> habilidadesDisponibles = new HashMap<String,String>();
-		Terreno[][] matrizNivel;
-		Habilidad habilidad = null;
-		
+        HashMap habilidadesDisponibles = new HashMap();
+        Terreno[][] matrizNivel;
+        Habilidad habilidad = null;
+        
+
 		MouseAdaptador oyente = new MouseAdaptador();
 	
 		//Instancio Nivel.-
@@ -57,14 +56,14 @@ public class CreadorDeEscenarios {
 		Puerta puertaSalida = new Puerta(18,12);
 		
 		//Instancio habilidadesDisponibles.-
-		habilidadesDisponibles.put("Platillo","2");
-		habilidadesDisponibles.put("RayoLaser","2");
-		habilidadesDisponibles.put("Taladro","2");
-		habilidadesDisponibles.put("Tunel","2");
-		habilidadesDisponibles.put("Teletransportarse","2");
-		habilidadesDisponibles.put("Congelamiento","2");
-		habilidadesDisponibles.put("Morir","0");
-		
+        habilidadesDisponibles.put("Platillo",2);
+        habilidadesDisponibles.put("RayoLaser",2);
+        habilidadesDisponibles.put("Taladro",2);
+        habilidadesDisponibles.put("Tunel",2);
+        habilidadesDisponibles.put("Teletransportarse",2);
+        habilidadesDisponibles.put("Congelamiento",2);
+        habilidadesDisponibles.put("Morir",2);
+
 		//Luego instancio los objetos del framework: 
 		//      una ventana y el controlador
 		Ventana ventana = new VentanaPrincipal(anchoDeVentana,altoDeVentana);
@@ -130,8 +129,7 @@ public class CreadorDeEscenarios {
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		nivel.setHabilidad(habilidad);
 		
-		
-		nivel.guardarXML("Pooglins.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
+		nivel.guardarXML("PruebaSiete.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
 
 		//Preparo los controladores de la vista.-
 		VistaPuerta vPuerta = new VistaPuerta();
