@@ -14,7 +14,7 @@ public class Principal {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ControladorJuego controlador = Principal.cargarJuego("Pooglins.xml",985,700,70);
+		ControladorJuego controlador = Principal.cargarJuego("PruebaSiete.xml",985,700,70);
 		controlador.comenzar();
 	}
 
