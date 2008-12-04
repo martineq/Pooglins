@@ -194,7 +194,7 @@ public class PruebaNueve {
 		habilidades.put("Tunel",2);
 		habilidades.put("Teletransportarse",2);
 		habilidades.put("Congelamiento",2);
-		habilidades.put("Suicidarse",2);
+		habilidades.put("Morir",2);
 		
 		nivel.setHabilidadesDisponibles(habilidades);
 	}

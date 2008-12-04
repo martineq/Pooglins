@@ -12,7 +12,7 @@ import vista.VistaTierra;
 import vista.VistaVacio;
 
 /**
- * @author Nicolas
+ * @author 
  * Esta clase es la encargada de manejar todo el gameloop. Básicamente tiene una lista
  * de ObjetosVivos y una Dibujables que son recorridas en cada gameloop.
  */
