@@ -23,8 +23,11 @@ public class Roca extends Terreno {
 		Velocidad velocidad = pooglin.getVelocidad();
 		pooglin.setAltura(0);
 		if ( pooglin.getPosicionY() == this.getPosicionY()){ //Caso en que estoy frente a la roca
-			 velocidad.cambiarDireccion();//aca no me importa la velocidad en Y, supuestamente tiene que ser nula
-		}else {  //caso sobre la roca
+		 //aca no me importa la velocidad en Y, supuestamente tiene que ser nula 
+			velocidad.cambiarDireccion();
+				}
+		//caso sobre la roca
+		else {  
 			velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		}
 		pooglin.setVelocidad(velocidad);

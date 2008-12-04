@@ -1,46 +1,24 @@
 package controlador;
 
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.HashMap;
-
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-
-import pruebaMenu.VentanaInicio;
-
-import vista.Ventana;
-import vista.VistaPooglin;
-
-
 import modelo.Congelamiento;
 import modelo.Habilidad;
 import modelo.Morir;
 import modelo.Nivel;
 import modelo.Platillo;
-import modelo.Pooglin;
 import modelo.RayoLaser;
 import modelo.Taladro;
 import modelo.Teletransportarse;
-import modelo.Terreno;
 import modelo.Tunel;
 
-
 public class MouseParaBotones extends MouseAdapter {
-//public class MouseAdaptador implements MouseListener {
 
-	//private Pooglin[] pooglins;
-	
 	public MouseParaBotones(){
-	//	this.pooglins = pooglin;
 	}
 	
-	private int calcularPosiocion(int posicionEnPantalla){
-		return (int) Math.floor((posicionEnPantalla/42));
-	}
-
 	@SuppressWarnings("unchecked")
 	public void mouseClicked(MouseEvent arg0) {
 		JButton bt = (JButton)arg0.getSource();
@@ -73,35 +51,4 @@ public class MouseParaBotones extends MouseAdapter {
 		
 	}
 
-/*	public void mouseMoved(MouseEvent arg0){
-		System.out.println("Pasaste por mouseMove");
-		
-	}
-
-	@Override
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		System.out.println("Pasaste por mouseentered");
-			
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
 }
