@@ -22,30 +22,7 @@ public class ControladorJuego {
 	private List objetosVivos;
 	private List dibujables;
 	private SuperficieDeDibujo superficieDeDibujo;	
-//	private Imagen[][] Tablero;
-//	
-//	
-//	public Imagen[][] getTablero() {
-//		return Tablero;
-//	}
-//
-//	public void setTablero(Imagen[][] vistatablero) {
-//		Tablero = vistatablero;
-//	}
 
-	
-	
-	/*private void dibujarTablero(){
-		int altoDeMatriz = 14;
-		int anchoDeMatriz = 22;
-		for(int fila=0;fila<anchoDeMatriz;fila++){
-			for(int columna=0;columna<altoDeMatriz;columna++){
-				Tablero[fila][columna].dibujar(this.superficieDeDibujo);
-			}		
-		}
-		//this.superficieDeDibujo.actualizar();
-	}*/
-	
 	public ControladorJuego(){
 		this.objetosVivos = new ArrayList();
 		this.dibujables = new ArrayList();
@@ -56,39 +33,19 @@ public class ControladorJuego {
 		
 		try{
 		while(estaEnEjecucion){
-			
 			simular();
-			//dibujarTablero();
-				
 			dibujar();
-			
 			Thread.sleep(intervaloSimulacion);
-		}
+			if(Nivel.getInstance().getTiempoQueFaltaEnSegundos() == 0){ 
+				estaEnEjecucion = false;
+				//terminar el juego....
+				}
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-//	private void controlarMatriz() {
-//		int altoDeMatriz = 14;
-//		int anchoDeMatriz = 22;
-//		
-//		Nivel nivel = Nivel.getInstance();
-//		Terreno[][] matrizNivel = nivel.getMatrizNivel();
-//		//if (!terrenoActual.isActivo()){
-//	
-//		for(int fila=0;fila<anchoDeMatriz;fila++){
-//			for(int columna=0;columna<altoDeMatriz;columna++){
-//				if (!matrizNivel[fila][columna].isActivo()){
-//					Imagen vista = new VistaVacio();
-//					vista.setPosicionable(matrizNivel[fila][columna]);
-//					this.agregarDibujable(vista);
-//				}	
-//			}
-//		}
-//	
-//	
-//	}
 
 	public void detener(){
 		this.estaEnEjecucion = false;

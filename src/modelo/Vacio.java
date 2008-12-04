@@ -21,9 +21,10 @@ public class Vacio extends Terreno {
 		Pooglin pooglin = (Pooglin)unPooglin;				
 		Habilidad habilidadActual = (pooglin).getHabilidad();
 		if( pooglin.getAltura() > ALTURA_MAX ){ //Si estoy con altura > ALTURA_MAX el pooglin muere, a menos que la habilidad que tenga sea un platillo.-
-			Habilidad morir = pooglin.getMatarse();
-			morir.utilizar(pooglin);
-			}
+			//Habilidad morir = pooglin.getMatarse();
+			//morir.utilizar(pooglin);
+			pooglin.setHabilidad(pooglin.getMatarse());
+		}
 		else if (habilidadActual instanceof Platillo) {
 			habilidadActual.utilizar(pooglin);
 			pooglin.setAltura(0);

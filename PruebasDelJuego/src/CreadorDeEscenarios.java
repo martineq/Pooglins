@@ -126,7 +126,7 @@ public class CreadorDeEscenarios {
 		nivel.setHabilidadesDisponibles(habilidadesDisponibles);
 		nivel.setHabilidad(habilidad);
 		nivel.setDuracionDelJuego(duracionDelJuego);
-		nivel.iniciarTiempoEnSegundos();
+		//nivel.iniciarTiempoEnSegundos();
 		
 		//Guardo toda la configuración en un XML.-
 		//nivel.guardarXML("Pooglins.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
@@ -142,8 +142,8 @@ public class CreadorDeEscenarios {
 		
 		//Instancio una imagen para que actúe como vista para el pooglin.-
 		for (int i =0; i< cantidadDePooglin; i++){
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(pooglins[i]);
+			VistaPooglin vistaPooglin = new VistaPooglin(pooglins[i]);
+			//vistaPooglin.setPosicionable(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
 		}
 		
@@ -159,7 +159,7 @@ public class CreadorDeEscenarios {
 		ventana.addMouseListener(oyente);
 		controlador.agregarObjetoVivo(nivel);
 		controlador.setIntervaloSimulacion(350);
-		nivel.comenzarTiempo();
+		//nivel.comenzarTiempo();
 		controlador.comenzar();
 		
 	}

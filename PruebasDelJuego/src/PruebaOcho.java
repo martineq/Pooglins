@@ -228,8 +228,8 @@ public class PruebaOcho {
 		
 		
 		for (int i =0; i< cantidadDePooglin; i++){
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(pooglins[i]);
+			VistaPooglin vistaPooglin = new VistaPooglin(pooglins[i]);
+			//vistaPooglin.setPosicionable(pooglins[i]);
 			//controlador.agregarObjetoVivo(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
 			}

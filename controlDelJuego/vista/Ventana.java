@@ -20,6 +20,7 @@ import javax.swing.JButton;
 
 import controlador.MouseParaBotones;
 
+import modelo.Habilidad;
 import modelo.Nivel;
 import modelo.SuperficieDeDibujo;
 
@@ -42,6 +43,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	private Label lbTiempo;
 	private Label lbCantDePooglinARescatar;
 	private Label lbCantDePooglinVivos;
+	private Label lbHabilidadDisponible;
 	
 //	public Panel getPanel() {
 //		return panel;
@@ -74,7 +76,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		lbCantSuicidarse.setText(cantidadDeHabilidadesDisponibles.toString());
 		
 		//son las del panel superior
-		Integer tiempo = nivel.getTiempoEnSegundos();	
+		Integer tiempo = nivel.getTiempoQueFaltaEnSegundos();	
 		lbTiempo.setText("Tiempo: "+tiempo.toString()+ " Seg ");
 		
 		Integer cantidadDePooglinRescatar = nivel.getPooglinsARescatar();
@@ -82,6 +84,23 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		
 		Integer CantDePooglinVivos = Nivel.getInstance().getCantidadPooglins();
 		lbCantDePooglinVivos.setText("Pooglins Vivos: "+CantDePooglinVivos.toString());
+	
+	//	String habilidadDisponible = habilidadDisponible = Nivel.getInstance().getHabilidad().toString();
+		
+		Habilidad habilidadDisponible = Nivel.getInstance().getHabilidad();
+		lbHabilidadDisponible.setSize(215,25);
+		if(habilidadDisponible == null){
+			lbHabilidadDisponible.setText("Habilidad Disponible: Ninguna");
+			lbHabilidadDisponible.setForeground(Color.white);
+			lbHabilidadDisponible.setBackground(Color.darkGray);
+		}
+		else{
+			lbHabilidadDisponible.setText("Habilidad Disponible: " +habilidadDisponible);
+			lbHabilidadDisponible.setForeground(Color.black);
+			lbHabilidadDisponible.setBackground(Color.green);	
+		}
+		
+		
 	}
 	
 	public void agregarEtiquetas(){
@@ -219,6 +238,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		lbTiempo= new Label();
 		lbCantDePooglinARescatar = new Label();
 		lbCantDePooglinVivos =new Label();
+		lbHabilidadDisponible = new Label();
 		
 		agregarEtiquetas();
 		agregarBotones();
@@ -248,7 +268,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	private void cargarPanelSuperior() {
 		//Label lbl = new Label("TEXTO DEL JUEGO, NIVEL, TIEMPO, CANT DE POOGLIN, ETC....");
 		
-		Integer tiempo = Nivel.getInstance().getTiempoEnSegundos();	
+		Integer tiempo = Nivel.getInstance().getTiempoQueFaltaEnSegundos();	
 		lbTiempo.setText("Tiempo: "+tiempo.toString()+ " Seg ");
 		lbTiempo.setForeground(Color.white);
 		panelSuperior.add(lbTiempo);
@@ -262,6 +282,15 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		lbCantDePooglinVivos.setForeground(Color.white);
 		lbCantDePooglinVivos.setText("Pooglins Vivos: "+CantDePooglinVivos.toString());
 		panelSuperior.add(lbCantDePooglinVivos);
+		
+		//String habilidadDisponible = Nivel.getInstance().getHabilidad().toString();
+		
+		Habilidad habilidadDisponible = Nivel.getInstance().getHabilidad();
+		
+		
+		lbHabilidadDisponible.setForeground(Color.white);
+		lbHabilidadDisponible.setText("Habilidad Disponible: "+habilidadDisponible);
+		panelSuperior.add(lbHabilidadDisponible);
 		
 		
 	}

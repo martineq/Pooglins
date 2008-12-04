@@ -206,8 +206,8 @@ public class PruebaNueve {
 		
 		for (int i =0; i< cantidadDePooglin; i++){
 			pooglins[i] = new Pooglin(posicionComienzoX,posicionComienzoY);
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(pooglins[i]);
+			VistaPooglin vistaPooglin = new VistaPooglin(pooglins[i]);
+			//vistaPooglin.setPosicionable(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
 		}
 		
@@ -274,7 +274,7 @@ public class PruebaNueve {
 		nivel.setDuracionDelJuego(300);
 		
 		ventana.setVisible(true);
-		nivel.comenzarTiempo();
+	//	nivel.comenzarTiempo();
 		controlador.comenzar();
 	}
 }

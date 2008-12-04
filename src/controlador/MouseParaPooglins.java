@@ -28,21 +28,20 @@ public class MouseParaPooglins extends MouseAdapter {
 	}
 	
 	private int calcularPosiocion(int posicionEnPantalla){
-		return (int) Math.floor((posicionEnPantalla/42));
+		return (int) Math.floor((posicionEnPantalla/44));
 	}
 
 	public void mouseClicked(MouseEvent arg0) {
 		int clickEnPosicionX = calcularPosiocion(arg0.getX());
-		int clickEnPosicionY = calcularPosiocion(arg0.getY()-60);
-		Nivel nivel = Nivel.getInstance();
-		
-		for(int i = 0; i<pooglins.length;i++){
+		int clickEnPosicionY = calcularPosiocion(arg0.getY()-62);
+		Nivel nivel = Nivel.getInstance();	
+			for(int i = 0; i<pooglins.length;i++){
 			if((pooglins[i].getPosicionX()==clickEnPosicionX)&&(pooglins[i].getPosicionY()==clickEnPosicionY)){	
 				//pooglins[i].usarHabilidad();
 				System.out.println("Click en pooglin");
 				pooglins[i].setHabilidad(nivel.getHabilidad());
 				nivel.sacarHabilidad();
-				//pooglins[i].usarHabilidad(nivel.getTerreno(pooglins[i].getPosicionX(), pooglins[i].getPosicionY()));
+			//	pooglins[i].usarHabilidad(nivel.getTerreno(pooglins[i].getPosicionX(), pooglins[i].getPosicionY()));
 				//pooglins[i].sacarHabilidad();
 			}
 		}

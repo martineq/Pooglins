@@ -204,8 +204,9 @@ public class PruebaDiez {
 		
 		for (int i =0; i< cantidadDePooglin; i++){
 			pooglins[i] = new Pooglin(posicionComienzoX,posicionComienzoY);
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(pooglins[i]);
+			VistaPooglin vistaPooglin = new VistaPooglin(pooglins[i]);
+			
+			//vistaPooglin.setPosicionable(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
 		}
 		
@@ -271,7 +272,7 @@ public class PruebaDiez {
 		controlador.agregarObjetoVivo(nivel);
 		controlador.setIntervaloSimulacion(350);
 		nivel.setDuracionDelJuego(300);
-		nivel.comenzarTiempo();
+		//nivel.comenzarTiempo();
 		controlador.comenzar();
 	}
 }

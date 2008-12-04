@@ -63,7 +63,8 @@ public class HabilidadesEnNivelTest extends TestCase {
 		    for(int i =0; i<cantidadDePooglin;i++){
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
-				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+				//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad();
 				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
@@ -77,7 +78,8 @@ public class HabilidadesEnNivelTest extends TestCase {
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				if(((Pooglin)pooglins[i]).estaVivo()){
-				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+				//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
 				((Pooglin)pooglins[0]).usarHabilidad();
 				pooglins[i].vivir();
@@ -158,7 +160,9 @@ public class HabilidadesEnNivelTest extends TestCase {
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				if(((Pooglin)pooglins[i]).estaVivo()){
-					Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+					//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+					Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+					
 					//((Pooglin)pooglins[i]).usarHabilidad();
 					pooglins[i].vivir();
 					terrenoActual.accionarTerreno(pooglins[i]);
@@ -187,7 +191,9 @@ public class HabilidadesEnNivelTest extends TestCase {
 		    for(int i =0; i<cantidadDePooglin;i++){
 				int posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				int posicionY = ((Pooglin)pooglins[i]).getPosicionY();
-				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+				
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
 				pooglins[i].vivir();
 				terrenoActual.accionarTerreno(pooglins[i]);
@@ -205,7 +211,9 @@ public class HabilidadesEnNivelTest extends TestCase {
 		    for(int i =0; i<cantidadDePooglin;i++){
 				posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				posicionY = ((Pooglin)pooglins[i]).getPosicionY();
-				Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
+				Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+				
+				//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
 				((Pooglin)pooglins[0]).usarHabilidad(terrenoActual,(Pooglin)pooglins[0]);
 				pooglins[i].vivir();

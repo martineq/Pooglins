@@ -52,8 +52,9 @@ public class UnionMVC {
 		
 		//Cargo la vista para los Pooglins.-  
 		for ( int i = 0 ; i < nivel.getTamanioPooglins() ; i++ ){
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(nivel.getPooglin(i));
+			VistaPooglin vistaPooglin = new VistaPooglin(nivel.getPooglin(i));
+			
+			//vistaPooglin.setPosicionable(nivel.getPooglin(i));
 			controlador.agregarDibujable(vistaPooglin);
 		}
 
@@ -80,7 +81,7 @@ public class UnionMVC {
     	ventana.addMouseListener(oyente);
 		controlador.agregarObjetoVivo(nivel);
 		controlador.setIntervaloSimulacion(tiempo);
-		nivel.comenzarTiempo();
+		//nivel.comenzarTiempo();
 		
 		return controlador;
 	}

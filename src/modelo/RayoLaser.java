@@ -12,17 +12,20 @@ package modelo;
 
 public class RayoLaser extends Herramienta {
 
-	public void utilizar(Terreno terreno) {
+	
+	public void utilizar(Terreno terreno, Pooglin pooglin){
 		if (terreno instanceof Tierra){
 			((Tierra) terreno).setResistencia(((Tierra) terreno).getResistencia() - 1);
+			
 			if (((Tierra) terreno).getResistencia() == 0){
 				terreno.setActivo(false);
+				pooglin.sacarHabilidad();
 			}
 		}
 	}
 	
-	public void utilizar(Terreno terreno, Pooglin pooglin){
-		
+	public String toString(){
+		return "Rayo Laser";
 	}
 	
 }

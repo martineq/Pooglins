@@ -22,14 +22,8 @@ public class Morir extends Comportamiento {
 		velocidad.setVelocidadX(Velocidad.VELOCIDAD_NULA);
 		velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		poglin.setVelocidad(velocidad);
-		poglin.borrarse();
-		//REVISAR SI VAMOS A SACARLO DE LA PANTALLA CUANDO LO 
-		//MATAMOS 
-	    //Guido.-
-		//El pooglin se "borrará" de pantalla cuando se encuentre en altura cero 
-		//y tenga la condición de vivo == false (para que no muera en el aire). 
-		//Además hay que comprobar que no se encuentre congelado. Mart.-
-	}
+		//poglin.setRevisado(true);
+		}
 
 	public void utilizar(Terreno terreno) {
 		// no se usa
@@ -38,5 +32,9 @@ public class Morir extends Comportamiento {
 	public void utilizar(Terreno terreno, Pooglin pooglin) {
 		// no se usa
 		
+	}
+	
+	public String toString(){
+		return "Matar";
 	}
 }

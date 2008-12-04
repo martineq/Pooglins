@@ -36,4 +36,7 @@ public class Tunel extends Herramienta {
 		pooglin.sacarHabilidad();
 	}
 	
+	public String toString(){
+		return "Tunel";
+	}
 }
