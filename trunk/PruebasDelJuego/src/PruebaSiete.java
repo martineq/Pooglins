@@ -170,8 +170,8 @@ public class PruebaSiete {
 		//Instancio una imagen para que actue como vista para el pooglin
 		
 		for (int i =0; i< cantidadDePooglin; i++){
-			VistaPooglin vistaPooglin = new VistaPooglin();
-			vistaPooglin.setPosicionable(pooglins[i]);
+			VistaPooglin vistaPooglin = new VistaPooglin(pooglins[i]);
+			//vistaPooglin.setPosicionable(pooglins[i]);
 			//controlador.agregarObjetoVivo(pooglins[i]);
 			controlador.agregarDibujable(vistaPooglin);
 		 

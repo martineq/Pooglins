@@ -15,7 +15,6 @@ public class Tierra extends Terreno {
 	 */
 	
 	private int resistencia = 4;
-	private int conte=0;
 	
 	/**Constructor de Tierra.-
 	 * @param posicionX
@@ -35,22 +34,13 @@ public class Tierra extends Terreno {
 		Velocidad velocidad = pooglin.getVelocidad();
 		
 		if (habilidad instanceof RayoLaser){
-			pooglin.usarHabilidad(this);
-			//System.out.println("primer if");
-			if (this.isActivo()){
-				//System.out.println("segundo if");
-				//velocidad.cambiarDireccion();
+			pooglin.usarHabilidad(this,pooglin);
 			}
-		}
 		else {
-			//System.out.println("else del primer if sin laser");
-			pooglin.setCantTurnosQueNoSeMovio(0);
-			
+			pooglin.setCantTurnosQueNoSeMovio(0);	
 			velocidad.cambiarDireccion();
 			pooglin.setVelocidad(velocidad);
 		}
-		
-		
 	}
 	
 	/**
@@ -96,7 +86,6 @@ public class Tierra extends Terreno {
 	 */
 	public void setResistencia(int resistencia) {
 		System.out.println(resistencia);
-		
 		this.resistencia = resistencia;
 	}
 	

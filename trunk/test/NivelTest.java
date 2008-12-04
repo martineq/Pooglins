@@ -49,12 +49,15 @@ public class NivelTest extends TestCase{
 		nivel.setCantidadPooglins(1);
 		nivel.setPooglinsARescatar(1);
 	
-		Terreno terreno = nivel.revisarNivel(2, 2, pooglins[0]);
+		//Terreno terreno = nivel.revisarNivel(2, 2, pooglins[0]);
+		Terreno terreno = nivel.revisarNivel(pooglins[0]);
+		
 		if(terreno instanceof Vacio) assertTrue(true);
 		else fail("EL terreno no es el que esta en la matriz");
 		
 		matrizNivel[3][3] = new Fuego(3,3);
-		terreno = nivel.revisarNivel(2, 2, pooglins[0]);
+		terreno = nivel.revisarNivel(pooglins[0]);
+		//terreno = nivel.revisarNivel(2, 2, pooglins[0]);
 		if(terreno instanceof Fuego) assertTrue(true);
 		else fail("EL terreno no es el que esta en la matriz");
 		

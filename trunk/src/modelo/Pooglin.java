@@ -19,8 +19,13 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	private Habilidad matarse; //Composicion con clase Morir. Guido.-
 	private int cantTurnosQueNoSeMovio;
 	private int altura;
+	private boolean revisado;
 	
 	
+	public void setRevisado(boolean revisado) {
+		this.revisado = revisado;
+	}
+
 	/**Constructor de la clase Pooglin. Los valores que no se
 	 * pasan por parï¿½metro tienen un valor por defecto.-
 	 * @param posicionX
@@ -36,6 +41,7 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		//this.velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);¿No arrancarían con velocidad en "Y" igualada a cero?
 		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
 		this.setCantTurnosQueNoSeMovio(0);
+		this.revisado = false;
 	}
 
 	/**
@@ -293,6 +299,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		//Guardo la altura.-
 		elementoHijo = elementoPadre.addElement("altura");
 		elementoHijo.addAttribute("valor", Integer.toString(this.altura) );
+	}
+
+	public boolean estaRevisado() {
+		// TODO Auto-generated method stub
+		return revisado;
 	}
 
 }

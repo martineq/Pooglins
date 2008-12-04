@@ -30,22 +30,25 @@ public class Congelamiento extends Comportamiento {
 		System.out.println("en X="+terreno.getPosicionX()+" Y="+terreno.getPosicionY());
 		
 		if (terreno instanceof Vacio){
-			System.out.println("desactive el terreno");
-			
+			System.out.println("desactive el terreno 3");			
 			terreno.setActivo(false);
-		}
-		
+			pooglin.sacarHabilidad();
+		}	
 	}
 
-	public void utilizar(Terreno terreno) {
-		System.out.println("Utilizo congelamiento");
-		System.out.println("en X="+terreno.getPosicionX()+" Y="+terreno.getPosicionY());
-		
-		if (terreno instanceof Vacio){
-			System.out.println("desactive el terreno");
-			
-			terreno.setActivo(false);
-		}
+//	public void utilizar(Terreno terreno) {
+//		System.out.println("Utilizo congelamiento");
+//		System.out.println("en X="+terreno.getPosicionX()+" Y="+terreno.getPosicionY());
+//		
+//		if (terreno instanceof Vacio){
+//			System.out.println("desactive el terreno 2");
+//			
+//			terreno.setActivo(false);
+//		}
+//	}
+	
+	public String toString(){
+		return "Congelamiento";
 	}
 
 }
