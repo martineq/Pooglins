@@ -70,7 +70,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		cantidadDeHabilidadesDisponibles = (Integer)habilidades.get("Tunel");
 		lbCantTunel.setText(cantidadDeHabilidadesDisponibles.toString());
 		
-		cantidadDeHabilidadesDisponibles = (Integer)habilidades.get("Suicidarse");
+		cantidadDeHabilidadesDisponibles = (Integer)habilidades.get("Morir");
 		lbCantSuicidarse.setText(cantidadDeHabilidadesDisponibles.toString());
 		
 		//son las del panel superior

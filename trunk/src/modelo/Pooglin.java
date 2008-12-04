@@ -48,68 +48,41 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 			Element elementoHijo = (Element)iter.next();
 			String texto = elementoHijo.getName();
 			//Cargo posicionX.-
-			if ( texto.equals( "posicionX" ) ){
-				this.setPosicionX( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
-			 }
+			if ( texto.equals( "posicionX" ) ) this.setPosicionX( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
 			
 			//Cargo posicionY.-
-			if ( texto.equals( "posicionY" ) ){
-				this.setPosicionY( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
-			 }
+			if ( texto.equals( "posicionY" ) ) this.setPosicionY( Integer.parseInt( (elementoHijo.attributeValue("valor"))) );
 			
 			//Cargo velocidad.-
-			if ( texto.equals( "velocidad" ) ){
-				 this.setVelocidad(new Velocidad(elementoHijo));
-			 }
+			if ( texto.equals( "velocidad" ) ) this.setVelocidad(new Velocidad(elementoHijo));
 			
 			//Cargo habilidad.-
 			if ( texto.equals( "habilidad" ) ){
 				String habilidad = elementoHijo.attributeValue("tipo");
-				if (habilidad.equals("Congelamiento")){
-					this.setHabilidad(new Congelamiento());
-				 }
-				if (habilidad.equals("Morir")){
-					this.setHabilidad(new Morir());
-				 }
-				if (habilidad.equals("Platillo")){
-					this.setHabilidad(new Platillo());
-				 }
-				if (habilidad.equals("RayoLaser")){
-					this.setHabilidad(new RayoLaser());
-				 }
-				if (habilidad.equals("Taladro")){
-					this.setHabilidad(new Taladro());
-				 }
-				if (habilidad.equals("Teletransportarse")){
-					this.setHabilidad(new Teletransportarse());
-				 }
+				if (habilidad.equals("Congelamiento")) this.setHabilidad(new Congelamiento());
+				if (habilidad.equals("Morir")) this.setHabilidad(new Morir());
+				if (habilidad.equals("Platillo")) this.setHabilidad(new Platillo());
+				if (habilidad.equals("RayoLaser")) this.setHabilidad(new RayoLaser());
+				if (habilidad.equals("Taladro")) this.setHabilidad(new Taladro());
+				if (habilidad.equals("Teletransportarse")) this.setHabilidad(new Teletransportarse());
+				if (habilidad.equals("null")) this.setHabilidad(null);
 			 }
 			
 			//Cargo vivo.-
 			if ( texto.equals( "vivo" ) ){
 				 String condicion = elementoHijo.attributeValue("condicion");
-				 if (condicion.equals("vivo")){
-					 this.setVivo(true);
-				 }
-				 if (condicion.equals("muerto")){
-					 this.setVivo(false);
-				 }
+				 if (condicion.equals("vivo")) this.setVivo(true);
+				 if (condicion.equals("muerto")) this.setVivo(false);
 			 }
 			
 			//Cargo matarse.-
-			if ( texto.equals( "matarse" ) ){
-				this.matarse = new Morir();
-			 }
+			if ( texto.equals( "matarse" ) ) this.matarse = new Morir();
 			
 			//Cargo cantTurnosQueNoSeMovio.-
-			if ( texto.equals( "cantTurnosQueNoSeMovio" ) ){
-				 this.setCantTurnosQueNoSeMovio( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
-			 }
+			if ( texto.equals( "cantTurnosQueNoSeMovio" ) ) this.setCantTurnosQueNoSeMovio( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
 			
 			//Cargo altura.-
-			if ( texto.equals( "altura" ) ){
-				 this.setAltura( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
-			 }
+			if ( texto.equals( "altura" ) ) this.setAltura( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
 			
 		}
 		
@@ -296,24 +269,13 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		//Guardo la habilidad;
 		elementoHijo = elementoPadre.addElement("habilidad");
 		Object elemento = this.habilidad;
-		if ( elemento instanceof Congelamiento ) {
-			elementoHijo.addAttribute( "tipo" , "Congelamiento" );
-		}
-		if ( elemento instanceof Morir ) {
-			elementoHijo.addAttribute( "tipo" , "Morir" );
-		}
-		if ( elemento instanceof Platillo ) {
-			elementoHijo.addAttribute( "tipo" , "Platillo" );
-		}
-		if ( elemento instanceof RayoLaser ) {
-			elementoHijo.addAttribute( "tipo" , "RayoLaser" );
-		}
-		if ( elemento instanceof Taladro ) {
-			elementoHijo.addAttribute( "tipo" , "Taladro" );
-		}
-		if ( elemento instanceof Teletransportarse ) {
-			elementoHijo.addAttribute( "tipo" , "Teletransportarse" );
-		}
+		if ( elemento instanceof Congelamiento ) elementoHijo.addAttribute( "tipo" , "Congelamiento" );
+		if ( elemento instanceof Morir ) elementoHijo.addAttribute( "tipo" , "Morir" );
+		if ( elemento instanceof Platillo ) elementoHijo.addAttribute( "tipo" , "Platillo" );
+		if ( elemento instanceof RayoLaser ) elementoHijo.addAttribute( "tipo" , "RayoLaser" );
+		if ( elemento instanceof Taladro ) elementoHijo.addAttribute( "tipo" , "Taladro" );
+		if ( elemento instanceof Teletransportarse ) elementoHijo.addAttribute( "tipo" , "Teletransportarse" );
+		if ( elemento == null ) elementoHijo.addAttribute( "tipo" , "null" );
 		
 		//Guardo la condición de si está vivo.-
 		elementoHijo = elementoPadre.addElement("vivo");

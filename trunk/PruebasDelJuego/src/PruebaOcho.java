@@ -33,6 +33,7 @@ public class PruebaOcho {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		int anchoDeVentana = 985;
 		int altoDeVentana = 700;
@@ -213,13 +214,14 @@ public class PruebaOcho {
 //		
 		//nivel.setHabilidadesDisponibles(habilidad);
 		
-		HashMap<String,String> habilidades = new HashMap<String,String>();
-		habilidades.put("Platillo","2");
-		habilidades.put("RayoLaser","2");
-		habilidades.put("Taladro","2");
-		habilidades.put("Tunel","2");
-		habilidades.put("Teletransportarse","2");
-		habilidades.put("Congelamiento","2");
+		HashMap habilidades = new HashMap();
+		habilidades.put("Platillo",2);
+		habilidades.put("RayoLaser",5);
+		habilidades.put("Taladro",20);
+		habilidades.put("Tunel",2);
+		habilidades.put("Teletransportarse",2);
+		habilidades.put("Congelamiento",2);
+		habilidades.put("Morir",2);
 		
 		nivel.setHabilidadesDisponibles(habilidades);
 		
