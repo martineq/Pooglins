@@ -53,16 +53,12 @@ public class Tierra extends Terreno {
 		Habilidad habilidad = pooglin.getHabilidad();
 		if (habilidad instanceof Taladro){
 			pooglin.usarHabilidad(this,pooglin);
-			
-		}else {
-		//	System.out.println("entre en accionar abajo pero no tengo taladro");
 		}
 	}
 	
 	public void accionarTerreno(Personaje pooglin) { 
 		Pooglin auxPooglin = (Pooglin) pooglin;
 		auxPooglin.setAltura(0);
-		//revisar aca el rayo laser..
 		if (auxPooglin.getPosicionY() == this.getPosicionY()){
 			this.accionarLateral((Pooglin)pooglin);
 		}else{
@@ -85,7 +81,6 @@ public class Tierra extends Terreno {
 	 * @param resistencia
 	 */
 	public void setResistencia(int resistencia) {
-		System.out.println(resistencia);
 		this.resistencia = resistencia;
 	}
 	

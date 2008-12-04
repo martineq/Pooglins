@@ -14,7 +14,6 @@ public abstract class Terreno implements Posicionable {
 	
 	public abstract void accionarTerreno(Personaje pooglin);
 	
-	//Getters and Setters generados automaticamente.-
 	public int getPosicionX() {
 		return posicionX;
 	}

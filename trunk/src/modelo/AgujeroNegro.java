@@ -12,10 +12,6 @@ import java.util.Iterator;
  * 
  */
 public class AgujeroNegro extends Terreno {
-	//REFERENCIA PARA USAR NIVEL COMO SINGLETON.-
-	//FALTA APLICAR ESE PATRON.-
-	//EN DESARROLLO.-
-	//Guido.-
 	private Nivel nivel;
 	
 	/**Constructor de AgujeroNegro.-
@@ -44,24 +40,18 @@ public class AgujeroNegro extends Terreno {
 	 * alrededores.
 	 */
 	@SuppressWarnings("unchecked")
-	public void accionarTerreno(Personaje pooglin) {
-	
-		this.nivel= Nivel.getInstance();//Instancio una referencia al nivel ya que es unica
-		 								//por ser un Singleton.
+	public void accionarTerreno(Personaje pooglin) {	
+		this.nivel= Nivel.getInstance();				
 		Collection personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
 		Iterator it = personajesCercanos.iterator();
 		while (it.hasNext()){
 			Pooglin pooglinCercano = (Pooglin) it.next();
-			pooglinCercano.setPosicionX(this.getPosicionX());//coloco al pooglin en el agujero negro
+			//coloco al pooglin en el agujero negro
+			pooglinCercano.setPosicionX(this.getPosicionX());
 			pooglinCercano.setPosicionY(this.getPosicionY());
 			Habilidad habilidad = pooglinCercano.getMatarse();
-			habilidad.utilizar(pooglinCercano);//mato o succiono al pooglin.
+			//la habilidad mata o succiona al pooglin.
+			habilidad.utilizar(pooglinCercano);
 		}
 	}
-	
-    /* ¿Se va a usar?
-	public void accionarTerreno(Personaje pooglin,Nivel campo) {
-	
-	}*/
-
 }

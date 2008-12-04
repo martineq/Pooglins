@@ -37,9 +37,10 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.setPosicionY(posicionY);
 		this.setHabilidad(null);
 		this.velocidad = new Velocidad();
+		//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
 		this.velocidad.setVelocidadX(Velocidad.VELOCIDAD_NORMAL);//todos los pooglins arrancan con velocidad normal por defecto.Guido.-
-		//this.velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);¿No arrancarían con velocidad en "Y" igualada a cero?
-		this.matarse = new Morir(); //Agrego al constructor la linea para crear atributo Matarse.Guido.-
+		//Agrego al constructor la linea para crear atributo Matarse.Guido.-
+		this.matarse = new Morir(); 
 		this.setCantTurnosQueNoSeMovio(0);
 		this.revisado = false;
 	}
@@ -173,7 +174,7 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	}
 	//Fin de Secciï¿½n de Geter's y Seter's
 	
-	public void vivir() { // >>> Acï¿½ faltan ver los casos donde se me "acaba" la pantalla.- 
+	public void vivir() { 
 		int posicionX = this.getPosicionX();
 		int posicionY = this.getPosicionY();
 		

@@ -22,7 +22,6 @@ public class Morir extends Comportamiento {
 		velocidad.setVelocidadX(Velocidad.VELOCIDAD_NULA);
 		velocidad.setVelocidadY(Velocidad.VELOCIDAD_NULA);
 		poglin.setVelocidad(velocidad);
-		//poglin.setRevisado(true);
 		}
 
 	public void utilizar(Terreno terreno) {

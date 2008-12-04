@@ -7,15 +7,6 @@ package modelo;
  */
 public class Teletransportarse extends Comportamiento{
 	
-//	public void utilizar(Terreno terreno, Pooglin pooglin){
-//		
-//	}
-//	
-//	public void utilizar(Personaje pooglin){
-//		
-//	}
-	
-	
 	public void utilizar(Terreno terreno, Pooglin pooglin) {
 		int posicionX = pooglin.getPosicionX();
 		

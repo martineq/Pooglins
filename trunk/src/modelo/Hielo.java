@@ -38,13 +38,15 @@ public class Hielo extends Terreno {
 	 */
 	public void accionarTerreno(Personaje pooglin){
 		Pooglin pooglinAuxiliar=(Pooglin)pooglin;
-		if ( pooglinAuxiliar.getPosicionY() == this.getPosicionY()){//Caso en que el pooglin tiene hielo adelante.
+		//Caso en que el pooglin tiene hielo adelante.
+		if ( pooglinAuxiliar.getPosicionY() == this.getPosicionY()){
 			Velocidad velocidad = pooglinAuxiliar.getVelocidad();
 			velocidad.cambiarDireccion();
 			velocidad.setVelocidadY(0);
 			pooglinAuxiliar.setVelocidad(velocidad);
 			pooglinAuxiliar.setCantTurnosQueNoSeMovio(0);	
-		}else{//Es el caso que el pooglin pisa el hielo.
+		}
+		else{//Es el caso que el pooglin pisa el hielo.
 			Velocidad velocidad= ((Pooglin) pooglin).getVelocidad();
 			velocidad.setVelocidadY(0);
 			pooglinAuxiliar.setVelocidad(velocidad);
