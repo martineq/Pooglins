@@ -169,7 +169,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		panelInferior.add(btTunel);
 		btTunel.addMouseListener(oyente);	
 		
-		JButton btSuicidarse = new JButton("Suicidarse");
+		JButton btSuicidarse = new JButton("Morir");
 		panelInferior.add(btSuicidarse);
 		btSuicidarse.addMouseListener(oyente);
 			

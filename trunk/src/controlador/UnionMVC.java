@@ -69,8 +69,8 @@ public class UnionMVC {
 
 		
 		//Instancio el oyente.-
-    	//Pooglin[] pooglins = (Pooglin[])nivel.getPooglins();
-    	MouseParaPooglins oyente = new MouseParaPooglins((Pooglin[]) nivel.getPooglins());
+    	Pooglin[] pooglins = (Pooglin[])nivel.getPooglins();
+    	MouseParaPooglins oyente = new MouseParaPooglins(pooglins);
 		
 		//Instancio los objetos del framework: Una ventana y seteo el controlador.-
 		Ventana ventana = new VentanaPrincipal(ancho,alto);
