@@ -203,7 +203,20 @@ public class Nivel implements Escenario, ObjetoVivo {
 
 		return pooglinsCercanos;
 	}
-
+	
+	/**Metodo publico que decide si debe o no terminarse el juego
+	 * en cada uno de los turnos. Si la cantidad de 
+	 * pooglins que quedan vivos es 0 y la cantidad de pooglins a 
+	 * rescatar no lo es, decide que debe terminarse el juego, en 
+	 * caso contrario, el juego continua.
+	 * @return
+	 * @author guido
+	 */
+	public boolean terminarJuego(){
+		if ((this.cantidadPooglins == 0)&&(this.pooglinsARescatar != 0)) return true;
+		return false;
+	}
+	
 	/**Metodo privado que chequea si el pooglin actual alcanzo
 	 * la salida y disminuye la cantidad de pooglins a rescatar
 	 * asi como tambien la cantidad de pooglins en el nivel.-

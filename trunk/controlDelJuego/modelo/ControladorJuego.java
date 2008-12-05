@@ -30,15 +30,17 @@ public class ControladorJuego {
 	
 	public void comenzar(){
 		estaEnEjecucion = true;
-		
+		Nivel nivel = Nivel.getInstance();
+	
 		try{
 		while(estaEnEjecucion){
 			simular();
 			dibujar();
 			Thread.sleep(intervaloSimulacion);
-			if(Nivel.getInstance().getTiempoQueFaltaEnSegundos() == 0){ 
+			if((nivel.getTiempoQueFaltaEnSegundos() == 0)||(nivel.terminarJuego())){ 
 				estaEnEjecucion = false;
 				//terminar el juego....
+				System.out.println("Termino el Juego...");
 				}
 			}
 		}
