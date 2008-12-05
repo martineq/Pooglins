@@ -23,12 +23,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 	@SuppressWarnings("unchecked")
 	private HashMap habilidadesDisponibles;
 	private Habilidad habilidad;
-	//contador se va a llamar cantidadDePooglinQueSalieron.
-	private int contador = 0;
+	private int cantidadDePooglinQueSalieron = 0;
 	private static Nivel nivel = null;  //Singleton
-	TiempoEnSegundos tiempo;
-	// variable que falta agregar.
 	private int tiempoRestante;
+	TiempoEnSegundos tiempo;
+	
 	
 	/**Método getInstance que permite la utilización del
 	 * patrón Singleton para la clase Nivel, desde cualquier
@@ -90,8 +89,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	public void vivir() {
 		Pooglin pooglin;
 	
-		if(contador < this.pooglins.length){	
-			pooglin = (Pooglin)this.pooglins[contador];
+		if(cantidadDePooglinQueSalieron < this.pooglins.length){	
+			pooglin = (Pooglin)this.pooglins[cantidadDePooglinQueSalieron];
 			if ((pooglin.getPosicionX() == this.puertaComienzo.getPosicionX())&&(pooglin.getPosicionY() == puertaComienzo.getPosicionY())){//si el pooglin actual No esta muerto
 				Terreno terrenoActual = revisarNivel(pooglin);
 				pooglin.vivir();
@@ -99,11 +98,11 @@ public class Nivel implements Escenario, ObjetoVivo {
 				//actualizarMatriz(terrenoActual);
 			}
 			else{
-				contador++;
+				cantidadDePooglinQueSalieron++;
 			}
 		}
 			
-		for(int i=0;i<contador;i++){
+		for(int i=0;i<cantidadDePooglinQueSalieron;i++){
 			pooglin = (Pooglin)this.pooglins[i];
 			int posicionX = pooglin.getPosicionX();
 			int posicionY = pooglin.getPosicionY();	
@@ -117,7 +116,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 			if ((!pooglinMuerto(pooglin))&&(pooglin.getPosicionX()>0)){
 				Terreno terrenoActual = revisarNivel(pooglin);
 				pooglin.vivir();
-				if(contador < this.pooglins.length) pooglin.vivir();
+				if(cantidadDePooglinQueSalieron < this.pooglins.length) pooglin.vivir();
 				terrenoActual.accionarTerreno(pooglin);
 				actualizarMatriz(terrenoActual);
 				activarHabilidad(pooglin);
@@ -364,14 +363,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @return
 	 */
 	public int getContador() {
-		return contador;
+		return cantidadDePooglinQueSalieron;
 	}
 
 	/**
 	 * @param contador
 	 */
 	public void setContador(int contador) {
-		this.contador = contador;
+		this.cantidadDePooglinQueSalieron = contador;
 	}
 	
 	/**Devuelve el tamaño del largo del nivel en la coordenada x.-
@@ -415,6 +414,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	}
 	
 
+
     /**Método que inicia el proceso de el guardado de todos los objetos instanciados
      * para luego exportarlos a un archivo en disco, en formato XML.
      * @author Mart.-
@@ -441,6 +441,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		System.out.println("Loaded!!!");
     	return true;
     }    
+    
 
 	/**Método que instancia todos los objetos de esta clase, 
 	 * solo guarda los atributos de esta "capa de datos", 
@@ -448,6 +449,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * a la clase que se encuentre contenida en esa próxima "capa".- 
 	 * @param elementoPadre
 	 */
+	@SuppressWarnings("unchecked")
 	public void cargar(Element elementoPadre){
 		Iterator<?> iter = elementoPadre.elementIterator();
 		while( iter.hasNext() ){
@@ -475,24 +477,12 @@ public class Nivel implements Escenario, ObjetoVivo {
 					i = Integer.parseInt((elementoHijo.attributeValue("x")));
 					j = Integer.parseInt((elementoHijo.attributeValue("y")));
 					String tipo = elementoHijo.attributeValue("tipo");
-					if ( tipo.equals( "AgujeroNegro" ) ){
-						matrizNiv[i][j] = new AgujeroNegro(i,j);
-					}
-					if ( tipo.equals( "Fuego" ) ){
-						matrizNiv[i][j] = new Fuego(i,j);
-					}
-					if ( tipo.equals( "Hielo" ) ){
-						matrizNiv[i][j] = new Hielo(i,j);
-					}
-					if ( tipo.equals( "Roca" ) ){
-						matrizNiv[i][j] = new Roca(i,j);
-					}
-					if ( tipo.equals( "Tierra" ) ){
-						matrizNiv[i][j] = new Tierra(i,j);
-					}
-					if ( tipo.equals( "Vacio" ) ){
-						matrizNiv[i][j] = new Vacio(i,j);
-					}
+					if ( tipo.equals( "AgujeroNegro" ) ) matrizNiv[i][j] = new AgujeroNegro(i,j);
+					if ( tipo.equals( "Fuego" ) ) matrizNiv[i][j] = new Fuego(i,j);
+					if ( tipo.equals( "Hielo" ) ) matrizNiv[i][j] = new Hielo(i,j);
+					if ( tipo.equals( "Roca" ) ) matrizNiv[i][j] = new Roca(i,j);
+					if ( tipo.equals( "Tierra" ) ) matrizNiv[i][j] = new Tierra(i,j);
+					if ( tipo.equals( "Vacio" ) ) matrizNiv[i][j] = new Vacio(i,j);
 				}
 				this.matrizNivel = matrizNiv;
 			}
@@ -505,7 +495,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 					iter2.next();
 					indicePooglin++;
 				}
-				Personaje [] vectorPooglins = new Personaje[indicePooglin];
+				Pooglin [] vectorPooglins = new Pooglin[indicePooglin];
 				iter2 = elemento.elementIterator();
 				indicePooglin = 0;
 				while( iter2.hasNext() ){
@@ -517,24 +507,16 @@ public class Nivel implements Escenario, ObjetoVivo {
 			}
 			
 			//Cargo pooglinsARescatar.-
-			if ( texto.equals( "pooglinsARescatar" ) ){
-				this.pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
-			}
+			if ( texto.equals( "pooglinsARescatar" ) ) this.pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
 			
 			//Cargo cantidadPooglins.-
-			if ( texto.equals( "cantidadPooglins" ) ){
-				this.pooglinsARescatar = Integer.parseInt( (elemento.attributeValue("valor")) );
-			}
+			if ( texto.equals( "cantidadPooglins" ) ) this.cantidadPooglins = Integer.parseInt( (elemento.attributeValue("valor")) );
 			
 			//Cargo puertaComienzo.-
-			if ( texto.equals( "puertaComienzo" ) ){
-				this.puertaComienzo = new Puerta(elemento);
-			}
+			if ( texto.equals( "puertaComienzo" ) ) this.puertaComienzo = new Puerta(elemento);
 			
 			//Cargo puertaSalida.-
-			if ( texto.equals( "puertaSalida" ) ){
-				this.puertaSalida = new Puerta(elemento);
-			}
+			if ( texto.equals( "puertaSalida" ) ) this.puertaSalida = new Puerta(elemento);
 			
 		/*	//Cargo habilidadesDisponibles.-
 			if ( texto.equals( "habilidadesDisponibles" ) ){
@@ -576,23 +558,23 @@ public class Nivel implements Escenario, ObjetoVivo {
 				this.habilidadesDisponibles = vectorHabilidades; 
 			}
 */			
-			   //Cargo contador.-
-            if ( texto.equals( "contador" ) ) this.contador = Integer.parseInt( (elemento.attributeValue("valor")) );
+			//Cargo contador.-
+            if ( texto.equals( "contador" ) ) this.cantidadDePooglinQueSalieron = Integer.parseInt( (elemento.attributeValue("valor")) );
 
             //Cargo habilidadesDisponibles.-
             if ( texto.equals( "habilidadesDisponibles" ) ){
-                    HashMap<String,String> mapa = new HashMap<String,String>();
+                    HashMap mapa = new HashMap();
                     Iterator<?> iter2 = elemento.elementIterator();
                     while( iter2.hasNext() ){
                             Element elementoHijo = (Element)iter2.next();
                             String textoHijo = elementoHijo.getName();
-                            if ( textoHijo.equals( "Congelamiento" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "Morir" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "Platillo" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "RayoLaser" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "Taladro" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "Teletransportarse" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
-                            if ( textoHijo.equals( "Tunel" ) ) mapa.put( textoHijo , elementoHijo.attributeValue("valor") );
+                            if ( textoHijo.equals( "Congelamiento" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "Morir" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "Platillo" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "RayoLaser" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "Taladro" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "Teletransportarse" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
+                            if ( textoHijo.equals( "Tunel" ) ) mapa.put( textoHijo , Integer.parseInt( (elementoHijo.attributeValue("valor")) ) );
                     }
                     this.habilidadesDisponibles = mapa;
             
@@ -608,11 +590,20 @@ public class Nivel implements Escenario, ObjetoVivo {
                     if ( textoHijo.equals( "Taladro" ) ) this.habilidad = new Taladro();
                     if ( textoHijo.equals( "Teletransportarse" ) ) this.habilidad = new Teletransportarse();
                     if ( textoHijo.equals( "Tunel" ) ) this.habilidad = new Tunel();
-            }
+                    if ( textoHijo.equals( "null" ) ) this.habilidad = null;
+            } 
+         
+          //Cargo duracionDelJuego.-
+            if ( texto.equals( "duracionDelJuego" ) ) this.duracionDelJuego = Integer.parseInt( (elemento.attributeValue("valor")) );   
             
-    } 
-}
+          //Cargo tiempoRestante.-
+          if ( texto.equals( "tiempoRestante" ) ) this.tiempoRestante = Integer.parseInt( (elemento.attributeValue("valor")) );   
+ 
+	    }
+		
+	}
 
+    
 	/**Método que guarda dentro del elemento asignado por parámetro todos los objetos
 	 * de esta clase que se instanciaron en el curso del programa como nuevos elementos
 	 * hijos del asignado, solo guarda los atributos de esta "capa de datos", 
@@ -630,34 +621,22 @@ public class Nivel implements Escenario, ObjetoVivo {
 				elementoHijo2.addAttribute( "y" , Integer.toString(j) );
 				
 				Object elemento = this.matrizNivel[i][j];
-				if ( elemento instanceof AgujeroNegro ) {
-					elementoHijo2.addAttribute( "tipo" , "AgujeroNegro" );
-				}
-				if ( elemento instanceof Fuego ) {
-					elementoHijo2.addAttribute( "tipo" , "Fuego" );
-				}
-				if ( elemento instanceof Hielo ) {
-					elementoHijo2.addAttribute( "tipo" , "Hielo" );
-				}
-				if ( elemento instanceof Roca ) {
-					elementoHijo2.addAttribute( "tipo" , "Roca" );
-				}
-				if ( elemento instanceof Tierra ) {
-					elementoHijo2.addAttribute( "tipo" , "Tierra" );
-				}
-				if ( elemento instanceof Vacio ) {
-					elementoHijo2.addAttribute( "tipo" , "Vacio" );
-				}
+				if ( elemento instanceof AgujeroNegro ) elementoHijo2.addAttribute( "tipo" , "AgujeroNegro" );
+				if ( elemento instanceof Fuego ) elementoHijo2.addAttribute( "tipo" , "Fuego" );
+				if ( elemento instanceof Hielo ) elementoHijo2.addAttribute( "tipo" , "Hielo" );
+				if ( elemento instanceof Roca ) elementoHijo2.addAttribute( "tipo" , "Roca" );
+				if ( elemento instanceof Tierra ) elementoHijo2.addAttribute( "tipo" , "Tierra" );
+				if ( elemento instanceof Vacio ) elementoHijo2.addAttribute( "tipo" , "Vacio" );
 			}
 		}
-		
+	
 		//Guardo el vector de pooglins.-
 		elementoHijo = elementoPadre.addElement("pooglins");
 		for (int i = 0 ; i < this.pooglins.length ; i++ ){
 			Element elementoHijo2 = elementoHijo.addElement("pooglinNumero"+i);
 			((Pooglin)this.pooglins[i]).guardar(elementoHijo2);
 		}
-				
+			
 		//Guardo pooglinsARescatar.-
 		elementoHijo = elementoPadre.addElement("pooglinsARescatar");
 		elementoHijo.addAttribute("valor", Integer.toString(this.pooglinsARescatar) );
@@ -702,30 +681,27 @@ public class Nivel implements Escenario, ObjetoVivo {
 					elementoHijo2.addAttribute( "tipo" , "Tunel" );
 				}
 		}*/
-		
-		
+
 		//Guardo contador.-
         elementoHijo = elementoPadre.addElement("contador");
-        elementoHijo.addAttribute("valor",( (Integer)this.contador).toString() );
-        
+        elementoHijo.addAttribute("valor",( (Integer)this.cantidadDePooglinQueSalieron).toString() );
         
         //Guardo habilidadesDisponibles.- 
         elementoHijo = elementoPadre.addElement("habilidadesDisponibles");
         Element elementoHijo2 = elementoHijo.addElement( "Congelamiento" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Congelamiento") );
+        elementoHijo2.addAttribute( "valor" , ( this.habilidadesDisponibles.get("Congelamiento")).toString() );
         elementoHijo2 = elementoHijo.addElement( "Morir" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Morir") );
+        elementoHijo2.addAttribute( "valor" , ( this.habilidadesDisponibles.get("Morir") ).toString() );
         elementoHijo2 = elementoHijo.addElement( "Platillo" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Platillo") );
+        elementoHijo2.addAttribute( "valor" , ( this.habilidadesDisponibles.get("Platillo") ).toString() );
         elementoHijo2 = elementoHijo.addElement( "RayoLaser" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("RayoLaser") );
+        elementoHijo2.addAttribute( "valor" ,  ( this.habilidadesDisponibles.get("RayoLaser") ).toString() );
         elementoHijo2 = elementoHijo.addElement( "Taladro" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Taladro") );
+        elementoHijo2.addAttribute( "valor" ,  ( this.habilidadesDisponibles.get("Taladro") ).toString() );
         elementoHijo2 = elementoHijo.addElement( "Teletransportarse" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Teletransportarse") );
+        elementoHijo2.addAttribute( "valor" ,  ( this.habilidadesDisponibles.get("Teletransportarse") ).toString() );
         elementoHijo2 = elementoHijo.addElement( "Tunel" );
-        elementoHijo2.addAttribute( "valor" , (String)this.habilidadesDisponibles.get("Tunel") );
-        
+        elementoHijo2.addAttribute( "valor" ,  ( this.habilidadesDisponibles.get("Tunel") ).toString() );
         
         //Guardo habilidad.-
         elementoHijo = elementoPadre.addElement("habilidad");
@@ -737,7 +713,16 @@ public class Nivel implements Escenario, ObjetoVivo {
         if ( habilidad instanceof Taladro ) elementoHijo.addAttribute( "tipo" , "Taladro" );
         if ( habilidad instanceof Teletransportarse ) elementoHijo.addAttribute( "tipo" , "Teletransportarse" );
         if ( habilidad instanceof Tunel ) elementoHijo.addAttribute( "tipo" , "Tunel" );
-}
+        if ( habilidad == null ) elementoHijo.addAttribute( "tipo" , "null" );
+        
+        //Guardo duracionDelJuego.-
+		elementoHijo = elementoPadre.addElement("duracionDelJuego");
+		elementoHijo.addAttribute("valor", Integer.toString(this.duracionDelJuego) );
+		
+		//Guardo tiempoRestante.-
+		elementoHijo = elementoPadre.addElement("tiempoRestante");
+		elementoHijo.addAttribute("valor", Integer.toString(this.tiempoRestante) );
+	}
 
 	public void sacarHabilidad() {
 		this.habilidad = null;

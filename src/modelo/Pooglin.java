@@ -91,6 +91,13 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 			//Cargo altura.-
 			if ( texto.equals( "altura" ) ) this.setAltura( Integer.parseInt( elementoHijo.attributeValue("valor") ) );
 			
+			//Cargo revisado.-
+			if ( texto.equals( "revisado" ) ){
+				 String condicion = elementoHijo.attributeValue("condicion");
+				 if (condicion.equals("true")) this.setRevisado(true);
+				 if (condicion.equals("false")) this.setRevisado(false);
+			 }
+			
 		}
 		
 	}
@@ -299,6 +306,13 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		//Guardo la altura.-
 		elementoHijo = elementoPadre.addElement("altura");
 		elementoHijo.addAttribute("valor", Integer.toString(this.altura) );
+		
+		//Guardo la condición de si está revisado.-
+		elementoHijo = elementoPadre.addElement("revisado");
+		String condicionRevisado = "false";
+		if (this.revisado) condicionRevisado = "true";
+		elementoHijo.addAttribute("condicion",condicionRevisado);
+		
 	}
 
 	public boolean estaRevisado() {
