@@ -162,7 +162,6 @@ public class PruebaDiez {
 			for(int columna=0;columna<altoDeMatriz;columna++){
 				String nombre = matrizNivel[fila][columna].getClass().getName();
 				
-				System.out.println(nombre+" x:"+columna+" y:"+fila);
 				if(nombre.equals("modelo.Tierra")) vista = new VistaTierra();
 				if(nombre.equals("modelo.Vacio")) vista = new VistaVacio();
 				if(nombre.equals("modelo.Fuego")) vista = new VistaFuego();
@@ -170,16 +169,9 @@ public class PruebaDiez {
 				if(nombre.equals("modelo.Roca")) vista = new VistaRoca();
 			
 				vista.setPosicionable(matrizNivel[fila][columna]);
-				////vistatablero[fila][columna] = vista;
 				controlador.agregarDibujable(vista);
-				//matrizNivel[fila][columna] = new Vacio(fila,columna);
-				//VistaVacio v = new VistaVacio();
-				//c.setPosicionable(matrizNivel[fila][columna]);
-				//	controlador.agregarDibujable(v);
 			}
 		}
-		//controlador.setTablero(vistatablero);
-		
 		
 	}
 	
