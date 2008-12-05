@@ -41,7 +41,7 @@ public class MouseParaBotones extends MouseAdapter {
 			if(nombre.equals("Teletransportarse")) habilidad = new Teletransportarse();
 			if(nombre.equals("Tunel")) habilidad = new Tunel();
 			if(nombre.equals("RayoLaser")) habilidad = new RayoLaser();
-			if(nombre.equals("Suicidarse")) habilidad = new Morir();	
+			if(nombre.equals("Morir")) habilidad = new Morir();	
 		}
 		else System.out.println("no hay mas habilidades");
 		
