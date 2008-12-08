@@ -24,13 +24,12 @@ public class TiempoEnSegundos {
 	public void comenzarTiempo(){
 	timer = new Timer (1000, new ActionListener ()
 	{
-	    public void actionPerformed(ActionEvent e)
-	    {
+	    public void actionPerformed(ActionEvent e){
 	    	tiempoEnSegundos++;
 	     }
 	});
 	timer.start();
-}
+    }
 	
 	public int getTiempoEnSegundos() {
 		return tiempoEnSegundos;

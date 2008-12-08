@@ -10,7 +10,7 @@ public class Principal {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ControladorJuego controlador = UnionMVC.cargarJuego("Pooglins.xml",985,700,350);
+		ControladorJuego controlador = UnionMVC.cargarJuego("Nivel0.xml",985,700,350);
 		controlador.comenzar();
 	}
 }
