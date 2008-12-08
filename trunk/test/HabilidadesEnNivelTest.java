@@ -71,7 +71,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 			}
 		}
 		
-		cantidadDeMovimientos = 42;
+		cantidadDeMovimientos = 18;
 		((Pooglin)pooglins[0]).setHabilidad(new Platillo());
 		for(int j =0; j<cantidadDeMovimientos;j++){			
 		    for(int i =0; i<cantidadDePooglin;i++){
@@ -171,7 +171,8 @@ public class HabilidadesEnNivelTest extends TestCase {
 		}
 			
 		for(int i=0; i<cantidadDePooglin;i++){
-		assertFalse(((Pooglin)pooglins[i]).estaVivo());
+			((Pooglin)pooglins[i]).usarHabilidad();
+			assertFalse(((Pooglin)pooglins[i]).estaVivo());
 		}
 		
 	}
