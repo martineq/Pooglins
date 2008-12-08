@@ -23,10 +23,9 @@ public class MouseParaBotones extends MouseAdapter {
 	public void mouseClicked(MouseEvent arg0) {
 		JButton bt = (JButton)arg0.getSource();
 		String nombre = bt.getText();
+		
 		Nivel nivel = Nivel.getInstance();
-		
 		HashMap habilidades;
-		
 		Habilidad habilidad=null;
 		
 		habilidades = nivel.getHabilidadesDisponibles();

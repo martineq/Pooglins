@@ -30,9 +30,8 @@ import modelo.SuperficieDeDibujo;
  * Esta clase utiliza la tecnica de doble buffering para evitar los efectos de flicking
  */
 public class Ventana extends Frame implements SuperficieDeDibujo{
-	
-	private Panel panelSuperior;// = new Panel();
-	private Panel panelInferior;// = new Panel();
+	private Panel panelSuperior;
+	private Panel panelInferior;
 	private Label lbCantCongelar;
 	private Label lbCantPlatillo;
 	private Label lbCantLaser;
@@ -44,11 +43,9 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	private Label lbCantDePooglinARescatar;
 	private Label lbCantDePooglinVivos;
 	private Label lbHabilidadDisponible;
+	private JButton btSalir;		
 	
-//	public Panel getPanel() {
-//		return panel;
-//	}
-	
+	@SuppressWarnings("unchecked")
 	public void actualizarDatosEtiquetas(){
 		Integer cantidadDeHabilidadesDisponibles;
 		Nivel nivel = Nivel.getInstance();
@@ -82,13 +79,12 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		Integer cantidadDePooglinRescatar = nivel.getPooglinsARescatar();
 		lbCantDePooglinARescatar.setText("Pooglin A Rescatar: "+cantidadDePooglinRescatar.toString());
 		
-		Integer CantDePooglinVivos = Nivel.getInstance().getCantidadPooglins();
+		Integer CantDePooglinVivos =nivel.getCantidadPooglins();
 		lbCantDePooglinVivos.setText("Pooglins Vivos: "+CantDePooglinVivos.toString());
-	
-	//	String habilidadDisponible = habilidadDisponible = Nivel.getInstance().getHabilidad().toString();
 		
-		Habilidad habilidadDisponible = Nivel.getInstance().getHabilidad();
+		Habilidad habilidadDisponible = nivel.getHabilidad();
 		lbHabilidadDisponible.setSize(215,25);
+		
 		if(habilidadDisponible == null){
 			lbHabilidadDisponible.setText("Habilidad Disponible: Ninguna");
 			lbHabilidadDisponible.setForeground(Color.white);
@@ -172,12 +168,14 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		JButton btSuicidarse = new JButton("Morir");
 		panelInferior.add(btSuicidarse);
 		btSuicidarse.addMouseListener(oyente);
-			
+		
+		btSalir = new JButton("Salir");
+		panelSuperior.add(btSalir,BorderLayout.SOUTH);
+		btSalir.addMouseListener(oyente);
 		
 		//this.setPanel(panelBotones, "South");
 		//this.setTitle("Los Pooglins");
 	}
-
 
 	/**
 	 * Esta yerba es generada automática y aún no se su utilidad
@@ -251,22 +249,21 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		
 		
 		panelSuperior.setBackground(Color.darkGray);
-		//panelSuperior.setLayout(new GridLayout(2,2));
-		//panelSuperior.setLayout(new BorderLayout());
-		
+		//panelSuperior.setLayout(new GridLayout(1,2));
 		add(panelSuperior, BorderLayout.NORTH);
 		
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				dispose();
-				System.exit(0);
+				//System.exit(0);
 			}
 		});
 	}
 
 	private void cargarPanelSuperior() {
 		//Label lbl = new Label("TEXTO DEL JUEGO, NIVEL, TIEMPO, CANT DE POOGLIN, ETC....");
+		
 		
 		Integer tiempo = Nivel.getInstance().getTiempoQueFaltaEnSegundos();	
 		lbTiempo.setText("Tiempo: "+tiempo.toString()+ " Seg ");
@@ -286,13 +283,13 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		//String habilidadDisponible = Nivel.getInstance().getHabilidad().toString();
 		
 		Habilidad habilidadDisponible = Nivel.getInstance().getHabilidad();
-		
-		
+				
 		lbHabilidadDisponible.setForeground(Color.white);
 		lbHabilidadDisponible.setText("Habilidad Disponible: "+habilidadDisponible);
 		panelSuperior.add(lbHabilidadDisponible);
 		
 		
+
 	}
 	
 }
