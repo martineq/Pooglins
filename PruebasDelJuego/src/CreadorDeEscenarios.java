@@ -59,7 +59,7 @@ public class CreadorDeEscenarios {
 		
 		//Instancio Puertas.-
 		Puerta puertaComienzo= new Puerta(1,1);
-		Puerta puertaSalida = new Puerta(18,12);
+		Puerta puertaSalida = new Puerta(18,11);
 		
 		//Instancio habilidadesDisponibles.-
 		habilidadesDisponibles.put("Platillo",9);
@@ -91,7 +91,7 @@ public class CreadorDeEscenarios {
 		
 		
 		//Guardo toda la configuración en un XML.-
-		//nivel.guardarXML("Nivel0.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
+		nivel.guardarXML("Nivel2.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
 			
 		//Preparo los controladores de la vista para las puertas.-
 		VistaPuerta vPuerta = new VistaPuerta();
