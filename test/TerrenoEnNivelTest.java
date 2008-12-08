@@ -75,7 +75,11 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setCantidadPooglins(15);
 		nivel.setPooglinsARescatar(15);
 		nivel.setMatrizNivel(matrizNivel);
-		nivel.vivir();
+		boolean pooglinsVivos = true;
+		while(pooglinsVivos){//Ciclo para controlar el ciclo del juego.-
+			nivel.vivir();
+			if(nivel.getCantidadPooglins() == 0) pooglinsVivos = false;
+			}
 		assertEquals(0,nivel.getPooglinsARescatar());
 	}
 	
@@ -89,7 +93,11 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(25);
 		nivel.setPooglinsARescatar(15);
+		boolean pooglinsVivos = true;
+		while(pooglinsVivos){//Ciclo para controlar el ciclo del juego.-
 		nivel.vivir();
+		if(nivel.getCantidadPooglins() == 0) pooglinsVivos = false;
+		}
 		assertEquals(-10,nivel.getPooglinsARescatar());//Porque llegan todos los pooglins, es decir rescate 25
 		assertEquals(0,nivel.getCantidadPooglins());
 	}
@@ -108,7 +116,11 @@ public class TerrenoEnNivelTest extends TestCase {
 		nivel.setPooglins(pooglins);
 		nivel.setCantidadPooglins(25);
 		nivel.setPooglinsARescatar(15);
-		nivel.vivir();
+		boolean pooglinsVivos = true;
+		while(pooglinsVivos){//ciclo para controlar el ciclo del juego.-
+			nivel.vivir();
+			if(nivel.getCantidadPooglins()==0) pooglinsVivos = false;
+		}
 		assertEquals(0,nivel.getCantidadPooglins());//Si los pooglins no llegan a la puerta es xq el fuego los mato.
 		
 	}
