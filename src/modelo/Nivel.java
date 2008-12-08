@@ -11,7 +11,6 @@ import org.dom4j.Element;
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
  * @author guido
  */
-
 public class Nivel implements Escenario, ObjetoVivo {
 	private Terreno[][] matrizNivel;
 	private int duracionDelJuego;
@@ -47,7 +46,8 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * 
 	 */
 	private Nivel(){
-		tiempo = TiempoEnSegundos.getInstance();
+		this.tiempo = TiempoEnSegundos.getInstance();
+		this.tiempoRestante = (duracionDelJuego - tiempo.getTiempoEnSegundos());
 		//De momento lo defino asi.-	
 	}
 
