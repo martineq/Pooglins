@@ -41,6 +41,7 @@ import modelo.Pooglin;
 import modelo.Puerta;
 import modelo.Roca;
 import modelo.Terreno;
+import modelo.TiempoEnSegundos;
 import modelo.Tierra;
 import modelo.Vacio;
 
@@ -60,6 +61,7 @@ public class MouseParaMenu extends MouseAdapter {
 			System.out.println("Falta Cargar el Nivel: "+ ((VentanaInicio)ventana).getNumeroDeNivel());
 			System.out.println("implementar logica en Mouse para menu");			
 			ejecutarNivel.setNombreDelXML("Pooglins.xml");
+			TiempoEnSegundos.getInstance().comenzarTiempo();
 			ejecutarNivel.start();
 		}
 		
@@ -89,6 +91,7 @@ public class MouseParaMenu extends MouseAdapter {
 				//Falta controlar que sea un XML.
 				//Edgardo.
 				ejecutarNivel.setNombreDelXML(name.toString());
+				TiempoEnSegundos.getInstance().comenzarTiempo();
 				ejecutarNivel.start();
 				//JOptionPane.showMessageDialog(null,"Error en el archivo", "Error",JOptionPane.ERROR_MESSAGE);
 				}
