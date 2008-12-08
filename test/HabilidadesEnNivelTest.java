@@ -207,12 +207,14 @@ public class HabilidadesEnNivelTest extends TestCase {
 		assertEquals(1,posicionY);
 		
 		
-		((Pooglin)pooglins[0]).setHabilidad(new Taladro());
+		
 		for(int j =0; j<cantidadDeMovimientos;j++){			
 		    for(int i =0; i<cantidadDePooglin;i++){
 				posicionX = ((Pooglin)pooglins[i]).getPosicionX();
 				posicionY = ((Pooglin)pooglins[i]).getPosicionY();
 				Terreno terrenoActual = nivel.revisarNivel(pooglins[i]);
+				
+				((Pooglin)pooglins[0]).setHabilidad(new Taladro());
 				
 				//Terreno terrenoActual = nivel.revisarNivel(posicionX,posicionY,pooglins[i]);
 				//((Pooglin)pooglins[i]).usarHabilidad(terrenoActual);
