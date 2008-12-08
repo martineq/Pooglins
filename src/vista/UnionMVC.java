@@ -1,6 +1,6 @@
-package controlador;
+package vista;
 
-import vista.*;
+import controlador.MouseParaPooglins;
 import modelo.*;
 
 

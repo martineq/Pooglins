@@ -1,49 +1,15 @@
 package pruebaMenu;
 
-import java.awt.*;
-import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import controlador.MouseParaPooglins;
-import controlador.UnionMVC;
-
 import pruebaMenu.VentanaInicio;
-import src.PruebaDiez;
-import src.PruebaNueve;
-
-import vista.Imagen;
-import vista.Ventana;
-import vista.VentanaPrincipal;
-import vista.VistaFuego;
-import vista.VistaHielo;
-import vista.VistaPooglin;
-import vista.VistaPuerta;
-import vista.VistaRoca;
-import vista.VistaTierra;
-import vista.VistaVacio;
-
-
-import modelo.ControladorJuego;
-import modelo.Nivel;
-import modelo.Pooglin;
-import modelo.Puerta;
-import modelo.Roca;
-import modelo.Terreno;
 import modelo.TiempoEnSegundos;
-import modelo.Tierra;
-import modelo.Vacio;
+
 
 
 public class MouseParaMenu extends MouseAdapter {

@@ -1,7 +1,7 @@
 package pruebaMenu;
 
+import vista.UnionMVC;
 import modelo.ControladorJuego;
-import controlador.UnionMVC;
 
 class CargarNivel extends Thread {
    String nombreDelXML;
