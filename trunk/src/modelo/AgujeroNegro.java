@@ -52,6 +52,7 @@ public class AgujeroNegro extends Terreno {
 			Habilidad habilidad = pooglinCercano.getMatarse();
 			//la habilidad mata o succiona al pooglin.
 			habilidad.utilizar(pooglinCercano);
+			//pooglinCercano.borrarse();  VER Guido.-
 		}
 	}
 }
