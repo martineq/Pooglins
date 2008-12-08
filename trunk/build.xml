@@ -3,9 +3,25 @@
  
 	<property name="app.name" value="lospooglins" /> 
   	<property name="build.dir" value="bin/" /> 
-  	<property name="src.dir" value="src/" /> 
-  	<property name="test.dir" value="test/" /> 
+  	<!--
+	<property name="src.dir" value="PruebasDelJuego/pruebaMenu/" /> 
+  	-->
+	<property name="modelo.dir" value="src/modelo/" /> 
+	<property name="vista.dir" value="src/vista/" /> 
+	<property name="controlador.dir" value="src/controlador/" /> 
+	
+  		
+  	<property name="controlJuegoModelo.dir" value="controlDelJuego/modelo/" /> 
+	<property name="controlJuegoVista.dir" value="controlDelJuego/vista/" /> 
+	
+	<property name="menu.dir" value="PruebasDelJuego/pruebaMenu/" /> 
+			  	
+	<property name="test.dir" value="test/" /> 
   	<property name="lib.dir" value="lib/" /> 	
+	
+	<property name="dom4j.home" location="lib\dom4j-1.6.1.jar" />
+
+		
 	<property name="junit.home" location="lib\junit.jar" />
 	<property name="junitreportes.dir" location="reportes\" />
 	<property name="testsuite" value="testSuite"/>
@@ -14,49 +30,62 @@
 		
 	<target name="limpiar">
 		<delete dir = "${build.dir}" />
-		<!-- borra reportes viejos 
-		<delete dir = "${junitreportes.dir}" />		
-		-->
 		<delete dir = "${doc.dir}" />		
-				
 	</target>
 	
-	<target name="compilar" depends="limpiar">
-  		<mkdir dir="${build.dir}" /> 
-		<!-- carpetas creada para guardar reportes 
-		<mkdir dir="${junitreportes.dir}" /> 
-		<mkdir dir="${junitreportes.dir}/html" />
-		-->
-				
-		<javac srcdir="${src.dir}" destdir="${build.dir}" />
+	<target name="compilarModelo" depends="limpiar">
+		<mkdir dir="${build.dir}" /> 		
+		<javac srcdir="${modelo.dir}" classpath="${dom4j.home}" destdir="${build.dir}" />
  	</target>
-
-	<target name="compilartest" depends="compilar">
-	  		<javac srcdir="${test.dir}" classpath="${junit.home}" destdir="${build.dir}" />
+	
+	<target name="compilarControlJuegoModelo" depends="compilarModelo">
+		<javac srcdir="${controlJuegoModelo.dir}" destdir="${build.dir}" />
+	</target>
+	
+	<target name="compilarControlador" depends="compilarControlJuegoModelo">
+		<javac srcdir="${controlador.dir}" destdir="${build.dir}" />
+	</target>
+	<target name="compilarControlJuegoVista" depends="compilarControlador">
+		<javac srcdir="${controlJuegoVista.dir}" destdir="${build.dir}" />
+ 	</target>
+	
+	<target name="compilarVista" depends="compilarControlJuegoVista">
+		<javac srcdir="${vista.dir}" destdir="${build.dir}" />
+	</target>
+	
+	<target name="compilarMenu" depends="compilarVista">
+		<javac srcdir="${menu.dir}" destdir="${build.dir}" />
+	</target>
+	
+	<target name="ejecutar"  depends = "compilarMenu">
+		<!--<java classname="MenuPrincipal"/> -->
+ 	</target>
+	
+	<target name="compilartest" depends="ejecutar">
+		<javac srcdir="${test.dir}" classpath="${junit.home};${dom4j.home}" destdir="${build.dir}" />
 	</target>
 
-	<target name="runtests" depends="compilartest, documentacion" description="Junit tests">		
+	
+	<target name="comprime" depends="compilartest">
+	    <jar jarfile="resultado.jar" basedir="${build.dir}" />
+	</target>
+	
+	<target name="runtests" depends="comprime, documentacion" description="Junit tests">		
 		<junit printsummary="true" >
 		    <formatter type="xml"/>
 		    <test name="${maintestclass}"/>
 		    <classpath>
-				<pathelement location="${build.dir}" />
-				<pathelement location="${junit.home}" />		   	        
+		    	<pathelement location="${build.dir}" />
+		    	<pathelement location="${lib.dir}" />		   	           			       	
+		    	<pathelement location="${dom4j.home}" />		   	           			    	
+		    	<pathelement location="${junit.home}" />		   	        
 		    </classpath>
 		</junit>
-		
-	<!-- esto es para imprimir reportes.....    
-			<junitreport todir="${junitreportes.dir}">
-		        <fileset dir=".">
-		                <include name="TEST-*.xml"/>
-		        </fileset>
-		        <report format="frames" todir="${junitreportes.dir}/html"/>
-		    </junitreport>
-	-->
 	</target>
 	
 	<target name="documentacion">
-	<javadoc sourcepath="${src.dir}" 
+	<!--
+		<javadoc sourcepath="${src.dir}" 
 		destdir="${doc.dir}"
 		packagenames="src"		    
 		Author="true" 
@@ -65,15 +94,15 @@
 		noindex="true">
 		
 		<classpath>
-					<pathelement location="${src.dir}" />
-				</classpath>
+			<pathelement location="${src.dir}" />
+		</classpath>
 				
 		<arg line="-private" />
 		<fileset dir="${src.dir}">
 			<include name="**/*.java"/>
 		</fileset>
 	
-	</javadoc>
+	</javadoc> -->
 	</target>
-		
+	
 </project>

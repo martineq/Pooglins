@@ -4,21 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import vista.Imagen;
-import vista.VistaFuego;
-import vista.VistaHielo;
-import vista.VistaRoca;
-import vista.VistaTierra;
-import vista.VistaVacio;
-
 /**
  * @author 
  * Esta clase es la encargada de manejar todo el gameloop. Básicamente tiene una lista
  * de ObjetosVivos y una Dibujables que son recorridas en cada gameloop.
  */
+@SuppressWarnings("unchecked")
 public class ControladorJuego {
 	private long intervaloSimulacion;
 	private boolean estaEnEjecucion;
+	
 	private List objetosVivos;
 	private List dibujables;
 	private SuperficieDeDibujo superficieDeDibujo;	

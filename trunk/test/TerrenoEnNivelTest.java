@@ -11,7 +11,6 @@ import modelo.Roca;
 import modelo.Terreno;
 import modelo.Tierra;
 import modelo.Vacio;
-import modelo.Habilidad;
 import junit.framework.TestCase;
 
 
@@ -27,7 +26,8 @@ public class TerrenoEnNivelTest extends TestCase {
     
 
     
-    private void llenarHabilidadesDisponibles(){
+    @SuppressWarnings("unchecked")
+	private void llenarHabilidadesDisponibles(){
             habilidadesDisponibles.put("Platillo",2);
             habilidadesDisponibles.put("RayoLaser",2);
             habilidadesDisponibles.put("Taladro",2);

@@ -2,7 +2,6 @@ package vista;
 import modelo.Dibujable;
 import modelo.SuperficieDeDibujo;
 
-import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
