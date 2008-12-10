@@ -10,7 +10,7 @@ import org.dom4j.Element;
  * @since 11/10/08
  * 
  */
-public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
+public class Pooglin implements ObjetoVivo , Posicionable{
 	private int posicionX;
 	private int posicionY;
 	private Velocidad velocidad;

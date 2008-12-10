@@ -1,7 +1,19 @@
 package modelo;
 
+
+
+/**Interfase que representa a un Personaje del juego.-
+ * @author Mart
+ *
+ *
+ */
 public interface ObjetoVivo {
-	
-	void vivir();
+
+	/**Mueve al personaje.-
+	 * 
+	 */
+	public void vivir();
 	
 }
+
+//public void mover(); ¿?

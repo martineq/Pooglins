@@ -11,7 +11,7 @@ public interface Habilidad {
 	/**Usa la habilidad del personaje.-
 	 * @param personaje
 	 */
-	public void utilizar(Personaje personaje);
+	public void utilizar(ObjetoVivo personaje);
 
 	/**
 	 * @param terreno

@@ -7,7 +7,7 @@ package modelo;
  */
 public abstract class Comportamiento implements Habilidad{
 
-	public void utilizar(Personaje pooglin){
+	public void utilizar(ObjetoVivo pooglin){
 		
 	}
 	

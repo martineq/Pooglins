@@ -3,7 +3,7 @@ import java.util.HashMap;
 import modelo.Fuego;
 import modelo.Hielo;
 import modelo.Nivel;
-import modelo.Personaje;
+import modelo.ObjetoVivo;
 import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.Puerta;
@@ -19,7 +19,7 @@ public class TerrenoEnNivelTest extends TestCase {
 	private int tamanioMatriz=50;
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
-	Personaje []pooglins;
+	ObjetoVivo []pooglins;
 	//Habilidad[] habilidadesDisponibles; //Nuevo, para probar el testNivelConXML.-
 	@SuppressWarnings("unchecked")
 	private HashMap habilidadesDisponibles = new HashMap(); //Nuevo. Antes: Habilidad[] habilidadesDisponibles;       

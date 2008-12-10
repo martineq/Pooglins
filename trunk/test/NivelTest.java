@@ -1,6 +1,6 @@
 import modelo.Fuego;
 import modelo.Nivel;
-import modelo.Personaje;
+import modelo.ObjetoVivo;
 import modelo.Pooglin;
 import modelo.Puerta;
 import modelo.Roca;
@@ -13,7 +13,7 @@ public class NivelTest extends TestCase{
 	private int tamanioMatriz=50;
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
-	Personaje []pooglins;
+	ObjetoVivo []pooglins;
 	
 	private void bordeMatriz(){
 		for(int i=0;i<tamanioMatriz-1;i++){

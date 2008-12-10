@@ -15,7 +15,7 @@ public class AgujeroNegroTest extends TestCase{
 	private Nivel nivel = null;
 	private AgujeroNegro agujeroNegro;
 	private Terreno[][] matrizNivel;
-	private Personaje[] pooglins;
+	private ObjetoVivo[] pooglins;
 	private int tamanioMatriz;
 	private int cantidadPooglins;
 	
@@ -32,7 +32,7 @@ public class AgujeroNegroTest extends TestCase{
 		nivel=Nivel.getInstance();
 		tamanioMatriz=20;
 		cantidadPooglins=5;
-		pooglins=new Personaje[cantidadPooglins];
+		pooglins=new ObjetoVivo[cantidadPooglins];
 		pooglins[0]=new Pooglin(5,4);
 		pooglins[1]=new Pooglin(7,4);
 		pooglins[2]=new Pooglin(5,4);
@@ -50,7 +50,7 @@ public class AgujeroNegroTest extends TestCase{
 	public void testAccionarTerreno(){
 		Pooglin pooglin=new Pooglin(5,5);
 		agujeroNegro.accionarTerreno(pooglin);
-		Personaje[] pooglins=nivel.getPooglins();
+		ObjetoVivo[] pooglins=nivel.getPooglins();
 		for (int i=0;i<pooglins.length;i++){
 //Ver	//	int posicionX=((Pooglin)pooglins[i]).getPosicionX();
 //Ver	//	int posicionY=((Pooglin)pooglins[i]).getPosicionY();

@@ -11,10 +11,10 @@ import org.dom4j.Element;
  * y los distintos tipos de terrenos. Implementa la interfaz Escenario.- 
  * @author guido
  */
-public class Nivel implements Escenario, ObjetoVivo {
+public class Nivel implements ObjetoVivo {
 	private Terreno[][] matrizNivel;
 	private int duracionDelJuego;
-	private Personaje[] pooglins;
+	private ObjetoVivo[] pooglins;
 	private int pooglinsARescatar;
 	private int cantidadPooglins;
 	private Puerta puertaComienzo;
@@ -150,7 +150,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	/**Método que devuelve el terreno dado por la posición X e Y.
 	 * @return Terreno
 	 */
-	public Terreno revisarNivel(Personaje pooglin){
+	public Terreno revisarNivel(ObjetoVivo pooglin){
 		Velocidad velocidad=((Pooglin)pooglin).getVelocidad();
 		int posicionX =((Pooglin)pooglin).getPosicionX();
 		int posicionY =((Pooglin)pooglin).getPosicionY();
@@ -245,7 +245,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * @param pooglin
 	 */
 	
-	private void sacarPooglinMuerto(Personaje pooglin){
+	private void sacarPooglinMuerto(ObjetoVivo pooglin){
 		boolean revisado = ((Pooglin)pooglin).estaRevisado();
 		if ((!revisado)){
 			this.cantidadPooglins--;
@@ -254,7 +254,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 		}
 	}
 	
-	private boolean pooglinMuerto(Personaje pooglin){
+	private boolean pooglinMuerto(ObjetoVivo pooglin){
 		boolean estaVivo=((Pooglin)pooglin).estaVivo();
 		if ((!estaVivo)){ 
 			return true;
@@ -284,7 +284,7 @@ public class Nivel implements Escenario, ObjetoVivo {
 	 * de las habilidades disponibles para el nivel.
 	 * @param pooglin
 	 */
-	private void activarHabilidad(Personaje pooglin){
+	private void activarHabilidad(ObjetoVivo pooglin){
 		if(((Pooglin)pooglin).getHabilidad() == null)  return;
 		String nombreHabilidad= ((Pooglin)pooglin).getHabilidad().getClass().getName();
 		if ((!nombreHabilidad.equals("modelo.Taladro"))&&(!nombreHabilidad.equals("modelo.RayoLaser"))&&(!nombreHabilidad.equals("modelo.Platillo"))){
@@ -305,14 +305,14 @@ public class Nivel implements Escenario, ObjetoVivo {
 	/**
 	 * @param pooglins
 	 */
-	public void setPooglins(Personaje[] pooglins) {
+	public void setPooglins(ObjetoVivo[] pooglins) {
 		this.pooglins = pooglins;
 	}
 
 	/**
 	 * @return Personaje[]
 	 */
-	public Personaje[] getPooglins() {
+	public ObjetoVivo[] getPooglins() {
 		return this.pooglins;
 	}
 

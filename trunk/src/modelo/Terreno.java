@@ -12,7 +12,7 @@ public abstract class Terreno implements Posicionable {
 	private int posicionY;
 	private boolean activo;
 	
-	public abstract void accionarTerreno(Personaje pooglin);
+	public abstract void accionarTerreno(ObjetoVivo pooglin);
 	
 	public int getPosicionX() {
 		return posicionX;

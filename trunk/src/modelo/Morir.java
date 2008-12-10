@@ -16,7 +16,7 @@ public class Morir extends Comportamiento {
 	}
 	
 	@Override
-	public void utilizar(Personaje pooglin){
+	public void utilizar(ObjetoVivo pooglin){
 		Pooglin poglin = (Pooglin)pooglin;
 		poglin.setVivo(false);
 		Velocidad velocidad = poglin.getVelocidad();
