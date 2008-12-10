@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raiz>
+    <!--Archivo de escenario del juego 'Los Pooglins'-->
+    <matrizNivel>
+        <Terreno x="0" y="0" tipo="Roca"/>
+        <Terreno x="0" y="1" tipo="Roca"/>
+        <Terreno x="0" y="2" tipo="Roca"/>
+        <Terreno x="0" y="3" tipo="Roca"/>
+        <Terreno x="0" y="4" tipo="Roca"/>
+        <Terreno x="0" y="5" tipo="Roca"/>
+        <Terreno x="0" y="6" tipo="Roca"/>
+        <Terreno x="0" y="7" tipo="Roca"/>
+        <Terreno x="0" y="8" tipo="Roca"/>
+        <Terreno x="0" y="9" tipo="Roca"/>
+        <Terreno x="0" y="10" tipo="Roca"/>
+        <Terreno x="0" y="11" tipo="Roca"/>
+        <Terreno x="0" y="12" tipo="Roca"/>
+        <Terreno x="0" y="13" tipo="Roca"/>
+        <Terreno x="1" y="0" tipo="Roca"/>
+        <Terreno x="1" y="1" tipo="Vacio"/>
+        <Terreno x="1" y="2" tipo="Vacio"/>
+        <Terreno x="1" y="3" tipo="Vacio"/>
+        <Terreno x="1" y="4" tipo="Vacio"/>
+        <Terreno x="1" y="5" tipo="Vacio"/>
+        <Terreno x="1" y="6" tipo="Vacio"/>
+        <Terreno x="1" y="7" tipo="Vacio"/>
+        <Terreno x="1" y="8" tipo="Vacio"/>
+        <Terreno x="1" y="9" tipo="Vacio"/>
+        <Terreno x="1" y="10" tipo="Tierra"/>
+        <Terreno x="1" y="11" tipo="Tierra"/>
+        <Terreno x="1" y="12" tipo="Vacio"/>
+        <Terreno x="1" y="13" tipo="Roca"/>
+        <Terreno x="2" y="0" tipo="Roca"/>
+        <Terreno x="2" y="1" tipo="Vacio"/>
+        <Terreno x="2" y="2" tipo="Vacio"/>
+        <Terreno x="2" y="3" tipo="Vacio"/>
+        <Terreno x="2" y="4" tipo="Vacio"/>
+        <Terreno x="2" y="5" tipo="Vacio"/>
+        <Terreno x="2" y="6" tipo="Vacio"/>
+        <Terreno x="2" y="7" tipo="Vacio"/>
+        <Terreno x="2" y="8" tipo="Vacio"/>
+        <Terreno x="2" y="9" tipo="Vacio"/>
+        <Terreno x="2" y="10" tipo="Tierra"/>
+        <Terreno x="2" y="11" tipo="Tierra"/>
+        <Terreno x="2" y="12" tipo="Vacio"/>
+        <Terreno x="2" y="13" tipo="Roca"/>
+        <Terreno x="3" y="0" tipo="Roca"/>
+        <Terreno x="3" y="1" tipo="Vacio"/>
+        <Terreno x="3" y="2" tipo="Vacio"/>
+        <Terreno x="3" y="3" tipo="Vacio"/>
+        <Terreno x="3" y="4" tipo="Vacio"/>
+        <Terreno x="3" y="5" tipo="Vacio"/>
+        <Terreno x="3" y="6" tipo="Vacio"/>
+        <Terreno x="3" y="7" tipo="Vacio"/>
+        <Terreno x="3" y="8" tipo="Vacio"/>
+        <Terreno x="3" y="9" tipo="Vacio"/>
+        <Terreno x="3" y="10" tipo="Tierra"/>
+        <Terreno x="3" y="11" tipo="Tierra"/>
+        <Terreno x="3" y="12" tipo="Vacio"/>
+        <Terreno x="3" y="13" tipo="Roca"/>
+        <Terreno x="4" y="0" tipo="Roca"/>
+        <Terreno x="4" y="1" tipo="Vacio"/>
+        <Terreno x="4" y="2" tipo="Vacio"/>
+        <Terreno x="4" y="3" tipo="Vacio"/>
+        <Terreno x="4" y="4" tipo="Vacio"/>
+        <Terreno x="4" y="5" tipo="Vacio"/>
+        <Terreno x="4" y="6" tipo="Vacio"/>
+        <Terreno x="4" y="7" tipo="Vacio"/>
+        <Terreno x="4" y="8" tipo="Vacio"/>
+        <Terreno x="4" y="9" tipo="Vacio"/>
+        <Terreno x="4" y="10" tipo="Tierra"/>
+        <Terreno x="4" y="11" tipo="Tierra"/>
+        <Terreno x="4" y="12" tipo="Vacio"/>
+        <Terreno x="4" y="13" tipo="Roca"/>
+        <Terreno x="5" y="0" tipo="Roca"/>
+        <Terreno x="5" y="1" tipo="Vacio"/>
+        <Terreno x="5" y="2" tipo="Vacio"/>
+        <Terreno x="5" y="3" tipo="Vacio"/>
+        <Terreno x="5" y="4" tipo="Vacio"/>
+        <Terreno x="5" y="5" tipo="Vacio"/>
+        <Terreno x="5" y="6" tipo="Vacio"/>
+        <Terreno x="5" y="7" tipo="Vacio"/>
+        <Terreno x="5" y="8" tipo="Vacio"/>
+        <Terreno x="5" y="9" tipo="Vacio"/>
+        <Terreno x="5" y="10" tipo="Tierra"/>
+        <Terreno x="5" y="11" tipo="Tierra"/>
+        <Terreno x="5" y="12" tipo="Vacio"/>
+        <Terreno x="5" y="13" tipo="Roca"/>
+        <Terreno x="6" y="0" tipo="Roca"/>
+        <Terreno x="6" y="1" tipo="Vacio"/>
+        <Terreno x="6" y="2" tipo="Vacio"/>
+        <Terreno x="6" y="3" tipo="Vacio"/>
+        <Terreno x="6" y="4" tipo="Vacio"/>
+        <Terreno x="6" y="5" tipo="Vacio"/>
+        <Terreno x="6" y="6" tipo="Vacio"/>
+        <Terreno x="6" y="7" tipo="Vacio"/>
+        <Terreno x="6" y="8" tipo="Vacio"/>
+        <Terreno x="6" y="9" tipo="Vacio"/>
+        <Terreno x="6" y="10" tipo="Tierra"/>
+        <Terreno x="6" y="11" tipo="Tierra"/>
+        <Terreno x="6" y="12" tipo="Vacio"/>
+        <Terreno x="6" y="13" tipo="Roca"/>
+        <Terreno x="7" y="0" tipo="Roca"/>
+        <Terreno x="7" y="1" tipo="Vacio"/>
+        <Terreno x="7" y="2" tipo="Vacio"/>
+        <Terreno x="7" y="3" tipo="Vacio"/>
+        <Terreno x="7" y="4" tipo="Vacio"/>
+        <Terreno x="7" y="5" tipo="Vacio"/>
+        <Terreno x="7" y="6" tipo="Vacio"/>
+        <Terreno x="7" y="7" tipo="Vacio"/>
+        <Terreno x="7" y="8" tipo="Vacio"/>
+        <Terreno x="7" y="9" tipo="Vacio"/>
+        <Terreno x="7" y="10" tipo="Tierra"/>
+        <Terreno x="7" y="11" tipo="Tierra"/>
+        <Terreno x="7" y="12" tipo="Vacio"/>
+        <Terreno x="7" y="13" tipo="Roca"/>
+        <Terreno x="8" y="0" tipo="Roca"/>
+        <Terreno x="8" y="1" tipo="Vacio"/>
+        <Terreno x="8" y="2" tipo="Vacio"/>
+        <Terreno x="8" y="3" tipo="Vacio"/>
+        <Terreno x="8" y="4" tipo="Vacio"/>
+        <Terreno x="8" y="5" tipo="Vacio"/>
+        <Terreno x="8" y="6" tipo="Vacio"/>
+        <Terreno x="8" y="7" tipo="Vacio"/>
+        <Terreno x="8" y="8" tipo="Vacio"/>
+        <Terreno x="8" y="9" tipo="Vacio"/>
+        <Terreno x="8" y="10" tipo="Tierra"/>
+        <Terreno x="8" y="11" tipo="Tierra"/>
+        <Terreno x="8" y="12" tipo="Vacio"/>
+        <Terreno x="8" y="13" tipo="Roca"/>
+        <Terreno x="9" y="0" tipo="Roca"/>
+        <Terreno x="9" y="1" tipo="Vacio"/>
+        <Terreno x="9" y="2" tipo="Vacio"/>
+        <Terreno x="9" y="3" tipo="Vacio"/>
+        <Terreno x="9" y="4" tipo="Vacio"/>
+        <Terreno x="9" y="5" tipo="Vacio"/>
+        <Terreno x="9" y="6" tipo="Vacio"/>
+        <Terreno x="9" y="7" tipo="Vacio"/>
+        <Terreno x="9" y="8" tipo="Vacio"/>
+        <Terreno x="9" y="9" tipo="Vacio"/>
+        <Terreno x="9" y="10" tipo="Tierra"/>
+        <Terreno x="9" y="11" tipo="Tierra"/>
+        <Terreno x="9" y="12" tipo="Vacio"/>
+        <Terreno x="9" y="13" tipo="Roca"/>
+        <Terreno x="10" y="0" tipo="Roca"/>
+        <Terreno x="10" y="1" tipo="Vacio"/>
+        <Terreno x="10" y="2" tipo="Vacio"/>
+        <Terreno x="10" y="3" tipo="Vacio"/>
+        <Terreno x="10" y="4" tipo="Vacio"/>
+        <Terreno x="10" y="5" tipo="Vacio"/>
+        <Terreno x="10" y="6" tipo="Vacio"/>
+        <Terreno x="10" y="7" tipo="Vacio"/>
+        <Terreno x="10" y="8" tipo="Vacio"/>
+        <Terreno x="10" y="9" tipo="Vacio"/>
+        <Terreno x="10" y="10" tipo="Tierra"/>
+        <Terreno x="10" y="11" tipo="Tierra"/>
+        <Terreno x="10" y="12" tipo="Vacio"/>
+        <Terreno x="10" y="13" tipo="Roca"/>
+        <Terreno x="11" y="0" tipo="Roca"/>
+        <Terreno x="11" y="1" tipo="Vacio"/>
+        <Terreno x="11" y="2" tipo="Vacio"/>
+        <Terreno x="11" y="3" tipo="Vacio"/>
+        <Terreno x="11" y="4" tipo="Vacio"/>
+        <Terreno x="11" y="5" tipo="Vacio"/>
+        <Terreno x="11" y="6" tipo="Vacio"/>
+        <Terreno x="11" y="7" tipo="Vacio"/>
+        <Terreno x="11" y="8" tipo="Vacio"/>
+        <Terreno x="11" y="9" tipo="Vacio"/>
+        <Terreno x="11" y="10" tipo="Tierra"/>
+        <Terreno x="11" y="11" tipo="Tierra"/>
+        <Terreno x="11" y="12" tipo="Vacio"/>
+        <Terreno x="11" y="13" tipo="Roca"/>
+        <Terreno x="12" y="0" tipo="Roca"/>
+        <Terreno x="12" y="1" tipo="Vacio"/>
+        <Terreno x="12" y="2" tipo="Vacio"/>
+        <Terreno x="12" y="3" tipo="Vacio"/>
+        <Terreno x="12" y="4" tipo="Vacio"/>
+        <Terreno x="12" y="5" tipo="Vacio"/>
+        <Terreno x="12" y="6" tipo="Vacio"/>
+        <Terreno x="12" y="7" tipo="Vacio"/>
+        <Terreno x="12" y="8" tipo="Vacio"/>
+        <Terreno x="12" y="9" tipo="Vacio"/>
+        <Terreno x="12" y="10" tipo="Tierra"/>
+        <Terreno x="12" y="11" tipo="Tierra"/>
+        <Terreno x="12" y="12" tipo="Vacio"/>
+        <Terreno x="12" y="13" tipo="Roca"/>
+        <Terreno x="13" y="0" tipo="Roca"/>
+        <Terreno x="13" y="1" tipo="Vacio"/>
+        <Terreno x="13" y="2" tipo="Vacio"/>
+        <Terreno x="13" y="3" tipo="Vacio"/>
+        <Terreno x="13" y="4" tipo="Vacio"/>
+        <Terreno x="13" y="5" tipo="Vacio"/>
+        <Terreno x="13" y="6" tipo="Vacio"/>
+        <Terreno x="13" y="7" tipo="Vacio"/>
+        <Terreno x="13" y="8" tipo="Vacio"/>
+        <Terreno x="13" y="9" tipo="Vacio"/>
+        <Terreno x="13" y="10" tipo="Tierra"/>
+        <Terreno x="13" y="11" tipo="Tierra"/>
+        <Terreno x="13" y="12" tipo="Vacio"/>
+        <Terreno x="13" y="13" tipo="Roca"/>
+        <Terreno x="14" y="0" tipo="Roca"/>
+        <Terreno x="14" y="1" tipo="Vacio"/>
+        <Terreno x="14" y="2" tipo="Vacio"/>
+        <Terreno x="14" y="3" tipo="Vacio"/>
+        <Terreno x="14" y="4" tipo="Vacio"/>
+        <Terreno x="14" y="5" tipo="Vacio"/>
+        <Terreno x="14" y="6" tipo="Vacio"/>
+        <Terreno x="14" y="7" tipo="Vacio"/>
+        <Terreno x="14" y="8" tipo="Vacio"/>
+        <Terreno x="14" y="9" tipo="Vacio"/>
+        <Terreno x="14" y="10" tipo="Tierra"/>
+        <Terreno x="14" y="11" tipo="Tierra"/>
+        <Terreno x="14" y="12" tipo="Vacio"/>
+        <Terreno x="14" y="13" tipo="Roca"/>
+        <Terreno x="15" y="0" tipo="Roca"/>
+        <Terreno x="15" y="1" tipo="Vacio"/>
+        <Terreno x="15" y="2" tipo="Vacio"/>
+        <Terreno x="15" y="3" tipo="Vacio"/>
+        <Terreno x="15" y="4" tipo="Vacio"/>
+        <Terreno x="15" y="5" tipo="Vacio"/>
+        <Terreno x="15" y="6" tipo="Vacio"/>
+        <Terreno x="15" y="7" tipo="Vacio"/>
+        <Terreno x="15" y="8" tipo="Vacio"/>
+        <Terreno x="15" y="9" tipo="Vacio"/>
+        <Terreno x="15" y="10" tipo="Tierra"/>
+        <Terreno x="15" y="11" tipo="Tierra"/>
+        <Terreno x="15" y="12" tipo="Vacio"/>
+        <Terreno x="15" y="13" tipo="Roca"/>
+        <Terreno x="16" y="0" tipo="Roca"/>
+        <Terreno x="16" y="1" tipo="Vacio"/>
+        <Terreno x="16" y="2" tipo="Vacio"/>
+        <Terreno x="16" y="3" tipo="Vacio"/>
+        <Terreno x="16" y="4" tipo="Vacio"/>
+        <Terreno x="16" y="5" tipo="Vacio"/>
+        <Terreno x="16" y="6" tipo="Vacio"/>
+        <Terreno x="16" y="7" tipo="Vacio"/>
+        <Terreno x="16" y="8" tipo="Vacio"/>
+        <Terreno x="16" y="9" tipo="Vacio"/>
+        <Terreno x="16" y="10" tipo="Tierra"/>
+        <Terreno x="16" y="11" tipo="Tierra"/>
+        <Terreno x="16" y="12" tipo="Vacio"/>
+        <Terreno x="16" y="13" tipo="Roca"/>
+        <Terreno x="17" y="0" tipo="Roca"/>
+        <Terreno x="17" y="1" tipo="Vacio"/>
+        <Terreno x="17" y="2" tipo="Vacio"/>
+        <Terreno x="17" y="3" tipo="Vacio"/>
+        <Terreno x="17" y="4" tipo="Vacio"/>
+        <Terreno x="17" y="5" tipo="Vacio"/>
+        <Terreno x="17" y="6" tipo="Vacio"/>
+        <Terreno x="17" y="7" tipo="Vacio"/>
+        <Terreno x="17" y="8" tipo="Vacio"/>
+        <Terreno x="17" y="9" tipo="Vacio"/>
+        <Terreno x="17" y="10" tipo="Tierra"/>
+        <Terreno x="17" y="11" tipo="Tierra"/>
+        <Terreno x="17" y="12" tipo="Vacio"/>
+        <Terreno x="17" y="13" tipo="Roca"/>
+        <Terreno x="18" y="0" tipo="Roca"/>
+        <Terreno x="18" y="1" tipo="Vacio"/>
+        <Terreno x="18" y="2" tipo="Vacio"/>
+        <Terreno x="18" y="3" tipo="Vacio"/>
+        <Terreno x="18" y="4" tipo="Vacio"/>
+        <Terreno x="18" y="5" tipo="Vacio"/>
+        <Terreno x="18" y="6" tipo="Vacio"/>
+        <Terreno x="18" y="7" tipo="Vacio"/>
+        <Terreno x="18" y="8" tipo="Vacio"/>
+        <Terreno x="18" y="9" tipo="Vacio"/>
+        <Terreno x="18" y="10" tipo="Tierra"/>
+        <Terreno x="18" y="11" tipo="Tierra"/>
+        <Terreno x="18" y="12" tipo="Vacio"/>
+        <Terreno x="18" y="13" tipo="Roca"/>
+        <Terreno x="19" y="0" tipo="Roca"/>
+        <Terreno x="19" y="1" tipo="Vacio"/>
+        <Terreno x="19" y="2" tipo="Vacio"/>
+        <Terreno x="19" y="3" tipo="Vacio"/>
+        <Terreno x="19" y="4" tipo="Vacio"/>
+        <Terreno x="19" y="5" tipo="Vacio"/>
+        <Terreno x="19" y="6" tipo="Vacio"/>
+        <Terreno x="19" y="7" tipo="Vacio"/>
+        <Terreno x="19" y="8" tipo="Vacio"/>
+        <Terreno x="19" y="9" tipo="Vacio"/>
+        <Terreno x="19" y="10" tipo="Tierra"/>
+        <Terreno x="19" y="11" tipo="Tierra"/>
+        <Terreno x="19" y="12" tipo="Vacio"/>
+        <Terreno x="19" y="13" tipo="Roca"/>
+        <Terreno x="20" y="0" tipo="Roca"/>
+        <Terreno x="20" y="1" tipo="Vacio"/>
+        <Terreno x="20" y="2" tipo="Vacio"/>
+        <Terreno x="20" y="3" tipo="Vacio"/>
+        <Terreno x="20" y="4" tipo="Vacio"/>
+        <Terreno x="20" y="5" tipo="Vacio"/>
+        <Terreno x="20" y="6" tipo="Vacio"/>
+        <Terreno x="20" y="7" tipo="Vacio"/>
+        <Terreno x="20" y="8" tipo="Vacio"/>
+        <Terreno x="20" y="9" tipo="Vacio"/>
+        <Terreno x="20" y="10" tipo="Tierra"/>
+        <Terreno x="20" y="11" tipo="Tierra"/>
+        <Terreno x="20" y="12" tipo="Vacio"/>
+        <Terreno x="20" y="13" tipo="Roca"/>
+        <Terreno x="21" y="0" tipo="Roca"/>
+        <Terreno x="21" y="1" tipo="Roca"/>
+        <Terreno x="21" y="2" tipo="Roca"/>
+        <Terreno x="21" y="3" tipo="Roca"/>
+        <Terreno x="21" y="4" tipo="Roca"/>
+        <Terreno x="21" y="5" tipo="Roca"/>
+        <Terreno x="21" y="6" tipo="Roca"/>
+        <Terreno x="21" y="7" tipo="Roca"/>
+        <Terreno x="21" y="8" tipo="Roca"/>
+        <Terreno x="21" y="9" tipo="Roca"/>
+        <Terreno x="21" y="10" tipo="Roca"/>
+        <Terreno x="21" y="11" tipo="Roca"/>
+        <Terreno x="21" y="12" tipo="Roca"/>
+        <Terreno x="21" y="13" tipo="Roca"/>
+    </matrizNivel>
+    <pooglins>
+        <pooglinNumero0>
+            <posicionX valor="2"/>
+            <posicionY valor="9"/>
+            <velocidad>
+                <velocidadX valor="6"/>
+                <velocidadY valor="0"/>
+            </velocidad>
+            <habilidad tipo="null"/>
+            <vivo condicion="vivo"/>
+            <matarse/>
+            <cantTurnosQueNoSeMovio valor="0"/>
+            <altura valor="0"/>
+            <revisado condicion="false"/>
+        </pooglinNumero0>
+        <pooglinNumero1>
+            <posicionX valor="2"/>
+            <posicionY valor="9"/>
+            <velocidad>
+                <velocidadX valor="6"/>
+                <velocidadY valor="0"/>
+            </velocidad>
+            <habilidad tipo="null"/>
+            <vivo condicion="vivo"/>
+            <matarse/>
+            <cantTurnosQueNoSeMovio valor="0"/>
+            <altura valor="0"/>
+            <revisado condicion="false"/>
+        </pooglinNumero1>
+        <pooglinNumero2>
+            <posicionX valor="2"/>
+            <posicionY valor="9"/>
+            <velocidad>
+                <velocidadX valor="6"/>
+                <velocidadY valor="0"/>
+            </velocidad>
+            <habilidad tipo="null"/>
+            <vivo condicion="vivo"/>
+            <matarse/>
+            <cantTurnosQueNoSeMovio valor="0"/>
+            <altura valor="0"/>
+            <revisado condicion="false"/>
+        </pooglinNumero2>
+        <pooglinNumero3>
+            <posicionX valor="2"/>
+            <posicionY valor="9"/>
+            <velocidad>
+                <velocidadX valor="6"/>
+                <velocidadY valor="0"/>
+            </velocidad>
+            <habilidad tipo="null"/>
+            <vivo condicion="vivo"/>
+            <matarse/>
+            <cantTurnosQueNoSeMovio valor="0"/>
+            <altura valor="0"/>
+            <revisado condicion="false"/>
+        </pooglinNumero3>
+    </pooglins>
+    <pooglinsARescatar valor="4"/>
+    <cantidadPooglins valor="4"/>
+    <puertaComienzo>
+        <posicionX valor="2"/>
+        <posicionY valor="9"/>
+    </puertaComienzo>
+    <puertaSalida>
+        <posicionX valor="19"/>
+        <posicionY valor="12"/>
+    </puertaSalida>
+    <contador valor="0"/>
+    <habilidadesDisponibles>
+        <Congelamiento valor="0"/>
+        <Morir valor="9"/>
+        <Platillo valor="0"/>
+        <RayoLaser valor="0"/>
+        <Taladro valor="2"/>
+        <Teletransportarse valor="0"/>
+        <Tunel valor="0"/>
+    </habilidadesDisponibles>
+    <habilidad tipo="null"/>
+    <duracionDelJuego valor="200"/>
+    <tiempoRestante valor="0"/>
+</raiz>

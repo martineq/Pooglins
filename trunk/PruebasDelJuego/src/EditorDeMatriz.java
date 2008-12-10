@@ -39,6 +39,8 @@ public class EditorDeMatriz {
 	public static Terreno[][] editar(Terreno[][] matrizNivel,int anchoDeMatriz, int altoDeMatriz, ControladorJuego controlador){
 		//Instancio cada bloque de la matriz:
 		
+		System.out.println( "Creación del terreno:\nAncho del terreno: " + ( anchoDeMatriz - 2 ) + "\nAlto del terreno: " + ( altoDeMatriz - 2 ) );
+		
 		//Lleno todo de vacíos.-
 		for(int fila=0;fila<anchoDeMatriz;fila++){
 			for(int columna=0;columna<altoDeMatriz;columna++){
@@ -48,6 +50,7 @@ public class EditorDeMatriz {
 				controlador.agregarDibujable(v);
 			}
 		}
+		
 		System.out.println("Se llenó toda la matriz con Vacio.-");
 		
 		//Lleno los bordes con Roca.-
@@ -61,18 +64,35 @@ public class EditorDeMatriz {
 			    }
 			}
 		}
+		
 		System.out.println("Se llenó todo el contorno con Roca.-");
 		
 		//Instancio cada bloque de la matriz pero a elección.-
 		System.out.println("Llenado de la matriz por coordenada (Se va llenando horizontalmente): ");
 		System.out.println("Ingrese un numero según el terreno:");
-		System.out.println("0)Vacio\n1)Roca\n2)Tierra\n3)Hielo\n4)Fuego\n5)AgujeroNegro");
+		System.out.println("0)Vacio\n1)Roca\n2)Tierra\n3)Hielo\n4)Fuego\n5)AgujeroNegro\n6)Línea automática\n(Presione enter sin ninguna opcion, para repetir el útimo terreno elegido)\n");
+		boolean linea = false;
+		int opcion = 0;
 		for ( int columna = 1 ; columna < altoDeMatriz - 1 ; columna++  ){
 			for ( int fila = 1 ; fila < anchoDeMatriz - 1 ; fila++ ){
 				System.out.println("Coordenadas: X = "+ fila + " Y = " + columna );
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in), 1);
 				try {
-				      int opcion = Integer.parseInt(br.readLine());
+				      if ( !linea ){
+				    	  try {
+				    	  opcion = Integer.parseInt(br.readLine());
+				    	  } catch (NumberFormatException ex) {
+						      System.out.println("Idem");
+						    }
+				    	  System.out.println("leyo:"+opcion);
+				      }
+				      else System.out.println("Línea automática...");
+				      if ( opcion == 6 ){
+				    	  linea = true;
+				    	  System.out.println("Línea automática de... (ingresar el Nº correspondiente al terreno):");
+				    	  opcion = Integer.parseInt(br.readLine());
+				      }   
+				      System.out.println("op:"+opcion);
 				      if (opcion == 0 ){
 						    System.out.println("Eligió Vacio");
 							matrizNivel[fila][columna] = new Vacio(fila,columna);
@@ -115,6 +135,7 @@ public class EditorDeMatriz {
 							v.setPosicionable(matrizNivel[fila][columna]);
 							controlador.agregarDibujable(v);
 						}
+						if( fila == (anchoDeMatriz - 2) ) linea = false;
 				    }
 				    catch (IOException ex) {
 				      System.out.println("Error de entrada:");
@@ -122,6 +143,7 @@ public class EditorDeMatriz {
 				    }
 			}
 		}
+		
 		System.out.println("Lista la matriz !!!");
 		
 		return matrizNivel;	

@@ -30,11 +30,11 @@ public class CreadorDeEscenarios {
 		Terreno[][] matrizNivel;
 		int cantidadDePooglin = 4;
 		Pooglin pooglins[] = new Pooglin[cantidadDePooglin];
-		int pooglinsARescatar = 3;
+		int pooglinsARescatar = 4;
 		int contador = 0;
 		HashMap habilidadesDisponibles = new HashMap();
 		Habilidad habilidad = null;
-		int duracionDelJuego = 600;
+		int duracionDelJuego = 200;
 
 		
         //Instancio el controlador.-
@@ -50,8 +50,8 @@ public class CreadorDeEscenarios {
 		}
 		
 		//Instancio Puertas.-
-		Puerta puertaComienzo= new Puerta(1,1);
-		Puerta puertaSalida = new Puerta(18,11);
+		Puerta puertaComienzo= new Puerta(2,9);
+		Puerta puertaSalida = new Puerta(19,12);
 		
 		//Instancio habilidadesDisponibles.-
 		habilidadesDisponibles.put("Platillo",9);
@@ -83,7 +83,7 @@ public class CreadorDeEscenarios {
 		
 		
 		//Guardo toda la configuración en un XML.-
-		nivel.guardarXML("Nivel2.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
+		nivel.guardarXML("niveles\\CREADO.xml"); //<<<<<<<<< Acá va el nombre del Escenario.-
 			
 		//Preparo los controladores de la vista para las puertas.-
 		VistaPuerta vPuerta = new VistaPuerta();
