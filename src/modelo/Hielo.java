@@ -18,7 +18,7 @@ public class Hielo extends Terreno {
 	
 	/**Este metodo le "aumenta" la velocidad al pooglin una vez que este
 	 * pisa Hielo.-
-	 * @param pooglin
+	 * @param unPooglin
 	 */
 	private void acelerarPooglin(Personaje unPooglin){
 		Pooglin pooglin = (Pooglin) unPooglin;
@@ -36,6 +36,7 @@ public class Hielo extends Terreno {
 	 * direccion a la velocidad del pooglin.
 	 * @param pooglin
 	 */
+	@Override
 	public void accionarTerreno(Personaje pooglin){
 		Pooglin pooglinAuxiliar=(Pooglin)pooglin;
 		//Caso en que el pooglin tiene hielo adelante.

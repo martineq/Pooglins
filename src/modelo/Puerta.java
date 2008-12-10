@@ -7,7 +7,6 @@ import org.dom4j.Element;
 /**
  * @author guido
  *
- *
  */
 public class Puerta implements Posicionable{
 	private int posicionX;
@@ -56,7 +55,6 @@ public class Puerta implements Posicionable{
 
 	/**Método que guarda todos los atributos de la clase Puerta
 	 * para luego ser exportados a XML.-
-	 * @author Mart
 	 * @param elementoPadre
 	 */
 	public void guardar(Element elementoPadre){

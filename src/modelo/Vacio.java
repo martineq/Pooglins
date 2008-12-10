@@ -17,6 +17,7 @@ public class Vacio extends Terreno {
 		this.setActivo(true);
 	}
 
+	@Override
 	public void accionarTerreno(Personaje unPooglin) {	
 		Pooglin pooglin = (Pooglin)unPooglin;				
 		Habilidad habilidadActual = (pooglin).getHabilidad();

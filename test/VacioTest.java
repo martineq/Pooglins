@@ -6,6 +6,7 @@ public class VacioTest extends TestCase {
 	private Pooglin unPooglin;
 	private Vacio vacio;
 	
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
 		vacio = new Vacio(0, 0);  // Le puse 0,0 por poner algo. Edgardo fijate que valor habria que ponerle.-

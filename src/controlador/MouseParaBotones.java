@@ -19,6 +19,7 @@ public class MouseParaBotones extends MouseAdapter {
 	public MouseParaBotones(){
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public void mouseClicked(MouseEvent arg0) {
 		JButton bt = (JButton)arg0.getSource();

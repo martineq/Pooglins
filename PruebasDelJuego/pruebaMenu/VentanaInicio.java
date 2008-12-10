@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 
 
+@SuppressWarnings("serial")
 public class VentanaInicio extends JFrame{
 	JPanel panel = new JPanel();
 	JPanel panelNivel = new JPanel();
@@ -36,7 +37,6 @@ public class VentanaInicio extends JFrame{
 		btCargarNivel.addMouseListener(oyenteMenu);
 		
 		panel.add(btJugar);
-		//panel.add(btNivel);
 		panel.add(btCargarNivel);
 		panel.add(btSalir);
 		panel.setLayout(new GridLayout(4,1));
@@ -69,6 +69,7 @@ public class VentanaInicio extends JFrame{
 		
 		this.setBackground(Color.black);
 		addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowClosing(WindowEvent e) {
 				dispose();
 				System.exit(0);
@@ -76,6 +77,7 @@ public class VentanaInicio extends JFrame{
 		});
 	}
 
+	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 	

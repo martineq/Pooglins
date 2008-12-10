@@ -5,21 +5,13 @@ import vista.Ventana;
 import vista.VentanaPrincipal;
 import vista.VistaPooglin;
 import vista.VistaPuerta;
-import vista.VistaRoca;
-import vista.VistaTierra;
-import vista.VistaVacio;
 import modelo.ControladorJuego;
 import modelo.Habilidad;
 import modelo.Nivel;
-import modelo.Personaje;
-import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.Puerta;
-import modelo.Roca;
 import modelo.Terreno;
-import modelo.TiempoEnSegundos;
-import modelo.Tierra;
-import modelo.Vacio;
+
 
 
 

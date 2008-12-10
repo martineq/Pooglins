@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 public class VelocidadTest extends TestCase  {
 	private Velocidad velocidad;
 	
+	@Override
 	public void setUp(){
 		velocidad = new Velocidad();
 	}

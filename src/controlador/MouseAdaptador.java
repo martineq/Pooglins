@@ -15,6 +15,7 @@ public class MouseAdaptador extends MouseAdapter {
 		return (int) Math.floor((posicionEnPantalla/47));
 	}
 
+	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		int clickEnPosicionX = calcularPosiocion(arg0.getX());
 		int clickEnPosicionY = calcularPosiocion(arg0.getY());

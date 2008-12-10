@@ -56,6 +56,7 @@ public class Tierra extends Terreno {
 		}
 	}
 	
+	@Override
 	public void accionarTerreno(Personaje pooglin) { 
 		Pooglin auxPooglin = (Pooglin) pooglin;
 		auxPooglin.setAltura(0);
@@ -71,7 +72,7 @@ public class Tierra extends Terreno {
 	}
 	
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getResistencia() {
 		return this.resistencia;

@@ -16,6 +16,7 @@ public class MouseParaPooglins extends MouseAdapter {
 		return (int) Math.floor((posicionEnPantalla/44));
 	}
 
+	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		int clickEnPosicionX = calcularPosiocion(arg0.getX());
 		int clickEnPosicionY = calcularPosiocion(arg0.getY()-62);

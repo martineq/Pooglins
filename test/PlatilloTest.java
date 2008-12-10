@@ -7,6 +7,7 @@ public class PlatilloTest extends TestCase{
 	private Pooglin unPooglin;
 	private Platillo platillo;
 		
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
 		platillo = new Platillo();

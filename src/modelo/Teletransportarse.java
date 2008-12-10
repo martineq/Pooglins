@@ -25,6 +25,7 @@ public class Teletransportarse extends Comportamiento{
 		pooglin.sacarHabilidad();
 	}
 
+	@Override
 	public String toString(){
 		return "Teletransportarse";
 	}

@@ -127,10 +127,6 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		return this.posicionY;
 	}
 	
-	/**
-	 * @return
-	 */
-	
 	public void  sacarHabilidad() {
 		this.habilidad= null;
 	}
@@ -153,7 +149,7 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	}	
 	
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean estaVivo(){
 		return this.vivo;		
@@ -166,14 +162,14 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.velocidad=rapidezMovimiento;
 	}
 	/**
-	 * @return
+	 * @return Velocidad
 	 */
 	public Velocidad getVelocidad(){
 		return this.velocidad;
 	}
 	
 	/**
-	 * @return
+	 * @return Habilidad
 	 */
 	public Habilidad getMatarse(){
 		return matarse;
@@ -202,18 +198,11 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 		this.cantTurnosQueNoSeMovio=0;
 	}
 	
-	/**Mï¿½todo donde el pooglin desaparece de "pantalla".-
-	 * @since 18/10/08
-	 */
 	public void borrarse(){
 		this.setPosicionX(-1);
 		this.setPosicionY(-1);
 	}
 	
-	//agrego para poder utilizar congelar y el matar.
-	/**
-	 * 
-	 */
 	public void usarHabilidad(){
 		this.getHabilidad().utilizar(this);	
 	}
@@ -230,7 +219,7 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 	}
 	
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getAltura() {
 		return altura;
@@ -253,7 +242,6 @@ public class Pooglin implements Personaje , Posicionable, ObjetoVivo{
 
 	/**Método que guarda todos los atributos de la clase Pooglin
 	 * para luego ser exportados a XML.-
-	 * @author Mart
 	 * @param elementoPadre
 	 */
 	public void guardar(Element elementoPadre){

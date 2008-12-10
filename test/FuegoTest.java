@@ -7,6 +7,7 @@ public class FuegoTest extends TestCase {
 	private Pooglin unPooglin;
 	private Fuego fuego;
 		
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
 		fuego = new Fuego(0,0); //Cambié el constructor

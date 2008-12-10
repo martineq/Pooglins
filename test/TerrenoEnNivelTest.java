@@ -55,6 +55,7 @@ public class TerrenoEnNivelTest extends TestCase {
 		}
 	}
 	
+	@Override
 	protected void setUp(){
 		matrizNivel = new Terreno[tamanioMatriz][tamanioMatriz]; 
 		this.llenarMatrizConVacio();

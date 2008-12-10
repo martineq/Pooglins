@@ -13,6 +13,7 @@ public class Congelamiento extends Comportamiento {
 	public Congelamiento(){
 	}
 	
+	@Override
 	public void utilizar(Personaje personaje) {
 		Habilidad morir = ((Pooglin)personaje).getMatarse();
 		morir.utilizar(personaje);
@@ -28,6 +29,7 @@ public class Congelamiento extends Comportamiento {
 		}	
 	}
 
+	@Override
 	public String toString(){
 		return "Congelamiento";
 	}

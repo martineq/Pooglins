@@ -27,6 +27,7 @@ public class AgujeroNegroTest extends TestCase{
 		}
 	}
 	
+	@Override
 	public void setUp(){
 		nivel=Nivel.getInstance();
 		tamanioMatriz=20;

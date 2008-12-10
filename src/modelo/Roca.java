@@ -16,6 +16,7 @@ public class Roca extends Terreno {
 		this.setActivo(true);
 	}
 	
+	@Override
 	public void accionarTerreno(Personaje personaje) {
 		Pooglin pooglin = (Pooglin) personaje;
 		pooglin.setAltura(0);

@@ -1,18 +1,17 @@
 package vista;
 
-import java.awt.Graphics;
-
 import modelo.Nivel;
 import modelo.SuperficieDeDibujo;
 import modelo.Terreno;
-import modelo.Tierra;
 
+@SuppressWarnings("serial")
 public class VistaTierra extends Imagen{
 	private String archivoImagen = "..//lospooglins//imagenes//tierra.jpg";
 	public VistaTierra() {
 		this.setNombreArchivoImagen(archivoImagen);
 	}
 	
+	@Override
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		super.dibujar(superficeDeDibujo);
 		Nivel nivel = Nivel.getInstance();

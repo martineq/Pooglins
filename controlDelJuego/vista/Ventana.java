@@ -1,10 +1,8 @@
 package vista;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -23,6 +21,7 @@ import controlador.MouseParaBotones;
 import modelo.Habilidad;
 import modelo.Nivel;
 import modelo.SuperficieDeDibujo;
+import modelo.TiempoEnSegundos;
 
 /*
  * ESta clase reprenta la superficie de dibujo, tipicamente será el formulario
@@ -183,6 +182,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	private static final long serialVersionUID = 1L;
 	
 	// es llamado internamente por el metodo repaint() de la clase Frame
+	@Override
 	public void update(Graphics g) {
 		paint(g);
 	}
@@ -193,6 +193,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	 */
     private Image imagen;
     
+	@Override
 	public void paint(Graphics g) {
 		actualizarDatosEtiquetas();
 		g.drawImage(this.imagen, 0, 60, null);
@@ -254,8 +255,11 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		
 		
 		addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowClosing(WindowEvent e) {
 				dispose();
+				TiempoEnSegundos.getInstance().terminarTiempo();
+				
 				//System.exit(0);
 			}
 		});

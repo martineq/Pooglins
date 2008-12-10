@@ -4,7 +4,6 @@ import controlador.MouseAdaptador;
 import vista.Ventana;
 import vista.VentanaPrincipal;
 import vista.VistaAgujeroNegro;
-import vista.VistaHielo;
 import vista.VistaPooglin;
 import vista.VistaPuerta;
 import vista.VistaRoca;

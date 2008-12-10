@@ -88,7 +88,6 @@ public class Persistencia {
 
   
   /** Clase que genera un archivo XML de persistencia de "ejemplo"
-   * @author Mart.- 
    */
 public void generarDocumentoEjemplo(){
 
