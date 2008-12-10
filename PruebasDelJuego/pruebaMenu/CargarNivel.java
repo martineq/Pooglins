@@ -16,7 +16,7 @@ class CargarNivel extends Thread {
 
 	@Override
 	public void run() {
-		ControladorJuego controlador = UnionMVC.cargarJuego(nombreDelXML,985,700,350);
+		ControladorJuego controlador = UnionMVC.cargarJuego(nombreDelXML,975,730,350);
 		controlador.comenzar();
 	}
 }
