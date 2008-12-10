@@ -48,20 +48,33 @@ public class VistaPooglin extends Imagen {
 		this.setNombreArchivoImagen(imagenActual);
 	}
 	
-	private void dispararLaser(){
+	private void dispararLaserDerecha(){
 		if (contadorDeLaser == 0)
-			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//Laser 1.jpg");
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 1.jpg");
 		if (contadorDeLaser == 1)
-			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//Laser 2.jpg");
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 2.jpg");
 		if (contadorDeLaser == 2)
-			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//Laser 3.jpg");
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 3.jpg");
 		if (contadorDeLaser == 3){
-			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//Laser 4.jpg");
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 4.jpg");
 			contadorDeLaser =0;
 		}
 		contadorDeLaser ++;
 	}
-	
+	//aca tengo que cambiar las imagenes.
+	private void dispararLaserIzquierda(){
+		if (contadorDeLaser == 0)
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 1.jpg");
+		if (contadorDeLaser == 1)
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 2.jpg");
+		if (contadorDeLaser == 2)
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 3.jpg");
+		if (contadorDeLaser == 3){
+			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 4.jpg");
+			contadorDeLaser =0;
+		}
+		contadorDeLaser ++;
+	}
 	private void taladrar() {
 		if (contadorDeLaser == 0)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Taladro//Taladro 1.jpg");
@@ -116,7 +129,9 @@ public class VistaPooglin extends Imagen {
 		}
 		
 		if((pooglin.getHabilidad() instanceof RayoLaser)){
-			dispararLaser();
+			velocidad = pooglin.getVelocidad().getVelocidadX();	
+			if (velocidad > 0) dispararLaserDerecha();
+				else dispararLaserIzquierda();
 			return;
 		}
 		
