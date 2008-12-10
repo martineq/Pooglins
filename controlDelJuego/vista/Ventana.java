@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.util.HashMap;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import controlador.MouseParaBotones;
 
@@ -42,7 +43,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	private Label lbCantDePooglinARescatar;
 	private Label lbCantDePooglinVivos;
 	private Label lbHabilidadDisponible;
-	private JButton btSalir;		
+		
 	
 	@SuppressWarnings("unchecked")
 	public void actualizarDatosEtiquetas(){
@@ -138,7 +139,14 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	}
 	
 	public void agregarBotones(){
-		MouseParaBotones oyente = new MouseParaBotones();
+		MouseParaBotones oyente = new MouseParaBotones(this);
+		
+		JButton btSalir = new JButton("Salir");
+		panelSuperior.add(btSalir,BorderLayout.SOUTH);
+		btSalir.addMouseListener(oyente);
+		/*
+		JLabel lblnovisible = new JLabel("");
+		panelInferior.add(lblnovisible);*/
 		
 		JButton btCongelar = new JButton("Congelamiento");
 		panelInferior.add(btCongelar);
@@ -167,10 +175,15 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		JButton btSuicidarse = new JButton("Morir");
 		panelInferior.add(btSuicidarse);
 		btSuicidarse.addMouseListener(oyente);
+	
 		
-		btSalir = new JButton("Salir");
-		panelSuperior.add(btSalir,BorderLayout.SOUTH);
-		btSalir.addMouseListener(oyente);
+		
+		/*JButton btAcelerar = new JButton("Acelerar");
+		panelInferior.add(btAcelerar);
+		btAcelerar.addMouseListener(oyente);*/
+		
+		
+	
 		
 		//this.setPanel(panelBotones, "South");
 		//this.setTitle("Los Pooglins");

@@ -16,7 +16,7 @@ public abstract class Herramienta implements Habilidad {
 		
 	}
 	
-	public void utilizar(Personaje personaje){
+	public void utilizar(ObjetoVivo personaje){
 		
 	}
 
@@ -24,7 +24,7 @@ public abstract class Herramienta implements Habilidad {
 		
 	}
 
-	public void utilizar(Terreno terreno, Personaje personaje){
+	public void utilizar(Terreno terreno, ObjetoVivo personaje){
 		
 	}
 	

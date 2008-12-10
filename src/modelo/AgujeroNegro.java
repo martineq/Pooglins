@@ -41,7 +41,7 @@ public class AgujeroNegro extends Terreno {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public void accionarTerreno(Personaje pooglin) {	
+	public void accionarTerreno(ObjetoVivo pooglin) {	
 		this.nivel= Nivel.getInstance();				
 		Collection personajesCercanos = nivel.obtenerPooglinsCercanos(this.getPosicionX(),this.getPosicionY());
 		Iterator it = personajesCercanos.iterator();

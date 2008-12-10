@@ -1,5 +1,5 @@
 import modelo.Nivel;
-import modelo.Personaje;
+import modelo.ObjetoVivo;
 import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.Puerta;
@@ -14,7 +14,7 @@ public class HabilidadesEnNivelTest extends TestCase {
 	//private int tamanioMatriz=50;
 	private Terreno[][] matrizNivel;
 	private Nivel nivel;
-	Personaje []pooglins;
+	ObjetoVivo []pooglins;
 	int altoDeMatriz = 14;
 	int anchoDeMatriz = 22;
 

@@ -4,6 +4,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import javax.swing.JButton;
+
+import vista.Ventana;
 import modelo.Congelamiento;
 import modelo.Habilidad;
 import modelo.Morir;
@@ -16,7 +18,11 @@ import modelo.Tunel;
 
 public class MouseParaBotones extends MouseAdapter {
 
-	public MouseParaBotones(){
+	private Ventana ventana;
+
+	public MouseParaBotones(Ventana ventana){
+	this.ventana = ventana;
+	
 	}
 	
 	@Override
@@ -29,10 +35,14 @@ public class MouseParaBotones extends MouseAdapter {
 		HashMap habilidades;
 		Habilidad habilidad=null;
 		
+		if(nombre == "Salir"){
+			ventana.dispose();
+			return;
+		}
+		
 		habilidades = nivel.getHabilidadesDisponibles();
 		int cantidadDeHabilidadesDisponibles = (Integer)habilidades.get(nombre);
 		System.out.println(nombre +" "+cantidadDeHabilidadesDisponibles);
-		
 		if(cantidadDeHabilidadesDisponibles>0){
 			habilidades.put(nombre, (cantidadDeHabilidadesDisponibles-1));
 			if(nombre.equals("Taladro")) habilidad = new Taladro();

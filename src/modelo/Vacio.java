@@ -18,7 +18,7 @@ public class Vacio extends Terreno {
 	}
 
 	@Override
-	public void accionarTerreno(Personaje unPooglin) {	
+	public void accionarTerreno(ObjetoVivo unPooglin) {	
 		Pooglin pooglin = (Pooglin)unPooglin;				
 		Habilidad habilidadActual = (pooglin).getHabilidad();
 		if( pooglin.getAltura() > ALTURA_MAX ){ //Si estoy con altura > ALTURA_MAX el pooglin muere, a menos que la habilidad que tenga sea un platillo.-

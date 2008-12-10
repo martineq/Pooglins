@@ -20,7 +20,7 @@ public class Fuego extends Terreno {
 	 * @param pooglin
 	 */
 	@Override
-	public void accionarTerreno(Personaje pooglin){
+	public void accionarTerreno(ObjetoVivo pooglin){
 		Habilidad matarPooglin=((Pooglin)pooglin).getMatarse();
 		matarPooglin.utilizar(pooglin);
 	}

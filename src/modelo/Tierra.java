@@ -57,7 +57,7 @@ public class Tierra extends Terreno {
 	}
 	
 	@Override
-	public void accionarTerreno(Personaje pooglin) { 
+	public void accionarTerreno(ObjetoVivo pooglin) { 
 		Pooglin auxPooglin = (Pooglin) pooglin;
 		auxPooglin.setAltura(0);
 		if (auxPooglin.getPosicionY() == this.getPosicionY()){

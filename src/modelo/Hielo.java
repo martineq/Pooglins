@@ -20,7 +20,7 @@ public class Hielo extends Terreno {
 	 * pisa Hielo.-
 	 * @param unPooglin
 	 */
-	private void acelerarPooglin(Personaje unPooglin){
+	private void acelerarPooglin(ObjetoVivo unPooglin){
 		Pooglin pooglin = (Pooglin) unPooglin;
 		Velocidad velocidad = pooglin.getVelocidad();
 		pooglin.setAltura(0);
@@ -37,7 +37,7 @@ public class Hielo extends Terreno {
 	 * @param pooglin
 	 */
 	@Override
-	public void accionarTerreno(Personaje pooglin){
+	public void accionarTerreno(ObjetoVivo pooglin){
 		Pooglin pooglinAuxiliar=(Pooglin)pooglin;
 		//Caso en que el pooglin tiene hielo adelante.
 		if ( pooglinAuxiliar.getPosicionY() == this.getPosicionY()){

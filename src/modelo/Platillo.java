@@ -24,7 +24,7 @@ public class Platillo extends Herramienta{
 	 * @since 18/10/08 
 	 */
 	@Override
-	public void utilizar(Personaje personaje) {
+	public void utilizar(ObjetoVivo personaje) {
 		((Pooglin)personaje).setVivo(true);
 		Velocidad velocidadActual = ((Pooglin)personaje).getVelocidad();
 		velocidadActual.setVelocidadY( 1 * Velocidad.VELOCIDAD_PLATILLO ); 
