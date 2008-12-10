@@ -32,11 +32,16 @@ public class ControladorJuego {
 			simular();
 			dibujar();
 			Thread.sleep(intervaloSimulacion);
-			if((nivel.getTiempoQueFaltaEnSegundos() == 0)||(nivel.terminarJuego())){ 
+			
+			if(nivel.juegoPerdido()){ 
 				estaEnEjecucion = false;
-				//terminar el juego....
-				System.out.println("Termino el Juego...");
-				}
+				System.out.println("Termino el Juego Pediste...");
+			}
+			if(nivel.juegoGanado()){
+				estaEnEjecucion = false;
+				System.out.println("Termino el Juego Ganaste...");
+			}
+			
 			}
 		}
 		catch (Exception e) {

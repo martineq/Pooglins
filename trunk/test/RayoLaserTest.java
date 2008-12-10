@@ -10,6 +10,7 @@ public class RayoLaserTest extends TestCase{
 	private RayoLaser rayo;
 	private Pooglin pooglin;
 	
+	@Override
 	protected void setUp(){
 		terreno = new Tierra(0,0);
 		rayo = new RayoLaser();

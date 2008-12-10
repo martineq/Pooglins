@@ -8,6 +8,7 @@ public class HieloTest extends TestCase{
 	private Pooglin unPooglin;
 	private Hielo hielo;
 	
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(2,1);
 		hielo = new Hielo(2,2); //Cambié el constructor

@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 public class PooglinTest extends TestCase {
 	private Pooglin unPooglin;
 	
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
 	}

@@ -15,6 +15,7 @@ public class Morir extends Comportamiento {
 		
 	}
 	
+	@Override
 	public void utilizar(Personaje pooglin){
 		Pooglin poglin = (Pooglin)pooglin;
 		poglin.setVivo(false);
@@ -24,6 +25,7 @@ public class Morir extends Comportamiento {
 		poglin.setVelocidad(velocidad);
 		}
 
+	@Override
 	public void utilizar(Terreno terreno) {
 		// no se usa
 	}
@@ -33,6 +35,7 @@ public class Morir extends Comportamiento {
 		
 	}
 	
+	@Override
 	public String toString(){
 		return "Matar";
 	}

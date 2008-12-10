@@ -24,6 +24,7 @@ public class RayoLaser extends Herramienta {
 		}
 	}
 	
+	@Override
 	public String toString(){
 		return "Rayo Laser";
 	}

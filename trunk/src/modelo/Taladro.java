@@ -21,17 +21,17 @@ public class Taladro extends Herramienta {
 			if (terreno instanceof Tierra){
 				cantidadExcavaciones++;
 				terreno.setActivo(false);
-				Velocidad velocidad = ((Pooglin) pooglin).getVelocidad();
+				Velocidad velocidad = (pooglin).getVelocidad();
 				velocidad.setVelocidadY(Velocidad.VELOCIDAD_NORMAL);
-				((Pooglin) pooglin).setVelocidad(velocidad);		
+				(pooglin).setVelocidad(velocidad);		
 			}
 		}			
-		else{ ((Pooglin) pooglin).sacarHabilidad();
+		else{ (pooglin).sacarHabilidad();
 		}
 	}
 
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getCantidadExcavaciones() {
 		return cantidadExcavaciones;
@@ -44,6 +44,7 @@ public class Taladro extends Herramienta {
 		this.cantidadExcavaciones = cantidadExcavaciones;
 	}
 
+	@Override
 	public String toString(){
 		return "Taladro";
 	}

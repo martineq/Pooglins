@@ -39,6 +39,7 @@ public class AgujeroNegro extends Terreno {
 	 * agujero negro no succionará a ningun pooglin de sus 
 	 * alrededores.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public void accionarTerreno(Personaje pooglin) {	
 		this.nivel= Nivel.getInstance();				

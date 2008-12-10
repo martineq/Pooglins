@@ -58,16 +58,15 @@
 	</target>
 	
 	<target name="ejecutar"  depends = "compilarMenu">
-		<!--<java classname="MenuPrincipal"/> -->
+		<java classname="pruebaMenu.MenuPrincipal" classpath=".\bin;${dom4j.home}"  fork="true"/>
  	</target>
 	
 	<target name="compilartest" depends="ejecutar">
 		<javac srcdir="${test.dir}" classpath="${junit.home};${dom4j.home}" destdir="${build.dir}" />
 	</target>
-
 	
 	<target name="comprime" depends="compilartest">
-	    <jar jarfile="resultado.jar" basedir="${build.dir}" />
+	   <jar jarfile="resultado.jar" basedir="${build.dir}" /> 
 	</target>
 	
 	<target name="runtests" depends="comprime, documentacion" description="Junit tests">		
@@ -80,29 +79,32 @@
 		    	<pathelement location="${dom4j.home}" />		   	           			    	
 		    	<pathelement location="${junit.home}" />		   	        
 		    </classpath>
-		</junit>
-	</target>
+		</junit> 
+ 	</target>
 	
 	<target name="documentacion">
-	<!--
-		<javadoc sourcepath="${src.dir}" 
+	
+		<javadoc sourcepath="." 
 		destdir="${doc.dir}"
 		packagenames="src"		    
 		Author="true" 
 		version="true" 
-		Use="true" 
+		Use="false" 
 		noindex="true">
 		
 		<classpath>
-			<pathelement location="${src.dir}" />
+	    	<pathelement location="${dom4j.home}" />		   	           			    	
+		    <pathelement location="${junit.home}" />		
+			<pathelement location="." />
 		</classpath>
 				
 		<arg line="-private" />
-		<fileset dir="${src.dir}">
+		
+		<fileset dir=".">
 			<include name="**/*.java"/>
 		</fileset>
 	
-	</javadoc> -->
+	</javadoc>
 	</target>
 	
 </project>

@@ -1,10 +1,10 @@
 package vista;
 
 import modelo.Nivel;
-import modelo.Posicionable;
 import modelo.SuperficieDeDibujo;
 import modelo.Terreno;
 
+@SuppressWarnings("serial")
 public class VistaVacio extends Imagen{
 	private String archivoImagen = "..//lospooglins//imagenes//vacio.jpg";
 	private int pasosParaCongelar;
@@ -15,6 +15,7 @@ public class VistaVacio extends Imagen{
 		
 	}
 	
+	@Override
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		super.dibujar(superficeDeDibujo);
 		Nivel nivel = Nivel.getInstance();

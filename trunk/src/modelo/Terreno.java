@@ -33,7 +33,7 @@ public abstract class Terreno implements Posicionable {
 		this.posicionY = posicionY;
 	}
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isActivo() {
 		return activo;

@@ -1,17 +1,11 @@
 package src;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 
-import pruebaMenu.VentanaInicio;
-
-import controlador.MouseAdaptador;
 import controlador.MouseParaPooglins;
 import vista.Imagen;
 import vista.Ventana;
 import vista.VentanaPrincipal;
-import vista.VistaAgujeroNegro;
 import vista.VistaFuego;
 import vista.VistaHielo;
 import vista.VistaPooglin;
@@ -20,22 +14,13 @@ import vista.VistaRoca;
 
 import vista.VistaTierra;
 import vista.VistaVacio;
-import modelo.AgujeroNegro;
-import modelo.Congelamiento;
 import modelo.ControladorJuego;
-import modelo.Fuego;
-import modelo.Habilidad;
 import modelo.Nivel;
-import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.Puerta;
-import modelo.RayoLaser;
 import modelo.Roca;
-import modelo.Taladro;
-import modelo.Teletransportarse;
 import modelo.Terreno;
 import modelo.Tierra;
-import modelo.Tunel;
 import modelo.Vacio;
 
 public class PruebaNueve {

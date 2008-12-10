@@ -16,6 +16,7 @@ import modelo.Posicionable;
  * Esta clase representa una imagen JPG abstrayendo al usuario de los detalles de Java2D
  * Simplemente requiere de una referencia al nombre del archivo JPG
  */
+@SuppressWarnings("serial")
 public class Imagen extends Component implements Dibujable{
 	
 	private String nombreArchivoImagen;

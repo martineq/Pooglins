@@ -2,27 +2,21 @@ package src;
 
 import java.util.HashMap;
 
-import controlador.MouseAdaptador;
 import controlador.MouseParaPooglins;
 import vista.Ventana;
 import vista.VentanaPrincipal;
-import vista.VistaAgujeroNegro;
 import vista.VistaFuego;
-import vista.VistaHielo;
 import vista.VistaPooglin;
 import vista.VistaPuerta;
 import vista.VistaRoca;
 import vista.VistaTierra;
 import vista.VistaVacio;
-import modelo.AgujeroNegro;
 import modelo.ControladorJuego;
 import modelo.Fuego;
-import modelo.Habilidad;
 import modelo.Nivel;
 import modelo.Pooglin;
 import modelo.Puerta;
 import modelo.Roca;
-import modelo.Taladro;
 import modelo.Terreno;
 import modelo.Tierra;
 import modelo.Vacio;

@@ -1,17 +1,13 @@
 package vista;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 import modelo.Morir;
-import modelo.Nivel;
 import modelo.Platillo;
 import modelo.Pooglin;
 import modelo.RayoLaser;
 import modelo.SuperficieDeDibujo;
 import modelo.Taladro;
-import modelo.Velocidad;
 
+@SuppressWarnings("serial")
 public class VistaPooglin extends Imagen {
 	private String haciaDerecha = "..//lospooglins//imagenes//caminando//Derecha 1.jpg";
 	private String haciaDerecha2 = "..//lospooglins//imagenes//caminando//Derecha 2.jpg";
@@ -100,6 +96,7 @@ public class VistaPooglin extends Imagen {
 		
 
 	
+	@Override
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		super.dibujar(superficeDeDibujo);
 		int velocidadEnX = pooglin.getVelocidad().getVelocidadX();	

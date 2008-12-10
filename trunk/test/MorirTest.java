@@ -17,6 +17,7 @@ public class MorirTest extends TestCase{
 	private Pooglin unPooglin;
 	private Morir morir;
 	
+	@Override
 	protected void setUp(){
 		unPooglin = new Pooglin(0,0);
 		morir = new Morir();

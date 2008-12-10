@@ -7,6 +7,7 @@ import modelo.Dibujable;
 import modelo.Posicionable;
 import modelo.SuperficieDeDibujo;
 
+@SuppressWarnings("serial")
 public abstract class Figura extends Component implements Dibujable {
 
 	private Color color;

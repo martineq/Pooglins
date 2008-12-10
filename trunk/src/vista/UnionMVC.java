@@ -12,7 +12,6 @@ public class UnionMVC {
 	/**Método donde instancio todo lo relativo a la vista.
 	 * recibe por parámetro el nombre del archivo XML, 
 	 * las dimensiones de la ventana, y el intervalo de tiempo.-
-	 * @author Mart.-
 	 * @param nombre
 	 * @param ancho
 	 * @param alto

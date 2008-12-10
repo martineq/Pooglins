@@ -14,6 +14,7 @@ public class PuertaTest extends TestCase{
 	private Puerta puertaComienzo;
 	private Puerta puertaFinal;
 	
+	@Override
 	protected void setUp(){
 		puertaComienzo = new Puerta(3,9);
 		puertaFinal = new Puerta(0,10);

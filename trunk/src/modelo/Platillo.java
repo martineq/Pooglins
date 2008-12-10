@@ -23,6 +23,7 @@ public class Platillo extends Herramienta{
 	 * y baja su velocidad
 	 * @since 18/10/08 
 	 */
+	@Override
 	public void utilizar(Personaje personaje) {
 		((Pooglin)personaje).setVivo(true);
 		Velocidad velocidadActual = ((Pooglin)personaje).getVelocidad();
@@ -30,6 +31,7 @@ public class Platillo extends Herramienta{
 		((Pooglin)personaje).setVelocidad(velocidadActual);
 	}
 	
+	@Override
 	public String toString(){
 		return "Platillo";
 	}
