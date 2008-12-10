@@ -19,6 +19,8 @@ public class SuiteTest {
        suite.addTestSuite(RayoLaserTest.class);   
        suite.addTestSuite(NivelTest.class);   
        suite.addTestSuite(AgujeroNegroTest.class);
+       suite.addTestSuite(TeletransportarseTest.class);
+       suite.addTestSuite(TunelTest.class);
        return suite; 
      }
 }
