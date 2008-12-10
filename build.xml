@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" ?> 
-<project name="lospooglins" default="runtests" basedir=".">
+<project name="lospooglins" default="ejecutar" basedir=".">
  
 	<property name="app.name" value="lospooglins" /> 
   	<property name="build.dir" value="bin/" /> 
@@ -45,6 +45,7 @@
 	<target name="compilarControlador" depends="compilarControlJuegoModelo">
 		<javac srcdir="${controlador.dir}" destdir="${build.dir}" />
 	</target>
+	
 	<target name="compilarControlJuegoVista" depends="compilarControlador">
 		<javac srcdir="${controlJuegoVista.dir}" destdir="${build.dir}" />
  	</target>
@@ -57,19 +58,23 @@
 		<javac srcdir="${menu.dir}" destdir="${build.dir}" />
 	</target>
 	
-	<target name="ejecutar"  depends = "compilarMenu">
+	<target name="ejecutar"  depends = "compilarMenu,comprime,documentacion,runtests">
 		<java classname="pruebaMenu.MenuPrincipal" classpath=".\bin;${dom4j.home}"  fork="true"/>
  	</target>
 	
-	<target name="compilartest" depends="ejecutar">
+	<target name="compilartest" depends="">
 		<javac srcdir="${test.dir}" classpath="${junit.home};${dom4j.home}" destdir="${build.dir}" />
 	</target>
 	
-	<target name="comprime" depends="compilartest">
-	   <jar jarfile="resultado.jar" basedir="${build.dir}" /> 
+	<target name="comprime" depends="compilartest">	
+		<jar jarfile="resultado.jar" basedir="${build.dir}" >
+		<manifest>
+		    <attribute name="Main-Class" value="pruebaMenu.MenuPrincipal"/>
+		</manifest>
+		</jar>
 	</target>
 	
-	<target name="runtests" depends="comprime, documentacion" description="Junit tests">		
+	<target name="runtests" depends="compilartest" description="Junit tests">		
 		<junit printsummary="true" >
 		    <formatter type="xml"/>
 		    <test name="${maintestclass}"/>
