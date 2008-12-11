@@ -314,7 +314,7 @@
     <pooglins>
         <pooglinNumero0>
             <posicionX valor="1"/>
-            <posicionY valor="5"/>
+            <posicionY valor="6"/>
             <velocidad>
                 <velocidadX valor="6"/>
                 <velocidadY valor="0"/>
