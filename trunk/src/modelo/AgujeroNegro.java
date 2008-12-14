@@ -1,10 +1,7 @@
 package modelo;
 
-
 import java.util.Collection;
 import java.util.Iterator;
-
-
 
 /**Clase que representa a los bloques de terreno donde hay un agujero negro.-
  * @author guido
@@ -13,10 +10,7 @@ import java.util.Iterator;
  */
 public class AgujeroNegro extends Terreno {
 	private Nivel nivel;
-	
-	/**Constructor de AgujeroNegro.-
-	 * 
-	 */
+
     public AgujeroNegro(int posicionX,int posicionY){
 		this.setPosicionX(posicionX);
 		this.setPosicionY(posicionY);
@@ -53,7 +47,6 @@ public class AgujeroNegro extends Terreno {
 			Habilidad habilidad = pooglinCercano.getMatarse();
 			//la habilidad mata o succiona al pooglin.
 			habilidad.utilizar(pooglinCercano);
-			//pooglinCercano.borrarse();  VER Guido.-
 		}
 	}
 }

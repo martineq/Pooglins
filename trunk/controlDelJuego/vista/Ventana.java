@@ -15,7 +15,6 @@ import java.awt.event.WindowEvent;
 import java.util.HashMap;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 import controlador.MouseParaBotones;
 
@@ -139,12 +138,12 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	}
 	
 	public void agregarBotones(){
-		MouseParaBotones oyente = new MouseParaBotones(this);
+		MouseParaBotones oyente = new MouseParaBotones();
 		
-		JButton btSalir = new JButton("Salir");
+		/*JButton btSalir = new JButton("Salir");
 		panelSuperior.add(btSalir,BorderLayout.SOUTH);
 		btSalir.addMouseListener(oyente);
-		/*
+	
 		JLabel lblnovisible = new JLabel("");
 		panelInferior.add(lblnovisible);*/
 		
@@ -225,6 +224,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	}
 	
 	public void actualizar(){
+		if(Nivel.getInstance().juegoTerminado()) cerrarVentana();
 		actualizarDatosEtiquetas();
 		this.repaint();
 	}
@@ -270,14 +270,16 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				dispose();
-				TiempoEnSegundos.getInstance().terminarTiempo();
-				
-				//System.exit(0);
+				cerrarVentana();
 			}
 		});
 	}
 
+	private void cerrarVentana(){
+		dispose();
+		TiempoEnSegundos.getInstance().terminarTiempo();
+		//System.exit(0);
+	}
 	private void cargarPanelSuperior() {
 		//Label lbl = new Label("TEXTO DEL JUEGO, NIVEL, TIEMPO, CANT DE POOGLIN, ETC....");
 		

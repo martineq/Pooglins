@@ -2,17 +2,14 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Component;
-
 import modelo.Dibujable;
 import modelo.Posicionable;
 import modelo.SuperficieDeDibujo;
 
 @SuppressWarnings("serial")
 public abstract class Figura extends Component implements Dibujable {
-
 	private Color color;
 	private Posicionable posicionable;
-	
 	public abstract void dibujar(SuperficieDeDibujo superfice) ;
 
 	public void setColor(Color unColor){

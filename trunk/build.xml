@@ -3,25 +3,15 @@
  
 	<property name="app.name" value="lospooglins" /> 
   	<property name="build.dir" value="bin/" /> 
-  	<!--
-	<property name="src.dir" value="PruebasDelJuego/pruebaMenu/" /> 
-  	-->
-	<property name="modelo.dir" value="src/modelo/" /> 
+  	<property name="modelo.dir" value="src/modelo/" /> 
 	<property name="vista.dir" value="src/vista/" /> 
 	<property name="controlador.dir" value="src/controlador/" /> 
-	
-  		
   	<property name="controlJuegoModelo.dir" value="controlDelJuego/modelo/" /> 
 	<property name="controlJuegoVista.dir" value="controlDelJuego/vista/" /> 
-	
-	<property name="menu.dir" value="PruebasDelJuego/pruebaMenu/" /> 
-			  	
+	<property name="menu.dir" value="menuDelJuego/srcMenu/" /> 
 	<property name="test.dir" value="test/" /> 
   	<property name="lib.dir" value="lib/" /> 	
-	
 	<property name="dom4j.home" location="lib\dom4j-1.6.1.jar" />
-
-		
 	<property name="junit.home" location="lib\junit.jar" />
 	<property name="junitreportes.dir" location="reportes\" />
 	<property name="testsuite" value="testSuite"/>
@@ -59,7 +49,7 @@
 	</target>
 	
 	<target name="ejecutar"  depends = "compilarMenu,comprime,documentacion,runtests">
-		<java classname="pruebaMenu.MenuPrincipal" classpath=".\bin;${dom4j.home}"  fork="true"/>
+		<java classname="srcMenu.MenuPrincipal" classpath=".\bin;${dom4j.home}"  fork="true"/>
  	</target>
 	
 	<target name="compilartest" depends="">
@@ -67,9 +57,9 @@
 	</target>
 	
 	<target name="comprime" depends="compilartest">	
-		<jar jarfile="resultado.jar" basedir="${build.dir}" >
+		<jar jarfile="losPooglins.jar" basedir="${build.dir}" >
 		<manifest>
-		    <attribute name="Main-Class" value="pruebaMenu.MenuPrincipal"/>
+		    <attribute name="Main-Class" value="srcMenu.MenuPrincipal"/>
 		</manifest>
 		</jar>
 	</target>

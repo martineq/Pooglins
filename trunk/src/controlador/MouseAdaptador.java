@@ -5,11 +5,7 @@ import java.awt.event.MouseEvent;
 import modelo.Pooglin;
 
 public class MouseAdaptador extends MouseAdapter {
-
 	private Pooglin[] pooglins;
-	
-	public MouseAdaptador(){
-	}
 	
 	private int calcularPosiocion(int posicionEnPantalla){
 		return (int) Math.floor((posicionEnPantalla/47));

@@ -143,9 +143,7 @@ public class EditorDeMatriz {
 				    }
 			}
 		}
-		
 		System.out.println("Lista la matriz !!!");
-		
 		return matrizNivel;	
 	}
 }

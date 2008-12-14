@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  * @author 
@@ -13,7 +14,6 @@ import java.util.List;
 public class ControladorJuego {
 	private long intervaloSimulacion;
 	private boolean estaEnEjecucion;
-	
 	private List objetosVivos;
 	private List dibujables;
 	private SuperficieDeDibujo superficieDeDibujo;	
@@ -35,11 +35,12 @@ public class ControladorJuego {
 			
 			if(nivel.juegoPerdido()){ 
 				estaEnEjecucion = false;
-				System.out.println("Termino el Juego Pediste...");
+				JOptionPane.showMessageDialog(null,"Perdiste","Perdiste",JOptionPane.ERROR_MESSAGE);
+			
 			}
 			if(nivel.juegoGanado()){
 				estaEnEjecucion = false;
-				System.out.println("Termino el Juego Ganaste...");
+				JOptionPane.showMessageDialog(null,"Ganaste.","Ganaste",JOptionPane.PLAIN_MESSAGE);
 			}
 			
 			}
@@ -76,7 +77,6 @@ public class ControladorJuego {
 	public void setIntervaloSimulacion(long intervaloSimulacion) {
 		this.intervaloSimulacion = intervaloSimulacion;
 	}
-
 
 	private void dibujar() {
 		Iterator iterador = dibujables.iterator();

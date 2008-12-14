@@ -418,6 +418,12 @@ public class Nivel implements ObjetoVivo {
 		return this.pooglins.length;
 	}
 
+	public Boolean juegoTerminado(){
+		Boolean resultado;
+		if(juegoGanado()||juegoPerdido()) resultado=true;
+			else resultado=false;
+		return resultado;	
+	}
 	/**Devuelve el i-ésimo pooglin (el primer pooglin es el Nº 0)
 	 * @param indice
 	 * @return Pooglin
