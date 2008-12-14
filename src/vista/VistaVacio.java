@@ -24,14 +24,10 @@ public class VistaVacio extends Imagen{
 		
 		
 		if((nombreDelTerreno.equals("modelo.Hielo"))&&(pasosParaCongelar<5)) //this.setNombreArchivoImagen("..//lospooglins//imagenes//hielo.jpg"); 
-		congelar();		
-		
-		
-		
+		congelar();			
 	}
 	
-	private void congelar() {
-			
+	private void congelar() {		
 		if(pasosParaCongelar == 0){
 		this.setNombreArchivoImagen("..//lospooglins//imagenes//congelado//Congelar 1.jpg"); 
 		}

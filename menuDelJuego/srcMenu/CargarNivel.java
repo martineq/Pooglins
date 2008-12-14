@@ -1,4 +1,4 @@
-package pruebaMenu;
+package srcMenu;
 
 import vista.UnionMVC;
 import modelo.ControladorJuego;

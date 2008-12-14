@@ -4,8 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
-import vista.Ventana;
+//import vista.Ventana;
 import modelo.Congelamiento;
 import modelo.Habilidad;
 import modelo.Morir;
@@ -17,15 +18,6 @@ import modelo.Teletransportarse;
 import modelo.Tunel;
 
 public class MouseParaBotones extends MouseAdapter {
-
-	private Ventana ventana;
-
-	public MouseParaBotones(Ventana ventana){
-	this.ventana = ventana;
-	
-	}
-	
-	@Override
 	@SuppressWarnings("unchecked")
 	public void mouseClicked(MouseEvent arg0) {
 		JButton bt = (JButton)arg0.getSource();
@@ -34,11 +26,6 @@ public class MouseParaBotones extends MouseAdapter {
 		Nivel nivel = Nivel.getInstance();
 		HashMap habilidades;
 		Habilidad habilidad=null;
-		
-		if(nombre == "Salir"){
-			ventana.dispose();
-			return;
-		}
 		
 		habilidades = nivel.getHabilidadesDisponibles();
 		int cantidadDeHabilidadesDisponibles = (Integer)habilidades.get(nombre);
@@ -53,10 +40,8 @@ public class MouseParaBotones extends MouseAdapter {
 			if(nombre.equals("RayoLaser")) habilidad = new RayoLaser();
 			if(nombre.equals("Morir")) habilidad = new Morir();	
 		}
-		else System.out.println("no hay mas habilidades");
+		else JOptionPane.showMessageDialog(null,"No hay habilidad "+nombre,"No hay!!",JOptionPane.WARNING_MESSAGE);
 		
-		
-		System.out.println(habilidad);	
 		nivel.setHabilidad(habilidad);
 		
 	}

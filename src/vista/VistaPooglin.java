@@ -15,7 +15,7 @@ public class VistaPooglin extends Imagen {
 	private String haciaIzquierda2 = "..//lospooglins//imagenes//caminando//Izquierda 2.jpg";
 	private String imagenActual;
 	private Pooglin pooglin;
-	private int contadorDeLaser;
+	private int pasosDeAnimacion;
 	private int velocidad;	
 
 	
@@ -24,7 +24,7 @@ public class VistaPooglin extends Imagen {
 		velocidad = pooglin.getVelocidad().getVelocidadX();	
 		this.setNombreArchivoImagen(imagenActual);
 		this.setPosicionable(pooglin);
-		contadorDeLaser = 0;
+		pasosDeAnimacion = 0;
 		if (velocidad > 0) {
 			imagenActual = haciaDerecha;
 			moverADerecha();
@@ -49,74 +49,69 @@ public class VistaPooglin extends Imagen {
 	}
 	
 	private void dispararLaserDerecha(){
-		if (contadorDeLaser == 0)
+		if (pasosDeAnimacion == 0)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 1.jpg");
-		if (contadorDeLaser == 1)
+		if (pasosDeAnimacion == 1)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 2.jpg");
-		if (contadorDeLaser == 2)
+		if (pasosDeAnimacion == 2)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 3.jpg");
-		if (contadorDeLaser == 3){
+		if (pasosDeAnimacion == 3){
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserDerecha 4.jpg");
-			contadorDeLaser =0;
+			pasosDeAnimacion =0;
 		}
-		contadorDeLaser ++;
+		pasosDeAnimacion ++;
 	}
-	//aca tengo que cambiar las imagenes.
+	
 	private void dispararLaserIzquierda(){
-		if (contadorDeLaser == 0)
+		if (pasosDeAnimacion == 0)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 1.jpg");
-		if (contadorDeLaser == 1)
+		if (pasosDeAnimacion == 1)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 2.jpg");
-		if (contadorDeLaser == 2)
+		if (pasosDeAnimacion == 2)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 3.jpg");
-		if (contadorDeLaser == 3){
+		if (pasosDeAnimacion == 3){
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Laser//LaserIzquierda 4.jpg");
-			contadorDeLaser =0;
+			pasosDeAnimacion =0;
 		}
-		contadorDeLaser ++;
+		pasosDeAnimacion ++;
 	}
 	private void taladrar() {
-		if (contadorDeLaser == 0)
+		if (pasosDeAnimacion == 0)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Taladro//Taladro 1.jpg");
-		if (contadorDeLaser == 1)
+		if (pasosDeAnimacion == 1)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Taladro//Taladro 2.jpg");
-		if (contadorDeLaser == 2)
+		if (pasosDeAnimacion == 2)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Taladro//Taladro 3.jpg");
-		if (contadorDeLaser == 3){
+		if (pasosDeAnimacion == 3){
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Taladro//Taladro 4.jpg");
-			contadorDeLaser =0;
+			pasosDeAnimacion =0;
 		}
-		contadorDeLaser ++;
+		pasosDeAnimacion ++;
 	}
 	
 	private void matarPooglin() {
-		if (contadorDeLaser == 0)
+		if (pasosDeAnimacion == 0)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Morir//Morir 1.jpg");
-		if (contadorDeLaser == 1)
+		if (pasosDeAnimacion == 1)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Morir//Morir 2.jpg");
-		if (contadorDeLaser == 2)
+		if (pasosDeAnimacion == 2)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Morir//Morir 3.jpg");
-		if (contadorDeLaser == 3)
+		if (pasosDeAnimacion == 3)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Morir//Morir 4.jpg");
-		if (contadorDeLaser == 4)
+		if (pasosDeAnimacion == 4)
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//Morir//Morir 5.jpg");
-		if (contadorDeLaser == 5){
+		if (pasosDeAnimacion == 5){
 			pooglin.setHabilidad(pooglin.getMatarse());
 			pooglin.borrarse();
 		}
-		contadorDeLaser ++;
+		pasosDeAnimacion ++;
 	}
 		
-
-	
 	@Override
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		super.dibujar(superficeDeDibujo);
 		int velocidadEnX = pooglin.getVelocidad().getVelocidadX();	
 		int velocidadEnY =pooglin.getVelocidad().getVelocidadY();
-		
-		//Falta si tiene velocidad en Y e ademas no tiene
-		//platillo tiene que caer quieto
 		
 		if((pooglin.getHabilidad() instanceof Morir)){
 			matarPooglin();
@@ -142,8 +137,6 @@ public class VistaPooglin extends Imagen {
 			this.setNombreArchivoImagen("..//lospooglins//imagenes//caminando//Derecha 1.jpg");
 		}
 
-	
-	
 	else{
 		if (velocidadEnX > 0) {
 			moverADerecha();
@@ -151,42 +144,7 @@ public class VistaPooglin extends Imagen {
 		else {
 			moverAIzquiera();
 		}
-	
 
-		
-//		if((pooglin.getHabilidad() instanceof Morir)){
-//			System.out.println("entro con: " + pooglin.getHabilidad());
-//			matarPooglin();
-//			return;
-//		}
-//		
-//		if((pooglin.getHabilidad() instanceof Taladro)){
-//			taladrar();
-//		    return;
-//		}
-//		
-//		if((pooglin.getHabilidad() instanceof RayoLaser)){
-//			dispararLaser();
-//		}
-//		else{
-//			if((velocidadEnY > 0)&&(pooglin.getHabilidad() instanceof Platillo)){
-//				this.setNombreArchivoImagen("..//lospooglins//imagenes//Platillo.jpg");
-//				}
-//				
-//		if((velocidadEnY > 0)){
-//			this.setNombreArchivoImagen("..//lospooglins//imagenes//caminando//Derecha 1.jpg");
-//		}
-//	
-//		
-//		
-//		else{
-//			if (velocidadEnX > 0) {
-//				moverADerecha();
-//			}
-//			else {
-//				moverAIzquiera();
-//			}
-//		}
 	}
 }
 

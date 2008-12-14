@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="controlDelJuego"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="PruebasDelJuego"/>
+	<classpathentry kind="src" path="menuDelJuego"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>

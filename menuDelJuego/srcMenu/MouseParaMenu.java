@@ -1,4 +1,4 @@
-package pruebaMenu;
+package srcMenu;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -7,7 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import pruebaMenu.VentanaInicio;
+
+import srcMenu.VentanaInicio;
 import modelo.Nivel;
 import modelo.TiempoEnSegundos;
 

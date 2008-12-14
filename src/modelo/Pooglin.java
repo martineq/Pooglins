@@ -102,9 +102,6 @@ public class Pooglin implements ObjetoVivo , Posicionable{
 		
 	}
 	
-	
-	//Secci�n de Geter's y Seter's
-
 	public int getPosicionX(){
 		return this.posicionX;
 	}
@@ -304,7 +301,6 @@ public class Pooglin implements ObjetoVivo , Posicionable{
 	}
 
 	public boolean estaRevisado() {
-		// TODO Auto-generated method stub
 		return revisado;
 	}
 

@@ -15,5 +15,3 @@ public interface ObjetoVivo {
 	public void vivir();
 	
 }
-
-//public void mover(); ¿?
