@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="PersonalM" name="SuiteTest" tests="40" time="1.547" timestamp="2008-12-14T19:40:49">
+<testsuite errors="0" failures="0" hostname="PersonalM" name="SuiteTest" tests="40" time="0.515" timestamp="2008-12-15T03:12:02">
   <properties>
     <property name="java.vendor" value="Sun Microsystems Inc." />
     <property name="lib.dir" value="lib/" />
@@ -83,8 +83,8 @@
     <property name="vista.dir" value="src/vista/" />
     <property name="java.specification.version" value="1.6" />
   </properties>
-  <testcase classname="FuegoTest" name="testAccionarFuego" time="0.016" />
-  <testcase classname="HieloTest" name="testAccionarTerrenoPersonaje" time="0.0" />
+  <testcase classname="FuegoTest" name="testAccionarFuego" time="0.0" />
+  <testcase classname="HieloTest" name="testAccionarTerrenoPersonaje" time="0.016" />
   <testcase classname="HieloTest" name="testAccionarTerrenoPersonajeNivel" time="0.0" />
   <testcase classname="PlatilloTest" name="testUtilizarConParacaidas" time="0.0" />
   <testcase classname="PooglinTest" name="testPooglin" time="0.0" />
@@ -104,17 +104,17 @@
   <testcase classname="VelocidadTest" name="testModuloEnX" time="0.0" />
   <testcase classname="VelocidadTest" name="testModuloEnY" time="0.0" />
   <testcase classname="MorirTest" name="testUtilizarMorir" time="0.0" />
-  <testcase classname="HabilidadesEnNivelTest" name="testCaidaConPlatillo" time="0.016" />
+  <testcase classname="HabilidadesEnNivelTest" name="testCaidaConPlatillo" time="0.0" />
   <testcase classname="HabilidadesEnNivelTest" name="testCaidaSinPlatillo" time="0.0" />
   <testcase classname="HabilidadesEnNivelTest" name="testTaladro" time="0.0" />
   <testcase classname="HabilidadesEnNivelTest" name="testCongelarPooglin" time="0.0" />
   <testcase classname="HabilidadesEnNivelTest" name="testMatarPooglin" time="0.0" />
-  <testcase classname="TerrenoEnNivelTest" name="testNivelConTierra" time="0.0" />
-  <testcase classname="TerrenoEnNivelTest" name="testNivelConHielo" time="0.015" />
+  <testcase classname="TerrenoEnNivelTest" name="testNivelConTierra" time="0.015" />
+  <testcase classname="TerrenoEnNivelTest" name="testNivelConHielo" time="0.0" />
   <testcase classname="TerrenoEnNivelTest" name="testNivelConFuego" time="0.0" />
-  <testcase classname="TerrenoEnNivelTest" name="testNivelGuardaXML" time="0.907" />
-  <testcase classname="TerrenoEnNivelTest" name="testNivelCargaXML" time="0.343" />
-  <testcase classname="TerrenoEnNivelTest" name="testNivelCargaSoloXML" time="0.063" />
+  <testcase classname="TerrenoEnNivelTest" name="testNivelGuardaXML" time="0.25" />
+  <testcase classname="TerrenoEnNivelTest" name="testNivelCargaXML" time="0.172" />
+  <testcase classname="TerrenoEnNivelTest" name="testNivelCargaSoloXML" time="0.031" />
   <testcase classname="TerrenoEnNivelTest" name="testManejar" time="0.0" />
   <testcase classname="TerrenoEnNivelTest" name="testRevisarNivel" time="0.0" />
   <testcase classname="TaladroTest" name="testUtilizarTaladro" time="0.0" />
