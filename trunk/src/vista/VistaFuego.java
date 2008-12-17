@@ -1,4 +1,5 @@
 package vista;
+
 import modelo.SuperficieDeDibujo;
 
 @SuppressWarnings("serial")
