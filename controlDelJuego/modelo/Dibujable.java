@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.Posicionable;
+
 /*
  * Esta abstraccion representa a todos los objetos Vista de la aplicacion
  * Cada objeto vista está relacionado con un objeto del modelo que implementa

@@ -27,7 +27,6 @@ public class EditorDeMatriz {
 	public EditorDeMatriz(){
 		
 	}
-	
 	/**Método que carga toda una matriz con el tipo de Terreno a elección
 	 * del usuario.-
 	 * @param matrizNivel

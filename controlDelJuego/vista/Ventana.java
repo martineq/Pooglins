@@ -45,7 +45,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		
 	
 	@SuppressWarnings("unchecked")
-	public void actualizarDatosEtiquetas(){
+	private void actualizarDatosEtiquetas(){
 		Integer cantidadDeHabilidadesDisponibles;
 		Nivel nivel = Nivel.getInstance();
 		HashMap habilidades = nivel.getHabilidadesDisponibles();
@@ -98,7 +98,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		
 	}
 	
-	public void agregarEtiquetas(){
+	private void agregarEtiquetas(){
 		lbCantCongelar.setAlignment(Label.CENTER);
 		lbCantCongelar.setBackground(Color.black);
 		lbCantCongelar.setForeground(Color.green);
@@ -137,7 +137,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		panelInferior.add(lbCantSuicidarse);
 	}
 	
-	public void agregarBotones(){
+	private void agregarBotones(){
 		MouseParaBotones oyente = new MouseParaBotones();
 		
 		/*JButton btSalir = new JButton("Salir");
